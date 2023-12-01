@@ -1,41 +1,60 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+import './center.css';
+import menuItems from './data/tabdata';
+import CL_Data from './data/sandwich_data/cl_data';
 
 const Center = () => {
 
-    function sandwich_cl(e) {
-        e.preventDefault();
-        console.log('클래식 클릭');
-    }
-
-    function sandwich_fl(e) {
-        e.preventDefault();
-        console.log('프레쉬&라이트 클릭');
-    }
+    const rendertext = (text) => {
+        return text.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+                {line}
+                <br />
+            </React.Fragment>
+        ));
+    };
 
     return (
         <>
-            <div className="center_hd">
-                <h2>Subway's Menu</h2>
-                    <div className="center_tab">
+            <div className="center_hd_section">
+                <div className="center_hd_menu">
+                    <h2 className="center_hd2">Subway's Menu</h2>
+                    <div className="center_hd_tab">
                         <ul>
-                            <li>
-                                <form onClick={sandwich_cl}>
-                                    <button type="submit">클래식</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form onClick={sandwich_fl}>
-                                    <button type="submit">프레쉬&라이트</button>
-                                </form>
-                            </li>
+                            {/* 탭 메뉴 */}
+                            {menuItems.map(item => (
+                                    <li key={item.path}>
+                                        <Link to={item.path}>
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                            ))}
                         </ul>
                     </div>
-            </div>
-            <div className="center_menu">
-
+                </div>
+                <div className="center_main_section">
+                    <div className="subway_menu_section">
+                        {CL_Data.map((item, index) => (
+                            <div key={index} className="menus_sction">
+                                <Link to={item.path}>
+                                    <img src={item.image} alt={item.alt} />
+                                    <div className="menus_name">
+                                        {item.title}
+                                    </div>
+                                    <div className="menus_info">
+                                        <p>{rendertext(item.text)}</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                    <div>
+                    </div>
+                </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Center;

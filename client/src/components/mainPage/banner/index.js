@@ -37,24 +37,25 @@ const Banner = () => {
                 </div>
                 <div className='quick_link'>
                     <div className='quick_link_content'>
-                        <div className="store">
-                            <Link to ='/'>
+                        <Link to ='/'>
+                            <div className="store">
+                            
                                 <div className="store_section">
                                     <div className='link_section'>
                                         <img src={Map} alt="매장찾기"/>매장찾기     
                                     </div> 
                                 </div>
-                            </Link>
-                        </div>
-                        <div className="ask">
-                            <Link to ='/'>
+                            </div>
+                        </Link>
+                        <Link to ='/'>
+                            <div className="ask">
                                 <div className="ask_section">
                                     <div className='link_section'>
                                         <img src={Ask} alt="매장찾기"/>가맹신청 문의     
                                     </div>
                                 </div>
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
