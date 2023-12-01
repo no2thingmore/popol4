@@ -15,10 +15,10 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-      <Route path="/History" element={<History></History>}></Route>
-      <Route path="/Promise" element={<Promise></Promise>}></Route>
-      <Route path="/Apply" element={<Apply></Apply>}></Route>
-      <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
+        <Route path="/History" element={<History></History>}></Route>
+        <Route path="/Promise" element={<Promise></Promise>}></Route>
+        <Route path="/Apply" element={<Apply></Apply>}></Route>
+        <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
         <Route path="/" element={<Main />}></Route>
       </Routes>
       <Footer />
