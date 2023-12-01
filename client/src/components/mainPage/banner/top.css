@@ -1,0 +1,95 @@
+/***************전체 TOP CSS***************/
+
+.top_secction {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 440px;
+}
+
+/***************슬라이드 CSS***************/
+
+.slider {
+    position: relative;
+    width: 120em;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/***************매장찾기 & 가맹신청, 문의 ***************/
+
+.quick_link {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    bottom: -3em;
+    width: 1170px;
+    margin-left: -585px;
+    text-align: right;
+    z-index: 5;
+}
+
+.quick_link_content {
+    overflow: hidden;
+    float: right;
+    display: table;
+}
+
+.store {
+    position: relative;
+    text-align: center;
+    display: block;
+    width: 300px;
+    height: 80px;
+    background-color: #ffce32;
+    border-radius: 30px 0 0 0;
+    float: left;
+    transition-duration: 0.2s;
+    letter-spacing: -0.02em;
+}
+
+.link_section {
+    padding: 27px 0 0 0;
+}
+
+.link_section img {
+    padding-right: 13px;
+}
+
+.store_section, .ask_section{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.store_section {
+    color: black;
+}
+
+.ask_section {
+    color: white;
+}
+
+.ask {
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    background-color: #009223;
+    border-radius: 0 0 30px 0;
+    float: left;
+    letter-spacing: -0.05em;
+}

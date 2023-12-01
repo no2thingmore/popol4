@@ -4,14 +4,22 @@ import History from './components/subway/history';
 import Promise from './components/subway/promise';
 import Apply from './components/subway/apply';
 import StoreSearch from './components/subway/search';
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
+import Main from "./components/mainPage";
 
 function App() {
   return (
     <div className="App">
-      <Route path="/History" element={<History></History>}></Route>
-      <Route path="/Promise" element={<Promise></Promise>}></Route>
-      <Route path="/Apply" element={<Apply></Apply>}></Route>
-      <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
+     <Header />
+      <Routes>
+        <Route path="/History" element={<History></History>}></Route>
+        <Route path="/Promise" element={<Promise></Promise>}></Route>
+        <Route path="/Apply" element={<Apply></Apply>}></Route>
+        <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
+        <Route path="/" element={<Main />}></Route>
+      </Routes>
+      <Footer />
     </div>
   );
 }
