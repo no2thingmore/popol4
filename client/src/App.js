@@ -7,6 +7,7 @@ import StoreSearch from './components/subway/search';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Main from "./components/mainPage";
+import Event from './components/NewsPage/Event';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Apply" element={<Apply></Apply>}></Route>
         <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
         <Route path="/" element={<Main />}></Route>
+        <Route path="/Event" element={<Event />}></Route>
       </Routes>
       <Footer />
     </div>
