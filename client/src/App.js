@@ -7,17 +7,19 @@ import StoreSearch from './components/subway/search';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Main from "./components/mainPage";
+import Login from './components/login/login';
 
 function App() {
   return (
     <div className="App">
      <Header />
       <Routes>
+        <Route path="/" element={<Main />}></Route>
         <Route path="/History" element={<History></History>}></Route>
         <Route path="/Promise" element={<Promise></Promise>}></Route>
         <Route path="/Apply" element={<Apply></Apply>}></Route>
         <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
-        <Route path="/" element={<Main />}></Route>
+        <Route path='/login' element={<Login />}></Route>
       </Routes>
       <Footer />
     </div>
