@@ -14,6 +14,7 @@ function Header() {
               </div>
             </li>
             <li><a href="/">이용방법</a></li>
+              <div></div>
             <li><a href="/">새소식</a></li>
             <li><a href="/">써브웨이</a></li>
             <li><a href="/">가맹점</a></li>
