@@ -4,8 +4,22 @@ function Header() {
   return(
     <div className="header">
       <div className="content">
-        <h1 id="logo"><a href="/">SUBWAY</a></h1>
-        <nav>
+        <div className="topheader">
+          <h1 id="logo">
+            <a href="/">SUBWAY</a>
+          </h1>
+          <div className="util_menu">
+            <ul>
+              <li>
+                <a href="">로그인</a>
+              </li>
+              <li>
+                <a href="">회원가입</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <nav id="menu">
           <ul>
             <li>
               <a href="/" className="dp1">메뉴소개</a>
@@ -23,7 +37,7 @@ function Header() {
               </div>
             </li>
             <li>
-              <a href="/">이용방법</a>
+              <a href="/" className="dp1">이용방법</a>
               <div className="dp2">
                 <ul>
                   <li>
@@ -35,7 +49,7 @@ function Header() {
                 </ul>
               </div>
             </li>
-            <li><a href="/">새소식</a>
+            <li><a href="/" className="dp1">새소식</a>
               <div className="dp2">
                 <ul>
                   <li>
@@ -46,7 +60,7 @@ function Header() {
                 </ul>     
               </div>
             </li>
-            <li><a href="/">써브웨이</a>
+            <li><a href="/" className="dp1">써브웨이</a>
             <div className="dp2">
                 <ul>
                   <li>
@@ -58,7 +72,7 @@ function Header() {
                 </ul>     
               </div>
             </li>
-            <li><a href="/">가맹점</a>
+            <li><a href="/" className="dp1">가맹점</a>
             <div className="dp2">
                 <ul>
                   <li>
@@ -71,7 +85,7 @@ function Header() {
                 </ul>     
               </div>
             </li>
-            <li><a href="/">온라인 주문</a>
+            <li><a href="/" className="dp1">온라인 주문</a>
             <div className="dp2">
                 <ul>
                   <li>
@@ -84,7 +98,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className="util_menu">
+        {/* <div className="util_menu">
           <ul>
             <li>
               <a href="">로그인</a>
@@ -93,7 +107,7 @@ function Header() {
               <a href="">회원가입</a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
