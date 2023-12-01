@@ -1,0 +1,55 @@
+#Promise_Main_Div{
+  margin: auto;
+  width: 80%;
+  justify-content: center;
+  display: grid;
+  grid-template-areas: ".Head_Line"
+  "#1st_grid"
+  "#2nd_grid"
+  "#3rd_grid";
+}
+.Head_Line{
+  border: 1px solid #000;
+}
+#Head_subtitle{
+  font-size: 50px;
+  font-style: bold;
+}
+.grid_box{
+  width: 100%;
+  padding-top: 5%;
+  position: relative;
+  border: 1px solid #000;
+}
+#grid_1st, #grid_3rd{
+  display: grid;
+  grid-template-areas: ".image_sec .grid_txt_area";
+  background-color: #ccc;
+  justify-content: space-between;
+}
+#grid_2nd, #grid_4th{
+  display: grid;
+  grid-template-areas: ".grid_txt_area .image_sec";
+  background-color: #fff;
+  justify-content: space-between;
+}
+
+.image_sec{
+  margin-top: 10%;
+}
+
+.grid_txt_area{
+  margin-top: 10%;
+  width: fit-content;
+  height: 50%;
+  border: 1px solid #000;
+}
+
+.eng{
+  position: absolute;
+  bottom: 0px;
+  color: aliceblue;
+  font-size: 80px;
+  font-weight: 900;
+  outline: 1px solid #000;
+}
