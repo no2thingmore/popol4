@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "NPSfontBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+div {
+  font-family: "NPSfontBold";
+}
+
+.end {
+  scale: 1;
+  opacity: 1;
+  transition: scale 0.6s, opacity 0.3s;
+}
+
+.end2 {
+  scale: 0;
+  opacity: 0;
+  transition: scale 0.4s, opacity 0.4s;
+}
