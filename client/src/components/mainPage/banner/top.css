@@ -9,16 +9,16 @@
 
 /***************슬라이드 CSS***************/
 
-.slider {
+.top_slider {
     position: relative;
-    width: 120em;
+    width: 100em;
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.slide {
+.top_slide {
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease;
@@ -26,7 +26,7 @@
     height: 100%;
 }
 
-.slide.active {
+.top_slide.active {
     opacity: 1;
 }
 
