@@ -1,0 +1,27 @@
+
+#outline {
+  border: none;
+  background-color: white;
+}
+
+.franchise {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.f_button {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding-bottom: 25px;
+  border-bottom: solid rgb(216, 215, 215) 1px;
+}
+
+#outline a{
+  font-size: medium;
+  font-weight: bold;
+}
+
+#outline a.active {
+  color: rgb(59, 97, 2);
+}

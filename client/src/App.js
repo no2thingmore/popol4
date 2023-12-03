@@ -9,6 +9,7 @@ import Footer from './components/footer/footer';
 import Main from "./components/mainPage";
 import Event from './components/NewsPage/Event';
 import Login from './components/login/login';
+import Franchise from './components/franchise/franchise'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
         <Route path="/Event" element={<Event />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route path='/franchise' element={<Franchise />}></Route>
       </Routes>
       <Footer />
     </div>
