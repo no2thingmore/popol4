@@ -1,0 +1,236 @@
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.CHM_section1{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.CHM_section2{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.6s ease, transform 1.5s ease;
+}
+
+.CHM_section3{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2.2s ease, transform 2s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.CHM_detailpageBg{
+  background-color: rgb(250, 250, 250);
+  padding: 4vw 0;
+}
+
+.CHM_headerMenutab2{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  color: white;
+  text-align: center;
+  padding: 0 30vw;
+  z-index: 2;
+  width: 100%;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
+}
+
+.CHM_headerMenutab2.sticky{
+  position: sticky;
+  top: 0;
+  background-color: white !important;
+  color: black;
+  z-index: 2;
+}
+
+.CHM_headerMenutab2 a{
+  text-decoration: none;
+  color: white;
+}
+
+.CHM_headerMenutab2 div{
+  padding: 1.5vw 0 1.3vw 0;
+  font-size: 1vw;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.CHM_headerMenutab2 div:hover{
+  background-color: rgba(0, 0, 0, 0.081);
+}
+
+.CHM_detailpageTitle{
+  text-align: center;
+  font-size: 3.5vw;
+  padding-bottom: 2vw;
+}
+
+.CHM_detailpageFlex{
+  display: flex;
+  justify-content: center;
+}
+
+.CHM_detailpageFlex div{
+  padding: 0 1vw;
+  font-size: 1.2vw;
+}
+
+.CHM_detailpageFlex div:first-child{
+  border-right: 1px solid rgba(128, 128, 128, 0.468);
+  color: gray
+}
+
+.CHM_detailpageImg{
+  display: flex;
+  justify-content: center;
+  height: 25vw;
+}
+
+.CHM_detailpageImg img{
+  width: 50%;
+}
+
+.CHM_detailpageContent{
+  text-align: center;
+  font-size: 1.2vw;
+  color: gray;
+  padding-bottom: 2vw;
+}
+
+.CHM_detailpageSubContent{
+  text-align: center;
+  color: gray;
+  font-size: 1vw;
+}
+
+.CHM_detailpageSubContent div{
+  margin-bottom: 0.5vw
+}
+
+.CHM_potassiumPartBg{
+  background-color: rgb(242, 242, 242);
+  padding: 3vw 13vw;
+}
+
+.CHM_potassiumTitle{
+  text-align: center;
+  font-size: 2vw;
+  padding-bottom: 2.5vw;
+}
+
+.CHM_potassiumGridBox{
+  padding-bottom: 2vw;
+}
+
+.CHM_potassiumGrid1{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+  padding: 1vw;
+  background-color: white;
+  color: #009223;
+  font-size: 1vw;
+  border-top: 3px solid #009223;
+  border-bottom: 1px solid #009223;
+}
+
+.CHM_potassiumGrid2{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+  padding: 1vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.166);
+}
+
+.CHM_potassiumSubContent{
+  font-size: 1vw;
+}
+
+.CHM_potassiumSubContent div{
+  margin-bottom: 0.5vw;
+  color: gray
+}
+
+.CHM_threeroolBg{
+  background-color: rgb(250, 250, 250);
+  padding-top: 4vw;
+  padding-bottom: 8vw;
+}
+
+.CHM_threeroolSubTitle{
+  text-align: center;
+  font-size: 1vw;
+  padding-bottom: 1vw;
+}
+
+.CHM_threeroolTitle{
+  text-align: center;
+  font-size: 3.3vw;
+  padding-bottom: 3vw;
+}
+
+.CHM_threeroolImgGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 10vw;
+  column-gap: 2vw;
+}
+
+.CHM_threeroolImgBox{
+  position: relative;
+}
+
+.CHM_threeroolImgBox img{
+  width: 100%;
+  height: 100%;
+}
+
+.CHM_threeroolContent{
+  position: absolute;
+  top: 14vw;
+  left: 3vw;
+  background-color: white;
+  width: 88%;
+  padding: 2vw;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316)
+}
+
+.CHM_threeroolContentTitle{
+  font-size: 1.5vw;
+  padding-bottom: 1vw;
+  border-bottom: 3px solid #ffc300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CHM_threeroolNumber{
+  color: #009223;
+  font-size: 3vw;
+  padding-right: 0.5vw;
+}
+
+.CHM_threeroolContentDetail{
+  color: gray;
+  font-size: 0.9vw;
+  padding-top: 1vw;
+}
+
+.CHM_threeroolContentTitleBox div:first-child{
+  padding-bottom: 0.5vw;
+}
+
+.CHM_threeroolContentDetail div:first-child{
+  padding-bottom: 0.4vw;
+}
