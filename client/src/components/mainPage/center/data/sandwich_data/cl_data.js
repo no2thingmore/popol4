@@ -5,6 +5,7 @@ import CL_04 from "../images/cl/04.jpg"
 
 const CL_Data = [
     {
+        id: 1,
         image: CL_01,
         alt: '에그마요 이미지',
         title: '에그마요',
@@ -13,6 +14,7 @@ const CL_Data = [
         더 부드러운 스테디 셀러`
     },
     {
+        id: 2,
         image: CL_02,
         alt: '이탈리안 비엠티 이미지',
         title: '이탈리안 비엠티',
@@ -22,6 +24,7 @@ const CL_Data = [
         Biggest Meatiest Tastiest, its' B.M.T!`
     },
     {
+        id: 3,
         image: CL_03,
         alt: '비엘티 이미지',
         title: '비엘티',
@@ -30,6 +33,7 @@ const CL_Data = [
         풍미와 바삭함 그대로`
     },
     {
+        id: 4,
         image: CL_04,
         alt: '햄 이미지',
         title: '햄',
