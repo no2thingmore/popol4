@@ -42,14 +42,22 @@
 
 .center_hd_tab ul li {
     font-weight: bold;
-    padding: 0 1.3em;
-    border-right: 1px solid #666666;
+    padding: 0.4em 1.3em;
+    margin-right: 5px;
+    border-bottom: 0.15em solid #4CAF50;
+    border-top: 0.15em solid #4CAF50;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.center_hd_menu ul li:hover {
+    background-color: #f2ff9a;
+    border-radius: 10px;
 }
 
 .center_hd_tab ul li:last-child {
     border-right: none;
 }
-
 /*************** 슬라이드 이미지들 ***************/
 
 .center_main_section {
@@ -65,12 +73,12 @@
     height: 320px;
     margin: 0 auto;
     margin-top: 30px;
-    padding-left: 8em;
+    padding-left: 6em;
 }
 
 .menus_sction {
     margin-right: 30px;
-    width: 260px;
+    width: 270px;
     height: 320px;
 }
 

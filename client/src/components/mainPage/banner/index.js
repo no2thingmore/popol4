@@ -17,7 +17,7 @@ const Banner = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-        }, 3000); // 3초마다 이미지 변경
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
@@ -25,11 +25,11 @@ const Banner = () => {
     return (
         <>
             <div className="top_secction">
-                <div className='slider'>
+                <div className='top_slider'>
                     {images.map((image, index) => (
                         <img 
                             key={index}
-                            className={`slide ${index === currentIndex ? 'active' : ''}`}
+                            className={`top_slide ${index === currentIndex ? 'active' : ''}`}
                             src={image}
                             alt={`이미지 ${index + 1}`}
                         />
@@ -51,7 +51,7 @@ const Banner = () => {
                             <div className="ask">
                                 <div className="ask_section">
                                     <div className='link_section'>
-                                        <img src={Ask} alt="매장찾기"/>가맹신청 문의     
+                                        <img src={Ask} alt="가맹신청"/>가맹신청 문의     
                                     </div>
                                 </div>
                             </div>
