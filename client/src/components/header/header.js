@@ -22,7 +22,7 @@ function Header() {
         <li className="menu-item">
           메뉴소개
           <ul className="submenu">
-            <li> 
+            <li>  
               <a href="/">샌드위치</a>
               <a href="/">랩 · 기타</a>
               <a href="/">샐러드</a>
@@ -36,7 +36,7 @@ function Header() {
           이용방법
           <ul className="submenu">
             <li>
-              <a href="/">서브웨이 이용방법</a>
+              <a href="/">써브웨이 이용방법</a>
               <a href="/">단체메뉴 이용방법</a>
               <a href="/">신선한 재료 소개</a>
               <a href="/">App 이용방법</a>
@@ -57,8 +57,8 @@ function Header() {
           써브웨이
           <ul className="submenu">
             <li>
-              <a href="/">서브웨이 역사</a>
-              <a href="/">단체메뉴 약속</a>
+              <a href="/">써브웨이 역사</a>
+              <a href="/">써브웨이 약속</a>
               <a href="/">샌드위치 아티스트 지원</a>
               <a href="/">매장찾기</a>
             </li>
@@ -68,7 +68,7 @@ function Header() {
           가맹점
           <ul className="submenu">
             <li>
-              <a href="/">서브웨이 프랜차이즈</a>
+              <a href="/">써브웨이 프랜차이즈</a>
               <a href="/">가맹관련 FAQ</a>
               <a href="/">가맹신청 문의</a>
               <a href="/">지사안내</a>
