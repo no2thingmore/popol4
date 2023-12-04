@@ -12,6 +12,9 @@ import Login from "./components/login/login";
 import Menuintro from "./components/menuintro/menuintro";
 import Detail from './components/productdetail/detail';
 import Order from "./components/order/order"
+import Ordertip from "./components/howtouse/howtousesubway/ordertip"
+import Groupmenu from "./components/howtouse/groupmenu/groupmenu"
+import Howtousesubway from "./components/howtouse/howtousesubway/howtousesubway"
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/order/:type/:step" element={<Order></Order>}></Route>
+        <Route path="/Howtousesubway" element={<Howtousesubway></Howtousesubway>}></Route>
+        <Route path="/Ordertip" element={<Ordertip></Ordertip>}></Route>
+        <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
       </Routes>
       <Footer />
     </div>
