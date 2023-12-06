@@ -1,6 +1,10 @@
 import './storeorder.css'
 
 import order_step1 from "../image/img/img_store_order01.png"
+import order_step2 from "../image/img/img_store_order02.png"
+import order_step3 from "../image/img/img_store_order03.png"
+import order_step4 from "../image/img/img_store_order04.png"
+import order_step5 from "../image/img/img_store_order05.png"
 
 function Storeorder(props) {
   return (
@@ -54,7 +58,7 @@ function Storeorder(props) {
           <li>
             <img src={order_step1}  />
           </li>
-          <li>
+          <li id='li_color'>
             <div className='order_content_step'>
               <ol>
                 <li>
@@ -66,8 +70,8 @@ function Storeorder(props) {
                     샐러드 중 선택 가능합니다.
                   </p>
                   <div id='menu_link'>
-                    <a><span>샌드위치 메뉴</span><img src=''/></a>
-                    <a><span>샐러드 메뉴</span><img src=''/></a>
+                    <a href='../../menuintro/sandwich'><span>샌드위치 메뉴</span><img src=''/></a>
+                    <a href='../../menuintro/salad'><span>샐러드 메뉴</span><img src=''/></a>
                   </div>
                 </li>
               </ol>

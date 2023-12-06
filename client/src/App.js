@@ -9,7 +9,7 @@ import StoreSearch from "./components/subway/search";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Main from "./components/mainPage";
-import Event from "./components/newsPage/Event";
+import Event from "./components/newsPage/event";
 import Login from './components/login/login';
 import Franchise from './components/franchise/franchise'
 import Menuintro from "./components/menuintro/menuintro";
