@@ -10,6 +10,9 @@ import bar from "./img/bar.png"
 function Groupmenu(props) {
   return (
     <div id="groupmenu">
+      <div id='group0'>
+        <h2>단체메뉴 이용방법</h2>
+      </div>
       <div id="group1">
         <div className="groupname">
           <strong>특별한 날엔 써브웨이와 함께!</strong>
@@ -35,34 +38,39 @@ function Groupmenu(props) {
             </div>
             <span>STEP 1</span>
             <dt>메뉴 선택</dt>
-            <dd>
+            <dd className='dd'>
               샌드위치는 10개 이상 주문 시 또는<br/>
               원하는 단체메뉴를 선택하세요
             </dd>
           </li>
           <li className="li1">
             <div className="icon">
-            <img src={bar}/>
+            <img src={phone}/>
             </div>
-            <span>STEP 1</span>
-            <dt>메뉴 선택</dt>
-            <dd>
-              샌드위치는 10개 이상 주문 시 또는<br/>
-              원하는 단체메뉴를 선택하세요
+            <span>STEP 2</span>
+            <dt>매장 문의</dt>
+            <dd className='dd'>
+              단체주문은 가까운 매장 또는 써브웨이 고객<br/>
+              센터(02-797-5036)로 문의·주문해 주세요.<br/>
+              ※ 최소 1일 전 문의하시기 바랍니다.
             </dd>
           </li>
           <li>
             <div className="icon">
-            <img src={bar}/>
+            <img src={subway}/>
             </div>
-            <span>STEP 1</span>
-            <dt>메뉴 선택</dt>
+            <span>STEP 3</span>
+            <dt>매장 픽업</dt>
             <dd>
-              샌드위치는 10개 이상 주문 시 또는<br/>
-              원하는 단체메뉴를 선택하세요
+              주문 약속 날짜, 시간에<br/>
+              매장에서 픽업하세요
             </dd>
           </li>
         </ul>
+      </div>
+      <div className='undermenu'>
+        <a href='/'><span>단체메뉴 보기</span></a>
+        <a href='/'><span>매장찾기</span></a>
       </div>
     </div>
   );
