@@ -2,10 +2,14 @@ ol{
   list-style: none;
 }
 
+#Holy_Fxxk{
+  border: 1px solid red;
+  width: 100%;
+}
+
 #Promise_Main_Div{
   margin: auto;
-  width: 100%;
-  justify-content: center;
+  justify-content: stretch;
   display: grid;
   grid-template-areas: 
   ".Head_Line"
@@ -74,9 +78,13 @@ ol{
 .grid_li_item:nth-child(odd)::after{
   background-color: #fff;
 }
+.grid_li_item:nth-child(even)::after{
+  background-color: #f6f6f6;
+}
 
 .grid_box{
   margin: 0 auto;
+
   width: 100%;
   padding-top: 60px;
   position: relative;
@@ -86,7 +94,7 @@ ol{
 #grid_1st, #grid_3rd{
   display: grid;
   grid-template-areas: ".image_sec .grid_txt_area";
-  background-color: #666666;
+  background-color: #f6f6f6;
   justify-content: space-between;
 }
 #grid_2nd, #grid_4th{
@@ -104,18 +112,32 @@ ol{
 }
 .image_sec > img{
   vertical-align: top;
-  overflow: clip;
-  overflow-clip-margin: content-box;
+
   border: 0;
 }
+.grid_li_item:nth-child(even) {
+  float: right;
+}
+
+/*************** 텍 스 트 ***************/
 
 .grid_txt_area{
+  top: 141px;
   width: fit-content;
   height: 50%;
   line-height: 120%;
-  position:relative;
+  position:absolute;
   border: 1px solid #000;
 }
+.grid_li_item:nth-child(odd) .grid_txt_area{
+  left: 670px;
+}
+.grid_li_item:nth-child(even) .grid_txt_area{
+  left: 0px;
+}
+
+
+
 .grid_head_num{
   color: #fff;
   background-color: #009223;
@@ -170,11 +192,12 @@ ol{
 /*************** 언 더 텍 스 트 ***************/
 
 .eng{
+  width: 500px;
   font-family: 'GangwonEduPowerExtraBoldA';
   position: absolute;
   right: 50%;
   bottom: 52px;
-  color: aliceblue;
+  color: #f6f6f6;
   font-size: 80px;
   font-weight: bold;
   letter-spacing: -0.035em;
