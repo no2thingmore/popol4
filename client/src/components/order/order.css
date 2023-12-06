@@ -4,47 +4,44 @@
 }
 
 .CHM_fastsubTitle {
+  font-family: 'TTWanjudaedunsancheB';
   text-align: center;
   color: white;
-  font-size: 4vw;
+  font-size: 5vw;
   padding-bottom: 1vw;
 }
 
 .CHM_fastsubContent {
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.833);
   font-size: 1.3vw;
-  padding-bottom: 1vw;
+  padding-bottom: 2vw;
 }
 
 .CHM_fastsubStepBox {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 2vw;
   padding-bottom: 1vw;
+  margin-bottom:2vw;
 }
 
 .CHM_fastsubStepBox div {
-  padding: 1vw;
+  padding: 1vw 1.5vw;
+  font-size: 2vw;
+  color: rgb(232, 232, 232)
 }
 
 .CHM_fastsubStepContentBox {
   margin: 0 10vw;
 }
 
-.CHM_faststep1SelectBox {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .CHM_faststep1SelectBox div {
   text-align: center;
-  padding: 2vw;
-  font-size: 1.3vw;
+  padding:  1.5vw 2vw;
+  font-size: 1.5vw;
   cursor: pointer;
-  background-color: white;
-  transition: background-color 0.3s;
-  color: gray;
 }
 
 .CHM_faststep1MapBox {

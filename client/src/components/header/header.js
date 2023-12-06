@@ -63,7 +63,7 @@ function Header() {
         </li>
         <li className="menu-item">
           온라인 주문
-          <ul className="submenu">
+          <ul className="submenu" style={{width: "140%"}}>
             <li><Link to="/order/Fast-Sub/step1/Noplace/Null/Nan">FAST-SUB</Link></li>
             <li><Link to="/order/Home-Sub/step1/Null/Nan">HOME-SUB</Link></li>
             <li><Link to="/order/group/select/Null/Nan">단체주문</Link></li>
