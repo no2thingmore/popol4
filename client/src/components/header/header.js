@@ -5,26 +5,12 @@ function Header() {
     <div className="header">
       <div className="topheader">
         <h1 id="logo">
-          <a href="#">SUBWAY</a>
+          <a href="/">SUBWAY</a>
         </h1>
-          <ul className="util_menu">
-            <li>
-              <a href="#">로그인</a>
-            </li>
-            <li>
-              <a href="#">회원가입</a>
-            </li>
-          </ul>
-        {/* <div className="util_menu">
-          <ul>
-            <li>
-              <a href="#">로그인</a>
-            </li>
-            <li>
-              <a href="#">회원가입</a>
-            </li>
-          </ul>
-        </div> */}
+          <div className="util_menu">           
+            <button><a href="#">로그인</a></button>&nbsp;&nbsp;
+            <button><a href="#">회원가입</a></button>
+          </div>
       </div>
       <ul className="menu">
         <li className="menu-item">

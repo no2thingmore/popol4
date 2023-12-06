@@ -32,9 +32,13 @@ ul {
 }
 
 .util_menu {
-  float: right;
+  margin-left: 1500px;
 }
 
+.util_menu button {
+  border: none;
+  background-color: white;
+}
 
 .menu {
   list-style: none;
@@ -47,17 +51,13 @@ ul {
   position: relative;
 }
 
-/* .menu-item:hover {
-  color: rgb(84, 129, 16);
-} */
-
 .submenu {
   list-style: none;
   position: absolute;
   top: 100%;
   left: -30px;
   padding: 30px;
-  background-color: #fff;
+  background-color: white;
 
   display: none;
   width: 260%;
@@ -68,6 +68,7 @@ ul {
 
 .submenu li:hover{
   color: rgb(84, 129, 16);
+  text-decoration: underline;
 }
 
 .menu-item:hover .menu-item {
