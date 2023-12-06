@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import img from "./sandwich.png";
 import { useState } from "react";
+import Result from "./result";
 
 function Detail(props) {
   const [data, setData] = useState([
@@ -117,27 +118,45 @@ function Detail(props) {
     },
   ]);
 
+  const { type } = useParams();
+  const { location } = useParams();
+
+  const encodedString = location;
+  const decodedString = decodeURIComponent(encodedString);
+  const replacedString = decodedString.replace(/%20/g, " ");
+
   return (
     <>
-      <div className="CHM_faststep2DetaileBox">
-        <div className="CHM_faststep2DetaileGrid">
-          {data.map((a, i) => {
-            return (
-              <Link to={`/order/${props.state}/${a.id}`}>
-                <div className="CHM_faststep2DetaileCard">
-                  <div className="CHM_faststep2DetaileCardImg">
-                    <img src={img}></img>
+      {type === "Fast-Sub" ? (
+        <div className="CHM_faststep2DetaileBox">
+          <div className="CHM_faststep2DetaileGrid">
+            {data.map((a, i) => {
+              return (
+                <a
+                  href={`/order/Fast-Sub/step2/${replacedString}/${props.state}/${a.id}`}
+                >
+                  <div className="CHM_faststep2DetaileCard">
+                    <div className="CHM_faststep2DetaileCardImg">
+                      <img src={img}></img>
+                    </div>
+                    <div className="CHM_faststep2DetaileCardKname">
+                      {a.Kname}
+                    </div>
+                    <div className="CHM_faststep2DetaileCardEname">
+                      {a.Ename}
+                    </div>
+                    <div className="CHM_faststep2DetaileCardKcal">
+                      {a.kcal}kcal
+                    </div>
                   </div>
-                  <div className="CHM_faststep2DetaileCardKname">{a.Kname}</div>
-                  <div className="CHM_faststep2DetaileCardEname">{a.Ename}</div>
-                  <div className="CHM_faststep2DetaileCardKcal">{a.kcal}</div>
-                </div>
-              </Link>
-            );
-          })}
+                </a>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div>{props.state}</div>
+      ) : (
+        ""
+      )}
       <Link to="/order/Fast-Sub/step3">다음 스텝으로</Link>
     </>
   );

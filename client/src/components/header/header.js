@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "./header.css";
 
 function Header() {
@@ -6,7 +7,7 @@ function Header() {
       <div className="content">
         <div className="topheader">
           <h1 id="logo">
-            <a href="/">SUBWAY</a>
+            <Link to="/">SUBWAY</Link>
           </h1>
           <div className="util_menu">
             <ul>
@@ -26,12 +27,12 @@ function Header() {
               <div className="dp2">
                 <ul>
                   <li>
-                    <a href="">샌드위치</a>
-                    <a href="">랩 · 기타</a>
-                    <a href="">샐러드</a>
-                    <a href="">아침메뉴</a>
-                    <a href="">스마일 썸</a>
-                    <a href="">단체메뉴</a>
+                    <Link to="/menuIntro/sandwich">샌드위치</Link>
+                    <Link to="/menuIntro/wrap">랩 · 기타</Link>
+                    <Link to="/menuIntro/salad">샐러드</Link>
+                    <Link to="/menuIntro/breakfast">아침메뉴</Link>
+                    <Link to="/menuIntro/smile">스마일 썹</Link>
+                    <Link to="/menuIntro/group">단체메뉴</Link>
                   </li>
                 </ul>
               </div>
@@ -89,9 +90,9 @@ function Header() {
             <div className="dp2">
                 <ul>
                   <li>
-                    <a href="">FAST-SUB</a>
-                    <a href="">HOME-SUB</a>
-                    <a href="">단체주문</a>
+                    <Link to="/order/Fast-Sub/step1/Noplace/Null/Nan">FAST-SUB</Link>
+                    <Link to="/order/Home-Sub/step1/Null/Nan">HOME-SUB</Link>
+                    <Link to="/order/group/select/Null/Nan">단체주문</Link>
                   </li>
                 </ul>     
               </div>

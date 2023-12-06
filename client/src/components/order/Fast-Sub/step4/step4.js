@@ -1,9 +1,12 @@
-function Step4(){
+function Step4() {
   return (
-    <div>
-      스텝 4 컴포넌트입니다.
+    <div className="CHM_step4Bg">
+      <div>
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div className="CHM_step4Content">결제가 완료되었습니다.</div>
     </div>
-  )
+  );
 }
 
 export default Step4;

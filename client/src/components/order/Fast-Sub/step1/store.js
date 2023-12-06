@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import Kakao from './map';
+import Serach from "./serach"
 
 function Store() {
   return (
     <div>
       <div className="CHM_faststep1MapBox">
-        지도들어갈 자리<Link to="/order/Fast-Sub/step2">다음 스텝으로</Link>
+        <Serach></Serach>
       </div>
     </div>
   );
