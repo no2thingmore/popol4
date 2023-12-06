@@ -36,7 +36,6 @@ function App() {
     <div className="App">
       <ScrollToTop />
       <Header />
-
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/History" element={<History></History>}></Route>
