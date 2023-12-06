@@ -1,0 +1,132 @@
+.CHM_fastsubBg{
+  background-color: #89cd2f;
+  padding: 2vw 0;
+}
+
+.CHM_fastsubTitle{
+  text-align: center;
+  color: white;
+  font-size: 4vw;
+  padding-bottom: 1vw;
+}
+
+.CHM_fastsubContent{
+  text-align: center;
+  color: white;
+  font-size: 1.3vw;
+  padding-bottom: 1vw;
+}
+
+.CHM_fastsubStepBox{
+  display: flex;
+  justify-content: center;
+}
+
+.CHM_fastsubStepBox div{
+  padding: 1vw;
+}
+
+.CHM_fastsubStepContentBox{
+  margin: 0 10vw;
+}
+
+.CHM_faststep1SelectBox{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CHM_faststep1SelectBox div{
+  text-align: center;
+  padding: 2vw;
+  font-size: 1.3vw;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s
+}
+
+.CHM_faststep1SelectBox div:hover{
+  background-color: rgba(255, 255, 255, 0.338);
+}
+
+.CHM_faststep1MapBox{
+  background-color: gray;
+}
+
+.CHM_faststep1FavorateBox{
+  background-color: gray;
+}
+
+.CHM_faststep2SelectBox{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
+}
+
+.CHM_faststep2SelectBox div{
+  background-color: white;
+  text-align: center;
+  padding: 2vw;
+  font-size: 1.3vw;
+  cursor: pointer;
+}
+
+.CHM_faststep2DetaileBox{
+  background-color: rgb(247, 247, 247);
+  padding: 1vw
+}
+
+.CHM_faststep2DetaileGrid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2vw;
+}
+
+.CHM_faststep2DetaileGrid a{
+  text-decoration: none;
+}
+
+.CHM_faststep2DetaileGrid div{
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.CHM_faststep2DetaileCard{
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
+}
+
+.CHM_faststep2DetaileCardImg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.CHM_faststep2DetaileCardImg img{
+  width: 100%;
+  scale: 0.9;
+  transition: scale 0.5s;
+}
+
+.CHM_faststep2DetaileGrid div:hover img{
+  scale: 1
+}
+
+.CHM_faststep2DetaileCardKname{
+  text-align: center;
+  font-size: 1.5vw;
+  color: black;
+}
+
+.CHM_faststep2DetaileCardEname{
+  text-align: center;
+  font-size: 1.1vw;
+  padding: 0.5vw 0;
+  color: gray
+}
+
+.CHM_faststep2DetaileCardKcal{
+  text-align: center;
+  font-size: 1.3vw;
+  padding-bottom: 2vw;
+  color: #ffc300;
+}
