@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Nav } from "react-bootstrap";
-import "./howtousesubway.css";
+// import "./howtousesubway.css";
 import Storeorder from './storeorder';
 import Ordertip from './ordertip';
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import img from "./sandwich.png";
+import { Link } from 'react-router-dom';
 
 function Sandwitchct() {
   const [data, setData] = useState([
@@ -159,7 +160,7 @@ function Sandwitchct() {
         <div className="CHM_selectcontentGridBox">
           {data.map((item) => (
             <div key={item.id} className={"CHM_selectCard start " + end}>
-              <a href={`/menuIntro/sandwich/${item.id}`}>
+              <Link to={`/menuIntro/sandwich/${item.id}`}>
                 <div className="CHM_selectBakcCard">
                   <div>
                     <div className="CHM_selectBackCardKname">{item.Kname}</div>
@@ -170,7 +171,7 @@ function Sandwitchct() {
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </div>
                 </div>
-              </a>
+              </Link>
               <div className="CHM_selectCardImg">
                 <img src={item.img} width="100%" alt={item.Kname}></img>
               </div>

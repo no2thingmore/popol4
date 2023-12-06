@@ -5,7 +5,7 @@ function Favorate() {
     <div>
       <div className="CHM_faststep1FavorateBox">
         가장 좋아하는 내 주변 매장
-        <Link to="/order/Fast-Sub/step2">다음 스텝으로</Link>
+        <Link to="/order/Fast-Sub/step2/sandwich/Nan">다음 스텝으로</Link>
       </div>
     </div>
   );

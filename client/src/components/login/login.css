@@ -1,0 +1,19 @@
+.login_container{
+  background-color: #eeeeee;
+  border: 1px solid ;
+}
+.login_section{
+  background-color: #ffffff;
+  border-radius: 5% 0 5% 0;
+  /* border: 1px solid ; */
+  margin: 10% 20%;
+  padding: 10% 10%;
+  text-align: center;
+}
+.login_coments{
+  color: #c2c2c2;
+}
+
+.login_input{
+  border: none;
+}
