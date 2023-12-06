@@ -1,0 +1,166 @@
+#groupmenu {
+  margin: 0 auto;
+
+  width: 100%;
+  height: 1100px;
+}
+
+#group0 {
+  width: 20%;
+  height: 150px;
+  margin: 0 auto;
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+#group1 {
+  width: 1920px;
+  height: 640px;
+
+  margin: 0 auto;
+
+  text-align: center;
+  color: white;
+
+  background-image: url('../image/img/bg_group_menu_slider.jpg');
+}
+
+#group1 > strong {
+  font-size: 70px;
+  font-weight: 700;
+
+}
+
+#group1 > p{
+  font-weight: 700;
+  padding-top: 30px;
+}
+
+
+.groupname > strong {
+  padding: 7px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  border-radius: 25px;
+  border: 4px solid #ffff;
+}
+
+.groupname {
+  padding: 100px 0px 50px;
+}
+
+.groupicon {
+  padding: 100px 0 50px;
+}
+
+.groupicon > a {
+  padding: 0 30px 0;
+}
+
+.groupicon > a > img {
+  width: 70px;
+  border: 1px solid white;
+  border-radius: 50px;
+}
+
+
+
+#group2 {
+  width: 1200px;
+  height: 300px;
+
+  margin: 0 auto;
+
+  margin-bottom: 40px;
+  /* border: 1px solid #000; */
+}
+
+#group2 > h3 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+#group2 > ul > li {
+  /* text-align: center; */
+  width: 300px;
+  height: 100%;
+}
+
+#group2 > ul > li > span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #009223;
+}
+
+#group2 > ul {
+  width: 900px;
+  height: 230px;;
+
+  margin: 0 auto;
+  text-align: center;
+  /* border: 1px solid #000; */
+  /* grid-template-columns: 1fr 1.5fr 1fr; */
+}
+
+#group2 > ul > span {
+  margin: 10px 0 0 0;
+}
+
+.icon{
+  margin: 10px 10px 20px;
+}
+
+#group2 > li {
+  float: left;
+}
+
+
+
+dt {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+dd {
+  font-size: 14px;
+  margin: 10px 0 0 0;
+}
+
+.undermenu {
+  text-align: center;
+
+  width: 100%;
+  height: 100px;  
+
+
+  float: left;
+  
+}
+
+.undermenu > a {
+  
+  margin: 50px ;
+  padding: 15px;
+
+  background-color: #009223;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  border-radius: 50px;
+}
+
+.undermenu > a::after {
+  content: " > ";
+  color: yellow;
+}
+
+

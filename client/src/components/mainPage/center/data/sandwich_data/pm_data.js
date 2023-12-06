@@ -1,12 +1,11 @@
-import PM_01 from "../images/fm/01.jpg"
-import PM_02 from "../images/fm/02.jpg"
-import PM_03 from "../images/fm/03.jpg"
-import PM_04 from "../images/fm/04.jpg"
-import PM_05 from "../images/fm/05.jpg"
-import PM_05 from "../images/fm/05.jpg"
+import PM_01 from "../images/pm/01.jpg"
+import PM_02 from "../images/pm/02.jpg"
+import PM_03 from "../images/pm/03.jpg"
+import PM_04 from "../images/pm/04.jpg"
 
 const PM_Data = [
     {
+        id: 1,
         image: PM_01,
         alt: '쉬림프 이미지',
         title: '쉬림프 치킨',
@@ -16,6 +15,7 @@ const PM_Data = [
         진짜 새우의 풍미가 가득`
     },
     {
+        id: 2,
         image: PM_02,
         alt: '풀드 포크 이미지',
         title: '풀드 포크',
@@ -24,6 +24,7 @@ const PM_Data = [
         들어간 샌드위치`
     },
     {
+        id: 3,
         image: PM_03,
         alt: '스테이크&치즈 이미지',
         title: '스테이크&치즈',
@@ -32,6 +33,7 @@ const PM_Data = [
         풍부한 비프 스테이크의 풍미가 입안 한가득`
     },
     {
+        id: 4,
         image: PM_04,
         alt: '치킨 베이컨 아보카도 이미지',
         title: '치킨 베이컨 아보카도',
@@ -39,23 +41,6 @@ const PM_Data = [
         text: `담백하게 닭가슴살로 만든 치킨 슬라이스와 베이컨,
         부드러운 아보카도의 만남`
     },
-    {
-        image: PM_05,
-        alt: '스파이시 이탈리안 이미지',
-        title: '스파이시 이탈리안',
-        path: '/two',
-        text: `살라미, 페퍼로니가 입안 한가득!
-        쏘 핫한 이탈리아의 맛`
-    },
-    {
-        image: PM_06,
-        alt: '치킨 데리야끼 이미지',
-        title: '치킨 데리야끼',
-        path: '/two',
-        text: `담백한 치킨 스트립에 달콤짭쪼름한 써브웨이
-        특제 데리야끼 소스와의 환상적인 만남`
-    },
-
 ];
 
 export default PM_Data;

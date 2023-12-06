@@ -1,0 +1,56 @@
+#ordertipMain { 
+  width: 100%;
+  height: 2500px;
+  background-color: ghostwhite;
+
+}
+
+/* 완벽한 한끼를 원하신다면 등 */
+.ordertip1 {
+  width: 70%;
+  height: 510px;
+  margin: 0 auto;
+
+  background-color:yellow;
+}
+
+.ordertip1_1 {
+  float: left;
+}
+
+.both{
+  clear: both;
+  width: 615px;
+  height: 333px;
+}
+
+/* 더 맛있게 즐기는 팁 */
+
+.ordertip2 {
+  margin: 0 auto;
+
+  width: 50%;
+  height: 330px;
+
+  text-align: center;
+
+  background-color: white;
+}
+
+.ordertip2 > ul > li {
+  float: left;
+
+}
+
+.ordertip2 > ul > li > strong {
+  clear: both;
+}
+
+li > img{
+  width: 214px;
+  height: 150px;
+}
+
+
+
+

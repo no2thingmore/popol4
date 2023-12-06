@@ -31,33 +31,35 @@ function Login(){
     })
   }
   return(
-    <div className="login_section">
-      <h1>LOGIN</h1>
-      <div className="login_coments">
-        <p>마이웨이 회원으로 로그인하시면 제공하는</p>
-        <p>다양한 서비스를 이용할 수 있습니다.</p>
+    <div className="login_container">
+      <div className="login_section">
+        <h1>LOGIN</h1>
+        <div className="login_coments">
+          <p>마이웨이 회원으로 로그인하시면 제공하는</p>
+          <p>다양한 서비스를 이용할 수 있습니다.</p>
+        </div>
+        <fieldset className="login_input">
+          <form onSubmit={login} className="login_form">
+            <label>아이디(이메일)</label>
+            <input id="login_id" type="text" value={userId}></input>
+            <label>비밀번호</label>
+            <input id="login_pwd" type="password"></input>
+            <input id="login_saveID" type="checkbox" /> 아이디(이메일) 저장
+            <button type="submit">로그인</button>
+          </form>
+        </fieldset>
+        <ol>
+          <li>
+            <a >아이디 찾기</a>
+          </li>
+          <li>
+            <a >비밀번호 찾기</a>
+          </li>
+          <li>
+            <a >회원가입</a>
+          </li>
+        </ol>
       </div>
-      <fieldset>
-        <form onSubmit={login}>
-          <label>아이디(이메일)</label>
-          <input id="login_id" type="text" value={userId}></input>
-          <label>비밀번호</label>
-          <input id="login_pwd" type="password"></input>
-          <input id="login_saveID" type="checkbox" /> 아이디(이메일) 저장
-          <button type="submit">로그인</button>
-        </form>
-      </fieldset>
-      <ol>
-        <li>
-          <a >아이디 찾기</a>
-        </li>
-        <li>
-          <a >비밀번호 찾기</a>
-        </li>
-        <li>
-          <a >회원가입</a>
-        </li>
-      </ol>
     </div>
   )
 }

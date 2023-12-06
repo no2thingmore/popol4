@@ -1,30 +1,92 @@
+ol{
+  list-style: none;
+}
+
 #Promise_Main_Div{
   margin: auto;
-  width: 80%;
+  width: 100%;
   justify-content: center;
   display: grid;
-  grid-template-areas: ".Head_Line"
+  grid-template-areas: 
+  ".Head_Line"
   "#1st_grid"
   "#2nd_grid"
   "#3rd_grid";
 }
+#Promise_Main_Div p{
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+
+/*************** 헤 더 ***************/
 .Head_Line{
+  text-align: center;
   border: 1px solid #000;
+}
+.Head_txt{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  color: #009223;
+  font-weight: bold;
+  font-size: 36px;
+}
+.em_txt{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  color: #62ce08;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+}
+.corporate_mark{
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: top;
+  font-style: normal;
 }
 #Head_subtitle{
-  font-size: 50px;
-  font-style: bold;
+  color: #292929;
+  font-size: 18px;
+  margin-top: 18px;
 }
-.grid_box{
+
+/*************** 본 문 ***************/
+.grid_li{
+  margin: 0;
+  padding: 0;
+  line-height: 120%;
+  /* border: 1px solid #000; */
+}
+.grid_li_item{
   width: 100%;
-  padding-top: 5%;
-  position: relative;
   border: 1px solid #000;
+}
+.grid_li_item::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 130px;
+}
+.grid_li_item:nth-child(odd)::after{
+  background-color: #fff;
+}
+
+.grid_box{
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 60px;
+  position: relative;
+  z-index: 3;
+  /* border: 1px solid #000; */
 }
 #grid_1st, #grid_3rd{
   display: grid;
   grid-template-areas: ".image_sec .grid_txt_area";
-  background-color: #ccc;
+  background-color: #666666;
   justify-content: space-between;
 }
 #grid_2nd, #grid_4th{
@@ -34,22 +96,95 @@
   justify-content: space-between;
 }
 
+/*************** 이 미 지 ***************/
+
 .image_sec{
-  margin-top: 10%;
+  /* position: absolute; */
+  border: 1px solid #000;
+}
+.image_sec > img{
+  vertical-align: top;
+  overflow: clip;
+  overflow-clip-margin: content-box;
+  border: 0;
 }
 
 .grid_txt_area{
-  margin-top: 10%;
   width: fit-content;
   height: 50%;
+  line-height: 120%;
+  position:relative;
   border: 1px solid #000;
 }
+.grid_head_num{
+  color: #fff;
+  background-color: #009223;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: -21px;
+}
+.grid_head_num::after{
+  content: '';
+  color: #ffffff00;
+  background-color:#FFCE32;
+  display: block;
+  width: 22px;
+  height: 3px;
+  position: absolute;
+  left: 50%;
+  margin-left: -11px;
+  top: 12px;
+
+}
+
+.grid_head_txt{
+  color: #292929;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -0.04em;
+  text-align-last: left;
+  display: block;
+  padding-left: 69px;
+}
+
+.grid_main_txt{
+  color: #292929;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.04em;
+  margin-top: 28px;
+}
+
+
+
+
+
+/*************** 언 더 텍 스 트 ***************/
 
 .eng{
+  font-family: 'GangwonEduPowerExtraBoldA';
   position: absolute;
-  bottom: 0px;
+  right: 50%;
+  bottom: 52px;
   color: aliceblue;
   font-size: 80px;
-  font-weight: 900;
+  font-weight: bold;
+  letter-spacing: -0.035em;
   outline: 1px solid #000;
+}
+.grid_li_item:nth-child(odd) .eng{
+  color: #fff;
+  left: 600px;
+}
+
+.grid_li_item:nth-child(even) .eng{
+  right: 600px;
 }
