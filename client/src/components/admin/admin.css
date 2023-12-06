@@ -1,0 +1,7 @@
+.admin_tags{
+  margin: 20px 20px;
+}
+.admin_tags > li{
+  float: left;
+  padding: 1em;
+}
