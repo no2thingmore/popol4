@@ -1,55 +1,59 @@
-#ordertipMain { 
+.jsw_maindiv {
   width: 100%;
-  height: 2500px;
-  background-color: ghostwhite;
-
+  
+  
 }
 
-/* 완벽한 한끼를 원하신다면 등 */
-.ordertip1 {
-  width: 70%;
-  height: 510px;
+.jsw_howto {
+  height: 200px;
+  
+  
+}
+
+/* #jsw_container2 {
+} */
+
+#jsw_container_2 {
+  width: 1000px;
+  height: 65px;
   margin: 0 auto;
-
-  background-color:yellow;
-}
-
-.ordertip1_1 {
-  float: left;
-}
-
-.both{
-  clear: both;
-  width: 615px;
-  height: 333px;
-}
-
-/* 더 맛있게 즐기는 팁 */
-
-.ordertip2 {
-  margin: 0 auto;
-
-  width: 50%;
-  height: 330px;
 
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
+  z-index: 7;
+
+  box-shadow: 1px 1px 3px 1.5px #666666;
+
+}
+
+#jsw_nav1 {
+  box-shadow: 0 0 3px 0 #666666;
+
+}
+
+/* #jsw_nav1.selectNav {
+  background-color: #009233;
+  box-shadow: 0 0 5px 0 #666666;
+  color: white;
+}
+
+#jsw_nav1.noactive {
   background-color: white;
+  color: black;
 }
 
-.ordertip2 > ul > li {
-  float: left;
-
+#jsw_nav2.nav-item.active {
+  background-color: #009233;
+  color: white;
 }
 
-.ordertip2 > ul > li > strong {
-  clear: both;
-}
-
-li > img{
-  width: 214px;
-  height: 150px;
-}
+#jsw_nav2.nav-item {
+  box-shadow: 0 0 5px 0 #666666;
+  background-color: white;
+  color: black;
+} */
 
 
 
