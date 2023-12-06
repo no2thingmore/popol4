@@ -1,14 +1,14 @@
 #groupmenu {
   margin: 0 auto;
-
+  
   width: 100%;
   height: 1250px;
 }
 
 #group0 {
+  margin: 0 auto;
   width: 20%;
   height: 150px;
-  margin: 0 auto;
 
 }
 
@@ -21,12 +21,13 @@ h2 {
   width: 100%;
   height: 640px;
 
-  margin: 0 auto;
-
+  
   text-align: center;
   color: white;
 
   background-image: url('../image/img/bg_group_menu_slider.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #group1 > strong {

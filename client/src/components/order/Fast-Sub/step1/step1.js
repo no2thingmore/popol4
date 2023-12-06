@@ -13,11 +13,11 @@ function Step1() {
     <div>
       <div className='CHM_faststep1SelectBox'>
         <div style={state === "store" ? {backgroundColor: "#009223", color: "white"} : {}} onClick={() => stateHandel("store")}>매장찾기</div>
-        <div style={state === "favorate" ? {backgroundColor: "#009223", color: "white"} : {}}onClick={() => stateHandel("favorate")}>자주 찾는 매장</div>
+        {/* <div style={state === "favorate" ? {backgroundColor: "#009223", color: "white"} : {}}onClick={() => stateHandel("favorate")}>자주 찾는 매장</div> */}
       </div>
 
       {state === "store" && <Store></Store>}
-      {state === "favorate" && <Favorate></Favorate>}
+      {/* {state === "favorate" && <Favorate></Favorate>} */}
     </div>
   );
 }
