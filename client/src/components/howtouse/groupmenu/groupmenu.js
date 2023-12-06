@@ -68,7 +68,7 @@ function Groupmenu(props) {
           </li>
         </ul>
       </div>
-      <div className='undermenu'>
+      <div id="undermenu">
         <a href='/'><span>단체메뉴 보기</span></a>
         <a href='/'><span>매장찾기</span></a>
       </div>
