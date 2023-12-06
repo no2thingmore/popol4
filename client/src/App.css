@@ -15,6 +15,7 @@
 
 div {
   font-family: "NPSfontBold";
+  user-select: none;
 }
 
 .end {

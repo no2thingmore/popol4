@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "./header.css";
 
 function Header() {
@@ -16,13 +17,12 @@ function Header() {
         <li className="menu-item">
           메뉴소개
           <ul className="submenu">
-            <li><a href="/">샌드위치</a></li>
-            <li><a href="/">샌드위치</a></li>
-            <li><a href="/">랩 · 기타</a></li>
-            <li><a href="/">샐러드</a></li>
-            <li><a href="/">아침메뉴</a></li>
-            <li><a href="/">스마일 썸</a></li>
-            <li><a href="/">단체메뉴</a></li>
+          <li><Link to="/menuIntro/sandwich">샌드위치</Link></li>
+          <li><Link to="/menuIntro/wrap">랩 · 기타</Link></li>
+          <li><Link to="/menuIntro/salad">샐러드</Link></li>
+          <li><Link to="/menuIntro/breakfast">아침메뉴</Link></li>
+          <li><Link to="/menuIntro/smile">스마일 썹</Link></li>
+          <li><Link to="/menuIntro/group">단체메뉴</Link></li>
           </ul>
         </li>
         <li className="menu-item">
@@ -64,9 +64,9 @@ function Header() {
         <li className="menu-item">
           온라인 주문
           <ul className="submenu">
-            <li><a href="/">FAST-SUB</a></li>
-            <li><a href="/">HOME-SUB</a></li>
-            <li><a href="/">단체주문</a></li>
+            <li><Link to="/order/Fast-Sub/step1/Noplace/Null/Nan">FAST-SUB</Link></li>
+            <li><Link to="/order/Home-Sub/step1/Null/Nan">HOME-SUB</Link></li>
+            <li><Link to="/order/group/select/Null/Nan">단체주문</Link></li>
           </ul>
         </li>
       </ul>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import img from "./sandwich.png";
+import { Link } from 'react-router-dom';
 
 function Saladct() {
   const [data, setData] = useState([
@@ -160,7 +161,7 @@ function Saladct() {
           {data.map((a, i) => {
             return (
               <div className={"CHM_selectCard start " + end}>
-                <a href={`/menuIntro/salad/${a.id}`}>
+                <Link to={`/menuIntro/salad/${a.id}`}>
                   <div className="CHM_selectBakcCard">
                     <div>
                       <div className="CHM_selectBackCardKname">{a.Kname}</div>
@@ -173,7 +174,7 @@ function Saladct() {
                       <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                   </div>
-                </a>
+                </Link>
 
                 <div className="CHM_selectCardImg">
                   <img src={a.img} width="100%"></img>

@@ -1,69 +1,68 @@
-.CHM_fastsubBg{
+.CHM_fastsubBg {
   background-color: #89cd2f;
-  padding: 2vw 0;
+  padding: 4vw 0;
 }
 
-.CHM_fastsubTitle{
+.CHM_fastsubTitle {
   text-align: center;
   color: white;
   font-size: 4vw;
   padding-bottom: 1vw;
 }
 
-.CHM_fastsubContent{
+.CHM_fastsubContent {
   text-align: center;
   color: white;
   font-size: 1.3vw;
   padding-bottom: 1vw;
 }
 
-.CHM_fastsubStepBox{
+.CHM_fastsubStepBox {
   display: flex;
   justify-content: center;
+  font-size: 2vw;
+  padding-bottom: 1vw;
 }
 
-.CHM_fastsubStepBox div{
+.CHM_fastsubStepBox div {
   padding: 1vw;
 }
 
-.CHM_fastsubStepContentBox{
+.CHM_fastsubStepContentBox {
   margin: 0 10vw;
 }
 
-.CHM_faststep1SelectBox{
+.CHM_faststep1SelectBox {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.CHM_faststep1SelectBox div{
+.CHM_faststep1SelectBox div {
   text-align: center;
   padding: 2vw;
   font-size: 1.3vw;
   cursor: pointer;
   background-color: white;
-  transition: background-color 0.3s
+  transition: background-color 0.3s;
+  color: gray;
 }
 
-.CHM_faststep1SelectBox div:hover{
-  background-color: rgba(255, 255, 255, 0.338);
-}
-
-.CHM_faststep1MapBox{
+.CHM_faststep1MapBox {
   background-color: gray;
 }
 
-.CHM_faststep1FavorateBox{
+.CHM_faststep1FavorateBox {
   background-color: gray;
 }
 
-.CHM_faststep2SelectBox{
+.CHM_faststep2SelectBox {
   position: relative;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
 
-.CHM_faststep2SelectBox div{
+.CHM_faststep2SelectBox div {
   background-color: white;
   text-align: center;
   padding: 2vw;
@@ -71,62 +70,435 @@
   cursor: pointer;
 }
 
-.CHM_faststep2DetaileBox{
+.CHM_faststep2DetaileBox {
   background-color: rgb(247, 247, 247);
-  padding: 1vw
+  padding: 2vw 1vw;
 }
 
-.CHM_faststep2DetaileGrid{
+.CHM_faststep2DetaileGrid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2vw;
 }
 
-.CHM_faststep2DetaileGrid a{
+.CHM_faststep2DetaileGrid a {
   text-decoration: none;
 }
 
-.CHM_faststep2DetaileGrid div{
+.CHM_faststep2DetaileGrid div {
   background-color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
-.CHM_faststep2DetaileCard{
+.CHM_faststep2DetaileCard {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
 
-.CHM_faststep2DetaileCardImg{
+.CHM_faststep2DetaileCardImg {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.CHM_faststep2DetaileCardImg img{
+.CHM_faststep2DetaileCardImg img {
   width: 100%;
-  scale: 0.9;
+  scale: 0.8;
   transition: scale 0.5s;
 }
 
-.CHM_faststep2DetaileGrid div:hover img{
-  scale: 1
+.CHM_faststep2DetaileGrid div:hover img {
+  scale: 0.9;
 }
 
-.CHM_faststep2DetaileCardKname{
+.CHM_faststep2DetaileCardKname {
   text-align: center;
   font-size: 1.5vw;
   color: black;
 }
 
-.CHM_faststep2DetaileCardEname{
+.CHM_faststep2DetaileCardEname {
   text-align: center;
   font-size: 1.1vw;
   padding: 0.5vw 0;
-  color: gray
+  color: gray;
 }
 
-.CHM_faststep2DetaileCardKcal{
+.CHM_faststep2DetaileCardKcal {
   text-align: center;
   font-size: 1.3vw;
   padding-bottom: 2vw;
   color: #ffc300;
+}
+
+.CHM_faststep2ResultBox {
+  background-color: rgb(247, 247, 247);
+  padding: 2vw 4vw;
+}
+
+.CHM_faststep2ResultGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 1vw;
+}
+
+.CHM_faststep2ResultTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.CHM_faststep2ResultType {
+  color: #009223;
+  font-size: 2vw;
+  padding-bottom: 2vw;
+}
+
+.CHM_faststep2ResultKname {
+  font-size: 3vw;
+  padding-bottom: 1vw;
+}
+
+.CHM_faststep2ResultEname {
+  font-size: 1.5vw;
+  padding-bottom: 1.5vw;
+  color: gray;
+}
+
+.CHM_faststep2ResultContent {
+  font-size: 1.5vw;
+  color: gray;
+}
+
+.CHM_faststep2ResultpotassiumTitle {
+  padding-bottom: 2vw;
+  font-size: 2vw;
+}
+
+.CHM_faststep2ResultCart div i {
+  padding-left: 0.5vw;
+  color: #ffc300;
+}
+
+.CHM_faststep2ResultImg {
+  width: 100%;
+  height: 100%;
+}
+
+.CHM_faststep2ResultImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.CHM_faststep2Result2Box {
+  padding-top: 3vw;
+}
+
+.CHM_faststep2Result2pushTitle {
+  padding-bottom: 2vw;
+  font-size: 2vw;
+}
+
+.CHM_faststep2Result2pushGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  padding-bottom: 3vw;
+}
+
+.CHM_faststep2Result2pushCard {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
+  transition: background-color 0.5s;
+}
+
+.CHM_faststep2Result2pushCard:hover {
+  background-color: #009223;
+  color: white;
+}
+
+.CHM_faststep2Result2pushCardImg {
+  width: 100%;
+}
+
+.CHM_faststep2Result2pushCardImg img {
+  width: 100%;
+  height: 100%;
+  scale: 0.9;
+  transition: scale 0.5s;
+}
+
+.CHM_faststep2Result2pushCard:hover img {
+  scale: 1;
+}
+
+.CHM_faststep2Result2pushCardTitle {
+  text-align: center;
+  font-size: 1.5vw;
+  padding-bottom: 1vw;
+}
+
+.CHM_faststep2Result2pushCardPrice {
+  text-align: center;
+  padding-bottom: 2vw;
+  font-size: 1.3vw;
+}
+
+.CHM_faststep2ResultReservationTitle {
+  font-size: 2vw;
+}
+
+.CHM_faststep2ResultReservationTitle {
+  padding-bottom: 2vw;
+}
+
+.CHM_faststep2ResultReservationGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  border-bottom: 0.3vw solid #009223;
+  border-top: 0.3vw solid #009223;
+  background-color: white;
+}
+
+.CHM_faststep2ResultReservationImg {
+  width: 100%;
+}
+
+.CHM_faststep2ResultReservationImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.CHM_faststep2ResultReservationName {
+  display: flex;
+  align-items: center;
+  font-size: 1.5vw;
+}
+
+.CHM_faststep2ResultReservationCountBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+}
+
+.CHM_faststep2ResultReservationPrice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+}
+
+.CHM_faststep2ResultReservationCountTitle {
+  padding-right: 1vw;
+}
+
+.CHM_faststep2ResultReservationCount {
+  font-size: 2vw;
+  padding: 0 1vw;
+}
+
+.CHM_faststep2ResultReservationCountBtn {
+  color: #009223;
+  border: #009223 0.3vw solid;
+  border-radius: 50%;
+  padding: 0.1vw 0.4vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  user-select: none;
+}
+
+.CHM_faststep2ResultReservationGrid div {
+  border-top: 0.2vw solid rgba(0, 128, 0, 0.353);
+}
+
+.CHM_faststep2ResultTotalPriceBox {
+  padding-top: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vw;
+}
+
+.CHM_faststep2ResultTotalPrice span {
+  color: #009223;
+  font-size: 2.5vw;
+  padding-left: 1vw;
+}
+
+.CHM_faststep2ResultCart {
+  padding-top: 5vw;
+  padding-bottom: 2vw;
+  display: flex;
+  justify-content: center;
+}
+
+.CHM_faststep2ResultCartBtn1 {
+  padding: 1vw 1.5vw;
+  font-size: 1.5vw;
+  background-color: white;
+  color: #009223;
+  border-radius: 2vw;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: 0.2vw solid #009223;
+}
+
+.CHM_faststep2ResultCartBtn2 {
+  padding: 1vw 1.5vw;
+  font-size: 1.5vw;
+  background-color: #ffffff;
+  color: #009223;
+  border-radius: 2vw;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border: 0.2vw solid #009223;
+  margin: 0 3vw;
+}
+
+.CHM_faststep2ResultCartBtn3 {
+  border: 0.2vw solid #009223;
+  padding: 1vw 1.5vw;
+  font-size: 1.5vw;
+  background-color: #009223;
+  color: white;
+  border-radius: 2vw;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.CHM_faststep2ResultCartBtn3:hover {
+  background-color: #018720;
+}
+
+.CHM_step3CartContent {
+  border-bottom: 0.3vw solid #009223;
+  border-top: 0.3vw solid #009223;
+  background-color: white;
+  margin-bottom: 3vw;
+}
+
+.CHM_step3CartContentGrid {
+  display: grid;
+  grid-template-columns: 8fr 1.5fr 1.3fr;
+  border-top: 1px solid #009223;
+  padding: 2vw 2vw;
+}
+
+.CHM_step3CartContentname{
+  font-size: 1.2vw;
+}
+
+.CHM_step3CartContentcount{
+  color: gray;
+  text-align: center;
+  font-size: 1.2vw;
+} 
+
+.CHM_step3CartContentprice{
+  text-align: end;
+  font-size: 1.2vw;
+}
+
+.CHM_step3CartTitle{
+  color: rgb(57, 57, 57);
+  font-size: 2vw;
+  padding-bottom: 1.5vw;
+}
+
+.CHM_step3Bg{
+  background-color: rgb(247, 247, 247);
+  padding: 3vw 2vw;
+}
+
+.CHM_step3Resultflex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw;
+  font-size: 1.2vw;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.358);
+}
+
+.CHM_step3Resultslaeflex{
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  font-size: 1.1vw;
+  color: gray;
+}
+
+.CHM_step3Resultresultprice{
+  color:#009223;
+  font-size: 2vw;
+}
+
+.CHM_kakaomap{
+  width: 100%;
+  height: 40vw;
+}
+
+.CHM_inputForm{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border: 0.2vw solid rgba(128, 128, 128, 0.692);
+  border-radius: 0.5vw;
+  margin: 0 20vw;
+  padding:0.3vw 0
+}
+
+.CHM_inputForm input{
+  border: none;
+  outline: none;
+  padding: 0.5vw 1vw 0.5vw 0.5vw;
+  width: 87%;
+  font-size: 1vw;
+  font-family: "NPSfontBold";
+
+}
+
+.CHM_serachBG{
+  background-color: white;
+}
+
+.CHM_serachFlex{
+  padding: 1vw;
+}
+
+.CHM_inputForm .fa-magnifying-glass{
+  cursor: pointer;
+  padding: 0 1vw;
+  border-left: 0.1vw solid gray;
+  font-size: 1.1vw;
+}
+
+.CHM_step3StoreContent{
+  padding: 2vw;
+  background-color: #ececec;
+  font-size: 1.2vw;
+  margin-bottom: 3vw;
+}
+
+.CHM_step4Bg{
+  background-color: rgb(247, 247, 247);
+  padding: 3vw 2vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CHM_step4Bg i{
+  color:#009223;
+  font-size: 8vw;
+  border: 0.5vw solid #009223;
+  padding: 1vw 1.5vw;
+  border-radius: 50%;
+  margin-bottom: 3vw;
+}
+
+.CHM_step4Content{
+  font-size: 2.5vw;
 }
