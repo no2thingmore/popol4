@@ -8,8 +8,8 @@ function Header() {
           <a href="/">SUBWAY</a>
         </h1>
           <div className="util_menu">           
-            <button><a href="#">로그인</a></button>&nbsp;&nbsp;
-            <button><a href="#">회원가입</a></button>
+            <button><a href="/login">로그인</a></button>&nbsp;&nbsp;
+            <button><a href="/register">회원가입</a></button>
           </div>
       </div>
       <ul className="menu">

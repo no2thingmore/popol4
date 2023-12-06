@@ -7,7 +7,7 @@ import StoreSearch from "./components/subway/search";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Main from "./components/mainPage";
-import Event from './components/NewsPage/Event';
+import Event from "./components/newspage/Event.js";
 import Login from './components/login/login';
 import Franchise from './components/franchise/franchise'
 import Menuintro from "./components/menuintro/menuintro";
@@ -16,6 +16,7 @@ import Order from "./components/order/order"
 import Ordertip_1 from "./components/howtouse/howtousesubway/ordertip_1"
 import Groupmenu from "./components/howtouse/groupmenu/groupmenu"
 import Howtousesubway from "./components/howtouse/howtousesubway/howtousesubway"
+import Register from "./components/register/register";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
         <Route path="/Event" element={<Event />}></Route>
         <Route path='/login' element={<Login />}></Route>
+        <Route path='/register' element={<Register />}></Route>
         <Route path='/franchise' element={<Franchise />}></Route>
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
