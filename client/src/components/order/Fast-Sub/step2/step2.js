@@ -24,7 +24,7 @@ function Step2() {
       <div className="CHM_faststep2SelectBox">
         <Link to={`/order/Fast-Sub/step2/${replacedString}/push/Nan`}>
           <div
-            style={state === "push" ? { color: "#009223" } : {}}
+            style={state === "push" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("push")}
           >
             추천
@@ -32,7 +32,7 @@ function Step2() {
         </Link>
         <Link to={`/order/Fast-Sub/step2/${replacedString}/promotion/Nan`}>
           <div
-            style={state === "promotion" ? { color: "#009223" } : {}}
+            style={state === "promotion" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("promotion")}
           >
             프로모션
@@ -40,7 +40,7 @@ function Step2() {
         </Link>
         <Link to={`/order/Fast-Sub/step2/${replacedString}/sandwich/Nan`}>
           <div
-            style={state === "sandwich" ? { color: "#009223" } : {}}
+            style={state === "sandwich" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("sandwich")}
           >
             샌드위치
@@ -48,7 +48,7 @@ function Step2() {
         </Link>
         <Link to={`/order/Fast-Sub/step2/${replacedString}/salad/Nan`}>
           <div
-            style={state === "salad" ? { color: "#009223" } : {}}
+            style={state === "salad" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("salad")}
           >
             샐러드
@@ -56,7 +56,7 @@ function Step2() {
         </Link>
         <Link to={`/order/Fast-Sub/step2/${replacedString}/wrap/Nan`}>
           <div
-            style={state === "wrap" ? { color: "#009223" } : {}}
+            style={state === "wrap" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("wrap")}
           >
             랩ㆍ기타
@@ -64,7 +64,7 @@ function Step2() {
         </Link>
         <Link to={`/order/Fast-Sub/step2/${replacedString}/side/Nan`}>
           <div
-            style={state === "side" ? { color: "#009223" } : {}}
+            style={state === "side" ? { backgroundColor: "#009223", color: "white" } : {}}
             onClick={() => stateHandel("side")}
           >
             사이드ㆍ음료
