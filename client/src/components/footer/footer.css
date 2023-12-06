@@ -1,13 +1,42 @@
-
+.footer {
+  background-color: #292929;
+}
 
 .content_jun {
   background-color: #292929;
-  padding: 22px;
+  padding: 5px 0 5px;
   position: relative;
-  z-index: 9;
+  margin: 0 auto;
+  max-width: 1170px;
 }
 
 .util_menu_jun{
-  margin-bottom: 25px;
+  display: flex;
+}
 
+
+#jun_b{ 
+  border: none;
+  background-color: #292929;
+  padding: 0 20px 0;
+  color: #7a6f6f;
+  font-size: large;
+}
+
+#jun_b1{ 
+  border: none;
+  background-color: #292929;
+  padding: 20px;
+  color: #c5b5b5;
+  font-size: large;
+}
+
+.line {
+  border-bottom: 1px solid #7a6f6f;
+  width: 100%;
+}
+
+.footer_text{
+  padding-top: 20px;
+  color: #7a6f6f;
 }

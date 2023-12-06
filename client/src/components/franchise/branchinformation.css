@@ -1,0 +1,24 @@
+
+.branchinformation{
+  background-color: gray;
+  position: relative;
+}
+
+#title2{
+  padding-top: 50px;
+  text-align: center;
+  font-size: 35px;
+  padding-bottom: 50px;
+}
+
+.button_css{
+  display: flex;
+  justify-content: center;
+}
+
+.button_css button{
+  /* border: none; */
+  background-color: white;
+  width: 380px;
+  height: 60px;
+}
