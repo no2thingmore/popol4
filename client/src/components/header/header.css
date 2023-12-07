@@ -72,7 +72,7 @@ ul {
   padding:  5px 32px;
   background-color: white;
 
-  display: block;
+  display: none;
   width: 100%;
   height: 200px;
   flex-direction: row;
