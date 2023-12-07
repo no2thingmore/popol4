@@ -38,17 +38,28 @@ function Login(){
           <p>마이웨이 회원으로 로그인하시면 제공하는</p>
           <p>다양한 서비스를 이용할 수 있습니다.</p>
         </div>
-        <fieldset className="login_input">
+        <fieldset className="login_form">
           <form onSubmit={login} className="login_form">
-            <label>아이디(이메일)</label>
-            <input id="login_id" type="text" value={userId}></input>
-            <label>비밀번호</label>
-            <input id="login_pwd" type="password"></input>
+            <div className="login_input">
+              <div className="login_id_input">
+                <label>아이디(이메일)</label>
+                <input id="login_id" type="text" value={userId} placeholder="아이디(이메일) 입력"></input>
+              </div>
+              <div className="login_pwd_input">
+                <label>비밀번호</label>
+                <input id="login_pwd" type="password" placeholder="비밀번호 입력"></input>
+              </div>
+            </div>
+            <div className="login_id_save">
             <input id="login_saveID" type="checkbox" /> 아이디(이메일) 저장
+            </div>
+            <div className="login_btn">
             <button type="submit">로그인</button>
+            </div>
+            
           </form>
         </fieldset>
-        <ol>
+        <ol className="login_nav">
           <li>
             <a >아이디 찾기</a>
           </li>
