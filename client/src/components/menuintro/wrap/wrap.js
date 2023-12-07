@@ -36,7 +36,7 @@ function Wrap(props) {
       <div style={{zIndex: 3}} className={"anititle "+anititle}>
         <h1>Wrap</h1>
         <div className="CHM_SubTitle">
-          <div style={{ marginBottom: "0.5vw" }}>
+          <div style={{ marginBottom: "1vw" }}>
             Subway를 더 맛있고 간편하게 즐기는 방법
             <br />
             최상의 레시피로 만들어진 써브웨이 랩 시리즈, 이젠 고민하지 마세요!

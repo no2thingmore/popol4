@@ -1,14 +1,23 @@
 /* FAQ.css 파일 */
 
+#title1{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-size: 35px;
+}
+
+
 .wow {
   display: flex;
   flex-direction: column; 
   align-items: center;
   height: 50%;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
 }
 .faq_container1{
   border-top: 3px solid green;
+  padding-top: 3px;
   padding-bottom: 5px;
 }
 
@@ -16,7 +25,7 @@
 .faq_container2 {
   border-bottom: 1px solid #ccc;
   margin: 5px;
-  width: 1200px;
+  width: 1000px;
 }
 
 .faq_section {

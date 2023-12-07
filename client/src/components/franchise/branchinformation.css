@@ -1,6 +1,6 @@
 
 .branchinformation{
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   position: relative;
 }
 
@@ -11,14 +11,168 @@
   padding-bottom: 50px;
 }
 
-.button_css{
+.button_css {
   display: flex;
   justify-content: center;
+  border: none;
 }
 
-.button_css button{
-  /* border: none; */
-  background-color: white;
+#bt_css_1 {
+  border-left: none;
+  border-right: none;
+}
+
+.button_css button {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(228, 197, 197);
+  box-shadow: 3px 3px 10px #cecccc;
   width: 380px;
   height: 60px;
+  position: relative;
+  top: 47px;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.button_css button.active {
+  background-color: #009233;
+  color: white;
+}
+
+.button_css button.noactive {
+  background-color: white;
+  color: black;
+}
+
+#bt_css_1.active {
+  background-color: #009233;
+  color: white;
+}
+
+.jh_seoul {
+  width: 100%;
+  height: 800px;
+  background-color:#f6f6f6;
+}
+
+.jh_center {
+  width: 100%;
+  height: 1000px;
+  background-color:#f6f6f6;
+}
+
+.jh_country{
+  width: 100%;
+  height: 1500px;
+  background-color:#f6f6f6;
+}
+
+.seoul_box {
+  width: 1135px;
+  height: 600px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+}
+
+.seoul_img1 {
+  padding-left: 20px;
+  position: absolute;
+}
+
+.jh_country_img{
+  padding-left: 130px;
+  position: absolute;
+}
+
+#seoul_label > li{
+  padding: 5px;
+  list-style: none;
+}
+
+#country_label1,
+#center_label1,
+#seoul_label1 {
+  color: #9631A8;
+}
+
+#country_label2,
+#center_label2,
+#seoul_label2 {
+  color: #FFC300;
+}
+
+#country_label6,
+#center_label3 {
+  color: #01A5E2;
+}
+#country_label3{
+  color: #006228;
+}
+#country_label4{
+  color:#62CE08;
+}
+#country_label5{
+ color:#FF8201;
+}
+.seoul_text{
+  border: 1px solid rgb(133, 126, 126);;
+  background-color: white;
+  float: right;
+  position: relative;
+  bottom: 52px;
+  width: 380px;
+  height: 350px;
+}
+
+.center_text{
+  border: 1px solid rgb(133, 126, 126);;
+  background-color: white;
+  float: right;
+  position: relative;
+  bottom: 52px;
+  width: 380px;
+  height: 520px;
+}
+.country_text{
+  border: 1px solid rgb(133, 126, 126);;
+  background-color: white;
+  float: right;
+  position: relative;
+  bottom: 180px;
+  width: 380px;
+  height: 1200px;
+}
+
+.seoul_text1{
+  width: 90%;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.seoul_text1 b {
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  position: relative;
+  bottom: 12px;
+}
+.seoul_text1 p {
+  color: rgb(133, 126, 126);
+  font-size: 13px;
+}
+
+#seoul_text1_line{
+  margin: 35px 22px 0;
+  max-width: 100%;
+  border-bottom: 1px solid rgb(192, 183, 183);
+}
+
+#seoul_a {
+  margin-top: 30px;
+  margin-right: 5px;
+  float: right;
+}
+
+.fa-arrow-right {
+  color: green;
 }

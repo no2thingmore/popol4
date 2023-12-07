@@ -54,16 +54,16 @@ function Header() {
         <li className="menu-item">
           가맹점
           <ul className="submenu">
-            <li><a href="/">써브웨이 프랜차이즈</a></li>
-            <li><a href="/">가맹관련 FAQ</a></li>
-            <li><a href="/">가맹신청 문의</a></li>
-            <li><a href="/">지사안내</a></li>
-            <li><a href="/">사업설명회</a></li>
+            <li><a href="/subwayfranchise">써브웨이 프랜차이즈</a></li>
+            <li><a href="/faq">가맹관련 FAQ</a></li>
+            <li><a href="/franchiseinquire">가맹신청 문의</a></li>
+            <li><a href="/branchinformation">지사안내</a></li>
+            <li><a href="/briefing">사업설명회</a></li>
           </ul>
         </li>
         <li className="menu-item">
           온라인 주문
-          <ul className="submenu">
+          <ul className="submenu" style={{width: "140%"}}>
             <li><Link to="/order/Fast-Sub/step1/Noplace/Null/Nan">FAST-SUB</Link></li>
             <li><Link to="/order/Home-Sub/step1/Null/Nan">HOME-SUB</Link></li>
             <li><Link to="/order/group/select/Null/Nan">단체주문</Link></li>
