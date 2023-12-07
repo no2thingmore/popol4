@@ -49,6 +49,7 @@
   
 }
 
+/* 리스트 그림 사이즈*/
 
 
 .y_list_item{
@@ -59,7 +60,7 @@
 
 /* 마우스 가져다 대면 색 바낌 */
 .y_list_item:hover{
-  box-shadow: 0 0 0 10px green;
+  /* box-shadow: 0 0 0 10px green; */
 }
 
 .list_content{
