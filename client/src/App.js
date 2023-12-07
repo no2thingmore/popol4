@@ -62,8 +62,8 @@ function App() {
         <Route path="/Slider" element={<Slider></Slider>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin/:type" element={<Admin></Admin>}></Route>
-        <Route path="/ffaq" element={<FAQ />}></Route>
-        <Route path="/qqna" element={<QNA />}></Route>
+        <Route path="/ffaq" element={<FFAQ />}></Route>
+        <Route path="/qqna" element={<QQNA />}></Route>
       </Routes>
       <Footer />
     </div>
