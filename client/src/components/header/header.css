@@ -59,9 +59,10 @@ ul {
 }
 
 .menu-item {
-  padding: 30px 40px;
+  padding: 2vw 0vw;
   position: relative;
   z-index: 10;
+  font-size: 1.3vw;
 }
 
 .submenu {
@@ -69,10 +70,10 @@ ul {
   position: absolute;
   top: 100%;
   left: -30px;
-  padding: 30px;
+  padding:  0.5vw 2.3vw;
   background-color: white;
 
-  display: block;
+  display: none;
   width: 100%;
   height: 200px;
   flex-direction: row;
