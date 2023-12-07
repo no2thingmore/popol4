@@ -19,10 +19,14 @@ import Detail from './components/productdetail/detail';
 import Order from "./components/order/order"
 import Ordertip_1 from "./components/howtouse/howtousesubway/ordertip_1"
 import Storeorder from "./components/howtouse/howtousesubway/storeorder"
+import Slider from "./components/howtouse/howtousesubway/slider"
 import Groupmenu from "./components/howtouse/groupmenu/groupmenu"
 import Howtousesubway from "./components/howtouse/howtousesubway/howtousesubway"
+import Ingredient from "./components/howtouse/ingredient/ingredient"
 import Register from "./components/register/register";
 import Admin from "./components/admin/admin";
+import FFAQ from './components/helpdesk/ffaq';
+import QQNA from './components/helpdesk/qqna';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -52,14 +56,18 @@ function App() {
         <Route path="/order/:type/:step/:location/:product/:id" element={<Order></Order>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
-        <Route path='/franchise/:prod' element={<Franchise />}></Route>
+        <Route path='/:franchisee' element={<Franchise />}></Route>
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/Howtousesubway" element={<Howtousesubway></Howtousesubway>}></Route>
+        <Route path="/Ingredient" element={<Ingredient></Ingredient>}></Route>
         <Route path="/Ordertip_1" element={<Ordertip_1></Ordertip_1>}></Route>
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
+        <Route path="/Slider" element={<Slider></Slider>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
-        <Route path="/admin" element={<Admin></Admin>}></Route>
+        <Route path="/admin/:type" element={<Admin></Admin>}></Route>
+        <Route path="/ffaq" element={<FFAQ />}></Route>
+        <Route path="/qqna" element={<QQNA />}></Route>
       </Routes>
       <Footer />
     </div>

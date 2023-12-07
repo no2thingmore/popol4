@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MapContainer = ({ searchPlace }) => {
   const navigate = useNavigate();
@@ -7,12 +7,7 @@ const MapContainer = ({ searchPlace }) => {
   useEffect(() => {
     const { kakao } = window;
 
-    if (
-      kakao &&
-      kakao.maps &&
-      kakao.maps.services &&
-      kakao.maps.services.Places
-    ) {
+    if (kakao && kakao.maps && kakao.maps.services && kakao.maps.services.Places) {
       var infowindow = new kakao.maps.InfoWindow({ zIndex: 3 });
       const container = document.getElementById("myMap");
       const options = {
@@ -23,18 +18,34 @@ const MapContainer = ({ searchPlace }) => {
 
       const ps = new kakao.maps.services.Places();
 
-      ps.keywordSearch(searchPlace, placesSearchCB);
+      // 검색어에 "써브웨이"가 포함되어 있는지 확인
+      if (searchPlace.includes("써브웨이")) {
+        ps.keywordSearch(searchPlace, placesSearchCB, { category_filter: "FD6" });
+      } else {
+        // 포함되어 있지 않으면 "써브웨이" 키워드를 추가하여 검색
+        ps.keywordSearch(`${searchPlace} 써브웨이`, placesSearchCB, { category_filter: "FD6" });
+      }
 
       function placesSearchCB(data, status, pagination) {
         if (status === kakao.maps.services.Status.OK) {
           let bounds = new kakao.maps.LatLngBounds();
+          let subwayFound = false;
 
           for (let i = 0; i < data.length; i++) {
-            displayMarker(data[i]);
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            console.log(data[i].category_name);
+
+            if (data[i].category_name.includes("써브웨이")) {
+              displayMarker(data[i]);
+              bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+              subwayFound = true;
+            }
           }
 
-          map.setBounds(bounds);
+          if (subwayFound) {
+            map.setBounds(bounds);
+          } else {
+            alert("검색 결과에 써브웨이가 없습니다.");
+          }
         }
       }
 
@@ -47,9 +58,7 @@ const MapContainer = ({ searchPlace }) => {
         const location = place.place_name;
         console.log("location: ", location);
 
-        // 마커에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(marker, "click", function () {
-          // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
           infowindow.setContent(
             `<div style="padding:5px;font-size:0.8vw;cursor: pointer;" onclick="handleClick('${location}')">${location}</div>`
           );
@@ -57,7 +66,6 @@ const MapContainer = ({ searchPlace }) => {
         });
       }
 
-      // 클릭 이벤트 핸들러에서 페이지 이동과 함께 location 값을 전달하는 함수
       window.handleClick = (location) => {
         navigate(`/order/Fast-Sub/step2/${location}/sandwich/Nan`);
       };

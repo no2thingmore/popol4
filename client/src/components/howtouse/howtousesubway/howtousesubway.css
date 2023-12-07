@@ -1,60 +1,49 @@
 .jsw_maindiv {
   width: 100%;
+  z-index: 7;
+  background-color: white;
   
   
 }
 
 .jsw_howto {
-  height: 200px;
+  padding-top: 50px;
+  height: 150px;
   
   
 }
 
-/* #jsw_container2 {
-} */
 
 #jsw_container_2 {
-  width: 1000px;
+  width: 1200px;
   height: 65px;
   margin: 0 auto;
 
-  text-align: center;
+  /* text-align: center; */
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: white;
 
-  z-index: 7;
+  z-index: 10;
 
   box-shadow: 1px 1px 3px 1.5px #666666;
 
+  position: relative;
+  top: 30px;
 }
 
-#jsw_nav1 {
-  box-shadow: 0 0 3px 0 #666666;
-
+#jsw_nav1_1 {
+  text-align: center;
+  padding-top: 25px;
 }
 
-/* #jsw_nav1.selectNav {
-  background-color: #009233;
-  box-shadow: 0 0 5px 0 #666666;
+#jsw_nav1_1.active {
+  background-color: #009223;
   color: white;
 }
-
-#jsw_nav1.noactive {
+#jsw_nav1_1.noactive {
   background-color: white;
   color: black;
 }
-
-#jsw_nav2.nav-item.active {
-  background-color: #009233;
-  color: white;
-}
-
-#jsw_nav2.nav-item {
-  box-shadow: 0 0 5px 0 #666666;
-  background-color: white;
-  color: black;
-} */
-
-
 
 

@@ -3,6 +3,7 @@ import img from "./sandwich.png";
 import Result2 from "./result2";
 
 function Result(props) {
+  //props로 상품 종류와 id를 가져와 정확한 상품 추척
   const [data, setData] = useState({
     id: 1,
     Kname: "그룹 스파이시 바비큐",

@@ -3,7 +3,7 @@ a {
   text-decoration: none;
 }
 
-ul {
+.submenu ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,17 +29,18 @@ ul {
 }
 
 #logo {
+  font-family: 'TTWanjudaedunsancheB';
   text-align: center;
   padding-top: 50px;
   margin-bottom: 20px;
-  left: 50%;
   margin-top: 0;
+  font-size: 50px;
 }
 
 .util_menu {
   display: flex;
   justify-content: end;
-  padding-right: 3vw;
+  padding-right: 30px;
 }
 
 .util_menu button {
@@ -49,31 +50,38 @@ ul {
 
 .menu {
   list-style: none;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 0 250px;
   cursor: pointer;
+  text-align: center;
 }
 
 .menu-item {
-  margin: 30px 60px;
+  padding: 40px 0;
   position: relative;
   z-index: 10;
+  font-size: 22px;
 }
 
 .submenu {
   list-style: none;
   position: absolute;
-  top: 100%;
+  top: 95px;
   left: -30px;
-  padding: 30px;
+  padding:  5px 32px;
   background-color: white;
 
   display: none;
-  width: 260%;
+  width: 100%;
   height: 200px;
   flex-direction: row;
   font-size: small;
   z-index: 10;
+}
+
+.submenu li {
+  padding: 8px 0;
 }
 
 .submenu li:hover{
@@ -90,9 +98,7 @@ ul {
   display: block; 
 }
 
-.submenu li {
-  padding: 8px 0;
-}
+
 .menu:hover .submenu {
   display: flex;
   flex-direction: column;

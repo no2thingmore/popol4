@@ -75,8 +75,6 @@ function Promise(){
                 써브웨이는 작은 부분이라도 놓치지 않고
                 <br />
                 환경을 늘 생각하는 브랜드가 되기 위해 지속적으로 노력하고 있습니다.
-                <br />
-                우리는 이 모든 것을 태워 빛이 될 거야
                 </p>
               </div>
               <p className="eng">Our Impact</p>

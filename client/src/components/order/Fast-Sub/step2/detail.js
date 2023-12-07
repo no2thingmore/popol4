@@ -4,6 +4,7 @@ import { useState } from "react";
 import Result from "./result";
 
 function Detail(props) {
+  //props를 토대로 데이터 찾기
   const [data, setData] = useState([
     {
       id: 1,
@@ -157,7 +158,6 @@ function Detail(props) {
       ) : (
         ""
       )}
-      <Link to="/order/Fast-Sub/step3">다음 스텝으로</Link>
     </>
   );
 }

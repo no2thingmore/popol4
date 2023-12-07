@@ -2,10 +2,6 @@ ol{
   list-style: none;
 }
 
-#Holy_Fxxk{
-  border: 1px solid red;
-  width: 100%;
-}
 
 #Promise_Main_Div{
   margin: auto;
@@ -29,7 +25,7 @@ ol{
 /*************** 헤 더 ***************/
 .Head_Line{
   text-align: center;
-  border: 1px solid #000;
+  margin-bottom: 81px;
 }
 .Head_txt{
   font-family: 'GangwonEduPowerExtraBoldA';
@@ -63,9 +59,17 @@ ol{
   line-height: 120%;
   /* border: 1px solid #000; */
 }
+.grid_li .grid_li_item:nth-child(odd){
+  background-color: #f6f6f6;
+}
+.grid_li .grid_li_item:nth-child(even){
+  background-color: #fff;
+}
+
 .grid_li_item{
   width: 100%;
-  border: 1px solid #000;
+  padding-bottom: 70px;
+  position: relative;
 }
 .grid_li_item::after{
   content: '';
@@ -75,17 +79,16 @@ ol{
   bottom: 0;
   height: 130px;
 }
-.grid_li_item:nth-child(odd)::after{
+.grid_li .grid_li_item:nth-child(odd)::after{
   background-color: #fff;
 }
-.grid_li_item:nth-child(even)::after{
+.grid_li .grid_li_item:nth-child(even)::after{
   background-color: #f6f6f6;
 }
-
 .grid_box{
   margin: 0 auto;
-
-  width: 100%;
+  /* display: flex; */
+  width: 1170px;
   padding-top: 60px;
   position: relative;
   z-index: 3;
@@ -94,28 +97,30 @@ ol{
 #grid_1st, #grid_3rd{
   display: grid;
   grid-template-areas: ".image_sec .grid_txt_area";
-  background-color: #f6f6f6;
-  justify-content: space-between;
+  /* background-color: #f6f6f6; */
+  /* justify-content: space-between; */
 }
 #grid_2nd, #grid_4th{
   display: grid;
   grid-template-areas: ".grid_txt_area .image_sec";
-  background-color: #fff;
-  justify-content: space-between;
+  /* background-color: #fff; */
+  /* justify-content: space-between; */
 }
 
 /*************** 이 미 지 ***************/
 
 .image_sec{
   /* position: absolute; */
-  border: 1px solid #000;
+  width: 1170px;
+  justify-content: center;
 }
+
 .image_sec > img{
   vertical-align: top;
-
   border: 0;
 }
-.grid_li_item:nth-child(even) {
+
+.grid_li .grid_li_item:nth-child(even) img{
   float: right;
 }
 
@@ -127,7 +132,7 @@ ol{
   height: 50%;
   line-height: 120%;
   position:absolute;
-  border: 1px solid #000;
+  display: block;
 }
 .grid_li_item:nth-child(odd) .grid_txt_area{
   left: 670px;
@@ -196,18 +201,20 @@ ol{
   font-family: 'GangwonEduPowerExtraBoldA';
   position: absolute;
   right: 50%;
-  bottom: 52px;
+  top: 317px;
+  /* bottom: 52px; */
   color: #f6f6f6;
   font-size: 80px;
   font-weight: bold;
   letter-spacing: -0.035em;
-  outline: 1px solid #000;
 }
-.grid_li_item:nth-child(odd) .eng{
+.grid_li .grid_li_item:nth-child(odd) .eng{
   color: #fff;
   left: 600px;
 }
 
-.grid_li_item:nth-child(even) .eng{
+.grid_li .grid_li_item:nth-child(even) .eng{
+  text-align: right;
   right: 600px;
+  width: fit-content;
 }

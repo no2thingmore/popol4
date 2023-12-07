@@ -24,7 +24,7 @@ function LandingPage() {
             onChange={onChange}
             value={InputText}
           />
-          <i  type="submit" class="fa-solid fa-magnifying-glass"></i>
+          <i onClick={handleSubmit} type="submit" class="fa-solid fa-magnifying-glass"></i>
         </form>
       </div>
 
