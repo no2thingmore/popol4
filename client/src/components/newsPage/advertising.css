@@ -21,9 +21,7 @@
 }
 
 /* 호버 */
-img:hover{
-  box-shadow: 0 0 0 10px green;
-}
+
 
 .m_advertising_Image{
   margin: auto;
