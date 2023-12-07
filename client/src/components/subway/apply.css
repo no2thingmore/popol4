@@ -1,0 +1,121 @@
+
+/*************** 슬 라 이 드 ***************/
+
+.Artist_slide_content{
+  margin-top: 60px;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+
+.Artist_slide{
+  max-width: 2570px;
+  width: 100%;
+  overflow: hidden;
+}
+.Artist_slide_viewport{
+  position: absolute !important;
+  left: 50% !important;
+  width: 2478px !important;
+  margin-left: -378px !important;
+  overflow: initial !important;
+}
+.slide_li{
+  list-style: none;
+  width: 4215%;
+  position: relative;
+  transition-duration: 0.5s;
+  transform: translate3d(-3600px, 0px, 0px);
+}
+.slide_li_item{
+  float: left;
+  list-style: none;
+  position: relative;
+  width: 770px;
+  margin-right: 130px;
+}
+/*************** 슬 라 이 드 이 미 지 ***************/
+.slide_img{
+  opacity: 1;
+  transition-delay: 0.3s;
+  transition-duration: 0.45s
+}
+
+.slide_img > img{
+position: relative;
+  width: 770px;
+  /* height: 390px; */
+  vertical-align: top;
+  border: 0;
+}
+.slide_li:nth-child(5n) .slide_img{
+  background-position: 0 60px;
+  overflow: hidden;
+}
+
+/*************** 슬 라 이 드 텍 스 트 ***************/
+.slide_info{
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+  margin-top: 40px;
+  opacity: 0;
+  top: 30px;
+}
+.slide_info::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 4px;
+  width: 50px;
+  margin-left: -25px;
+  background-color: #ffc300;
+}
+.slide_info_tit{
+  font-size: 22px;
+  font-weight: bold;
+  color: #292929;
+  letter-spacing: 0em;
+}
+.slide_info_txt{
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #666666;
+  line-height: 26px;
+  letter-spacing: -0.05em;
+}
+
+
+/*************** 슬 라 이 드 버 튼 ***************/
+.slide_ctl_Arrow{
+  width: 50px;
+  height: 50px;
+  background: url(./art_images/icon_slider_arr.png) no-repeat;
+  position: absolute;
+  top: 170px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0px;
+  text-indent: -9999px;
+}
+.slide_ctl_Arrow > a{
+  color: #333;
+  cursor: pointer;
+}
+.bt_prev{
+  background-position: 0 0;
+  left: 50%;
+  margin-left: -467px;
+}
+.bt_next{
+  background-position:100% 0;
+  right: 50%;
+  margin-right: -482px;
+}
+
+/*************** 핵 심 요 소 ***************/
+
+
+/*************** 채 용 지 원 ***************/

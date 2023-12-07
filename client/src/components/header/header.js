@@ -45,10 +45,10 @@ function Header() {
         <li className="menu-item">
           써브웨이
           <ul className="submenu">
-            <a href="/"><li>써브웨이 역사</li></a>
-            <a href="/"><li>써브웨이 약속</li></a>
-            <a href="/"><li>샌드위치 아티스트 지원</li></a>
-            <a href="/"><li>매장찾기</li></a>
+            <a href="/History"><li>써브웨이 역사</li></a>
+            <a href="/Promise"><li>써브웨이 약속</li></a>
+            <a href="/Apply"><li>샌드위치 아티스트 지원</li></a>
+            <a href="/StoreSearch"><li>매장찾기</li></a>
           </ul>
         </li>
         <li className="menu-item">
