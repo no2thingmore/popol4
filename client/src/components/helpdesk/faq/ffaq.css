@@ -65,6 +65,7 @@
     text-align: center;
     padding: 75px 0 75px 0;
     font-size: 40px;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     justify-content: center;
 }
@@ -89,16 +90,38 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
     margin-bottom: 100px;
+    background-color: #e2e2e2;
 }
 
 .qms_info {
     display: flex;
-    font-size: 14px;
-    margin: 0 30px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 0 10px;
     align-items: center;
     justify-content: center;
     height: 75px;
+}
+
+.faq_qms_text {
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.faq_qms_text:hover {
+    background-color: rgba(141, 255, 131, 0.745); /* 마우스 오버 시 버튼의 배경색 변경 */
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.faq_qms_text.selected-text {
+    background-color: rgba(141, 255, 131, 0.745);
+    border-radius: 15px;
 }
 
 .faq_info {
@@ -131,6 +154,7 @@
     padding: 0;
     display: flex;
     padding-right: 42px;
+    background-color: #f2f2f2;
 }
 
 .searchform input {
@@ -175,7 +199,7 @@
     background-color: white;
     cursor: pointer;
     position: relative;
-    padding: 20px 100px 25px;
+    padding: 15px 100px 15px;
     margin-bottom: 2px;
     border: 3px solid #f2f2f2;
 }
@@ -183,7 +207,7 @@
 .faq_list_p {
     position: absolute;
     left: 35px;
-    top: 45px;
+    top: 40px;
     margin-top: -15px;
     color: #fff;
     font-weight: bold; 
@@ -192,7 +216,6 @@
     width: 30px;
     height: 30px;
     padding-top: 1px;
-    padding-left: 3px;
     box-sizing: border-box;
     background-color: #009223;
     text-align: center;
@@ -203,8 +226,9 @@
     display: block;
     color: #292929;
     line-height: 26px;
-    font-size: 16px;
-    font-weight: normal;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
 }
 
 .faq_list_plus {
@@ -215,7 +239,6 @@
     height: 20px;
     position: absolute;
     right: 40px;
-    margin-top: -10px;
     transition: transform 0.3s ease;
 }
 
@@ -281,7 +304,6 @@
 
 .faq_list_info.active .faq_dropdown_content {
     padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .faq_list_a {
@@ -305,9 +327,11 @@
 
 .faq_list_ask {
     position: relative;
-    padding: 18px 0 22px;
+    padding: 18px 0 0 0;
     border-top: 1px solid #dddddd;
     color: #666666;
     line-height: 26px;
     font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
 }
