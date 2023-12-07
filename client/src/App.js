@@ -21,6 +21,8 @@ import Groupmenu from "./components/howtouse/groupmenu/groupmenu"
 import Howtousesubway from "./components/howtouse/howtousesubway/howtousesubway"
 import Register from "./components/register/register";
 import Admin from "./components/admin/admin";
+import FAQ from './components/helpdesk/faq';
+import QNA from './components/helpdesk/qna';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -56,6 +58,8 @@ function App() {
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
+        <Route path="/faq" element={<FAQ />}></Route>
+        <Route path="/qna" element={<QNA />}></Route>
       </Routes>
       <Footer />
     </div>
