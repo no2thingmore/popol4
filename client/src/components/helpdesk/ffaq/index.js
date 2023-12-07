@@ -102,7 +102,7 @@ function FFAQ() {
                 
                 <div className='jh_faq_section'>
                     <h2 className='jh_faq_title_name'>
-                        FAQ
+                        자주하는질문 (FAQ)
                     </h2>
                     {/* 타입 선택 버튼 */}
                     <div className='jh_faq_qms_section'>
