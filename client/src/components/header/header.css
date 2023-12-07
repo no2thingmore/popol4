@@ -33,15 +33,14 @@ ul {
   text-align: center;
   padding-top: 50px;
   margin-bottom: 20px;
-  left: 50%;
   margin-top: 0;
-  font-size: 3vw;
+  font-size: 50px;
 }
 
 .util_menu {
   display: flex;
   justify-content: end;
-  padding-right: 3vw;
+  padding-right: 30px;
 }
 
 .util_menu button {
@@ -53,27 +52,27 @@ ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  margin: 0 13vw;
+  margin: 0 250px;
   cursor: pointer;
   text-align: center;
 }
 
 .menu-item {
-  padding: 2vw 0vw;
+  padding: 40px 0;
   position: relative;
   z-index: 10;
-  font-size: 1.3vw;
+  font-size: 22px;
 }
 
 .submenu {
   list-style: none;
   position: absolute;
-  top: 100%;
+  top: 95px;
   left: -30px;
-  padding:  0.5vw 2.3vw;
+  padding:  5px 32px;
   background-color: white;
 
-  display: none;
+  display: block;
   width: 100%;
   height: 200px;
   flex-direction: row;
