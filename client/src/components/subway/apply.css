@@ -1,3 +1,6 @@
+/*************** 본 문 ***************/
+
+
 
 /*************** 슬 라 이 드 ***************/
 
@@ -36,13 +39,16 @@
 }
 /*************** 슬 라 이 드 이 미 지 ***************/
 .slide_img{
+  width: 770px;
+  height: 390px;
   opacity: 1;
+  overflow: hidden;
   transition-delay: 0.3s;
   transition-duration: 0.45s
 }
 
 .slide_img > img{
-position: relative;
+  position: relative;
   width: 770px;
   /* height: 390px; */
   vertical-align: top;
@@ -50,7 +56,6 @@ position: relative;
 }
 .slide_li:nth-child(5n) .slide_img{
   background-position: 0 60px;
-  overflow: hidden;
 }
 
 /*************** 슬 라 이 드 텍 스 트 ***************/

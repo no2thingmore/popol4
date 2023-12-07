@@ -26,10 +26,10 @@
   padding: 5px 10px 5px 10px;
   background-color: royalblue;
   margin-left: 20px;
- }
+}
 
 /* 버튼 누르면 색바낌 */
- .y_button>li>a:active{
+.y_button>li>a:active{
   background-color: blueviolet;
 }
 
@@ -49,10 +49,7 @@
   
 }
 
-/* 리스트 그림 */
-a>div>img{ 
-  width: 450px
-}
+
 
 .y_list_item{
   width: fit-content;
