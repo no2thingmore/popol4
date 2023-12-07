@@ -1,19 +1,59 @@
-.admin_contents{
+.admin_header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(34, 34, 34);
+}
+
+.admin_ul_list {
+  text-align: center;
+}
+
+.admin_ul_list > li {
+  float: left;
+  padding: 8% 1em;
+  font-size: 1vw;
+  color: white;
+}
+
+#admin_logo h1 {
+  font-family: "TTWanjudaedunsancheB";
+  padding-left: 1vw;
+  font-size: 2.2vw;
+  color: white;
+}
+
+
+.admin_contents{
   width: 100%;
   position: absolute;
   z-index: 10;
   top: 0;
-  background-color: white;
-  height: 20vw;
+  background-color: rgb(229, 229, 229);
+  min-height: 100vh;
 }
 
-.admin_tags{
-  margin: 20px 20px;
+.admin_tagBox{
+  background-color: rgb(94, 94, 94);
+  width: 100%;
+  height:4vw;
+}
+
+.admin_tagBox nav{
+  width: 100%;
+  height:100%;
+}
+
+.admin_tagBox ul{
+  width: 100%;
+  height:100%;
+  display: flex;
+  align-items: center;
 }
 
 .admin_tags > li{
   float: left;
   padding: 1em;
+  color: white;
+  font-size: 1.2vw;
 }
