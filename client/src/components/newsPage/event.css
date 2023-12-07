@@ -33,21 +33,25 @@
   background-color: blueviolet;
 }
 
-.y_list_all{
+.y_list_ongoing{
   display: grid;
-  grid-template-rows:1fr 1fr ; 
+  grid-template-rows:1fr 1fr; 
   grid-template-columns:1fr 1fr 1fr;
-  gap: 30px;
+  gap: 20px;
+  
+}
+
+.y_list_termination{
+  display: grid;
+  grid-template-rows:1fr;
+  grid-template-columns:1fr 1fr 1fr;
+  gap: 20px;
+  
 }
 
 /* 리스트 그림 */
 a>div>img{ 
   width: 450px
-}
-
-.y_list_li{
-  justify-content: center
-  
 }
 
 .y_list_item{

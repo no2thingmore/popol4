@@ -10,6 +10,8 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Main from "./components/mainPage";
 import Event from "./components/newsPage/event";
+import Advertising from "./components/newsPage/advertising";
+import Notice from "./components/newsPage/notice";
 import Login from './components/login/login';
 import Franchise from './components/franchise/franchise'
 import Menuintro from "./components/menuintro/menuintro";
@@ -45,6 +47,8 @@ function App() {
         <Route path="/Apply" element={<Apply></Apply>}></Route>
         <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
         <Route path="/Event" element={<Event />}></Route>
+        <Route path="/Advertising" element={<Advertising />}></Route>
+        <Route path="/Notice" element={<Notice />}></Route>
         <Route path="/order/:type/:step/:location/:product/:id" element={<Order></Order>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
