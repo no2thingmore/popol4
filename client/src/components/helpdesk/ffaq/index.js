@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import FaQ_QM_Data from './data/faq_data';
 import FaQ_List from './data/faq_list';
 
-function QNA() {
+function FFAQ() {
 
     const rendertext = (text) => {
         return text.split('\n').map((line, index) => (
@@ -85,75 +85,79 @@ function QNA() {
 
     return (
         <>
-        <div className='faq_help_all'>
-            <div className='faq_help_container'>
-                <div className='faq_help_bar'>
-                    <Link to='/faq'>
-                        <div className='faq_help_bar_faq'>FAQ</div>
-                        <div className='faq_line_bar'></div>
-                    </Link>
-                    <Link to='/qna'>
-                        <div className='faq_help_bar_qna'>1:1문의</div>
-                    </Link>
-                </div>
-                <div className='faq_section'>
-                    <h2 className='faq_title_name'>
+        <div className='jh_faq_help_all'>
+            <div className='jh_faq_help_bar'>
+                <Link to='/faq'>
+                    <div className='jh_faq_help_bar_faq'>
+                        FAQ
+                        <div className='jh_faq_line_bar'></div>
+                    </div>
+                    
+                </Link>
+                <Link to='/qna'>
+                    <div className='jh_faq_help_bar_qna'>1:1문의</div>
+                </Link>
+            </div>
+            <div className='jh_faq_help_container'>
+                
+                <div className='jh_faq_section'>
+                    <h2 className='jh_faq_title_name'>
                         FAQ
                     </h2>
                     {/* 타입 선택 버튼 */}
-                    <div className='faq_qms_section'>
+                    <div className='jh_faq_qms_section'>
                             {FaQ_QM_Data.map((qmItem) => (
                                 <div key={qmItem.id}
-                                    className='qms_info'
+                                    className='jh_qms_info'
                                     onClick={() => handleTypeSelect(qmItem.type)}>
-                                    <div className={`faq_qms_text ${selectedType === qmItem.type ? 'selected-text' : ''}`}>
+                                    <div className={`jh_faq_qms_text ${selectedType === qmItem.type ? 'selected-text' : ''}`}>
                                         {qmItem.text}
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    <div className='faq_content'>
-                        <div className='faq_info'>
-                            <div className='faq_content_info'>
-                                <div className='faq_right_content'>
-                                    <div className='faq_form_search'>
-                                        <from className='searchform'>
-                                            <input name='faq_search' placeholder='검색어를 입력하세요' type='text'></input>
-                                            <div className='faq_search_img'>
+                    <div className='jh_faq_content'>
+                        <div className='jh_faq_info'>
+                            <div className='jh_faq_content_info'>
+                                <div className='jh_faq_right_content'>
+                                    <div className='jh_faq_form_search'>
+                                        <form className='jh_searchform'>
+                                            <input name='jh_faq_search' placeholder='검색어를 입력하세요' type='text'></input>
+                                            <div className='jh_faq_search_img'>
                                             </div>
-                                        </from>
+                                        </form>
                                     </div>
                                 </div>
-                                <div className='faq_counts'>
+                                <div className='jh_faq_counts'>
                                     총 {filteredFaQList.length}건의 게시글이 있습니다.
                                 </div>
                             </div>
-                            <div className='faq_contens_list'>
+                            <div className='jh_faq_contens_list'>
                             {currentItems.map((item) => (
                                 <div key={item.id} 
-                                className={`faq_list_info ${activeItem === item.id ? 'active' : ''}`} 
+                                className={`jh_faq_list_info ${activeItem === item.id ? 'active' : ''}`} 
                                 onClick={() => handleItemClick(item.id)}
                                 style={activeItem === item.id ? { backgroundColor: '#f2f2f2' } : {}}
                                 >
-                                    <div className='faq_list_section' onClick={() => handleItemClick(item.id)}>
-                                        <div className='faq_list_p'>Q</div>
-                                        <div className='faq_list_content'>{item.title}</div>
-                                        <div ref={(el) => faqPlusRefs.current[item.id] = el} className='faq_list_plus'></div>
+                                    <div className='jh_faq_list_section' onClick={() => handleItemClick(item.id)}>
+                                        <div className='jh_faq_list_p'>Q</div>
+                                        <div className='jh_faq_list_content'>{item.title}</div>
+                                        <div ref={(el) => faqPlusRefs.current[item.id] = el} className='jh_faq_list_plus'></div>
                                     </div>
                                     {activeItem === item.id && (
-                                    <div className='faq_list_aska'>
+                                    <div className='jh_faq_list_aska'>
                                         <div ref={el => dropdownRefs.current.set(item.id, el)} 
-                                        className='faq_dropdown_content' 
+                                        className='jh_faq_dropdown_content' 
                                         style={{ height: activeItem === item.id ? `${dropdownHeight}px` : '0px' }}>
-                                            <div className='faq_list_a'>A</div>
-                                            <div className='faq_list_ask'>{rendertext(item.text)}</div>
+                                            <div className='jh_faq_list_a'>A</div>
+                                            <div className='jh_faq_list_ask'>{rendertext(item.text)}</div>
                                         </div>
                                     </div>
                                     )}
                                 </div>
                             ))}
                                 </div>
-                            <div className='faq_page_list'>
+                            <div className='jh_faq_page_list'>
                                 {/* 이전 페이지 버튼 */}
                                 {currentPage > 1 && (
                                     <span onClick={() => paginate(currentPage - 1)}>&lt;</span>
@@ -180,4 +184,4 @@ function QNA() {
     );
 }
 
-export default QNA;
+export default FFAQ;

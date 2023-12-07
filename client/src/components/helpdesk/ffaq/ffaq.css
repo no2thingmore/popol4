@@ -1,14 +1,16 @@
-.faq_help_all {
+.jh_faq_help_all {
     height: 80em;
 }
 
-.faq_help_container {
+.jh_faq_help_container {
     position: relative;
     margin: 0 auto;
     height: 200px;
 }
 
-.faq_help_bar {
+.jh_faq_help_bar {
+    position: sticky;
+    top: 0;
     margin: 0 auto;
     display: flex;
     width: 100%;
@@ -17,30 +19,31 @@
     border-bottom: 1px solid rgb(180, 180, 180);
     align-items: center;
     justify-content: center;
+    z-index: 2;
+    background-color: white;
 }
 
-.faq_help_bar_faq, .faq_help_bar_ask {
+.jh_faq_help_bar_faq, .jh_faq_help_bar_qna {
     position: relative;
-    width: 100px;
-    font-size: 14px;
-    font-weight: bold;
+    width: 120px;
+    font-size: 24px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.faq_help_bar_faq {
+.jh_faq_help_bar_faq {
     color: green;
     font-weight: 700;
 }
 
-.faq_line_bar {
+.jh_faq_line_bar {
     position: absolute;
     text-align: center;
     justify-content: center;
-    top: 3.8em;
-    left: 50%;
-    transform: translateX(-97%);
+    top: 35px;
     width: 50px;
     border-bottom: 4px solid green;
     opacity: 0; /* 초기 투명도 설정 */
@@ -53,14 +56,14 @@
     to { opacity: 1; }
 }
 
-.faq_section {
+.jh_faq_section {
     width: 100%;
     height: 1000px;
     padding: 0;
     margin: 0;
 }
 
-.faq_title_name {
+.jh_faq_title_name {
     margin: 0 auto;
     text-align: center;
     padding: 75px 0 75px 0;
@@ -70,7 +73,7 @@
     justify-content: center;
 }
 
-.faq_qms_section {
+.jh_faq_qms_section {
     position: absolute;
     width: 1170px;
     display: flex;
@@ -79,13 +82,13 @@
     justify-content: center;
     border: 1px solid rgb(205, 205, 205);
     background-color: white;
-    top: 110%;
+    top: 80%;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.faq_content {
+.jh_faq_content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,7 +98,7 @@
     background-color: #e2e2e2;
 }
 
-.qms_info {
+.jh_qms_info {
     display: flex;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
@@ -106,42 +109,42 @@
     height: 75px;
 }
 
-.faq_qms_text {
+.jh_faq_qms_text {
     margin: 0 auto;
     padding: 10px;
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
 
-.faq_qms_text:hover {
+.jh_faq_qms_text:hover {
     background-color: rgba(141, 255, 131, 0.745); /* 마우스 오버 시 버튼의 배경색 변경 */
     cursor: pointer;
     border-radius: 15px;
 }
 
-.faq_qms_text.selected-text {
+.jh_faq_qms_text.selected-text {
     background-color: rgba(141, 255, 131, 0.745);
     border-radius: 15px;
 }
 
-.faq_info {
+.jh_faq_info {
     width: 1170px;
     height: 580px;
     margin-top: 7em;
 }
 
-.faq_right_content {
+.jh_faq_right_content {
     float: right;
     margin-bottom: 10px;
 }
 
-.faq_content_info {
+.jh_faq_content_info {
     width: 1170px;
     margin: 0 auto;
     display: table;
 }
 
-.faq_form_search {
+.jh_faq_form_search {
     position: relative;
     width: 260px;
     height: 41px;
@@ -149,7 +152,7 @@
     border: 2px solid #dddddd;
 }
 
-.searchform {
+.jh_searchform {
     margin: 0;
     padding: 0;
     display: flex;
@@ -157,7 +160,7 @@
     background-color: #f2f2f2;
 }
 
-.searchform input {
+.jh_searchform input {
     border: 0;
     width: 100%;
     height: 35px;
@@ -166,14 +169,14 @@
     font-size: 16px;
 }
 
-.searchform input::placeholder {
+.jh_searchform input::placeholder {
     font-weight: bold;
     color: rgb(198, 198, 198);
     opacity: 1;
 }
 
-.faq_search_img {
-    background: url(./data//faq_search.png) 50% 50% no-repeat;
+.jh_faq_search_img {
+    background: url(./data/faq_search.png) 50% 50% no-repeat;
     width: 41px;
     height: 41px;
     position: absolute;
@@ -182,20 +185,20 @@
     cursor: pointer;
 }
 
-.faq_counts {
+.jh_faq_counts {
     color: #999999;
     letter-spacing: -0.045em;
     float: left;
     margin-top: 17px;
 }
 
-.faq_contens_list {
+.jh_faq_contens_list {
     width: 1170px;
     margin: 0 auto;
     border-top: 4px solid #009223;
 }
 
-.faq_list_info {
+.jh_faq_list_info {
     background-color: white;
     cursor: pointer;
     position: relative;
@@ -204,7 +207,7 @@
     border: 3px solid #f2f2f2;
 }
 
-.faq_list_p {
+.jh_faq_list_p {
     position: absolute;
     left: 35px;
     top: 40px;
@@ -222,7 +225,7 @@
     border-radius: 15px;
 }
 
-.faq_list_content {
+.jh_faq_list_content {
     display: block;
     color: #292929;
     line-height: 26px;
@@ -231,7 +234,7 @@
     font-weight: 700;
 }
 
-.faq_list_plus {
+.jh_faq_list_plus {
     position: relative;
     margin-left: auto;
     background: url(./data/faq_plus.png) 0 0 no-repeat;
@@ -242,11 +245,11 @@
     transition: transform 0.3s ease;
 }
 
-.faq_list_plus.active {
+.jh_faq_list_plus.active {
     animation: rotatePlus 0.3s forwards;
 }
 
-.faq_list_plus.inactive {
+.jh_faq_list_plus.inactive {
     animation: rotatePlusBack 0.3s forwards;
 }
 
@@ -268,7 +271,7 @@
     }
     }
 
-.faq_page_list {
+.jh_faq_page_list {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -277,7 +280,7 @@
     height: 120px;
 }
 
-.faq_page_list span {
+.jh_faq_page_list span {
     font-family: font_sw;
     font-weight: bold;
     font-size: 24px;
@@ -287,7 +290,7 @@
     cursor: pointer;
 }
 
-.faq_dropdown_content {
+.jh_faq_dropdown_content {
     height: 0;
     overflow: hidden;
     padding: 0 10px;
@@ -295,18 +298,18 @@
     background-color: #f2f2f2;
 }
 
-.faq_list_section {
+.jh_faq_list_section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 10px;
 }
 
-.faq_list_info.active .faq_dropdown_content {
+.jh_faq_list_info.active .faq_dropdown_content {
     padding-top: 10px;
 }
 
-.faq_list_a {
+.jh_faq_list_a {
     position: absolute;
     top: 5em;
     left: 0px;
@@ -325,7 +328,7 @@
     text-align: center;
 }
 
-.faq_list_ask {
+.jh_faq_list_ask {
     position: relative;
     padding: 18px 0 0 0;
     border-top: 1px solid #dddddd;
