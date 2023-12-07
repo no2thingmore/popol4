@@ -28,10 +28,10 @@ function Header() {
         <li className="menu-item">
           이용방법
           <ul className="submenu">
-            <li><a href="/">써브웨이 이용방법</a></li>
-            <li><a href="/">단체메뉴 이용방법</a></li>
-            <li><a href="/">신선한 재료 소개</a></li>
-            <li><a href="/">App 이용방법</a></li>
+            <li><Link to="/howtousesubway">써브웨이 이용방법</Link></li>
+            <li><a href="/groupmenu">단체메뉴 이용방법</a></li>
+            <li><a href="/ingredient">신선한 재료 소개</a></li>
+            {/* <li><a href="/">App 이용방법</a></li> */}
           </ul>
         </li>
         <li className="menu-item">

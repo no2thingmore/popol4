@@ -17,8 +17,10 @@ import Detail from './components/productdetail/detail';
 import Order from "./components/order/order"
 import Ordertip_1 from "./components/howtouse/howtousesubway/ordertip_1"
 import Storeorder from "./components/howtouse/howtousesubway/storeorder"
+import Slider from "./components/howtouse/howtousesubway/slider"
 import Groupmenu from "./components/howtouse/groupmenu/groupmenu"
 import Howtousesubway from "./components/howtouse/howtousesubway/howtousesubway"
+import Ingredient from "./components/howtouse/ingredient/ingredient"
 import Register from "./components/register/register";
 import Admin from "./components/admin/admin";
 
@@ -52,8 +54,10 @@ function App() {
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/Howtousesubway" element={<Howtousesubway></Howtousesubway>}></Route>
+        <Route path="/Ingredient" element={<Ingredient></Ingredient>}></Route>
         <Route path="/Ordertip_1" element={<Ordertip_1></Ordertip_1>}></Route>
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
+        <Route path="/Slider" element={<Slider></Slider>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
       </Routes>
