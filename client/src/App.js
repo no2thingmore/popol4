@@ -57,9 +57,9 @@ function App() {
         <Route path="/Ordertip_1" element={<Ordertip_1></Ordertip_1>}></Route>
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
-        <Route path="/admin" element={<Admin></Admin>}></Route>
-        <Route path="/ffaq" element={<FFAQ />}></Route>
-        <Route path="/qqna" element={<QQNA />}></Route>
+        <Route path="/admin/:type" element={<Admin></Admin>}></Route>
+        <Route path="/ffaq" element={<FAQ />}></Route>
+        <Route path="/qqna" element={<QNA />}></Route>
       </Routes>
       <Footer />
     </div>

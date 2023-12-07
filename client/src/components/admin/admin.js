@@ -1,124 +1,120 @@
 import { useState } from "react";
 import Header from "./header";
-import "./admin.css"
+import "./admin.css";
+import { useParams } from "react-router-dom";
+import User from "./page/user/user";
+import Store from "./page/store/store";
+import Product from "./page/product/product";
+import Option from "./page/option/option";
+import Design from "./page/design/design";
+import Category from "./page/category/category";
+import Assit from "./page/assit/assit";
+import Home from "./page/home/home";
 
-function Admin(){
-  const [menu, setMenu] = useState("홈");
+function Admin() {
+  const { type } = useParams();
+  const [menu, setMenu] = useState(type);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
   };
-  
-  return(
+
+  console.log(menu);
+
+  return (
     <div className="admin_contents">
       <div>
-        <Header />
+        <Header menu={menu} setMenu={setMenu} />
       </div>
-      <nav>
-        <ul className="admin_tags">
-          <li>
-            <a
-              href="#"
-              className={menu === "회원관리" ? "active" : "noactive"}
-              onClick={() => MenuClick("회원관리")}>
-              회원관리
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "카테고리관리" ? "active" : "noactive"}
-              onClick={() => MenuClick("카테고리관리")}>
-              카테고리관리
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "상품관리" ? "active" : "noactive"}
-              onClick={() => MenuClick("상품관리")}>
-              상품관리
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "고객지원" ? "active" : "noactive"}
-              onClick={() => MenuClick("고객지원")}>
-              고객지원
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "디자인관리" ? "active" : "noactive"}
-              onClick={() => MenuClick("디자인관리")}>
-              디자인관리
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "설정" ? "active" : "noactive"}
-              onClick={() => MenuClick("설정")}>
-              설정
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className={menu === "방 등록하기" ? "active" : "noactive"}
-              onClick={() => MenuClick("방 등록하기")}>
-              방 등록하기
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div className="admin_tagBox">
+        <nav>
+          <ul className="admin_tags">
+            <li>
+              <a
+                href="/admin/user"
+                className={menu === "회원관리" ? "active" : "noactive"}
+                onClick={() => MenuClick("회원관리")}
+              >
+                회원관리
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/category"
+                className={menu === "카테고리관리" ? "active" : "noactive"}
+                onClick={() => MenuClick("카테고리관리")}
+              >
+                카테고리관리
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/product"
+                className={menu === "상품관리" ? "active" : "noactive"}
+                onClick={() => MenuClick("상품관리")}
+              >
+                상품관리
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/assit"
+                className={menu === "고객지원" ? "active" : "noactive"}
+                onClick={() => MenuClick("고객지원")}
+              >
+                고객지원
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/design"
+                className={menu === "디자인관리" ? "active" : "noactive"}
+                onClick={() => MenuClick("디자인관리")}
+              >
+                디자인관리
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/option"
+                className={menu === "설정" ? "active" : "noactive"}
+                onClick={() => MenuClick("설정")}
+              >
+                설정
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/store"
+                className={menu === "방 등록하기" ? "active" : "noactive"}
+                onClick={() => MenuClick("방 등록하기")}
+              >
+                가게 등록하기
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
       <div className="menu_info">
-          {menu === "내 정보 관리" && (
-            <div>
-              {/* <InfoManagement menu={menu}></InfoManagement> */}
-            </div>
-          )}
+        {menu === "home" && <div>{<Home></Home>}</div>}
 
-          {menu === "내 정보 변경" && (
-            <div>
-              {/* <InfoEdit menu={menu}></InfoEdit> */}
-            </div>
-          )}
+        {menu === "user" && <div>{<User></User>}</div>}
 
-          {menu === "예약 내역" && (
-            <div>
-              {/* <Reservation></Reservation> */}
-            </div>
-          )}
+        {menu === "category" && <div>{<Category></Category>}</div>}
 
-          {menu === "이용 내역" && (
-            <div>
-              {/* <UsedInfo></UsedInfo> */}
-            </div>
-          )}
+        {menu === "product" && <div>{<Product></Product>}</div>}
 
-          {menu === "알림" && (
-            <div>
-              {/* <Alarm></Alarm> */}
-            </div>
-          )}
+        {menu === "assit" && <div>{<Assit></Assit>}</div>}
 
-          {menu === "리뷰" && (
-            <div>
-              {/* <Myreview/> */}
-            </div>
-          )}
+        {menu === "design" && <div>{<Design></Design>}</div>}
 
-          {menu === "방 등록하기" && (
-            <div>
-              {/* <Registration /> */}
-            </div>
-          )}
-        </div>
+        {menu === "option" && <div>{<Option></Option>}</div>}
+
+        {menu === "store" && <div>{<Store></Store>}</div>}
+      </div>
     </div>
-  )
+  );
 }
 
 export default Admin;

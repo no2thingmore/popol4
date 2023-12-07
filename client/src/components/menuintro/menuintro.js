@@ -23,7 +23,7 @@ function Menuintro() {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      setIsSticky(prevIsSticky => offset > 200 ? true : false);
+      setIsSticky(prevIsSticky => offset > 250 ? true : false);
     };
 
     window.addEventListener("scroll", handleScroll);
