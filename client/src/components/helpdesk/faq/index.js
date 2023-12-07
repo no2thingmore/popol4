@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './faq.css';
+import './ffaq.css';
 import { Link } from 'react-router-dom';
 import FaQ_QM_Data from './data/faq_data';
 import FaQ_List from './data/faq_list';
-
-
 
 function QNA() {
 
@@ -73,6 +71,7 @@ function QNA() {
 
     return (
         <>
+        <div className='faq_help_all'>
             <div className='faq_help_container'>
                 <div className='faq_help_bar'>
                     <Link to='/faq'>
@@ -156,6 +155,7 @@ function QNA() {
                     </div>
                 </div>
             </div>
+        </div>
         </>
     );
 }
