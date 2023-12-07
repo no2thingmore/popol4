@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "./header.css"
 function Header(){
-
+  const logOut = ()=>{
+    
+  }
   return(
     <div className="admin_header">
       <div id="admin_logo">
@@ -18,7 +20,7 @@ function Header(){
           <Link to={'/'}>메인페이지</Link>
         </li>
         <li>
-          <Link to={'/'}>로그아웃</Link>
+          <Link to={'/'} onClick={logOut}>로그아웃</Link>
         </li>
       </ul>
     </div>

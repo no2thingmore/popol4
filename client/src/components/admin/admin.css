@@ -1,3 +1,8 @@
+.admin_contents{
+  display: flex;
+  justify-content: center;
+  width: 90em;
+}
 .admin_tags{
   margin: 20px 20px;
 }
