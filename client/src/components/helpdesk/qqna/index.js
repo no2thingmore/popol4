@@ -1,7 +1,7 @@
-import './qna.css'
+import './qqna.css'
 import { Link } from 'react-router-dom';
 
-function QNA() {
+function QQNA() {
 
     return (
         <>
@@ -22,4 +22,4 @@ function QNA() {
     );
 }
 
-export default QNA;
+export default QQNA;
