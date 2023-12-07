@@ -1,0 +1,48 @@
+.j_notice_all{
+  border: 1px solid #000;
+  margin-left: 600px;
+  margin-right: 600px;
+}
+.j_all>div{
+  text-align: center;
+  margin-right: 0px;
+}
+
+.j_the_number>p{
+  margin-right: 950px;
+}
+
+.j_list_all{
+  border-top: 3px solid rgb(0, 255, 13);
+}
+
+.j_list{
+  display: grid;
+  grid-template-rows:71.5px ; 
+  grid-template-columns:100px 950px 120px ;
+  justify-content: center;
+  
+}
+
+/* 숫자 */
+.j_number>h3{
+  color: rgb(243, 200, 8);
+}
+
+.j_date>p{
+  color: rgb(54, 54, 54);
+}
+
+.j_content>a{
+  font-size: 30px;
+}
+
+.j_list>div{
+  float: left;
+  border: 1px solid #000;
+ 
+}
+
+.j_date{
+
+}
