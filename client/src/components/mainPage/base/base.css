@@ -285,6 +285,7 @@
 
 .btm_qms {
     position: relative;
+    font-family: font_ns, sans-serif;
 }
 
 .btm_qms img {
@@ -293,6 +294,7 @@
     left: 4px;
     width: 60px;
     height: 60px;
+    border: 3px solid #f2f2f2;
 }
 
 .btm_qms strong {
@@ -309,6 +311,5 @@
 
 .btm_qm_info > strong {
     margin-bottom: 5px;
-
 }
 

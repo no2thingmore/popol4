@@ -58,8 +58,8 @@ function App() {
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
-        <Route path="/faq" element={<FAQ />}></Route>
-        <Route path="/qna" element={<QNA />}></Route>
+        <Route path="/ffaq" element={<FAQ />}></Route>
+        <Route path="/qqna" element={<QNA />}></Route>
       </Routes>
       <Footer />
     </div>
