@@ -54,11 +54,11 @@ function Header() {
         <li className="menu-item">
           가맹점
           <ul className="submenu">
-            <a href="/franchise"><li>써브웨이 프랜차이즈</li></a>
-            <a href="/"><li>가맹관련 FAQ</li></a>
-            <a href="/"><li>가맹신청 문의</li></a>
-            <a href="/"><li>지사안내</li></a>
-            <a href="/"><li>사업설명회</li></a>
+            <li><a href="/subwayfranchise">써브웨이 프랜차이즈</a></li>
+            <li><a href="/faq">가맹관련 FAQ</a></li>
+            <li><a href="/franchiseinquire">가맹신청 문의</a></li>
+            <li><a href="/branchinformation">지사안내</a></li>
+            <li><a href="/briefing">사업설명회</a></li>
           </ul>
         </li>
         <li className="menu-item">

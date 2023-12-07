@@ -5,10 +5,12 @@ import BranchInformation from "./branchinformation"
 import Briefing from "./briefing"
 import FranchiseInquire from "./franchiseinquire"
 import "./franchise.css";
+import { useParams } from "react-router-dom";
 
 
 function Franchise() {
-  const [menu, setMenu] = useState("써브웨이 프랜차이즈");
+  const { franchisee } = useParams();
+  const [menu, setMenu] = useState( franchisee );
   const [end, setEnd] = useState("");
 
   const MenuClick = (selectMenu) => {
@@ -26,45 +28,45 @@ function Franchise() {
       <div className="f_button">
         <button id="outline">
           <a 
-            href="#" 
-            className={menu === "써브웨이 프랜차이즈" ? "active" : "noactive"}
-            onClick={() => MenuClick("써브웨이 프랜차이즈")}
+            href="/subwayfranchise" 
+            className={menu === "subwayfranchise" ? "active" : "noactive"}
+            onClick={() => MenuClick("subwayfranchise")}
           >
             써브웨이 프랜차이즈
           </a>
         </button>
         <button id="outline">
           <a 
-            href="#" 
-            className={menu === "가맹관련 FAQ" ? "active" : "noactive"}
-            onClick={() => MenuClick("가맹관련 FAQ")}
+            href="/faq" 
+            className={menu === "faq" ? "active" : "noactive"}
+            onClick={() => MenuClick("faq")}
           >
             가맹관련 FAQ
           </a>
         </button>
         <button id="outline"> 
           <a 
-            href="#" 
-            className={menu === "가맹신청 문의" ? "active" : "noactive"}
-            onClick={() => MenuClick("가맹신청 문의")}
+            href="/franchiseinquire" 
+            className={menu === "franchiseinquire" ? "active" : "noactive"}
+            onClick={() => MenuClick("franchiseinquire")}
           >
             가맹신청 문의
           </a>
         </button>
         <button id="outline"> 
           <a 
-          href="#" 
-          className={menu === "지사안내" ? "active" : "noactive"}
-          onClick={() => MenuClick("지사안내")}
+          href="/branchinformation" 
+          className={menu === "branchinformation" ? "active" : "noactive"}
+          onClick={() => MenuClick("branchinformation")}
           >
             지사안내
           </a>
         </button>
         <button id="outline"> 
           <a 
-          href="#" 
-          className={menu === "사업설명회" ? "active" : "noactive"}
-          onClick={() => MenuClick("사업설명회")}
+          href="/briefing" 
+          className={menu === "briefing" ? "active" : "noactive"}
+          onClick={() => MenuClick("briefing")}
           >
             사업설명회
           </a>
@@ -72,36 +74,37 @@ function Franchise() {
       </div>
 
       <div className="see_info">
-          {menu === "써브웨이 프랜차이즈" && (
+          {menu === "subwayfranchise" && (
             <div className={"start " + end}>
               <SubwayFranchise menu={menu} ></SubwayFranchise>
             </div>
           )}
 
-          {menu === "가맹관련 FAQ" && (
+          {menu === "faq" && (
             <div className={"start " + end}>
               <FAQ menu={menu} ></FAQ>
             </div>
           )}
 
-          {menu === "가맹신청 문의" && (
+          {menu === "franchiseinquire" && (
             <div className={"start " + end}>
               <FranchiseInquire menu={menu} ></FranchiseInquire>
             </div>
           )}
 
-          {menu === "지사안내" && (
+          {menu === "branchinformation" && (
             <div className={"start " + end}>
               <BranchInformation menu={menu} ></BranchInformation>
             </div>
           )}
 
-          {menu === "사업설명회" && (
+          {menu === "briefing" && (
             <div className={"start " + end}>
               <Briefing menu={menu} ></Briefing>
             </div>
           )}
 
+          {/* { franchisee === "faq" &&  <FAQ menu={menu} ></FAQ>}  */}
         </div>
     </div>
   )
