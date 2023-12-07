@@ -159,8 +159,10 @@
 
 .more_tip {
   text-align: center;
+  list-style: none;
 
 }
+
 
 .more_tip > ul {
   display: grid;
@@ -173,6 +175,7 @@
   height: 250px;
 
   margin: 0% 5%;
+  list-style: none;
 }
 
 /* .more_tip_1::after {
@@ -202,6 +205,10 @@
   line-height: 50%;
 
   color: #ff8201;
+}
+
+.more_tip__::marker {
+  content:"";
 }
 
 
