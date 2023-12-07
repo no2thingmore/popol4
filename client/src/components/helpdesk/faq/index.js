@@ -17,9 +17,6 @@ function QNA() {
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = FaQ_List.slice(indexOfFirstItem, indexOfLastItem);
     const faqPlusRefs = useRef({});
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -29,6 +26,21 @@ function QNA() {
     const [dropdownHeight, setDropdownHeight] = useState(0); // 드롭다운 높이 상태를 추가함
     const dropdownRefs = useRef(new Map());
 
+    const handleTypeSelect = (type) => {
+        setSelectedType(type);
+        setCurrentPage(1); // 타입을 바꿀 때 페이지를 첫 번째로 리셋
+    };
+
+    const [selectedType, setSelectedType] = useState(0); // 모든 타입을 나타내는 0으로 초기화
+
+    const filteredFaQList = selectedType === 0
+        ? FaQ_List
+        : FaQ_List.filter((item) => item.type === selectedType);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredFaQList.slice(indexOfFirstItem, indexOfLastItem);
+    
     const handleTransitionEnd = (id) => {
         if (activeItem === id) {
             setActiveItem(null);
@@ -38,6 +50,7 @@ function QNA() {
             }
         }
     };
+    
 
     const handleItemClick = (id) => {
         const currentPlusElement = faqPlusRefs.current[id]; // 현재 클릭된 아이템의 plus 요소 참조
@@ -68,6 +81,7 @@ function QNA() {
         }
     }, [activeItem]);
     
+    const totalPages = Math.ceil(filteredFaQList.length / itemsPerPage); // 필터링된 리스트를 기반으로 전체 페이지 수 계산
 
     return (
         <>
@@ -86,15 +100,18 @@ function QNA() {
                     <h2 className='faq_title_name'>
                         FAQ
                     </h2>
+                    {/* 타입 선택 버튼 */}
                     <div className='faq_qms_section'>
-                        {FaQ_QM_Data.map((item) => (
-                        <div key={item.id} className='qms_info'>
-                            <Link to = {item.path} >
-                                {(item.text)}
-                            </Link>
+                            {FaQ_QM_Data.map((qmItem) => (
+                                <div key={qmItem.id}
+                                    className='qms_info'
+                                    onClick={() => handleTypeSelect(qmItem.type)}>
+                                    <div className={`faq_qms_text ${selectedType === qmItem.type ? 'selected-text' : ''}`}>
+                                        {qmItem.text}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                        ))}
-                    </div>
                     <div className='faq_content'>
                         <div className='faq_info'>
                             <div className='faq_content_info'>
@@ -108,7 +125,7 @@ function QNA() {
                                     </div>
                                 </div>
                                 <div className='faq_counts'>
-                                    총 {FaQ_List.length}건의 게시글이 있습니다.
+                                    총 {filteredFaQList.length}건의 게시글이 있습니다.
                                 </div>
                             </div>
                             <div className='faq_contens_list'>
@@ -119,7 +136,7 @@ function QNA() {
                                 style={activeItem === item.id ? { backgroundColor: '#f2f2f2' } : {}}
                                 >
                                     <div className='faq_list_section' onClick={() => handleItemClick(item.id)}>
-                                        <div className='faq_list_p'>P</div>
+                                        <div className='faq_list_p'>Q</div>
                                         <div className='faq_list_content'>{item.title}</div>
                                         <div ref={(el) => faqPlusRefs.current[item.id] = el} className='faq_list_plus'></div>
                                     </div>
@@ -141,13 +158,16 @@ function QNA() {
                                 {currentPage > 1 && (
                                     <span onClick={() => paginate(currentPage - 1)}>&lt;</span>
                                 )}
-                                {Array.from({ length: Math.ceil(FaQ_List.length / itemsPerPage) }, (_, i) => i + 1).map(number => (
-                                    <span key={number} onClick={() => paginate(number)}>
+                                {/* 페이지 번호 렌더링 */}
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map(number => (
+                                    <span key={number} 
+                                        onClick={() => paginate(number)}
+                                        className={currentPage === number ? 'active-page' : ''}>
                                         {number}
                                     </span>
                                 ))}
                                 {/* 다음 페이지 버튼 */}
-                                {currentPage < Math.ceil(FaQ_List.length / itemsPerPage) && (
+                                {currentPage < totalPages && (
                                     <span onClick={() => paginate(currentPage + 1)}>&gt;</span>
                                 )}
                             </div>
