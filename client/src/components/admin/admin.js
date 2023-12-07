@@ -8,6 +8,7 @@ function Admin(){
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
   };
+  
   return(
     <div className="admin_contents">
       <div>
