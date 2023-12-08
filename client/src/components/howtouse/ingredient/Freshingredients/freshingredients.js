@@ -48,7 +48,7 @@ function Freshingredients(props) {
         <img src={fuck2}></img>
       </div>
       <div className={"CHM_saladImgBox2 "+ saladright}>
-        <img src={fuck3}></img>
+        <img src={fuck2}></img>
       </div>
     </div>
   );

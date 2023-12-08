@@ -9,9 +9,9 @@ div {
   flex-direction: column;
 }
 
-.CHM_headerMenutab {
+.CHM_headerMenutab1 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   color: white;
   text-align: center;
   padding: 0 30vw;
@@ -20,7 +20,7 @@ div {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
 
-.CHM_headerMenutab.sticky {
+.CHM_headerMenutab1.sticky {
   position: sticky;
   top: 0;
   background-color: white !important;
@@ -29,14 +29,14 @@ div {
   transition: background-color 0.3s;
 }
 
-.CHM_headerMenutab a {
+.CHM_headerMenutab1 a {
   text-decoration: none;
   color: white;
   z-index: 5;
   position: relative;
 }
 
-.CHM_headerMenutab div {
+.CHM_headerMenutab1 div {
   position: relative;
   padding: 1.5vw 0 1.3vw 0;
   font-size: 1vw;
@@ -48,7 +48,7 @@ div {
   z-index: 5;
 }
 
-.CHM_headerMenutab div:hover {
+.CHM_headerMenutab1 div:hover {
   background-color: rgba(0, 0, 0, 0.081);
 }
 
@@ -86,16 +86,16 @@ div {
   z-index: 4;
 }
 
-.CHM_sandwichSubSelectList {
+.CHM_sandwichSubSelectList1 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 12vw;
   padding: 0 10vw;
   background-color: white;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
 
-.CHM_sandwichSubSelectList div {
+.CHM_sandwichSubSelectList1 div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,16 +105,16 @@ div {
   cursor: pointer;
 }
 
-.CHM_saladSubSelectList {
+.CHM_saladSubSelectList1 {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 12vw;
   padding: 0 10vw;
   background-color: white;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
 
-.CHM_saladSubSelectList div {
+.CHM_saladSubSelectList1 div {
   display: flex;
   justify-content: center;
   align-items: center;

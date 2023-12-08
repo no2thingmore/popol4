@@ -30,7 +30,7 @@ function Ingredient() {
     const colors = {
       howtousesubway: "#e85a1c",
       groupmenu: "#0d9133",
-      ingredient: "#07A5E6",
+      freshingredients: "#07a5e6",
     };
     setColor(colors[product]);
   }, [product]);
@@ -54,7 +54,7 @@ function Ingredient() {
 
   return (
     <>
-      <div className={`CHM_headerMenutab${isSticky ? " sticky" : ""}`} style={{ backgroundColor: color, top: isSticky ? 0 : "unset" }}>
+      <div className={`CHM_headerMenutab1${isSticky ? " sticky" : ""}`} style={{ backgroundColor: color, top: isSticky ? 0 : "unset" }}>
         {menuItems.map((menuItem) => (
           <Link to={`/ingreDient/${menuItem.id}`} key={menuItem.id} style={isSticky ? { color: "black" } : {}}>
             <div
