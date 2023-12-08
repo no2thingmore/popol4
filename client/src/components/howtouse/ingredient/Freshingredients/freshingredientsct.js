@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import img from "./sandwich.png";
 import { Link } from 'react-router-dom';
 
-function Saladct() {
+function Freshingredientsct() {
   const [data, setData] = useState([
     {
       id: 1,
@@ -347,7 +347,7 @@ function Saladct() {
           {data.map((a, i) => {
             return (
               <div className={"CHM_selectCard start " + end}>
-                <Link to={`/menuIntro/salad/${a.id}`}>
+                <Link to={`/ingreDients/freshingredients/${a.id}`}>
                   <div className="CHM_selectBakcCard">
                     <div>
                       <div className="CHM_selectBackCardKname">{a.Kname}</div>
@@ -377,4 +377,4 @@ function Saladct() {
   );
 }
 
-export default Saladct;
+export default Freshingredientsct;

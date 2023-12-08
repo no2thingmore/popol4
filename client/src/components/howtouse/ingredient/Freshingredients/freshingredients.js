@@ -1,8 +1,10 @@
 import fuck1 from "./fuck1.png"
 import fuck2 from "./img_visual_fresh01.jpg"
+import fuck3 from "./img_visual_fresh02.jpg"
+import fuck4 from "./img_visual_fresh03.jpg"
 import { useEffect, useState } from "react";
 
-function Ingrediented(props) {
+function Freshingredients(props) {
   const [saladleft, setSaladleft] = useState("");
   const [saladright, setSaladright] = useState("");
   const [anititle, setAnititle] = useState("")
@@ -43,13 +45,13 @@ function Ingrediented(props) {
         </div>
       </div>
       <div className={"CHM_saladImgBox1 "+ saladleft}>
-        <img src={fuck1}></img>
+        <img src={fuck2}></img>
       </div>
       <div className={"CHM_saladImgBox2 "+ saladright}>
-        <img src={fuck2}></img>
+        <img src={fuck3}></img>
       </div>
     </div>
   );
 }
 
-export default Ingrediented;
+export default Freshingredients;
