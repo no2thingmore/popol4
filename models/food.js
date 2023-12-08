@@ -66,10 +66,10 @@ class Food extends Sequelize.Model{
         allowNull: false,
         comment: "가격",
       },
-      type: {
+      tags: {
         type: Sequelize.STRING,
         allowNull: false,
-        comment: "카테고리",
+        comment: "카테고리 0:인기메뉴, 1:아침메뉴, 2:추천메뉴 등등",
       },
       kinds: {
         type: Sequelize.INTEGER(1),
