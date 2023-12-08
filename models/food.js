@@ -11,6 +11,11 @@ class Food extends Sequelize.Model{
         allowNull: false,
         comment: "식별자 ID (기본키)",
       },
+      admin_id:{
+        type:Sequelize.INTEGER,
+        allowNull: false,
+        comment:"수정/추가 한 관리자 이름"
+      },
       kname: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -31,27 +36,27 @@ class Food extends Sequelize.Model{
         allowNull: false,
         comment: "음식 설명",
       },
-      kcal: {
+      ingred_kcal: {
         type: Sequelize.FLOAT,
         allowNull: true,
         comment: "칼로리",
       },
-      gram: {
+      ingred_gram: {
         type: Sequelize.FLOAT,
         allowNull: true,
         comment: "그램",
       },
-      protein: {
+      ingred_protein: {
         type: Sequelize.FLOAT,
         allowNull: true,
         comment: "단백질",
       },
-      fat: {
+      ingred_fat: {
         type: Sequelize.FLOAT,
         allowNull: true,
         comment: "지방",
       },
-      salt: {
+      ingred_salt: {
         type: Sequelize.FLOAT,
         allowNull: true,
         comment: "염도",
@@ -85,6 +90,7 @@ class Food extends Sequelize.Model{
   }
   static associate(db) {
     db.Food.hasMany(db.Orders, { foreignKey: 'food_id', sourceKey: 'id' });
+    db.Food.belongsTo(db.Admin, { foreignKey: 'admin_id', targetKey: 'id' });
   }
 }
 

@@ -11,6 +11,11 @@ class Ingredient extends Sequelize.Model{
         allowNull: false,
         comment: "식별자 ID (기본키)",
       },
+      admin_id:{
+        type:Sequelize.INTEGER,
+        allowNull: false,
+        comment:"수정/추가 한 관리자 이름"
+      },
       kname: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -52,6 +57,9 @@ class Ingredient extends Sequelize.Model{
       charset: 'utf8',
       collate: 'utf8_general_ci',
     })
+  }
+  static associate(db) {
+    db.Ingredient.belongsTo(db.Admin, { foreignKey: 'admin_id', targetKey: 'id' });
   }
 }
 

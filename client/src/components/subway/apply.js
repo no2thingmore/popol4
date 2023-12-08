@@ -17,7 +17,7 @@ import important_icon_4 from './art_images/icon_sw_artist_point04.png';
 function Apply(){
   return(
     <div id="Artist_Main_Div">
-      <div className="Main_Grid">
+      <div className="Artist_Main_Grid">
         {/* 헤더 */}
         <div className="Head_Line">
         <h2 className="Head_txt">

@@ -126,7 +126,7 @@ function Event(){
             </div>
           </div>
           
-          <div className="y_list_termination">
+          {/* <div className="y_list_termination">
 
             <div className="y_list_item">  
               <a href="#" >
@@ -164,14 +164,15 @@ function Event(){
               </a>
             </div>
 
-          </div> 
+          </div>  */}
 
         </div>
 
 
-        
-        <a>더보기</a>
-      
+        <div className="y_morebtn">
+        <button>더보기</button>
+        </div>
+
       </div>
     
     </div>

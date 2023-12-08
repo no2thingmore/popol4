@@ -28,6 +28,10 @@
   justify-content: center;
 }
 
+#step_content > ul > li {
+  list-style: none;
+}
+
 .order_active {
   width: 70px;
   height: 70px;
