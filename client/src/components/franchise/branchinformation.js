@@ -65,7 +65,6 @@ function BranchInformation() {
                       <h3>서울강북지사</h3>
                       <p>서울특별시 서초구 강남대로 535 13층</p>
                       <p>연락처 : 010-4920-1965</p>
-                      
                     </div>
                     <div id="seoul_text1_line"></div>
                     <div className="seoul_text1">
