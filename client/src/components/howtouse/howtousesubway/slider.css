@@ -73,7 +73,7 @@
 
 
 /* 버튼 스타일 설정 */
-button {
+.down-button, .up-button {
   background-color: #fff; /* 배경색 설정 */
   border: none; /* 테두리 없음 */
   color: #aaa; /* 글꼴 색상 설정 */
@@ -83,12 +83,12 @@ button {
 }
 
 /* 버튼 호버 효과 설정 */
-button:hover {
+.down-button, .up-button:hover {
   color: #222; /* 호버 시 글꼴 색상 변경 */
 }
 
 /* 버튼 포커스 효과 설정 */
-button:focus {
+.down-button, .up-button:focus {
   outline: none; /* 포커스 시 외곽선 제거 */
 }
 
