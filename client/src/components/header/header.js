@@ -28,9 +28,9 @@ function Header() {
         <li className="menu-item">
           이용방법
           <ul className="submenu">
-            <a href="/howtousesubway"><li>써브웨이 이용방법</li></a>
-            <a href="/groupmenu"><li>단체메뉴 이용방법</li></a>
-            <a href="/ingredient"><li>신선한 재료 소개</li></a>
+            <a href="/ingredient/howtousesubway"><li>써브웨이 이용방법</li></a>
+            <a href="/ingredient/groupmenu"><li>단체메뉴 이용방법</li></a>
+            <a href="/ingredient/salad"><li>신선한 재료 소개</li></a>
             <a href="/"><li>App 이용방법</li></a>
           </ul>
         </li>
@@ -47,14 +47,14 @@ function Header() {
           <ul className="submenu">
             <a href="/History"><li>써브웨이 역사</li></a>
             <a href="/Promise"><li>써브웨이 약속</li></a>
-            <a href="/Apply"><li>샌드위치 아티스트 지원</li></a>
+            <a href="/Apply"><li>아티스트 지원</li></a>
             <a href="/StoreSearch"><li>매장찾기</li></a>
           </ul>
         </li>
         <li className="menu-item">
           가맹점
           <ul className="submenu">
-            <li><a href="/subwayfranchise">써브웨이 프랜차이즈</a></li>
+            <li><a href="/subwayfranchise">프랜차이즈</a></li>
             <li><a href="/faq">가맹관련 FAQ</a></li>
             <li><a href="/franchiseinquire">가맹신청 문의</a></li>
             <li><a href="/branchinformation">지사안내</a></li>
@@ -63,7 +63,7 @@ function Header() {
         </li>
         <li className="menu-item">
           온라인 주문
-          <ul className="submenu">
+          <ul className="submenu" style={{width: "100%"}}>
             <Link to="/order/Fast-Sub/step1/Noplace/Null/Nan"><li>FAST-SUB</li></Link>
             <Link to="/order/Home-Sub/step1/Null/Nan"><li>HOME-SUB</li></Link>
             <Link to="/order/group/select/Null/Nan"><li>단체주문</li></Link>

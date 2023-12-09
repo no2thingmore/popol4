@@ -19,8 +19,6 @@ function Admin() {
     setMenu(selectMenu);
   };
 
-  console.log(menu);
-
   return (
     <div className="admin_contents">
       <div>

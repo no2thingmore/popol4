@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import "./menuintro.css";
-import Sandwich from "./sandwitch/sandwitch";
-import Breakfast from "./breakfast/breakfast";
-import Group from "./group/group";
 import Salad from "./salad/salad";
-import Smile from "./smile/smile";
-import Wrap from "./wrap/wrap";
-import Sandwichct from "./sandwitch/sandwichct";
-import Breakfastct from './breakfast/breakfastct';
-import Groupct from './group/groupct';
 import Saladct from './salad/saladct';
-import Smilect from './smile/smilect';
-import Wrapct from './wrap/wrapct';
 import Howtousesubway from '../howtousesubway/howtousesubway';
 import Groupmenu from '../groupmenu/groupmenu';
 import { useParams, Link } from "react-router-dom";

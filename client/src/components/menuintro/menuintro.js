@@ -17,6 +17,23 @@ import { useParams, Link } from "react-router-dom";
 function Menuintro() {
   const { product } = useParams();
   const [menu, setMenu] = useState(product);
+
+  const handleMenuClick = (menuType) => {
+    setMenu(menuType);
+  };
+
+  const menuItems = [
+    { id: "sandwich", text: "샌드위치" },
+    { id: "wrap", text: "랩ㆍ기타" },
+    { id: "salad", text: "샐러드" },
+    { id: "breakfast", text: "아침메뉴" },
+    { id: "smile", text: "스마일 썹" },
+    { id: "group", text: "단체주문" }
+  ];
+
+  
+
+
   const [isSticky, setIsSticky] = useState(false);
   const [color, setColor] = useState("");
 
@@ -46,9 +63,7 @@ function Menuintro() {
     setColor(colors[product]);
   }, [product]);
 
-  const handleMenuClick = (menuType) => {
-    setMenu(menuType);
-  };
+  
 
   const renderMenuComponent = (component, componentct) => (
     <>
@@ -57,15 +72,7 @@ function Menuintro() {
     </>
   );
 
-  const menuItems = [
-    { id: "sandwich", text: "샌드위치" },
-    { id: "wrap", text: "랩ㆍ기타" },
-    { id: "salad", text: "샐러드" },
-    { id: "breakfast", text: "아침메뉴" },
-    { id: "smile", text: "스마일 썹" },
-    { id: "group", text: "단체주문" }
-  ];
-
+  
   return (
     <>
       <div className={`CHM_headerMenutab${isSticky ? " sticky" : ""}`} style={{ backgroundColor: color, top: isSticky ? 0 : "unset" }}>

@@ -7,6 +7,8 @@
 
 .admin_ul_list {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .admin_ul_list > li {
@@ -14,6 +16,7 @@
   padding: 8% 1em;
   font-size: 1vw;
   color: white;
+  list-style: none;
 }
 
 #admin_logo h1 {
@@ -49,6 +52,8 @@
   height:100%;
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .admin_tags > li{
@@ -56,4 +61,5 @@
   padding: 1em;
   color: white;
   font-size: 1.2vw;
+  list-style: none;
 }
