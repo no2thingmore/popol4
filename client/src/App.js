@@ -60,8 +60,8 @@ function App() {
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/Howtousesubway" element={<Howtousesubway></Howtousesubway>}></Route>
-        <Route path="/Ingredient/:product" element={<Ingredient></Ingredient>}></Route>
-        <Route path="/Ingredient/:product/:id" element={<Detail></Detail>}></Route>
+        <Route path="/ingreDient/:product" element={<Ingredient></Ingredient>}></Route>
+        <Route path="/ingreDient/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/Ordertip_1" element={<Ordertip_1></Ordertip_1>}></Route>
         <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/Slider" element={<Slider></Slider>}></Route>

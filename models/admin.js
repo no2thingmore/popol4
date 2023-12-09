@@ -1,14 +1,14 @@
 const Sequelize = require("sequelize");
 
-class User extends Sequelize.Model {
+class Admin extends Sequelize.Model {
   static initiate(sequelize) {
-    User.init({
+    Admin.init({
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true, //기본키
         autoIncrement: true, //자동생성
         allowNull: false,
-        comment: "사용자(user) 식별자 ID (기본키)",
+        comment: "식별자 ID (기본키)",
       },
       email: {
         type: Sequelize.STRING,
@@ -55,24 +55,12 @@ class User extends Sequelize.Model {
         },
         comment: "연락처",
       },
-      role: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-          isIn: {
-            args: [[0, 1]],
-            msg: "유효한 역할이 아닙니다."
-          }
-        },
-        defaultValue: '0',
-        comment: "0(일반), 1(사업자)", // 사용자 역할
-      },
     }, {
       sequelize,
       timestamps: true,
       underscored: true,
-      modelName: 'User',
-      tableName: 'user',
+      modelName: 'Admin',
+      tableName: 'admin',
       paranoid: false,
       charset: 'utf8',
       collate: 'utf8_general_ci',
@@ -80,10 +68,13 @@ class User extends Sequelize.Model {
   }
   //참조키로 Order모델에 id(sourceKey)를 userId(foreignKey)라는 이름으로 보냄
   static associate(db) {
-    db.User.hasMany(db.Orders, { foreignKey: 'user_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Board, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Ingredient, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Contents, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Food, { foreignKey: 'admin_id', sourceKey: 'id' });
   }
   
 };
 
 
-module.exports = User;
+module.exports = Admin;

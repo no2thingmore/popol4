@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./menuintro.css";
-import Salad from "./salad/salad";
-import Saladct from './salad/saladct';
+import "./ingredient.css";
+import Freshingredients from './Freshingredients/freshingredients';
+import Freshingredientsct from './Freshingredients/freshingredientsct';
 import Howtousesubway from '../howtousesubway/howtousesubway';
 import Groupmenu from '../groupmenu/groupmenu';
 import { useParams, Link } from "react-router-dom";
@@ -30,7 +30,7 @@ function Ingredient() {
     const colors = {
       howtousesubway: "#e85a1c",
       groupmenu: "#0d9133",
-      salad: "#85c441",
+      freshingredients: "#07a5e6",
     };
     setColor(colors[product]);
   }, [product]);
@@ -49,14 +49,14 @@ function Ingredient() {
   const menuItems = [
     { id: "howtousesubway", text: "써브웨이 이용방법" },
     { id: "groupmenu", text: "단체메뉴 이용방법" },
-    { id: "salad", text: "신선한 재료소개" },
+    { id: "freshingredients", text: "신선한 재료소개" },
   ];
 
   return (
     <>
-      <div className={`CHM_headerMenutab${isSticky ? " sticky" : ""}`} style={{ backgroundColor: color, top: isSticky ? 0 : "unset" }}>
+      <div className={`CHM_headerMenutab1${isSticky ? " sticky" : ""}`} style={{ backgroundColor: color, top: isSticky ? 0 : "unset" }}>
         {menuItems.map((menuItem) => (
-          <Link to={`/menuIntro/${menuItem.id}`} key={menuItem.id} style={isSticky ? { color: "black" } : {}}>
+          <Link to={`/ingreDient/${menuItem.id}`} key={menuItem.id} style={isSticky ? { color: "black" } : {}}>
             <div
               onClick={() => handleMenuClick(menuItem.id)}
               style={
@@ -75,7 +75,7 @@ function Ingredient() {
 
       {menu === "howtousesubway" && renderMenuComponent(<Howtousesubway color={color} />, )}
       {menu === "groupmenu" && renderMenuComponent(<Groupmenu color={color} />, )}
-      {menu === "salad" && renderMenuComponent(<Salad color={color} />, <Saladct />)}
+      {menu === "freshingredients" && renderMenuComponent(<Freshingredients color={color} />, <Freshingredientsct />)}
     </>
   );
 }

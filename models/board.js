@@ -11,6 +11,11 @@ class Board extends Sequelize.Model{
         allowNull: false,
         comment: "식별자 ID (기본키)",
       },
+      admin_id:{
+        type:Sequelize.INTEGER,
+        allowNull: false,
+        comment:"수정/추가 한 관리자 이름"
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -35,7 +40,7 @@ class Board extends Sequelize.Model{
       type: {
         type: Sequelize.INTEGER(1),
         allowNull: false,
-        comment: "0:공지사항, 1:이벤트",
+        comment: "0:공지사항, 1:이벤트, 2:문의사항",
       },
       created_at: {
         type: Sequelize.DATE,
@@ -58,6 +63,9 @@ class Board extends Sequelize.Model{
       charset: 'utf8',
       collate: 'utf8_general_ci',
     })
+  }
+  static associate(db) {
+    db.Board.belongsTo(db.Admin, { foreignKey: 'admin_id', targetKey: 'id' });
   }
 }
 

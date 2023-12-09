@@ -31,6 +31,12 @@ class Orders extends Sequelize.Model{
         allowNull: false,
         comment: "0:조리중, 1:배달중, 2:완료, 3:취소",
       },
+      cancel:{
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue:0,
+        comment:"0:주문, 1:취소"
+      },
       order_list: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -39,7 +45,8 @@ class Orders extends Sequelize.Model{
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
-        comment: "주문시간",
+        defaultValue: Sequelize.NOW,
+        comment: "주문요청 시간",
       },
     },
     {

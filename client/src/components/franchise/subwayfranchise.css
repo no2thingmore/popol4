@@ -1,91 +1,225 @@
 
-
 #title{
   padding-top: 50px;
   text-align: center;
   font-size: 35px;
 }
 
-#summary{
+.summary p{
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
+  line-height: 25px;
+  color: #797272;
 }
 
-.store_warpper{
+.jun_button{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 220px;
+  background-color: rgb(249, 249, 249);
+}
+.jun_button > div {
+  cursor: pointer;
+}
+
+#leftButton:hover {
+  background-color: rgb(232, 232, 69);
+  color: white;
+}
+
+#rightButton:hover {
+  background-color: rgb(21, 141, 21);
+  color: white;
+}
+
+.jun_button_2 {
+  position: relative;
+  left: 550px;
+  top: 20px;
+  width: 180px;
+}
+
+.jun_button_3 {
+  position: relative;
+  left: 180px;
+  top: 20px;
+  width: 180px;
+}
+
+.jun_tb1{
+  font-size: 25px;
+  padding-left: 58px;
+}
+.jun_tb2{
   display: flex;
+}
+#jun_tb3{
+  font-size: 75px;
+}
+#jun_tb4{
+  position: relative;
+  font-size: 25px;
+  top: 43px;
+  left: 8px;
+}
+
+.jun_tb5{
+  font-size: 25px;
+  padding-left: 95px;
+}
+.jun_tb6{
+  display: flex;
+}
+#jun_tb7{
+  font-size: 75px;
+}
+#jun_tb8{
+  position: relative;
+  font-size: 25px;
+  top: 43px;
+  left: 8px;
+}
+
+/* 써브웨이 브랜드 경쟁력 */
+
+#jun_title{
+  padding-top: 50px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.brandcomp{
+  width: 1170px;
+  margin: 0 auto 48px;
+}
+
+#brandcomp_ul {
+  list-style: none;
+  display: grid;
+  grid-template-rows : 460px 460px;
+  grid-template-columns: 570px 570px;
+  column-gap: 3vw;
+  row-gap: 1vw;
+  justify-content: center;
+  padding: 0;
+  margin-top: 50px;
+}
+
+
+.band_comp_h4 {
+  border: 1px solid rgb(232, 232, 69);
+  text-align: center;
+  font-size: 25px;
+  width: 180px;
+  height: 150px;
+  position: relative;
+  bottom: 50px;
+  background-color: rgb(232, 232, 69);
+  color: rgb(21, 141, 21);
+  font-family: 'TTWanjudaedunsancheB';
+}
+.band_comp_ul{
+  list-style: none;
+  width: 350px;
+  height: 100px;
+  padding: 0;
+  float: right;
+  position: relative;
+  bottom: 120px;
+  right: 10px;
+  line-height: 20px;
+}
+
+.franchise_process{
+  width: 100%;
+  height: 800px;
+  text-align: center;
+  background-image: url(../franchise/subwayfranchise_img/bg_franchise_process.jpg);
+  color: white;
+}
+.franchise_process h2{
+  padding-top: 60px;
+}
+
+.process_bar{
+  display: flex;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-between;
+  list-style: none;
+  column-gap: 3vw;
+  row-gap: 1vw;
+  padding: 80px;
 }
 
-.nation_hover1 {
-  background-color: rgb(247, 242, 242); 
-  height: 220px;
-  width: 50%;
+.process_circle {
+  width: 250px;
+  height: 250px;
+  border: 5px solid rgb(232, 232, 69);
+  border-radius: 50%;
+  padding: 60px;
+  line-height: 30px;
 }
 
-.nation_hover1:hover {
-  background-color: rgb(223, 223, 109);
-  color: #ffffff;
+.process_circle1 {
+  width: 250px;
+  height: 250px;
+  border: 5px solid rgb(21, 141, 21);
+  border-radius: 50%;
+  padding: 60px;
+  line-height: 30px;
 }
 
-.nation_hover1::after{
-  background-color: rgb(223, 223, 109);
-  color: #ffffff;
+.process_circle p{
+  color:  rgb(232, 232, 69);
 }
-
-.box{
-  position: relative;
-  left: 650px;
-}
-.box1 b{
-  position: relative;
-  left: 150px;
-}
-
-.nation_hover1 b{
-  position: relative;
-  right: 44px;
+.process_circle b{
   font-size: 20px;
 }
 
-.store1 {
-  background-color: rgb(247, 242, 242);
-  height: 220px;
-  width: 50%;
+.process_circle1 p{
+  color:  rgb(232, 232, 69);
 }
-.store1:hover {
-  background-color: rgb(89, 187, 70);
-  color: #ffffff;
-}
-
-.store1 b{
+.process_circle1 b{
   font-size: 20px;
 }
-
-#nation_hoverP {
-  font-size: 26px;
-  padding-top: 10px;
-  border-bottom: 1px solid black;
-  display: inline-block;
+.process_li{
+  padding-top: 20px;
+  line-height: 25px;
 }
 
-#nation_hoverB{
-  font-size: 65px;
+#process_p {
+  font-size: 15px;
   position: relative;
-  right: 50px;
+  top: 480px;
+  right: 567px;
+  color: #9d9797;
 }
 
-#store1P {
-  font-size: 26px;
-  padding-top: 10px;
-  border-bottom: 1px solid black;
-  display: inline-block;
-  position: relative;
-  left: 200px;
+.c_backkk {
+  height: 1100px;
 }
 
-#store1B {
-  font-size: 65px;
-  position: relative;
-  left: 140px;
+#tr_add td{
+  color: black;
+  background-color:#f5f1f1; 
+}
+.last_ppp {
+  padding: 20px;
+  text-align: left;
+  color: #aba6a6;
+}
+
+.last_button {
+  border-radius: 30px;
+  margin-top: 30px;
+  background-color: green;
+  color: white;
+  width: 250px;
+  height: 60px;
+  font-size: 20px;
+}
+.last_button:hover {
+  background-color: green;
+  color: white;
 }
