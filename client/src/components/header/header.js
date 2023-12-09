@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 import "./header.css";
+import { API_URL } from '../config/contansts';
+import axios from "axios"
 
 function Header() {
+
+  // const test = async ()=>{
+  //   await axios.get(`${API_URL}/test`)
+  // }//데이터 한번에 등록할려고 임시로 만들어둔 axios 나중에 삭제 할 것
+
   return (
     <div className="header">
+      {/* <button onClick={test}>등록</button> */}
       <div className="topheader">
         <h1 id="logo">
           <Link to="/">SUBWAY</Link>

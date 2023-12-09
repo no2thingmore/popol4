@@ -56,6 +56,11 @@ class Food extends Sequelize.Model{
         allowNull: true,
         comment: "지방",
       },
+      ingred_sugars:{
+        type: Sequelize.FLOAT,
+        allowNull: true,
+        comment:"당도"
+      },
       ingred_salt: {
         type: Sequelize.FLOAT,
         allowNull: true,
@@ -75,6 +80,11 @@ class Food extends Sequelize.Model{
         type: Sequelize.INTEGER(1),
         allowNull: false,
         comment: "0:샌드위치 ,1:랩/기타 ,2:샐러드 ,3:사이드",
+      },
+      status: {
+        type: Sequelize.INTEGER(1),
+        allowNull: false,
+        comment: "0:출시,1:품절,2:판매종료",
       },
     },
     {

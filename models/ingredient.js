@@ -26,6 +26,11 @@ class Ingredient extends Sequelize.Model{
         allowNull: false,
         comment: "영어이름",
       },
+      image_url:{
+        type: Sequelize.STRING,
+        allowNull:false,
+        comment:"재료 사진"
+      },
       kcal: {
         type: Sequelize.FLOAT,
         allowNull: true,
@@ -33,7 +38,7 @@ class Ingredient extends Sequelize.Model{
       },
       comment: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
         comment: "재료 설명",
       },
       kinds: {

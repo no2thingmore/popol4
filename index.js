@@ -16,9 +16,18 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use(express.urlencoded({extended:false}));
+
 var cors = require('cors');
 app.use(cors());
 
+// app.get('/test',async ()=>{
+//   for (let i = 0; i < list.length; i++) {
+//     const element = list[i];
+//     .create({
+      
+//     })
+//   }
+// }) //데이터 저장용 axios 
 sequelize.sync({ force: false })
   .then(() => {
     console.log("DB연결 성공");
