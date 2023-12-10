@@ -6,15 +6,32 @@ import slide_img_2 from './art_images/img_sandwich_artist_slider02.jpg';
 import slide_img_3 from './art_images/img_sandwich_artist_slider03.jpg';
 import slide_img_4 from './art_images/img_sandwich_artist_slider04.jpg';
 import slide_img_5 from './art_images/img_sandwich_artist_slider05.jpg';
+import important_bg from './art_images/img_sw_artist_point.jpg';
 import important_icon_1 from './art_images/icon_sw_artist_point01.png';
 import important_icon_2 from './art_images/icon_sw_artist_point02.png';
 import important_icon_3 from './art_images/icon_sw_artist_point03.png';
 import important_icon_4 from './art_images/icon_sw_artist_point04.png';
+import WakDo from './art_images/GgamJjickYee.mp4';
 
 
 
 
 function Apply(){
+
+// 1. 슬라이드 버튼 함수
+  const slide_act = () => {
+    
+  }
+  
+  // 점을 눌렀을 때 바뀌는 함수
+  
+  // 활성화된 슬라이드의 텍스트만 활성화 하는 함수
+
+
+
+
+
+
   return(
     <div id="Artist_Main_Div">
       <div className="Artist_Main_Grid">
@@ -167,19 +184,22 @@ function Apply(){
                 </li>
               </ul>
             </div>
+
             <div className="slide_ctl">
               <div className="slide_ctl_Arrow">
-                <a className="bt_prev">
-                  Prev
-                </a>
-                <a className="bt_next">
-                  Next
-                </a>
+                <a className="bt_prev">Prev</a>
+                <a className="bt_next">Next</a>
               </div>
-              <div className="slide_ctl_Dot"></div>
+
+              <div className="slide_ctl_Dot">
+                <div className="Dot_item"><a href="#" className="clicked_dot">1</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot">2</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot">3</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot">4</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot">5</a></div>
+              </div>
             </div>
           </div>
-
         </div>
         {/* 핵심요소 */}
         <div></div>

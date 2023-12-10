@@ -24,11 +24,13 @@
   overflow: initial !important;
 }
 .slide_li{
+  /* right: 35px; */
+  margin: auto;
   list-style: none;
   width: 4215%;
   position: relative;
   transition-duration: 0.5s;
-  transform: translate3d(-3600px, 0px, 0px);
+  transform: translate3d(-900px, 0px, 0px);
 }
 .slide_li_item{
   float: left;
@@ -54,7 +56,7 @@
   vertical-align: top;
   border: 0;
 }
-.slide_li:nth-child(5n) .slide_img{
+.slide_li:nth-child(5n){
   background-position: 0 60px;
 }
 
@@ -64,8 +66,9 @@
   padding-top: 30px;
   position: relative;
   margin-top: 40px;
-  opacity: 0;
-  top: 30px;
+  /* opacity: 0; */
+  /* top: 30px; */
+  top: 0;
 }
 .slide_info::after{
   content: '';
@@ -86,6 +89,7 @@
 .slide_info_txt{
   display: block;
   margin-top: 15px;
+  margin-bottom: 0;
   font-size: 16px;
   color: #666666;
   line-height: 26px;
@@ -95,6 +99,10 @@
 
 /*************** 슬 라 이 드 버 튼 ***************/
 .slide_ctl_Arrow{
+  /* border: 1px solid #000; */
+}
+
+.slide_ctl_Arrow > a{
   width: 50px;
   height: 50px;
   background: url(./art_images/icon_slider_arr.png) no-repeat;
@@ -104,10 +112,11 @@
   font-size: 0;
   line-height: 0px;
   text-indent: -9999px;
-}
-.slide_ctl_Arrow > a{
   color: #333;
   cursor: pointer;
+}
+.slide_ctl_Arrow > .bt_next{
+  background-position: 100% 0;
 }
 .bt_prev{
   background-position: 0 0;
@@ -115,9 +124,45 @@
   margin-left: -467px;
 }
 .bt_next{
-  background-position:100% 0;
   right: 50%;
   margin-right: -482px;
+}
+.bt_prev:hover{
+  background-position: 0 100%;
+}
+.bt_next:hover{
+  background-position: 100% 100%;
+}
+
+.slide_ctl_Dot{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 97px;
+  text-align: center;
+}
+
+.Dot_item{
+  display: inline-block;
+  margin: 0 5px;
+
+}
+.clicked_dot{
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #dddddd;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition-duration: 0.3s;
+
+}
+.clicked_dot:active{
+  background-color: #ffc300;
+  width: 30px;
 }
 
 /*************** 핵 심 요 소 ***************/

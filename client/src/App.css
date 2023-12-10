@@ -25,6 +25,11 @@ div {
   user-select: none;
 }
 
+.App{
+  border-top: 5px solid #009223;
+  /* 고-----증을 한것이다 고-----증을 by독감보균자*/
+}
+
 .end {
   scale: 1;
   opacity: 1;
