@@ -87,14 +87,14 @@ function FFAQ() {
         <>
         <div className='jh_faq_help_all'>
             <div className='jh_faq_help_bar'>
-                <Link to='/faq'>
+                <Link to='/ffaq'>
                     <div className='jh_faq_help_bar_faq'>
                         FAQ
                         <div className='jh_faq_line_bar'></div>
                     </div>
                     
                 </Link>
-                <Link to='/qna'>
+                <Link to='/qqna'>
                     <div className='jh_faq_help_bar_qna'>1:1문의</div>
                 </Link>
             </div>
@@ -102,7 +102,10 @@ function FFAQ() {
                 
                 <div className='jh_faq_section'>
                     <h2 className='jh_faq_title_name'>
-                        자주하는질문 (FAQ)
+                        (FAQ)
+                        <br />
+                        자주하는질문
+                        
                     </h2>
                     {/* 타입 선택 버튼 */}
                     <div className='jh_faq_qms_section'>

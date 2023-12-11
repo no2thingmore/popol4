@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import Slide1 from './images/slide1.png';
 import Slide2 from './images/slide2.png';
 import Slide3 from './images/slide3.png';
+import Slide4 from './images/slide4.png';
 import Map from './icons/icon_map.png';
 import Ask from './icons/icon_ask.png';
 
 
 import './top.css';
 
-const images = [Slide1, Slide2, Slide3];
+const images = [Slide1, Slide2, Slide3, Slide4];
 
 const Banner = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
