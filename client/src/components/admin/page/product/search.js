@@ -3,13 +3,12 @@ import React, { useState } from "react";
 function Search(props) {
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
-    if(value === "false"){
+    if(value == ""){
       props.setCategorySelect1(value);
       props.setCategorySelect2(value);
     } else {
       props.setCategorySelect1(value);
     }
-    
   };
 
   const handleCategorySelect2Change = (event) => {
@@ -73,81 +72,81 @@ function Search(props) {
                 onChange={handleCategorySelect1Change}
                 value={props.categorySelect1}
               >
-                <option value="false">=카테고리선택=</option>
-                <option value="샌드위치">샌드위치</option>
-                <option value="랩ㆍ기타">랩ㆍ기타</option>
-                <option value="샐러드">샐러드</option>
-                <option value="아침메뉴">아침메뉴</option>
-                <option value="스마일 썹">스마일 썹</option>
-                <option value="단체메뉴">단체메뉴</option>
+                <option value="">=카테고리선택=</option>
+                <option value="0">샌드위치</option>
+                <option value="1">랩ㆍ기타</option>
+                <option value="2">샐러드</option>
+                <option value="3">아침메뉴</option>
+                <option value="4">스마일 썹</option>
+                <option value="5">단체메뉴</option>
               </select>
 
-              {props.categorySelect1 === "샌드위치" && (
+              {props.categorySelect1 === "0" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="클래식">클래식</option>
-                  <option value="프레쉬&라이트">프레쉬&라이트</option>
-                  <option value="프리미엄">프리미엄</option>
-                  <option value="신제품">신제품</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="0">클래식</option>
+                  <option value="1">프레쉬&라이트</option>
+                  <option value="2">프리미엄</option>
+                  <option value="3">신제품</option>
                 </select>
               )}
 
-              {props.categorySelect1 === "랩ㆍ기타" && (
+              {props.categorySelect1 === "1" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="시그니처 랩">시그니처 랩</option>
-                  <option value="미니 랩">미니 랩</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="4">시그니처 랩</option>
+                  <option value="5">미니 랩</option>
                 </select>
               )}
 
-              {props.categorySelect1 === "샐러드" && (
+              {props.categorySelect1 === "2" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="클래식">클래식</option>
-                  <option value="프레쉬&라이트">프레쉬&라이트</option>
-                  <option value="프리미엄">프리미엄</option>
-                  <option value="신제품">신제품</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="6">클래식</option>
+                  <option value="7">프레쉬&라이트</option>
+                  <option value="8">프리미엄</option>
+                  <option value="9">신제품</option>
                 </select>
               )}
 
-              {props.categorySelect1 === "아침메뉴" && (
+              {props.categorySelect1 === "3" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="샌드위치">샌드위치</option>
-                  <option value="랩">랩</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="10">샌드위치</option>
+                  <option value="11">랩</option>
                 </select>
               )}
 
-              {props.categorySelect1 === "스마일 썹" && (
+              {props.categorySelect1 === "4" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="스마일 썹">스마일 썹</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="12">스마일 썹</option>
                 </select>
               )}
 
-              {props.categorySelect1 === "단체메뉴" && (
+              {props.categorySelect1 === "5" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
                 >
-                  <option value="false">=카테고리선택=</option>
-                  <option value="샌드위치">샌드위치</option>
-                  <option value="쿠키">쿠키</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="13">샌드위치</option>
+                  <option value="14">쿠키</option>
                 </select>
               )}
             </div>
@@ -179,19 +178,17 @@ function Search(props) {
                 <input
                   type="radio"
                   name="salesStatus"
-                  value="진열"
-                  checked={props.selectedSalesStatus === "진열"}
-                  onChange={() => props.setSelectedSalesStatus("진열")}
+                  checked={props.selectedSalesStatus == "0"}
+                  onChange={() => props.setSelectedSalesStatus("0")}
                 />
-                진열
+                출시
               </label>
               <label>
                 <input
                   type="radio"
                   name="salesStatus"
-                  value="품절"
-                  checked={props.selectedSalesStatus === "품절"}
-                  onChange={() => props.setSelectedSalesStatus("품절")}
+                  checked={props.selectedSalesStatus == "1"}
+                  onChange={() => props.setSelectedSalesStatus("1")}
                 />
                 품절
               </label>
@@ -199,29 +196,17 @@ function Search(props) {
                 <input
                   type="radio"
                   name="salesStatus"
-                  value="단종"
-                  checked={props.selectedSalesStatus === "단종"}
-                  onChange={() => props.setSelectedSalesStatus("단종")}
+                  checked={props.selectedSalesStatus == "2"}
+                  onChange={() => props.setSelectedSalesStatus("2")}
                 />
-                단종
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="salesStatus"
-                  value="중지"
-                  checked={props.selectedSalesStatus === "중지"}
-                  onChange={() => props.setSelectedSalesStatus("중지")}
-                />
-                중지
+                판매종료
               </label>
             </div>
           </div>
         </div>
 
         <div className="CHM_adminProductSearchBtnBox">
-          <button onClick={props.handleSerchedChange}>검색</button>
-          <button>초기화</button>
+          <button onClick={props.resetSearchState}>초기화</button>
         </div>
       </form>
     </div>
