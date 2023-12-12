@@ -24,7 +24,8 @@
   overflow: initial !important;
 }
 .slide_li{
-  /* right: 35px; */
+  right: 39px;
+  top: -10px;
   margin: auto;
   list-style: none;
   width: 4215%;
@@ -166,6 +167,163 @@
 }
 
 /*************** 핵 심 요 소 ***************/
+.Point{
+  height: 490px;
+  background: url(./art_images/img_sw_artist_point.jpg) 50% 0 no-repeat;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 103px;
+  box-sizing: border-box;
+}
+.Point > h3{
+  font-size: 28px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 68px;
+  letter-spacing: -0.03em;
+}
+.Point_li{
+  overflow: hidden;
+  display: inline-block;
+}
+.Point_li_item{
+  float: left;
+  width: 140px;
+  margin: 0 45px;
+}
+.point_icon{
+  vertical-align: top;
+  border: 0;
+  
+}
+.Point_li_item span{
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 25px;
+  letter-spacing: -0.025em;
+}
 
+/*************** 커 리 어 맵 ***************/
+.career_path{
+  width: 1033px;
+  margin: 90px auto 0;
+}
+.career_path > h3{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  color: #292929;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: -0.03em;
+  margin-bottom: 57px;
+}
+.path_point{
+  background: url(./art_images/bg_career_path_line.png) 0 7px no-repeat;
+  height: 456px;
+  position: relative;
+}
+.path_point > li {
+  position: absolute;
+  text-align: center;
+  padding-top: 44px;
+  height: 103px;
+  width: 260px;
+}
+.path_point > li::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -11px;
+  background: url(./art_images/bul_dot.png) 0 0 no-repeat;
+  width: 22px;
+  height: 22px;
+}
+.path_point > li:nth-child(1){
+  left: 85px;
+}
+.path_point > li:nth-child(2){
+  left: 385px;
+}
+.path_point > li:nth-child(3){
+  left: 685px;
+}
+.path_point > li:nth-child(4){
+  left: 685px;
+  top: 208px;
+}
+.path_point > li:nth-child(5){
+  left: 385px;
+  top: 208px;
+}
+.path_point > li:nth-child(6){
+  left: 85px;
+  top: 208px;
+}
+.point_num{
+  font-family: 'GangwonEduPowerExtraBoldA';
+  display: block;
+  font-weight: bold;
+  color: #292929;
+  font-size: 18px;
+}
+.path_point strong{
+  display: block;
+  font-weight: bold;
+  font-family: 'GangwonEduPowerExtraBoldA';
+  color: #009223;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+  margin-top: 1px;
+}
+.view_deep{
+  color: #999999;
+  font-size: 13px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  letter-spacing: 0.025em;
+}
+.view_deep p {
+  display: inline-block;
+  cursor: pointer;
+}
+.view_deep p:hover .layer_view{
+  border: 1px solid #000;
+  
+}
+.layer_view{
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 260px;
+  background-color: #009223;
+  padding: 15px 0 16px 0;
+  /* display: table; */
+  display: none;
+}
+.layer_view::after{
+  content: '';
+  width: 6px;
+  height: 4px;
+  background: url(./art_images/icon_arr_t.png) 50% 0 no-repeat;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: -4px;
+}
+.layer_view p{
+  color: #fff;
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: -0.04em;
+  height: 83px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+} 
 
 /*************** 채 용 지 원 ***************/
