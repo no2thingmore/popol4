@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './apply.css';
 
 import slide_img_1 from './art_images/img_sandwich_artist_slider01.jpg';
@@ -23,12 +23,26 @@ function Apply(){
     
   }
   
-  // 점을 눌렀을 때 바뀌는 함수
-  
-  // 활성화된 슬라이드의 텍스트만 활성화 하는 함수
+// 점을 눌렀을 때 바뀌는 함수
+// 활성화된 슬라이드의 텍스트만 활성화 하는 함수
 
+// 호버 시 텍스트 표출 함수
+let hover_txt = document.querySelectorAll('.view_deep');
+const txt_li = hover_txt.forEach;
+console.log(txt_li);
+const [isHover, setIsHover] = useState(false);
+const mouseOver = () => {
+  setIsHover(true);
+};
+const mouseOut = () => {
+  setIsHover(false);
+};
 
-
+// let layer_txt = document.querySelectorAll('.layer_view');
+// console.log(hover_txt);
+// console.log(layer_txt);
+// console.log('hover_txt = ' + hover_txt);
+// console.log('layer_txt = ' + layer_txt);
 
 
 
@@ -238,8 +252,8 @@ function Apply(){
             <li>
 							<span class="point_num">01</span>
 							<strong>Sandwich<br />Artist</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} onMouseOver={mouseOver} onMouseOut={mouseOut}>
 								<p>
 									샌드위치 아티스트™는 고객에게 <br />
 									최고의 경험을 제공하기 위해<br />
@@ -250,9 +264,9 @@ function Apply(){
             <li>
 							<span class="point_num">02</span>
 							<strong>Senior Sandwich<br />Artist</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
-								<p>
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} >
+								<p onMouseOver={mouseOver} onMouseOut={mouseOut}>
 									선임 샌드위치 아티스트™는<br />
 									매장 운영 및 관리 업무를<br />
 									습득함으로써 매니저로<br />
@@ -263,9 +277,9 @@ function Apply(){
             <li>
 							<span class="point_num">03</span>
 							<strong>Shift<br />Manager</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
-								<p>
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} >
+								<p onMouseOver={mouseOver} onMouseOut={mouseOut}>
 									시프트 매니저는 함께 일하는<br />
 									샌드위치 아티스트™의 업무를 조율하고<br />
 									매니저의 업무를 지원하는 역할을<br />
@@ -276,9 +290,9 @@ function Apply(){
             <li>
 							<span class="point_num">04</span>
 							<strong>Assistant<br />Manager</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
-								<p>
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} >
+								<p onMouseOver={mouseOver} onMouseOut={mouseOut}>
 									한 매장을 책임지고 관리하는 매니저가<br />
 									되기 위한 이전 단계로, 매장운영과 관련된<br />
 									중요한 업무에 대해 본격적으로 책임지기<br />
@@ -293,9 +307,9 @@ function Apply(){
             <li>
 							<span class="point_num">05</span>
 							<strong>Manager</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
-								<p>
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} >
+								<p onMouseOver={mouseOver} onMouseOut={mouseOut}>
 									매장 운영 및 관리의 책임자로서<br />
 									역할을 실행하며 온라인 학습 과정을 통해<br />
 									지속적으로 업무능력 향상의 기회가<br />
@@ -306,9 +320,9 @@ function Apply(){
             <li>
 							<span class="point_num">06</span>
 							<strong>Multi-Unit<br />Manager</strong>
-							<div class="view_deep"><p>상세보기</p></div>
-							<div class="layer_view">
-								<p>
+							<div class="view_deep"><p onMouseOver={mouseOver} onMouseOut={mouseOut}>상세보기</p></div>
+							<div class={isHover ? "layer_view_on" : "layer_view"} >
+								<p onMouseOver={mouseOver} onMouseOut={mouseOut}>
 									한 개 이상의 매장을<br />
 									운영 및 관리하는<br />
 									매니저입니다.
@@ -318,7 +332,37 @@ function Apply(){
           </ol>
         </div>
         {/* 채용지원 */}
-        <div></div>
+        <div className="recruit">
+          <div className="recruit_head">
+            <h3>채용지원</h3>
+            <p>최고의 샌드위치 아티스트™에 도전하세요</p>
+          </div>
+          <div className="recruit_link">
+            <div className="recruit_link_li">
+              <div className="recruit_link_li_item">
+                <a href="http://www.alba.co.kr/search/Search.asp?srchType=ALL&clsType=search&EasySearch=mainSearch&wsSrchWord=%BD%E1%BA%EA%BF%FE%C0%CC&wsSrchWordarea=" target="_blank">
+                  <div className="recruit_logo"></div>
+                  <strong>알바천국 채용지원</strong>
+                  <span>바로가기</span>
+                </a>
+                </div>
+              <div className="recruit_link_li_item">
+                <a href="http://www.albamon.com/search?Keyword=%EC%8D%A8%EB%B8%8C%EC%9B%A8%EC%9D%B4" target="blank">
+                  <div className="recruit_logo"></div>
+                  <strong>알바몬 채용지원</strong>
+                  <span>바로가기</span>
+                </a>
+                </div>
+              <div className="recruit_link_li_item">
+                <a href="/subwayRecruit" target="blank">
+                  <div className="recruit_logo"></div>
+                  <strong>홈페이지 채용지원</strong>
+                  <span>바로가기</span>
+                </a>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
