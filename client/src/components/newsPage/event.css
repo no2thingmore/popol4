@@ -1,36 +1,50 @@
 
-#event_all{
-
-}
-
 .y_painting{
   justify-content: center;
   text-align: center;
 }
 
-.y_list_button{
-  margin: auto;
-  padding: 50PX 50PX 50PX 50PX;
-  width: 100%;
+.y_all_button{
+  background-color: beige;
 }
 
-.y_button{
-  width: fit-content;
-  border: 1px solid #000;
-  margin: auto;
-  list-style: none;
+.y_list_button{
+  
+  display: flex;
+  justify-content: center;
+  padding-top:50px;
+  padding-bottom: 25px;
 }
+
+.y_list_button button{
+  border: none;
+  background-color: white;
+  color: black;
+  width: 230px;
+  height: 60px;
+  font-size: 22px;
+  font-weight: 700 ;
+}
+
+.y_button:first-child{
+  border-radius: 50px 0 0 50px;
+}
+
+.y_button:last-child{
+  border-radius: 0 50px 50px 0;
+}
+
 
 /* 리스트 버튼 */
 .y_button>li{
   float: left;
   padding: 5px 10px 5px 10px;
-  background-color: royalblue;
+  background-color: blueviolet;
   margin-left: 20px;
-}
+ }
 
 /* 버튼 누르면 색바낌 */
-.y_button>li>a:active{
+ .y_button>li>a:active{
   background-color: blueviolet;
 }
 

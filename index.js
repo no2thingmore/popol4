@@ -28,6 +28,7 @@ app.use(cors());
 //     })
 //   }
 // }) //데이터 저장용 axios 
+
 sequelize.sync({ force: false })
   .then(() => {
     console.log("DB연결 성공");

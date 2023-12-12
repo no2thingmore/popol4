@@ -16,7 +16,7 @@ import xx from "./image/y_xx.jpg";
 import yy from "./image/y_yy.jpg";
 import zz from "./image/y_zz.jpg";
 
-
+const images = [painting1, painting2, painting3, painting4];
 // const images = [Painting1, Painting2, Painting3];
 
 function Event(){
@@ -27,25 +27,30 @@ function Event(){
       </div>
 
       <div className="y_painting">
-        <img src={painting1}></img>
-        <img src={painting2}></img>
-        <img src={painting3}></img>
-        <img src={painting4}></img>
+        {/* {images.map((image, index) => (
+            <img 
+                key={index}
+                className={`top_slide ${index === currentIndex ? 'active' : ''}`}
+                src={image}
+                alt={`이미지 ${index + 1}`}
+            />
+        ))} */}
       </div>
 
       <div className="y_all_button">
         <div className="y_list_button">
-          <ul className="y_button">
-            <li className="y_the_entire">
-              <a href="">전체</a>
-            </li>
-            <li className="y_ongoing">
-              <a href="">진행중인 이벤트</a>
-            </li>
-            <li className="y_termination">
-              <a href="">종료된 이벤트</a>
-            </li>
-          </ul>
+          <button className="y_button">
+            <a href="#">전체</a>
+          </button>
+
+          <button className="y_button">
+            <a href="#">진행중인 이벤트</a>
+          </button>
+
+          <button className="y_button">
+            <a href="#">종료된 이벤트</a>
+          </button>
+
         </div>
         <br/>
 
