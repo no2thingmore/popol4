@@ -46,26 +46,26 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/History" element={<History></History>}></Route>
-        <Route path="/Promise" element={<Promise></Promise>}></Route>
-        <Route path="/Apply" element={<Apply></Apply>}></Route>
-        <Route path="/StoreSearch" element={<StoreSearch></StoreSearch>}></Route>
-        <Route path="/Event" element={<Event />}></Route>
-        <Route path="/Advertising" element={<Advertising />}></Route>
-        <Route path="/Notice" element={<Notice />}></Route>
+        <Route path="/history" element={<History></History>}></Route>
+        <Route path="/promise" element={<Promise></Promise>}></Route>
+        <Route path="/apply" element={<Apply></Apply>}></Route>
+        <Route path="/storeSearch" element={<StoreSearch></StoreSearch>}></Route>
+        <Route path="/event" element={<Event />}></Route>
+        <Route path="/advertising" element={<Advertising />}></Route>
+        <Route path="/notice" element={<Notice />}></Route>
         <Route path="/order/:type/:step/:location/:product/:id" element={<Order></Order>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/:franchisee' element={<Franchise />}></Route>
         <Route path="/menuIntro/:product" element={<Menuintro></Menuintro>}></Route>
         <Route path="/menuIntro/:product/:id" element={<Detail></Detail>}></Route>
-        <Route path="/Howtousesubway" element={<Howtousesubway></Howtousesubway>}></Route>
+        <Route path="/howToUseSubway" element={<Howtousesubway></Howtousesubway>}></Route>
         <Route path="/ingreDient/:product" element={<Ingredient></Ingredient>}></Route>
         <Route path="/ingreDient/:product/:id" element={<Detail></Detail>}></Route>
-        <Route path="/Ordertip_1" element={<Ordertip_1></Ordertip_1>}></Route>
-        <Route path="/Storeorder" element={<Storeorder></Storeorder>}></Route>
-        <Route path="/Slider" element={<Slider></Slider>}></Route>
-        <Route path="/Groupmenu" element={<Groupmenu></Groupmenu>}></Route>
+        <Route path="/orderTip_1" element={<Ordertip_1></Ordertip_1>}></Route>
+        <Route path="/storeOrder" element={<Storeorder></Storeorder>}></Route>
+        <Route path="/slider" element={<Slider></Slider>}></Route>
+        <Route path="/groupMenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin/:type" element={<Admin></Admin>}></Route>
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
