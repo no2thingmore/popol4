@@ -4,6 +4,7 @@ const app = express();
 const morgan = require('morgan');
 const fs = require('fs');
 const { sequelize } = require('./models');
+const FoodRouter = require('./routes/Food.js')
 
 const index = path.join(__dirname, 'client/build/index.html')
 const port = process.env.NODE_ENV || '8080';
@@ -19,6 +20,8 @@ app.use(express.urlencoded({extended:false}));
 
 var cors = require('cors');
 app.use(cors());
+
+app.use('/food', FoodRouter)
 
 // app.get('/test',async ()=>{
 //   for (let i = 0; i < list.length; i++) {
