@@ -6,7 +6,7 @@ router
   .get("/admin", async (req,res,next)=>{
     try {
       const foodData = await Food.findAll();
-      console.log('food',foodData);
+      // console.log('food',foodData);
       res.status(201).send(foodData)
     } catch (error) {
       console.error(error);
