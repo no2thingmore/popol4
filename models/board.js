@@ -55,6 +55,7 @@ class Board extends Sequelize.Model{
       update_at: {
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.NOW,
         comment: "업데이트 시간",
       },
     },

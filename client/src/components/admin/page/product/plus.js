@@ -43,7 +43,7 @@ function Plus(props) {
         ingred_fat: fat,
         ingred_sugars: sugars,
         ingred_salt: salt,
-        ingred_kcal: gram,
+        ingred_gram: gram,
       })
       .then(() => {
         console.log("성공");
