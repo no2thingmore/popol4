@@ -1,8 +1,8 @@
 import "./subwayfranchise.css";
-import band_comp_01 from "../franchise/subwayfranchise_img/img_barnd_comp01.jpg";
-import band_comp_02 from "../franchise/subwayfranchise_img/img_barnd_comp02.jpg";
-import band_comp_03 from "../franchise/subwayfranchise_img/img_barnd_comp03.jpg";
-import band_comp_04 from "../franchise/subwayfranchise_img/img_barnd_comp04.jpg";
+import band_comp_01 from "../subwayfranchise_img/img_barnd_comp01.jpg";
+import band_comp_02 from "../subwayfranchise_img/img_barnd_comp02.jpg";
+import band_comp_03 from "../subwayfranchise_img/img_barnd_comp03.jpg";
+import band_comp_04 from "../subwayfranchise_img/img_barnd_comp04.jpg";
 
 
 function SubwayFranchise() {
