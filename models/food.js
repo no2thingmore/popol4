@@ -72,7 +72,7 @@ class Food extends Sequelize.Model{
         comment: "가격",
       },
       tags: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
         comment: "카테고리 0:인기메뉴, 1:아침메뉴, 2:추천메뉴 등등",
       },
