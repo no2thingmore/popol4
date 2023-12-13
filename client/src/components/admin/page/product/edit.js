@@ -288,6 +288,7 @@ function Edit(props) {
             </div>
           </div>
 
+
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
             <input placeholder="이미지"></input>
