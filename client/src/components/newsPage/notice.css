@@ -1,19 +1,22 @@
 .j_notice_all{
-  border: 1px solid #000;
-  margin-left: 600px;
-  margin-right: 600px;
+  /* border: 1px solid #000; */
+  margin-left: auto;
+  margin-right: auto;
+  width: 1170px;
+
 }
 .j_all>div{
-  text-align: center;
   margin-right: 0px;
 }
 
 .j_the_number>p{
-  margin-right: 950px;
+  margin-right: 450px;
+  /* text-align: center; */
 }
 
 .j_list_all{
-  border-top: 3px solid rgb(0, 255, 13);
+  border-top: 4px solid #009223;
+  /* border: 1px solid #000; */
 }
 
 .j_list{
@@ -27,6 +30,7 @@
 /* 숫자 */
 .j_number>h3{
   color: rgb(243, 200, 8);
+  text-align: center;
 }
 
 .j_date>p{
@@ -35,6 +39,7 @@
 
 .j_content>a{
   font-size: 30px;
+  text-align: left;
 }
 
 .j_list>div{
@@ -43,6 +48,3 @@
  
 }
 
-.j_date{
-
-}
