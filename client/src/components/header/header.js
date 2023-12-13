@@ -45,9 +45,9 @@ function Header() {
         <li className="menu-item">
           새소식
           <ul className="submenu">
-            <a href="/"><li>이벤트 · 프로모션</li></a>
-            <a href="/"><li>뉴스 · 공지사항</li></a>
-            <a href="/"><li>광고영상</li></a>
+            <a href="/event"><li>이벤트 · 프로모션</li></a>
+            <a href="/notice"><li>뉴스 · 공지사항</li></a>
+            <a href="/advertising"><li>광고영상</li></a>
           </ul>
         </li>
         <li className="menu-item">
