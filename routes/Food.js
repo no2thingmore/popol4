@@ -22,7 +22,7 @@ router
         kname: req.body.kname,
         ename: req.body.ename,
         coment: req.body.coment,
-        image_url:'none',
+        image_url:req.body.image_url,
         price: req.body.price,
         status: req.body.status,
         ingred_kcal: parseFloat(req.body.ingred_kcal),
@@ -31,7 +31,7 @@ router
         ingred_sugars: parseFloat(req.body.ingred_sugars),
         ingred_salt: parseFloat(req.body.ingred_salt),
         kinds: req.body.kinds,
-        tags: 1,
+        tags: req.bo,
         ingred_gram: req.body.ingred_gram
       }).then(()=>{
         console.log('데이터 등록');
@@ -61,12 +61,13 @@ router
         ingred_salt: req.body.ingred_salt,
         kinds: req.body.kinds,
         tags: req.body.tags,
-        ingred_gram: ingred_gram
+        ingred_gram: req.body.ingred_gram
       },
-      {where:{id:req.body.id}})
-      res.status(201).end()
+      {where:{id:req.body.id}});
+      res.status(201).end();
     } catch (error) {
-      console.log("실패");
+      console.log(error);
+      res.status(500).end();
     }
   })
   .delete("/admin",async (req,res,next)=>{

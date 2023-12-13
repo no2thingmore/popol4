@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { Upload } from "antd";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config/contansts";
 
 function Plus(props) {
+  const navigate = useNavigate();
   const [categort1, setCategory1] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
   const [kname, setKname] = useState("");
@@ -16,6 +19,7 @@ function Plus(props) {
   const [sugars, setSugars] = useState("");
   const [salt, setSalt] = useState("");
   const [gram, setGram] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -24,6 +28,23 @@ function Plus(props) {
       setCategory1(value);
     } else {
       setCategory1(value);
+    }
+  };
+
+  const onChangeImage = (info) => {
+    // 파일이 업로드 중일 때
+    console.log("new", info.file);
+    if (info.file.status === "uploading") {
+      console.log("업로드중");
+      return;
+    }
+    // 파일이 업로드 완료 되었을 때
+    if (info.file.status === "done") {
+      console.log("성공");
+      const response = info.file.response;
+      const imageUrl = response.imageUrl;
+      // 받은 이미지경로를 imageUrl에 넣어줌
+      setImageUrl(imageUrl);
     }
   };
 
@@ -36,6 +57,7 @@ function Plus(props) {
         kinds: categort1,
         tags: selectedTag,
         coment: coment,
+        image_url: imageUrl,
         price: price,
         status: status,
         ingred_kcal: kcal,
@@ -47,6 +69,7 @@ function Plus(props) {
       })
       .then(() => {
         console.log("성공");
+        navigate("/admin/product");
       })
       .catch((e) => {
         console.log("에러남");
@@ -363,7 +386,22 @@ function Plus(props) {
 
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
-            <input placeholder="이미지"></input>
+            <Upload
+                name="image"
+                action={`${API_URL}/image`}
+                listType="picture"
+                showUploadList={false}
+                onChange={onChangeImage}
+              >
+                {imageUrl ? (
+                  <img src={imageUrl} alt="" width="200px" height="200px" />
+                ) : (
+                  <div id="upload-img-placeholder">
+                    <i class="fa-regular fa-file-image"></i><br/>
+                    <span>제품사진을 등록 해주세요.</span>
+                  </div>
+                )}
+              </Upload>
           </div>
 
           <div className="CHM_plusPageBtnBox">

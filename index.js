@@ -21,11 +21,31 @@ app.use(express.urlencoded({extended:false}));
 app.use("/upload", express.static("upload"));
 
 var cors = require('cors');
-const Food = require('./models/food.js');
+
 app.use(cors());
+
+const upload = multer({ 
+  storage: multer.diskStorage({ //저장 설정
+      destination: function(req, file, cb) { // 어디에 저장할거냐? upload/
+          cb(null, 'upload/') // upload폴더 밑에
+      },
+      filename: function(req, file, cb){ // 어떤 이름으로 저장할거야?
+          cb(null, file.originalname) // 업로드한 file의 오리지널 이름으로 저장하겠다.
+      }
+  })
+})
+
+app.post('/image', upload.single('image'), (req, res)=>{ 
+  const file = req.file; 
+  console.log("post(/image) file:",file);
+  res.send({ 
+      imageUrl: "http://168.126.242.77:8080/"+file.destination+file.filename //이미지 여기 저장했다 json형식으로 보냄
+  })
+})
 
 app.use('/food', FoodRouter)
 
+// const Food = require('./models/food.js');
 // const list = []
 
 // app.get('/test',async ()=>{
