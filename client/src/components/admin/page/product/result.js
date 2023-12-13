@@ -70,7 +70,9 @@ function Result(props) {
   const handleSelectAllChange = () => {
     const newSelectAll = !selectAll;
     setSelectAll(newSelectAll);
-    const newCheckedItems = newSelectAll ? props.filteredResults.map((item) => item.id) : [];
+    const newCheckedItems = newSelectAll
+      ? props.filteredResults.map((item) => item.id)
+      : [];
     setCheckedItems(newCheckedItems);
   };
 
@@ -93,32 +95,36 @@ function Result(props) {
     setCheckedItems([]);
   };
 
-
-
   const handleEditButtonClick = (id) => {
     // 수정 버튼 클릭 시 해당 상품의 아이디를 가져와서 사용할 수 있습니다.
-    props.setPage("edit")
-    props.setId(id)
-    console.log(`Edit button clicked for item with ID: ${id}`);
+    props.setPage("edit");
+    props.setId(id);
     // 여기에서 아이디를 사용하여 수정하는 로직을 추가할 수 있습니다.
   };
 
-
-  
   const count = props.filteredResults.length;
 
   return (
     <>
       <div className="CHM_adminProductPageSubTitle">
-        <div style={{fontSize: "1.7vw"}}>상품리스트 ({count}건)</div>
-        <div className="CHM_adminProductPlusBtn" onClick={() => props.setPage("plus")}>+상품추가</div>
+        <div style={{ fontSize: "1.7vw" }}>상품리스트 ({count}건)</div>
+        <div
+          className="CHM_adminProductPlusBtn"
+          onClick={() => props.setPage("plus")}
+        >
+          +상품추가
+        </div>
       </div>
       <div className="CHM_adminProductpageTableBox">
         <table>
           <thead>
             <tr>
               <th style={{ width: "5%" }}>
-                <input type="checkbox" onChange={handleSelectAllChange} checked={selectAll} />
+                <input
+                  type="checkbox"
+                  onChange={handleSelectAllChange}
+                  checked={selectAll}
+                />
               </th>
               <th style={{ width: "5%" }}>번호</th>
               <th style={{ width: "10%" }}>이미지</th>
@@ -182,7 +188,8 @@ function Result(props) {
                         justifyContent: "center",
                       }}
                     >
-                      타입: {getKindsLabel(a.kinds)} / 종류: {getTagsabel(a.tags)}
+                      타입: {getKindsLabel(a.kinds)} / 종류:{" "}
+                      {getTagsabel(a.tags)}
                     </div>
                   </td>
                   <td>2023-01-01</td>
@@ -191,18 +198,23 @@ function Result(props) {
                   <td>{a.price}원</td>
                   <td>
                     <button
+                      className="CHM_adminproducttdBtn"
                       style={{
                         fontSize: "1vw",
-                        marginRight: "0.5vw",
-                        padding: "0.2vw 0.5vw",
+                        marginRight: "0.8vw",
+                        padding: "0.3vw 0.6vw",
+                        backgroundColor: "rgb(52, 52, 52)",
+                        color: "white",
+                        border: "none"
                       }}
                       onClick={() => handleEditButtonClick(a.id)}
                     >
                       수정
                     </button>
                     <button
+                      className="CHM_adminproducttdBtn"
                       onClick={handleDeleteButtonClick}
-                      style={{ fontSize: "1vw", padding: "0.2vw 0.5vw" }}
+                      style={{ fontSize: "1vw", padding: "0.3vw 0.6vw", backgroundColor:"red", color:"white", border:"none"}}
                     >
                       삭제
                     </button>
