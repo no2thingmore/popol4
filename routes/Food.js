@@ -16,7 +16,7 @@ router
 
   .post("/admin" , (req,res,next)=>{
     try {
-      // console.log('addFood',req.body);
+      console.log('addFood',req.body);
       const result = Food.create({
         admin_id: 1,
         kname: req.body.kname,
@@ -31,7 +31,7 @@ router
         ingred_sugars: parseFloat(req.body.ingred_sugars),
         ingred_salt: parseFloat(req.body.ingred_salt),
         kinds: req.body.kinds,
-        tags: req.bo,
+        tags: req.body.tags,
         ingred_gram: req.body.ingred_gram
       }).then(()=>{
         console.log('데이터 등록');

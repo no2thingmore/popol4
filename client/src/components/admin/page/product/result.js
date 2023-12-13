@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../../../config/contansts";
 
 const getKindsLabel = (kinds) => {
   switch (kinds) {
@@ -160,7 +161,7 @@ function Result(props) {
                   </td>
                   <td>{i + 1}</td>
                   <td>
-                    <img src={a.image_url} width="70%"></img>
+                    <img src={API_URL+"/upload/"+a.image_url} width="70%"></img>
                   </td>
                   <td>{a.id}</td>
                   <td

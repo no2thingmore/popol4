@@ -50,6 +50,7 @@ function Plus(props) {
 
   const productplus = async (e) => {
     e.preventDefault();
+
     await axios
       .post(`${API_URL}/food/admin`, {
         kname: kname,
@@ -394,7 +395,7 @@ function Plus(props) {
                 onChange={onChangeImage}
               >
                 {imageUrl ? (
-                  <img src={imageUrl} alt="" width="200px" height="200px" />
+                  <p>{imageUrl}</p>
                 ) : (
                   <div id="upload-img-placeholder">
                     <i class="fa-regular fa-file-image"></i><br/>

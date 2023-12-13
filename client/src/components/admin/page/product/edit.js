@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../../../config/contansts";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Edit(props) {
+  const navigate = useNavigate();
   const editdata = props.data.filter((item) => item.id == props.id);
   const [categort1, setCategory1] = useState(editdata[0].kinds);
   const [selectedTag, setSelectedTag] = useState(editdata[0].tags);
@@ -17,8 +19,6 @@ function Edit(props) {
   const [sugars, setSugars] = useState(editdata[0].ingred_sugars);
   const [salt, setSalt] = useState(editdata[0].ingred_salt);
   const [gram, setGram] = useState(editdata[0].ingred_gram);
-
-  const [data, setData] = useState([]);
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -51,7 +51,7 @@ function Edit(props) {
       })
       .then((response) => {
         console.log("데이터 업데이트 성공");
-        props.setPage("list");
+        navigate("/admin/product");
       })
       .catch((error) => {
         console.error("데이터 업데이트 실패:", error);
