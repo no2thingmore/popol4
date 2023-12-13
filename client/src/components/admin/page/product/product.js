@@ -22,11 +22,12 @@ function Product() {
   console.log("id: ", id);
   const [data, setData] = useState([]);
 
-  useEffect(async ()=>{
-    await axios.get(`${API_URL}/food/admin`)
+  useEffect(()=>{
+    axios.get(`${API_URL}/food/admin`)
     .then((res)=>{
       console.log('db조회 완료');
-      setData(res);
+      console.log(res.data);
+      setData(res.data)
     })
     .catch((err)=>{
       console.error(err);

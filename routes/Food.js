@@ -7,7 +7,7 @@ router
     try {
       const foodData = await Food.findAll();
       console.log('food',foodData);
-      res.status(200).sendDate(foodData)
+      res.status(201).send(foodData)
     } catch (error) {
       console.error(error);
       next(error);
