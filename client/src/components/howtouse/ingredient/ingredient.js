@@ -6,6 +6,8 @@ import Howtousesubway from '../howtousesubway/howtousesubway';
 import Groupmenu from '../groupmenu/groupmenu';
 import { useParams, Link } from "react-router-dom";
 
+// import { useParams, Link } from "react-router-dom";
+
 function Ingredient() {
   const { product } = useParams();
   const [menu, setMenu] = useState(product);
