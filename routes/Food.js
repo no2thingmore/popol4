@@ -13,9 +13,6 @@ router
       next(error);
     }
   })
-[
-  {admin_id:1,title:"",content:"",image_url:"fuck1.png",status:1,type:0,kinds:5}
-]
   .post("/admin" , (req,res,next)=>{
     try {
       console.log('addFood',req.body);

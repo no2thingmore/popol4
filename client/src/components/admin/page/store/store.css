@@ -1,0 +1,31 @@
+
+.CHM_adminProductPageBg {
+  padding: 2vw;
+}
+
+.jj_franchise {
+  font-size: 35px;
+  padding-bottom: 15px;
+  border-bottom: 1px black solid;
+}
+
+.jj_adminStoreTalbeBox table {
+  border-top: 2px solid rgb(89, 89, 89);
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1vw;
+  padding-top: 20px;
+}
+
+.jj_adminStoreTalbeBox th {
+  border: 1px solid #c6c6c6;
+  padding: 8px 0;
+  background-color: rgb(173, 173, 173);
+}
+
+.jj_adminStoreTalbeBox td {
+  border: 1px solid #c6c6c6;
+  padding: 8px 0;
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+}
