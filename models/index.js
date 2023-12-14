@@ -5,8 +5,9 @@ const Food = require("./food");
 const Orders = require("./orders");
 const Board = require("./board");
 const Ingredient = require("./ingredient");
-const Contents = require("./contents");
+const Event = require("./event");
 const Admin = require("./admin");
+const Inquiry = require("./inquiry")
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -22,9 +23,10 @@ db.User = User;
 db.Store = Store;
 db.Food = Food;
 db.Board = Board;
+db.Event = Event;
+db.Inquiry = Inquiry;
 db.Ingredient = Ingredient;
 db.Orders = Orders;
-db.Contents = Contents;
 db.Admin = Admin;
 
 User.initiate(sequelize);
@@ -32,8 +34,9 @@ Store.initiate(sequelize);
 Food.initiate(sequelize);
 Orders.initiate(sequelize);
 Board.initiate(sequelize);
+Event.initiate(sequelize);
+Inquiry.initiate(sequelize)
 Ingredient.initiate(sequelize);
-Contents.initiate(sequelize);
 Admin.initiate(sequelize);
 
 User.associate(db);
@@ -41,8 +44,9 @@ Food.associate(db);
 Store.associate(db);
 Orders.associate(db);
 Board.associate(db);
+Event.associate(db);
+Inquiry.associate(db)
 Ingredient.associate(db);
-Contents.associate(db);
 Admin.associate(db);
 
 module.exports = db;

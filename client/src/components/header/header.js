@@ -2,24 +2,37 @@ import { Link } from 'react-router-dom';
 import "./header.css";
 import { API_URL } from '../config/contansts';
 import axios from "axios"
+import { getCookie, removeCookie } from '../../useCookies';
 
 function Header() {
 
-  // const test = async ()=>{
-  //   await axios.get(`${API_URL}/test`)
-  // }//데이터 한번에 등록할려고 임시로 만들어둔 axios 나중에 삭제 할 것
+  const test = async ()=>{
+    await axios.get(`${API_URL}/test`)
+  }//데이터 한번에 등록할려고 임시로 만들어둔 axios 나중에 삭제 할 것
+
+  const Logout = (e)=>{
+    e.preventDefault()
+    removeCookie('user')
+  }
 
   return (
     <div className="header">
-      {/* <button onClick={test}>등록</button> */}
+      <button onClick={test}>등록</button>
       <div className="topheader">
         <h1 id="logo">
           <Link to="/">SUBWAY</Link>
         </h1>
-          <div className="util_menu">           
+        { getCookie('user') ? 
+          <div className="util_menu">
+            <button><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
+            <button><a href="/mypage">마이페이지</a></button>
+          </div>
+          :
+          <div className="util_menu">
             <button><a href="/login">로그인</a></button>&nbsp;&nbsp;
             <button><a href="/register">회원가입</a></button>
           </div>
+        }
       </div>
       <ul className="menu">
         <li className="menu-item">
