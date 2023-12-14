@@ -4,7 +4,7 @@ import { Upload } from "antd";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config/contansts";
 
-function Plus(props) {
+function Jeryoplus(props) {
   const navigate = useNavigate();
   const [categort1, setCategory1] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
@@ -19,7 +19,7 @@ function Plus(props) {
   const [sugars, setSugars] = useState("");
   const [salt, setSalt] = useState("");
   const [gram, setGram] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -48,54 +48,34 @@ function Plus(props) {
     }
   };
 
-  const productplus = async (e) => {
+  const productjeryoplus = async (e) => {
     e.preventDefault();
 
-    if (
-      kname === "" ||
-      ename === "" ||
-      categort1 === "" ||
-      selectedTag === "" ||
-      coment === "" ||
-      imageUrl === "" ||
-      price === "" ||
-      status === "" ||
-      kcal === "" ||
-      protein === "" ||
-      fat === "" ||
-      sugars === "" ||
-      salt === "" ||
-      gram === ""
-    ) {
-      alert("빈칸없이 전부 채워주세요");
-    } else {
-      await axios
-        .post(`${API_URL}/food/admin`, {
-          kname: kname,
-          ename: ename,
-          kinds: categort1,
-          tags: selectedTag,
-          coment: coment,
-          image_url: imageUrl,
-          price: price,
-          status: status,
-          ingred_kcal: kcal,
-          ingred_protein: protein,
-          ingred_fat: fat,
-          ingred_sugars: sugars,
-          ingred_salt: salt,
-          ingred_gram: gram,
-        })
-        .then(() => {
-          console.log("성공");
-          navigate("/admin/product/none");
-          window.location.reload();
-        })
-        .catch((e) => {
-          console.log("에러남");
-          console.error(e);
-        });
-    }
+    await axios
+      .post(`${API_URL}/food/admin`, {
+        kname: kname,
+        ename: ename,
+        kinds: categort1,
+        tags: selectedTag,
+        coment: coment,
+        image_url: imageUrl,
+        price: price,
+        status: status,
+        ingred_kcal: kcal,
+        ingred_protein: protein,
+        ingred_fat: fat,
+        ingred_sugars: sugars,
+        ingred_salt: salt,
+        ingred_gram: gram,
+      })
+      .then(() => {
+        console.log("성공");
+        navigate("/admin/product");
+      })
+      .catch((e) => {
+        console.log("에러남");
+        console.error(e);
+      });
   };
 
   return (
@@ -106,11 +86,11 @@ function Plus(props) {
       >
         상품 추가
       </div>
-      <div className="CHM_plusformBox">
-        <form onSubmit={productplus}>
-          <div className="CHM_plustable1grid">
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">상품명(한국어)</div>
+      <div className="CHM_jeryoplusformBox">
+        <form onSubmit={productjeryoplus}>
+          <div className="CHM_jeryoplustable1grid">
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">상품명(한국어)</div>
               <input
                 placeholder="한국이름"
                 name="kname"
@@ -120,8 +100,8 @@ function Plus(props) {
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">상품명(영어)</div>
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">상품명(영어)</div>
               <input
                 placeholder="영어이름"
                 name="ename"
@@ -133,9 +113,9 @@ function Plus(props) {
             </div>
           </div>
 
-          <div className="CHM_plustable1grid">
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">종류</div>
+          <div className="CHM_jeryoplustable1grid">
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">종류</div>
               <select
                 value={categort1}
                 name="kinds"
@@ -149,16 +129,13 @@ function Plus(props) {
                 }}
               >
                 <option value="">=카테고리선택=</option>
-                <option value="0">샌드위치</option>
-                <option value="1">랩ㆍ기타</option>
-                <option value="2">샐러드</option>
-                <option value="3">아침메뉴</option>
-                <option value="4">스마일 썹</option>
-                <option value="5">단체메뉴</option>
+                <option value="0">빵</option>
+                <option value="1">야채</option>
+                <option value="5">소스</option>
               </select>
             </div>
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">태그</div>
+            {/* <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">태그</div>
               {categort1 == "0" && (
                 <select
                   id="categorySelect2"
@@ -172,7 +149,6 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="0">클래식</option>
                   <option value="1">프레쉬&라이트</option>
                   <option value="2">프리미엄</option>
@@ -193,7 +169,6 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="4">시그니처 랩</option>
                   <option value="5">미니 랩</option>
                 </select>
@@ -212,7 +187,6 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="6">클래식</option>
                   <option value="7">프레쉬&라이트</option>
                   <option value="8">프리미엄</option>
@@ -233,7 +207,6 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="10">샌드위치</option>
                   <option value="11">랩</option>
                 </select>
@@ -252,7 +225,6 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="12">스마일 썹</option>
                 </select>
               )}
@@ -270,20 +242,18 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="">=카테고리선택=</option>
                   <option value="13">샌드위치</option>
                   <option value="14">쿠키</option>
                 </select>
               )}
-            </div>
+            </div> */}
           </div>
 
-          <div className="CHM_plustable1grid">
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">가격</div>
+          <div className="CHM_jeryoplustable1grid">
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">가격</div>
               <input
                 placeholder="가격"
-                type="number"
                 name="price"
                 value={price}
                 onChange={(e) => {
@@ -291,8 +261,8 @@ function Plus(props) {
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid">
-              <div className="CHM_plusTableTitle">판매여부</div>
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">판매여부</div>
               <div
                 style={{
                   display: "flex",
@@ -336,8 +306,8 @@ function Plus(props) {
             </div>
           </div>
 
-          <div className="CHM_plustablegrid3">
-            <div className="CHM_plusTableTitle">상품설명</div>
+          <div className="CHM_jeryoplustablegrid3">
+            <div className="CHM_jeryoplusTableTitle">상품설명</div>
             <input
               placeholder="상품설명"
               name="coment"
@@ -349,67 +319,61 @@ function Plus(props) {
             ></input>
           </div>
 
-          <div className="CHM_plustable6grid">
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">칼로리</div>
+          <div className="CHM_jeryoplustable6grid">
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">칼로리</div>
               <input
                 value={kcal}
-                type="number"
                 name="ingred_kcal"
                 onChange={(e) => {
                   setKcal(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">무게(g)</div>
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">무게(g)</div>
               <input
                 value={gram}
-                type="number"
                 name="ingred_gram"
                 onChange={(e) => {
                   setGram(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">단백질</div>
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">단백질</div>
               <input
                 value={protein}
-                type="number"
                 name="ingred_protein"
                 onChange={(e) => {
                   setProtein(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">포화지방</div>
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">포화지방</div>
               <input
                 value={fat}
-                type="number"
                 name="ingred_fat"
                 onChange={(e) => {
                   setFat(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">당류</div>
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">당류</div>
               <input
                 value={sugars}
-                type="number"
                 name="ingred_sugars"
                 onChange={(e) => {
                   setSugars(e.target.value);
                 }}
               ></input>
             </div>
-            <div className="CHM_plustablegrid2">
-              <div className="CHM_plusTableTitle">나트륨</div>
+            <div className="CHM_jeryoplustablegrid2">
+              <div className="CHM_jeryoplusTableTitle">나트륨</div>
               <input
                 value={salt}
-                type="number"
                 name="ingred_salt"
                 onChange={(e) => {
                   setSalt(e.target.value);
@@ -418,28 +382,27 @@ function Plus(props) {
             </div>
           </div>
 
-          <div className="CHM_plustablegrid3">
-            <div className="CHM_plusTableTitle">이미지</div>
+          <div className="CHM_jeryoplustablegrid3">
+            <div className="CHM_jeryoplusTableTitle">이미지</div>
             <Upload
-              name="image"
-              action={`${API_URL}/image`}
-              listType="picture"
-              showUploadList={false}
-              onChange={onChangeImage}
-            >
-              {imageUrl ? (
-                <p>{imageUrl}</p>
-              ) : (
-                <div id="upload-img-placeholder">
-                  <i class="fa-regular fa-file-image"></i>
-                  <br />
-                  <span>제품사진을 등록 해주세요.</span>
-                </div>
-              )}
-            </Upload>
+                name="image"
+                action={`${API_URL}/image`}
+                listType="picture"
+                showUploadList={false}
+                onChange={onChangeImage}
+              >
+                {imageUrl ? (
+                  <p>{imageUrl}</p>
+                ) : (
+                  <div id="upload-img-placeholder">
+                    <i class="fa-regular fa-file-image"></i><br/>
+                    <span>제품사진을 등록 해주세요.</span>
+                  </div>
+                )}
+              </Upload>
           </div>
 
-          <div className="CHM_plusPageBtnBox">
+          <div className="CHM_jeryoplusPageBtnBox">
             <button type="submit">상품등록</button>
             <button
               onClick={() => {
@@ -455,4 +418,4 @@ function Plus(props) {
   );
 }
 
-export default Plus;
+export default Jeryoplus;

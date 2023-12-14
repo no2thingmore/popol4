@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Search(props) {
+function Jeryosearch(props) {
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
     if(value == ""){
@@ -53,6 +53,7 @@ function Search(props) {
                 value={props.searchcategory}
               >
                 <option value="상품명">상품명</option>
+                <option value="상품아이디">상품아이디</option>
                 <option value="설명">설명</option>
               </select>
               <input type="text" onChange={handleSerchcChange} />
@@ -72,15 +73,12 @@ function Search(props) {
                 value={props.categorySelect1}
               >
                 <option value="">=카테고리선택=</option>
-                <option value="0">샌드위치</option>
-                <option value="1">랩ㆍ기타</option>
-                <option value="2">샐러드</option>
-                <option value="3">아침메뉴</option>
-                <option value="4">스마일 썹</option>
-                <option value="5">단체메뉴</option>
+                <option value="0">빵</option>
+                <option value="1">야채</option>
+                <option value="2">소스</option>
               </select>
 
-              {props.categorySelect1 === "0" && (
+              {/* {props.categorySelect1 === "0" && (
                 <select
                   id="categorySelect2"
                   onChange={handleCategorySelect2Change}
@@ -147,7 +145,7 @@ function Search(props) {
                   <option value="13">샌드위치</option>
                   <option value="14">쿠키</option>
                 </select>
-              )}
+              )} */}
             </div>
           </div>
           <div className="CHM_adminProductPageGrid">
@@ -212,4 +210,4 @@ function Search(props) {
   );
 }
 
-export default Search;
+export default Jeryosearch;
