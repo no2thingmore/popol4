@@ -31,7 +31,7 @@
   width: 4215%;
   position: relative;
   transition-duration: 0.5s;
-  transform: translate3d(-900px, 0px, 0px);
+  transform: translate3d(-00px, 0px, 0px);
 }
 .slide_li_item{
   float: left;
@@ -159,11 +159,15 @@
   overflow: hidden;
   border-radius: 30px;
   transition-duration: 0.3s;
-
 }
 .clicked_dot:active{
   background-color: #ffc300;
   width: 30px;
+}
+.clicked_dot.on{
+  background-color: #ffc300;
+  width: 30px;
+  
 }
 
 /*************** 핵 심 요 소 ***************/
@@ -284,6 +288,8 @@
   position: absolute;
   left: 0;
   width: 100%;
+  /* width: fit-content; */
+  height: fit-content;
   bottom: 0;
   letter-spacing: 0.025em;
 }
@@ -299,23 +305,13 @@
   width: 260px;
   background-color: #009223;
   padding: 15px 0 16px 0;
-  display: none;
   /* display: table; */
+  display: none;
+  transition-duration: 0.3s;
 }
 
 
-.layer_view_on{
-  position: absolute;
-  left: 0;
-  top: 36px;
-  width: 260px;
-  background-color: #009223;
-  padding: 15px 0 16px 0;
-  display: table;
-  transition-duration: 0.2s;
-}
-
-.layer_view_on::after{
+.layer_view::after{
   content: '';
   width: 6px;
   height: 4px;
@@ -325,7 +321,7 @@
   margin-left: -3px;
   top: -4px;
 }
-.layer_view_on p{
+.layer_view p{
   color: #fff;
   font-size: 13px;
   line-height: 21px;
@@ -336,7 +332,14 @@
   text-align: center;
 } 
 
-
+.view_deep:hover + .layer_view{
+  display: table;
+  /* top: 36px; */
+}
+.layer_view:hover {
+  display: table;
+  top: 36px;
+}
 
 /*************** 채 용 지 원 ***************/
 .recruit{

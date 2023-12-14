@@ -27,6 +27,7 @@ import Register from "./components/register/register";
 import Admin from "./components/admin/admin";
 import FFAQ from './components/helpdesk/ffaq';
 import QQNA from './components/helpdesk/qqna';
+import Test from "./components/subway/test";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
+        <Route path="/test" element={<Test />}></Route>
         <Route path="/history" element={<History></History>}></Route>
         <Route path="/promise" element={<Promise></Promise>}></Route>
         <Route path="/apply" element={<Apply></Apply>}></Route>
@@ -66,7 +68,7 @@ function App() {
         <Route path="/storeOrder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/slider" element={<Slider></Slider>}></Route>
         <Route path="/groupMenu" element={<Groupmenu></Groupmenu>}></Route>
-        <Route path="/admin/:type" element={<Admin></Admin>}></Route>
+        <Route path="/admin/:type/:category" element={<Admin></Admin>}></Route>
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
       </Routes>

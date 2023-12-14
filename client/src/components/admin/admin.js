@@ -1,19 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./header";
 import "./admin.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
 import Option from "./page/option/option";
 import Design from "./page/design/design";
-import Category from "./page/category/category";
-import Assit from "./page/assit/assit";
+import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
+import Inquiry from "./page/suppot/submenu/inquiry";
+import Res from "./page/suppot/submenu/res";
+import Event from "./page/suppot/submenu/event";
+import News from "./page/suppot/submenu/news";
+import Faq from "./page/suppot/submenu/faq";
 
 function Admin() {
-  const { type } = useParams();
+  const { type, category } = useParams();
   const [menu, setMenu] = useState(type);
+
+  // type 값이 변경될 때마다 실행됨
+  // URL 변경에 따라 menu 상태를 동기화
+  // useEffect(() => {
+  //   if (type && category) {
+  //     setMenu(`${type}/${category}`);
+  //   }
+  // }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -28,17 +40,17 @@ function Admin() {
         <nav>
           <ul className="admin_tags">
             <li>
-              <a
-                href="/admin/user"
+              <Link
+                to="/admin/user"
                 className={menu === "회원관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("회원관리")}
               >
                 회원관리
-              </a>
+              </Link>
             </li>
             <li>
               <a
-                href="/admin/category"
+                href="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
@@ -47,7 +59,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/product"
+                href="/admin/product/none"
                 className={menu === "상품관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("상품관리")}
               >
@@ -55,40 +67,40 @@ function Admin() {
               </a>
             </li>
             <li>
-              <a
-                href="/admin/assit"
+              <Link
+                to="/admin/support/inquiry"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
                 고객지원
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/admin/design"
+              <Link
+                to="/admin/design"
                 className={menu === "디자인관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("디자인관리")}
               >
                 디자인관리
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/admin/option"
+              <Link
+                to="/admin/option"
                 className={menu === "설정" ? "active" : "noactive"}
                 onClick={() => MenuClick("설정")}
               >
                 설정
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/admin/store"
+              <Link
+                to="/admin/store"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >
                 가게 등록하기
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -99,11 +111,15 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "category" && <div>{<Category></Category>}</div>}
+        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
 
-        {menu === "product" && <div>{<Product></Product>}</div>}
+        {menu === "product" && <Product></Product>}
 
-        {menu === "assit" && <div>{<Assit></Assit>}</div>}
+        {menu === "support/inquiry" && <Inquiry />}
+        {menu === "support/res" && <Res />}
+        {menu === "support/event" && <Event />}
+        {menu === "support/news" && <News />}
+        {menu === "support/faq" && <Faq />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 

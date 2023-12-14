@@ -22,9 +22,6 @@ function QQNA() {
         }, {})
     );
 
-    const [selectedFile, setSelectedFile] = useState("");
-
-
     const handleCheckboxChange = (id) => {
         setCheckedState({
             ...checkedState,

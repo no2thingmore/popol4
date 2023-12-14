@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./event.css";
 
 import painting1 from "./image/painting1.jpg";
@@ -20,6 +20,26 @@ const images = [painting1, painting2, painting3, painting4];
 // const images = [Painting1, Painting2, Painting3];
 
 function Event(){
+  
+  // 더보기 함수  
+
+
+  const showmore = () => {
+    console.log("클릭");
+    const gridItems = document.querySelectorAll('.y_list_item.hide');
+      gridItems.forEach(item => {
+        item.classList.remove('hide');
+    })
+  };
+
+  const [event_b, setEvent_b] = useState("전체");
+  const b_list = ["전체", "진행중인 이벤트", "종료된 이벤트"];
+  const buttonlistClick = (e) => {
+    // console.log(e.target.textContent);
+    setEvent_b(e.target.textContent);
+    
+  };
+
   return(
     <div id="event_all">
       <div className="y_subtitle">
@@ -38,21 +58,20 @@ function Event(){
       </div>
 
       <div className="y_all_button">
+        
         <div className="y_list_button">
-          <button className="y_button">
-            <a href="#">전체</a>
+          <button className="y_button_l"  onClick={buttonlistClick}>
+            전체
           </button>
 
-          <button className="y_button">
-            <a href="#">진행중인 이벤트</a>
+          <button className="y_button"  onClick={buttonlistClick}>
+            진행중인 이벤트
           </button>
 
-          <button className="y_button">
-            <a href="#">종료된 이벤트</a>
+          <button className="y_button_r" onClick={buttonlistClick}>
+            종료된 이벤트
           </button>
-
         </div>
-        <br/>
 
         <div className="y_list_all">
           
@@ -129,11 +148,9 @@ function Event(){
                 </div>
               </a>
             </div>
-          </div>
           
-          {/* <div className="y_list_termination">
 
-            <div className="y_list_item">  
+            <div className="y_list_item hide">  
               <a href="#" >
                 <div className="list_photo">
                   <img src={zz}></img>
@@ -145,7 +162,7 @@ function Event(){
               </a>
             </div>
 
-            <div className="y_list_item">  
+            <div className="y_list_item hide">  
               <a href="#" >
                 <div className="list_photo">
                   <img src={yy}></img>
@@ -157,7 +174,7 @@ function Event(){
               </a>
             </div>
 
-            <div className="y_list_item">  
+            <div className="y_list_item hide">  
               <a href="#" >
                 <div className="list_photo">
                   <img src={xx}></img>
@@ -167,21 +184,19 @@ function Event(){
                   <p>이벤트가 종료되었습니다.</p>
                 </div>
               </a>
-            </div>
-
-          </div>  */}
-
+            </div> 
+          </div>
         </div>
 
-
         <div className="y_morebtn">
-        <button>더보기</button>
+          <button onClick={showmore}>더보기</button>
         </div>
 
       </div>
-    
+
     </div>
+
+    
   )
 }
-
 export default Event;

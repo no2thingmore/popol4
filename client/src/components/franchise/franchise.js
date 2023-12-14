@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import SubwayFranchise from "./subwayfranchise"
-import FAQ from "./faq"
-import BranchInformation from "./branchinformation"
-import Briefing from "./briefing"
-import FranchiseInquire from "./franchiseinquire"
-import "./franchise.css";
+import SubwayFranchise from "./subwayfranchise/subwayfranchise"
+import FAQ from "./faq/faq"
+import BranchInformation from "./branchinformation/branchinformation"
+import Briefing from "./briefing/briefing"
+import FranchiseInquire from "./franchiseinquire/franchiseinquire"
 import { useParams } from "react-router-dom";
+import "./franchise.css";
 
 
 function Franchise() {
@@ -103,8 +103,6 @@ function Franchise() {
               <Briefing menu={menu} ></Briefing>
             </div>
           )}
-
-          {/* { franchisee === "faq" &&  <FAQ menu={menu} ></FAQ>}  */}
         </div>
     </div>
   )

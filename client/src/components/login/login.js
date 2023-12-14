@@ -63,7 +63,7 @@ function Login(){
           <li>
             <a >아이디 찾기</a>
           </li>
-          <li>
+          <li className='login_nav_second'>
             <a >비밀번호 찾기</a>
           </li>
           <li>

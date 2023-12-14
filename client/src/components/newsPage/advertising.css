@@ -2,11 +2,18 @@
   text-align: center;
 }
 
+.m_h2>h2{
+  margin-bottom: 50px;
+}
+
 .m_advertising_list_all{
+  width: fit-content;
+  height: fit-content;
   display: grid;
   grid-template-rows:1fr 1fr 1fr; 
   grid-template-columns:1fr 1fr 1fr;
-  gap: 20px;
+  gap: 70px;
+  /* margin: auto; */
 }
 
 .m_advertising_list_all{
@@ -14,14 +21,33 @@
   padding: 50px 50px 50px 50px;
   
 }
+.m_advertising_Image:hover{
+  box-shadow: 0 0 0 10px green;
+}
+.m_image_all{
+  position: relative;
+}
+
+.m_play{
+  position: absolute;
+  /* left: 10px; */
+  top: -25px;
+  width: fit-content;
+  height: fit-content;
+  display: none;
+}
 
 /* 이미지 크기 */
 .m_advertising_Image>a>img{
-  width:  550px
+  width:  450px
 }
 
-/* 호버 */
+.m_advertising_Image:hover img{
+  display: block;
+}
 
-.m_advertising_Image{
-  margin: auto;
+.m_advertising_list>p{
+  text-align: center;
+  font-size: 20px;
+  
 }

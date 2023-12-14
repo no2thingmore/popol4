@@ -1,3 +1,9 @@
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 label {
   box-sizing: border-box;
 }
@@ -14,6 +20,9 @@ label {
 }
 
 .CHM_adminProductPageSubTitle {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.3vw;
   padding-left: 0.7vw;
   border-left: 0.5vw solid gray;
@@ -115,7 +124,6 @@ label {
   justify-content: center;
   column-gap: 1vw;
   padding: 1vw 0 3vw 0;
-  border-bottom: 2px solid rgb(89, 89, 89);
 }
 
 .CHM_adminProductSearchBtnBox button {
@@ -137,6 +145,7 @@ label {
 }
 
 .CHM_adminProductpageTableBox table {
+  border-top: 2px solid rgb(89, 89, 89);
   border-collapse: collapse;
   width: 100%;
   font-size: 1vw;
@@ -153,4 +162,100 @@ label {
   padding: 8px 0;
   text-align: center;
   background-color: rgb(240, 240, 240);
+}
+
+
+
+.CHM_plusformBox form{
+  font-size: 1.3vw;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+.CHM_plustable1grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.CHM_plustable6grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+}
+
+.CHM_plustablegrid{
+  display: grid;
+  grid-template-columns: 1.2fr 4fr;
+  align-items: center;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.CHM_plustablegrid input{
+  width: 70%;
+  margin-left: 1vw;
+  font-size: 1.3vw;
+  padding:  0.3vw;
+}
+
+.CHM_plustablegrid2{
+  display: grid;
+  grid-template-columns: 1.8fr 0.8fr;
+  align-items: center;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.CHM_plustablegrid2 input{
+  width: 60%;
+  margin-left: 0.5vw;
+  padding:  0.3vw;
+  font-size: 1.3vw;
+}
+
+.CHM_plustablegrid3{
+  display: grid;
+  grid-template-columns: 0.9fr 6.9fr;
+  align-items: center;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.CHM_plustablegrid3 input{
+  width: 60%;
+  margin-left: 1vw;
+  padding:  0.3vw;
+  font-size: 1.3vw;
+}
+
+.CHM_plusTableTitle{
+  background-color: white;
+  padding: 1vw;
+}
+
+.CHM_plusPageBtnBox{
+  display: flex;
+  justify-content: center;
+  column-gap: 2vw;
+  font-size: 1.6vw;
+  margin-top: 2vw;
+}
+
+.CHM_plusPageBtnBox button{
+  border: 1px solid black;
+  padding: 1vw;
+  font-size: 1.3vw;
+  background-color: rgb(52, 52, 52);
+  color: white;
+  cursor: pointer;
+}
+
+.CHM_adminProductPlusBtn{
+  border: 1px solid black;
+  padding: 1vw;
+  font-size: 1.3vw;
+  background-color: rgb(52, 52, 52);
+  color: white;
+  cursor: pointer;
+}
+
+.CHM_adminproducttdBtn{
+  cursor: pointer;
 }

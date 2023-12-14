@@ -7,6 +7,8 @@
   display: grid;
   justify-content: center;
   background-color: #f6f6f6;
+
+  overflow: hidden;
 }
 
 /* 슬라이더 컨테이너 설정 */
