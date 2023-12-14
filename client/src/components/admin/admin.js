@@ -21,11 +21,11 @@ function Admin() {
 
   // type 값이 변경될 때마다 실행됨
   // URL 변경에 따라 menu 상태를 동기화
-  useEffect(() => {
-    if (type && category) {
-      setMenu(`${type}/${category}`);
-    }
-  }, [type, category]);
+  // useEffect(() => {
+  //   if (type && category) {
+  //     setMenu(`${type}/${category}`);
+  //   }
+  // }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -50,7 +50,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/jeryo"
+                to="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
@@ -113,7 +113,7 @@ function Admin() {
 
         {menu === "category" && <div>{<Category></Category>}</div>}
 
-        {menu === "product" && <div>{<Product></Product>}</div>}
+        {menu === "product" && <Product></Product>}
 
         {menu === "support/inquiry" && <Inquiry />}
         {menu === "support/res" && <Res />}

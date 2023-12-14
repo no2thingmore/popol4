@@ -2,40 +2,41 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  padding: 2vw 0;
+  background-color: #eeeeee;
 }
 
 .registerform {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
   width: 35%;
   border: 1px solid black;
   padding: 1vw 2vw;
-  border: 0.2vw solid rgb(66, 66, 255);
+  border: 0.2vw solid #009223;
   border-radius: 0.3vw;
   background-color: white;
+  border-radius: 5% 0 5% 0;
 }
 
 .registerform button{
+  font-family: "NPSfontBold";
   width: 100%;
   border-style: none;
-  background-color: rgb(94, 94, 253);
+  background-color: #009223;
   color: white;
   border-radius: 0.3vw;
-  padding: 0.5vw 1vw;
+  padding: 1vw;
   cursor: pointer;
   font-size: 1.5vw;
+  margin-top: 2vw;
   margin-bottom: 1vw;
   transition: background-color 0.3s;
 }
 
 .registerform button:hover{
-  background-color: rgb(66, 66, 255);
+  background-color: #008720;
 }
 
 .registerform h3 {
-  margin-bottom: 1.2vw;
+  margin: 2vw 0;
   font-size: 2.5vw;
   text-align: center;
   display: block;
@@ -47,7 +48,7 @@
 }
 
 .registerform p {
-  font-size: 1vw;
+  font-size: 1.2vw;
   text-align: center;
   width: 100%;
   margin: 0;
@@ -55,15 +56,45 @@
 
 .registerform a {
   text-decoration: none;
-  font-size: 1vw;
-  color: rgb(94, 94, 253);
-  margin-top: 1vw;
+  font-size: 1.2vw;
+  color: #009223;
   text-align: center;
   width: 100%;
 }
 
 
 .form-control{
-  margin-bottom: 1vw;
   font-size: 1.2vw;
+}
+
+.registerpagegrid{
+  display: grid;
+  grid-template-columns: 1.5fr 4fr;
+  column-gap: 1vw;
+  padding: 1.5vw 0;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.215);
+}
+
+.registerpagegrid label{
+  text-align: start;
+  padding-left: 1vw;
+}
+
+.registerpagegrid input{
+  border: none;
+  outline: none;
+  background-color: rgba(128, 128, 128, 0);
+}
+
+.registeractionBox{
+  display: flex;
+  justify-content: center;
+  padding: 1vw 2vw;
+}
+
+.registerpageborderBox{
+  border: 1px solid rgba(128, 128, 128, 0.816);
+  border-radius: 0.3vw 0.3vw 0.3vw 0.3vw;
+  background-color: rgba(128, 128, 128, 0.055);
 }
