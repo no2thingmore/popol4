@@ -75,7 +75,8 @@ function Jeryosearch(props) {
                 <option value="">=카테고리선택=</option>
                 <option value="0">빵</option>
                 <option value="1">야채</option>
-                <option value="2">소스</option>
+                <option value="2">치즈</option>
+                <option value="3">소스</option>
               </select>
 
               {/* {props.categorySelect1 === "0" && (
@@ -84,10 +85,9 @@ function Jeryosearch(props) {
                   onChange={handleCategorySelect2Change}
                 >
                   <option value="">=카테고리선택=</option>
-                  <option value="0">클래식</option>
-                  <option value="1">프레쉬&라이트</option>
+                  <option value="0">화이트</option>
+                  <option value="1">곡물</option>
                   <option value="2">프리미엄</option>
-                  <option value="3">신제품</option>
                 </select>
               )}
 
@@ -97,8 +97,8 @@ function Jeryosearch(props) {
                   onChange={handleCategorySelect2Change}
                 >
                   <option value="">=카테고리선택=</option>
-                  <option value="4">시그니처 랩</option>
-                  <option value="5">미니 랩</option>
+                  <option value="3">야채</option>
+                  <option value="4">피클</option>
                 </select>
               )}
 
@@ -108,10 +108,9 @@ function Jeryosearch(props) {
                   onChange={handleCategorySelect2Change}
                 >
                   <option value="">=카테고리선택=</option>
-                  <option value="6">클래식</option>
-                  <option value="7">프레쉬&라이트</option>
-                  <option value="8">프리미엄</option>
-                  <option value="9">신제품</option>
+                  <option value="5">아메리칸</option>
+                  <option value="6">슈레드</option>
+                  <option value="7">모차렐라</option>
                 </select>
               )}
 
@@ -121,31 +120,13 @@ function Jeryosearch(props) {
                   onChange={handleCategorySelect2Change}
                 >
                   <option value="">=카테고리선택=</option>
-                  <option value="10">샌드위치</option>
-                  <option value="11">랩</option>
-                </select>
-              )}
-
-              {props.categorySelect1 === "4" && (
-                <select
-                  id="categorySelect2"
-                  onChange={handleCategorySelect2Change}
-                >
-                  <option value="">=카테고리선택=</option>
-                  <option value="12">스마일 썹</option>
-                </select>
-              )}
-
-              {props.categorySelect1 === "5" && (
-                <select
-                  id="categorySelect2"
-                  onChange={handleCategorySelect2Change}
-                >
-                  <option value="">=카테고리선택=</option>
-                  <option value="13">샌드위치</option>
-                  <option value="14">쿠키</option>
+                  <option value="8">소스</option>
+                  <option value="9">오일/식초</option>
+                  <option value="10">소금/후추</option>
                 </select>
               )} */}
+
+            
             </div>
           </div>
           <div className="CHM_adminProductPageGrid">

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config/contansts";
 
 const getKindsLabel = (kinds) => {
@@ -8,6 +10,8 @@ const getKindsLabel = (kinds) => {
     case 1:
       return "야채";
     case 2:
+      return "치즈";
+    case 3:
       return "소스";
   }
 };
@@ -59,71 +63,48 @@ const getStatusLabel = (status) => {
 };
 
 function Jeryoresult(props) {
-  const [checkedItems, setCheckedItems] = useState([]);
-  const [selectAll, setSelectAll] = useState(false);
-
-  const handleSelectAllChange = () => {
-    const newSelectAll = !selectAll;
-    setSelectAll(newSelectAll);
-    const newCheckedItems = newSelectAll
-      ? props.filteredResults.map((item) => item.id)
-      : [];
-    setCheckedItems(newCheckedItems);
-  };
-
-  const handleCheckboxChange = (id) => {
-    const isChecked = checkedItems.includes(id);
-
-    if (isChecked) {
-      // 이미 체크된 아이템이면 제거
-      setCheckedItems(checkedItems.filter((itemId) => itemId !== id));
+  const navigate = useNavigate();
+  function confirmModal(id, kname) {
+    if (window.confirm(`"${kname}"상품을 정말 삭제하시겠습니까?`)) {
+      axios
+        .delete(`${API_URL}/ingredient/admin`, {
+          data: { id: id }, // 서버에서는 이 데이터를 활용하여 삭제 처리
+        })
+        .then((response) => {
+          console.log("아이템 삭제 성공");
+          navigate("/admin/jeryo/none")
+          window.location.reload();
+          // 성공적으로 삭제된 경우, 로컬 상태를 업데이트하거나 다른 필요한 작업 수행
+        })
+        .catch((error) => {
+          console.error("아이템 삭제 실패:", error);
+        });
     } else {
-      // 체크되지 않은 아이템이면 추가
-      setCheckedItems([...checkedItems, id]);
+      console.log("취소. 변화 없음");
     }
-  };
+  }
 
-  const handleDeleteButtonClick = () => {
-    // 선택된 아이템을 삭제하는 함수
-    props.onDeleteItems(checkedItems);
-    // 체크된 아이템 초기화
-    setCheckedItems([]);
-  };
 
   const handleEditButtonClick = (id) => {
-    // 수정 버튼 클릭 시 해당 상품의 아이디를 가져와서 사용할 수 있습니다.
-    props.setPage("edit");
     props.setId(id);
-    // 여기에서 아이디를 사용하여 수정하는 로직을 추가할 수 있습니다.
+    navigate("/admin/jeryo/jeryoedit");
   };
 
   const count = props.filteredResults.length;
-
   return (
     <>
       <div className="CHM_adminProductPageSubTitle">
         <div style={{ fontSize: "1.7vw" }}>상품리스트 ({count}건)</div>
-        <div
-          className="CHM_adminProductPlusBtn"
-          onClick={() => props.setPage("plus")}
-        >
-          +상품추가
-        </div>
+        <a href="/admin/jeryo/jeryoplus">
+          <div className="CHM_adminProductPlusBtn">+상품추가</div>
+        </a>
       </div>
       <div className="CHM_adminProductpageTableBox">
         <table>
           <thead>
             <tr>
-              <th style={{ width: "5%" }}>
-                <input
-                  type="checkbox"
-                  onChange={handleSelectAllChange}
-                  checked={selectAll}
-                />
-              </th>
               <th style={{ width: "5%" }}>번호</th>
               <th style={{ width: "10%" }}>이미지</th>
-              <th style={{ width: "10%" }}>상품아이디</th>
               <th style={{ width: "20%" }}>
                 <div
                   style={{
@@ -135,9 +116,12 @@ function Jeryoresult(props) {
                 </div>
                 <div style={{ paddingTop: "0.7vw" }}>카테고리</div>
               </th>
-              <th style={{ width: "10%" }}>최초등록일</th>
-              <th style={{ width: "10%" }}>최근수정일</th>
-              <th style={{ width: "10%" }}>진열</th>
+              <th style={{ width: "25%" }}>내용</th>
+              <th style={{ width: "10%" }}>
+                최초등록일 /<br />
+                <div style={{ marginTop: "0.5vw" }}>최근수정일</div>
+              </th>
+              {/* <th style={{ width: "10%" }}>진열</th> */}
               <th style={{ width: "10%" }}>가격</th>
               <th style={{ width: "10%" }}>관리</th>
             </tr>
@@ -146,18 +130,13 @@ function Jeryoresult(props) {
             {props.filteredResults.map((a, i) => {
               return (
                 <tr key={a.id} style={{ height: "6vw" }}>
-                  <td>
-                    <input
-                      type="checkbox"
-                      onChange={() => handleCheckboxChange(a.id)}
-                      checked={checkedItems.includes(a.id)}
-                    />
-                  </td>
                   <td>{i + 1}</td>
                   <td>
-                    <img src={API_URL+"/upload/"+a.image_url} width="70%"></img>
+                    <img
+                      src={API_URL + "/upload/" + a.image_url}
+                      width="70%"
+                    ></img>
                   </td>
-                  <td>{a.id}</td>
                   <td
                     style={{
                       display: "grid",
@@ -183,14 +162,16 @@ function Jeryoresult(props) {
                         justifyContent: "center",
                       }}
                     >
-                      타입: {getKindsLabel(a.kinds)} / 종류:{" "}
-                      {getTagsabel(a.tags)}
+                      종류: {getKindsLabel(a.kinds)}
                     </div>
                   </td>
-                  <td>2023-01-01</td>
-                  <td>2023-12-08</td>
-                  <td>{getStatusLabel(a.status)}</td>
-                  <td>{a.price}원</td>
+                  <td style={{ padding: "1vw" }}>{a.comment}</td>
+                  <td>
+                    2023-01-01 /<br />
+                    <div style={{ marginTop: "0.5vw" }}>2023-12-14</div>
+                  </td>
+                  {/* <td>{getStatusLabel(a.status)}</td> */}
+                  <td>{a.add_price}원</td>
                   <td>
                     <button
                       className="CHM_adminproducttdBtn"
@@ -200,7 +181,7 @@ function Jeryoresult(props) {
                         padding: "0.3vw 0.6vw",
                         backgroundColor: "rgb(52, 52, 52)",
                         color: "white",
-                        border: "none"
+                        border: "none",
                       }}
                       onClick={() => handleEditButtonClick(a.id)}
                     >
@@ -208,8 +189,14 @@ function Jeryoresult(props) {
                     </button>
                     <button
                       className="CHM_adminproducttdBtn"
-                      onClick={handleDeleteButtonClick}
-                      style={{ fontSize: "1vw", padding: "0.3vw 0.6vw", backgroundColor:"red", color:"white", border:"none"}}
+                      onClick={() => confirmModal(a.id, a.kname)}
+                      style={{
+                        fontSize: "1vw",
+                        padding: "0.3vw 0.6vw",
+                        backgroundColor: "red",
+                        color: "white",
+                        border: "none",
+                      }}
                     >
                       삭제
                     </button>
