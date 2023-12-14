@@ -32,7 +32,7 @@ div {
 .CHM_headerMenutab1 a {
   text-decoration: none;
   color: white;
-  z-index: 5;
+  z-index: 7;
   position: relative;
 }
 
@@ -45,7 +45,7 @@ div {
   transition: background-color 0.3s;
   cursor: pointer;
   user-select: none;
-  z-index: 5;
+  z-index: 7;
 }
 
 .CHM_headerMenutab1 div:hover {
