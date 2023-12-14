@@ -86,6 +86,16 @@ class Food extends Sequelize.Model{
         allowNull: false,
         comment: "0:출시,1:품절,2:판매종료",
       },
+      created_at:{
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
+      updated_at:{
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      }
     },
     {
       sequelize,

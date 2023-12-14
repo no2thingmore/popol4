@@ -14,6 +14,7 @@
   justify-content: center;
   padding-top:50px;
   padding-bottom: 25px;
+
 }
 
 .y_list_button button{
@@ -24,6 +25,7 @@
   height: 60px;
   font-size: 22px;
   font-weight: 700 ;
+  
 }
 
 .y_button:first-child{
@@ -32,20 +34,6 @@
 
 .y_button:last-child{
   border-radius: 0 50px 50px 0;
-}
-
-
-/* 리스트 버튼 */
-.y_button>li{
-  float: left;
-  padding: 5px 10px 5px 10px;
-  background-color: blueviolet;
-  margin-left: 20px;
- }
-
-/* 버튼 누르면 색바낌 */
- .y_button>li>a:active{
-  background-color: blueviolet;
 }
 
 .y_list_all{
@@ -59,17 +47,9 @@
   width: fit-content;
   height: fit-content;
   display: grid;
-  grid-template-rows:1fr 1fr; 
+  grid-template-rows:1fr 1fr 1fr; 
   grid-template-columns:1fr 1fr 1fr;
   gap: 25px;
-  
-}
-
-.y_list_termination{
-  display: grid;
-  grid-template-rows:1fr;
-  grid-template-columns:1fr 1fr 1fr;
-  gap: 20px;
   
 }
 
@@ -95,11 +75,14 @@
   text-align: center;
 }
 
-
 .y_morebtn{
   display: flex;
   justify-content: center;
 
+}
+
+.hide{
+  display: none;
 }
 
 .y_morebtn>button{
@@ -115,4 +98,6 @@
   font-size: 18px;
   text-align: center;
   display: block;
+  margin-bottom: 20px;
+
 }

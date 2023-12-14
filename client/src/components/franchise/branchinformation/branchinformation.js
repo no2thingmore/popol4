@@ -1,8 +1,8 @@
 import "./branchinformation.css";
 import React, { useState, useEffect } from "react";
-import img1 from "../franchise/franchise_img/branch_map01.png";
-import img2 from "../franchise/franchise_img/branch_map02.png";
-import img3 from "../franchise/franchise_img/branch_map03.png";
+import img1 from "../franchise_img/branch_map01.png";
+import img2 from "../franchise_img/branch_map02.png";
+import img3 from "../franchise_img/branch_map03.png";
 
 function BranchInformation() {
   const storedMenu = localStorage.getItem("selectedMenu") || "서울";

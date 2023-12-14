@@ -51,7 +51,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/category"
+                to="/admin/jeryo"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
