@@ -60,7 +60,7 @@ function Event(){
       <div className="y_all_button">
         
         <div className="y_list_button">
-          <button className="y_button"  onClick={buttonlistClick}>
+          <button className="y_button_l"  onClick={buttonlistClick}>
             전체
           </button>
 
@@ -68,7 +68,7 @@ function Event(){
             진행중인 이벤트
           </button>
 
-          <button className="y_button" onClick={buttonlistClick}>
+          <button className="y_button_r" onClick={buttonlistClick}>
             종료된 이벤트
           </button>
         </div>

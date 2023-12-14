@@ -17,6 +17,7 @@
 .j_list_all{
   border-top: 4px solid #009223;
   /* border: 1px solid #000; */
+  
 }
 
 .j_list{
@@ -24,27 +25,46 @@
   grid-template-rows:71.5px ; 
   grid-template-columns:100px 950px 120px ;
   justify-content: center;
+  border-bottom: 1px solid grey;
   
 }
 
+.j_list>div{
+  
+}
+
+
 /* 숫자 */
+.j_number{
+margin-top: 7px;
+}
+
 .j_number>h3{
   color: rgb(243, 200, 8);
   text-align: center;
 }
 
+.j_date {
+  margin-top: 15px
+}
+
 .j_date>p{
-  color: rgb(54, 54, 54);
+  color: rgb(141, 140, 140);
+}
+
+.j_content{
+  margin-top: 20px;
 }
 
 .j_content>a{
   font-size: 30px;
   text-align: left;
+
 }
 
 .j_list>div{
   float: left;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
  
 }
 

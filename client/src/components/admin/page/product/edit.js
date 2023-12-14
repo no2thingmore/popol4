@@ -51,7 +51,7 @@ function Edit(props) {
       })
       .then((response) => {
         console.log("데이터 업데이트 성공");
-        navigate("/admin/product");
+        navigate("/admin/product/none");
       })
       .catch((error) => {
         console.error("데이터 업데이트 실패:", error);
@@ -128,6 +128,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="0">클래식</option>
                   <option value="1">프레쉬&라이트</option>
                   <option value="2">프리미엄</option>
@@ -147,6 +148,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="4">시그니처 랩</option>
                   <option value="5">미니 랩</option>
                 </select>
@@ -164,6 +166,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="6">클래식</option>
                   <option value="7">프레쉬&라이트</option>
                   <option value="8">프리미엄</option>
@@ -183,6 +186,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="10">샌드위치</option>
                   <option value="11">랩</option>
                 </select>
@@ -200,6 +204,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="12">스마일 썹</option>
                 </select>
               )}
@@ -216,6 +221,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="13">샌드위치</option>
                   <option value="14">쿠키</option>
                 </select>
@@ -355,11 +361,7 @@ function Edit(props) {
 
           <div className="CHM_plusPageBtnBox">
             <button type="submit">상품수정</button>
-            <button
-            onClick={() => {
-              props.setPage("list");
-            }}
-            >
+            <button>
               취소
             </button>
           </div>

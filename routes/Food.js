@@ -74,10 +74,11 @@ router
     try {
       console.log("진입");
       console.log(req.body);
-      await Food.destroy({where:{id:req.body.id[0]}})
+      await Food.destroy({where:{id:req.body.id}})
       res.status(201).end()
     } catch (error) {
       console.log("실패");
+      console.log();
     }
   })
 
