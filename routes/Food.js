@@ -13,7 +13,9 @@ router
       next(error);
     }
   })
-
+[
+  {admin_id:1,title:"",content:"",image_url:"fuck1.png",status:1,type:0,kinds:5}
+]
   .post("/admin" , (req,res,next)=>{
     try {
       console.log('addFood',req.body);
@@ -51,6 +53,7 @@ router
       await Food.update({
         kname: req.body.kname,
         ename: req.body.ename,
+        image_url:req.body.image_url,
         coment: req.body.coment,   
         price: req.body.price,
         status: req.body.status,
@@ -74,10 +77,11 @@ router
     try {
       console.log("진입");
       console.log(req.body);
-      await Food.destroy({where:{id:req.body.id[0]}})
+      await Food.destroy({where:{id:req.body.id}})
       res.status(201).end()
     } catch (error) {
       console.log("실패");
+      console.log();
     }
   })
 

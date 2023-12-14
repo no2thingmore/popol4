@@ -53,7 +53,6 @@ function Search(props) {
                 value={props.searchcategory}
               >
                 <option value="상품명">상품명</option>
-                <option value="상품아이디">상품아이디</option>
                 <option value="설명">설명</option>
               </select>
               <input type="text" onChange={handleSerchcChange} />

@@ -8,6 +8,15 @@
   background-color: beige;
 }
 
+.y_button{
+  margin-bottom: 30px;
+}
+
+.y_list_button>button:focus{
+  background-color: Purple;
+  color: White;
+}
+
 .y_list_button{
   
   display: flex;
@@ -28,11 +37,11 @@
   
 }
 
-.y_button:first-child{
+.y_list_button>button:first-child{
   border-radius: 50px 0 0 50px;
 }
 
-.y_button:last-child{
+.y_list_button>button:last-child{
   border-radius: 0 50px 50px 0;
 }
 
@@ -49,7 +58,7 @@
   display: grid;
   grid-template-rows:1fr 1fr 1fr; 
   grid-template-columns:1fr 1fr 1fr;
-  gap: 25px;
+  gap: 30px;
   
 }
 
