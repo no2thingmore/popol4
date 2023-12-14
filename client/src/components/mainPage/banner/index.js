@@ -38,7 +38,7 @@ const Banner = () => {
                 </div>
                 <div className='quick_link'>
                     <div className='quick_link_content'>
-                        <Link to ='/'>
+                        <Link to ='/StoreSearch'>
                             <div className="store">
                             
                                 <div className="store_section">
@@ -48,7 +48,7 @@ const Banner = () => {
                                 </div>
                             </div>
                         </Link>
-                        <Link to ='/'>
+                        <Link to ='/franchiseinquire'>
                             <div className="ask">
                                 <div className="ask_section">
                                     <div className='link_section'>
