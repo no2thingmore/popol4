@@ -13,7 +13,9 @@ router
       next(error);
     }
   })
-
+[
+  {admin_id:1,title:"",content:"",image_url:"fuck1.png",status:1,type:0,kinds:5}
+]
   .post("/admin" , (req,res,next)=>{
     try {
       console.log('addFood',req.body);
@@ -51,6 +53,7 @@ router
       await Food.update({
         kname: req.body.kname,
         ename: req.body.ename,
+        image_url:req.body.image_url,
         coment: req.body.coment,   
         price: req.body.price,
         status: req.body.status,
