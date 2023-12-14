@@ -1,7 +1,25 @@
+import axios from "axios";
 import { useState } from "react";
+import { Upload } from "antd";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../../config/contansts";
 
 function Plus(props) {
+  const navigate = useNavigate();
   const [categort1, setCategory1] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
+  const [kname, setKname] = useState("");
+  const [ename, setEname] = useState("");
+  const [coment, setComent] = useState("");
+  const [price, setPrice] = useState("");
+  const [status, setStatus] = useState("");
+  const [kcal, setKcal] = useState("");
+  const [protein, setProtein] = useState("");
+  const [fat, setFat] = useState("");
+  const [sugars, setSugars] = useState("");
+  const [salt, setSalt] = useState("");
+  const [gram, setGram] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -13,6 +31,53 @@ function Plus(props) {
     }
   };
 
+  const onChangeImage = (info) => {
+    // 파일이 업로드 중일 때
+    console.log("new", info.file);
+    if (info.file.status === "uploading") {
+      console.log("업로드중");
+      return;
+    }
+    // 파일이 업로드 완료 되었을 때
+    if (info.file.status === "done") {
+      console.log("성공");
+      const response = info.file.response;
+      const imageUrl = response.imageUrl;
+      // 받은 이미지경로를 imageUrl에 넣어줌
+      setImageUrl(imageUrl);
+    }
+  };
+
+  const productplus = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(`${API_URL}/food/admin`, {
+        kname: kname,
+        ename: ename,
+        kinds: categort1,
+        tags: selectedTag,
+        coment: coment,
+        image_url: imageUrl,
+        price: price,
+        status: status,
+        ingred_kcal: kcal,
+        ingred_protein: protein,
+        ingred_fat: fat,
+        ingred_sugars: sugars,
+        ingred_salt: salt,
+        ingred_gram: gram,
+      })
+      .then(() => {
+        console.log("성공");
+        navigate("/admin/product/none");
+      })
+      .catch((e) => {
+        console.log("에러남");
+        console.error(e);
+      });
+  };
+
   return (
     <div>
       <div
@@ -22,25 +87,38 @@ function Plus(props) {
         상품 추가
       </div>
       <div className="CHM_plusformBox">
-        <form>
+        <form onSubmit={productplus}>
           <div className="CHM_plustable1grid">
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">상품명(한국어)</div>
-              <input placeholder="한국이름"></input>
+              <input
+                placeholder="한국이름"
+                name="kname"
+                value={kname}
+                onChange={(e) => {
+                  setKname(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">상품명(영어)</div>
-              <input placeholder="영어이름"></input>
+              <input
+                placeholder="영어이름"
+                name="ename"
+                value={ename}
+                onChange={(e) => {
+                  setEname(e.target.value);
+                }}
+              ></input>
             </div>
           </div>
-
-          
 
           <div className="CHM_plustable1grid">
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">종류</div>
               <select
                 value={categort1}
+                name="kinds"
                 onChange={handleCategorySelect1Change}
                 id="categorySelect1"
                 style={{
@@ -61,9 +139,12 @@ function Plus(props) {
             </div>
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">태그</div>
-              {categort1 === "0" && (
+              {categort1 == "0" && (
                 <select
                   id="categorySelect2"
+                  name="tags"
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -79,9 +160,12 @@ function Plus(props) {
                 </select>
               )}
 
-              {categort1 === "1" && (
+              {categort1 == "1" && (
                 <select
                   id="categorySelect2"
+                  name="tags"
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -95,9 +179,12 @@ function Plus(props) {
                 </select>
               )}
 
-              {categort1 === "2" && (
+              {categort1 == "2" && (
                 <select
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   id="categorySelect2"
+                  name="tags"
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -113,9 +200,12 @@ function Plus(props) {
                 </select>
               )}
 
-              {categort1 === "3" && (
+              {categort1 == "3" && (
                 <select
                   id="categorySelect2"
+                  name="tags"
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -129,9 +219,12 @@ function Plus(props) {
                 </select>
               )}
 
-              {categort1 === "4" && (
+              {categort1 == "4" && (
                 <select
                   id="categorySelect2"
+                  name="tags"
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -144,9 +237,12 @@ function Plus(props) {
                 </select>
               )}
 
-              {categort1 === "5" && (
+              {categort1 == "5" && (
                 <select
                   id="categorySelect2"
+                  name="tags"
+                  value={selectedTag}
+                  onChange={(e) => setSelectedTag(e.target.value)}
                   style={{
                     marginLeft: "1vw",
                     padding: "0.3vw",
@@ -165,7 +261,14 @@ function Plus(props) {
           <div className="CHM_plustable1grid">
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">가격</div>
-              <input placeholder="가격"></input>
+              <input
+                placeholder="가격"
+                name="price"
+                value={price}
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">판매여부</div>
@@ -173,14 +276,15 @@ function Plus(props) {
                 style={{
                   display: "flex",
                   justifyContent: "start",
-                  alignItems: "center"
                 }}
               >
                 <label style={{ paddingRight: "1vw" }}>
                   <input
                     type="radio"
-                    name="salesStatus"
+                    name="status"
                     value="0"
+                    checked={status === 0}
+                    onChange={() => setStatus(0)}
                     style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
                   />
                   출시
@@ -188,8 +292,10 @@ function Plus(props) {
                 <label style={{ paddingRight: "1vw" }}>
                   <input
                     type="radio"
-                    name="salesStatus"
+                    name="status"
                     value="1"
+                    checked={status === 1}
+                    onChange={() => setStatus(1)}
                     style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
                   />
                   품절
@@ -197,8 +303,10 @@ function Plus(props) {
                 <label style={{ paddingRight: "1vw" }}>
                   <input
                     type="radio"
-                    name="salesStatus"
+                    name="status"
                     value="2"
+                    checked={status === 2}
+                    onChange={() => setStatus(2)}
                     style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
                   />
                   판매종료
@@ -209,57 +317,111 @@ function Plus(props) {
 
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">상품설명</div>
-            <input placeholder="상품설명" style={{ width: "90%" }}></input>
+            <input
+              placeholder="상품설명"
+              name="coment"
+              style={{ width: "90%" }}
+              value={coment}
+              onChange={(e) => {
+                setComent(e.target.value);
+              }}
+            ></input>
           </div>
 
           <div className="CHM_plustable6grid">
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">칼로리</div>
-              <input></input>
+              <input
+                value={kcal}
+                name="ingred_kcal"
+                onChange={(e) => {
+                  setKcal(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">무게(g)</div>
-              <input></input>
+              <input
+                value={gram}
+                name="ingred_gram"
+                onChange={(e) => {
+                  setGram(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">단백질</div>
-              <input></input>
+              <input
+                value={protein}
+                name="ingred_protein"
+                onChange={(e) => {
+                  setProtein(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">포화지방</div>
-              <input></input>
+              <input
+                value={fat}
+                name="ingred_fat"
+                onChange={(e) => {
+                  setFat(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">당류</div>
-              <input></input>
+              <input
+                value={sugars}
+                name="ingred_sugars"
+                onChange={(e) => {
+                  setSugars(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">나트륨</div>
-              <input></input>
+              <input
+                value={salt}
+                name="ingred_salt"
+                onChange={(e) => {
+                  setSalt(e.target.value);
+                }}
+              ></input>
             </div>
           </div>
 
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
-            <input placeholder="이미지"></input>
+            <Upload
+                name="image"
+                action={`${API_URL}/image`}
+                listType="picture"
+                showUploadList={false}
+                onChange={onChangeImage}
+              >
+                {imageUrl ? (
+                  <p>{imageUrl}</p>
+                ) : (
+                  <div id="upload-img-placeholder">
+                    <i class="fa-regular fa-file-image"></i><br/>
+                    <span>제품사진을 등록 해주세요.</span>
+                  </div>
+                )}
+              </Upload>
+          </div>
+
+          <div className="CHM_plusPageBtnBox">
+            <button type="submit">상품등록</button>
+            <button
+              onClick={() => {
+                props.setPage("list");
+              }}
+            >
+              취소
+            </button>
           </div>
         </form>
-      </div>
-      <div className="CHM_plusPageBtnBox">
-        <div
-          onClick={() => {
-            props.setPage("list");
-          }}
-        >
-          상품등록
-        </div>
-        <div
-          onClick={() => {
-            props.setPage("list");
-          }}
-        >
-          취소
-        </div>
       </div>
     </div>
   );

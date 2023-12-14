@@ -229,9 +229,10 @@ label {
   justify-content: center;
   column-gap: 2vw;
   font-size: 1.6vw;
+  margin-top: 2vw;
 }
 
-.CHM_plusPageBtnBox div{
+.CHM_plusPageBtnBox button{
   border: 1px solid black;
   padding: 1vw;
   font-size: 1.3vw;
@@ -246,5 +247,9 @@ label {
   font-size: 1.3vw;
   background-color: rgb(52, 52, 52);
   color: white;
+  cursor: pointer;
+}
+
+.CHM_adminproducttdBtn{
   cursor: pointer;
 }

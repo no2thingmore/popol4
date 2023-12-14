@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { API_URL } from "../../../config/contansts";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Edit(props) {
+  const navigate = useNavigate();
   const editdata = props.data.filter((item) => item.id == props.id);
-  console.log(editdata);
   const [categort1, setCategory1] = useState(editdata[0].kinds);
   const [selectedTag, setSelectedTag] = useState(editdata[0].tags);
   const [kname, setKname] = useState(editdata[0].kname);
@@ -17,7 +20,6 @@ function Edit(props) {
   const [salt, setSalt] = useState(editdata[0].ingred_salt);
   const [gram, setGram] = useState(editdata[0].ingred_gram);
 
-  console.log(coment);
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
     if (value === "") {
@@ -26,6 +28,34 @@ function Edit(props) {
     } else {
       setCategory1(value);
     }
+  };
+
+  const updateDataItem = (e) => {
+    e.preventDefault();
+    axios
+      .patch(`${API_URL}/food/admin`, {
+        id: props.id,
+        kname: kname,
+        ename: ename,
+        coment: coment,
+        price: price,
+        status: status,
+        ingred_kcal: kcal,
+        ingred_protein: protein,
+        ingred_fat: fat,
+        ingred_sugars: sugars,
+        ingred_salt: salt,
+        kinds: categort1,
+        tags: selectedTag,
+        ingred_gram: gram,
+      })
+      .then((response) => {
+        console.log("데이터 업데이트 성공");
+        navigate("/admin/product/none");
+      })
+      .catch((error) => {
+        console.error("데이터 업데이트 실패:", error);
+      });
   };
 
   return (
@@ -37,7 +67,7 @@ function Edit(props) {
         상품 정보 수정
       </div>
       <div className="CHM_plusformBox">
-        <form>
+        <form onSubmit={updateDataItem}>
           <div className="CHM_plustable1grid">
             <div className="CHM_plustablegrid">
               <div className="CHM_plusTableTitle">상품명(한국어)</div>
@@ -98,6 +128,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="0">클래식</option>
                   <option value="1">프레쉬&라이트</option>
                   <option value="2">프리미엄</option>
@@ -117,6 +148,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="4">시그니처 랩</option>
                   <option value="5">미니 랩</option>
                 </select>
@@ -134,6 +166,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="6">클래식</option>
                   <option value="7">프레쉬&라이트</option>
                   <option value="8">프리미엄</option>
@@ -153,6 +186,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="10">샌드위치</option>
                   <option value="11">랩</option>
                 </select>
@@ -170,6 +204,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="12">스마일 썹</option>
                 </select>
               )}
@@ -186,6 +221,7 @@ function Edit(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="13">샌드위치</option>
                   <option value="14">쿠키</option>
                 </select>
@@ -264,52 +300,72 @@ function Edit(props) {
           <div className="CHM_plustable6grid">
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">칼로리</div>
-              <input value={kcal} onChange={(e) => {setKcal(e.target.value)}}></input>
+              <input
+                value={kcal}
+                onChange={(e) => {
+                  setKcal(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">무게(g)</div>
-              <input value={gram} onChange={(e) => {setGram(e.target.value)}}></input>
+              <input
+                value={gram}
+                onChange={(e) => {
+                  setGram(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">단백질</div>
-              <input value={protein} onChange={(e) => {setProtein(e.target.value)}}></input>
+              <input
+                value={protein}
+                onChange={(e) => {
+                  setProtein(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">포화지방</div>
-              <input value={fat} onChange={(e) => {setFat(e.target.value)}}></input>
+              <input
+                value={fat}
+                onChange={(e) => {
+                  setFat(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">당류</div>
-              <input value={sugars} onChange={(e) => {setSugars(e.target.value)}}></input>
+              <input
+                value={sugars}
+                onChange={(e) => {
+                  setSugars(e.target.value);
+                }}
+              ></input>
             </div>
             <div className="CHM_plustablegrid2">
               <div className="CHM_plusTableTitle">나트륨</div>
-              <input value={salt} onChange={(e) => {setSalt(e.target.value)}}></input>
+              <input
+                value={salt}
+                onChange={(e) => {
+                  setSalt(e.target.value);
+                }}
+              ></input>
             </div>
           </div>
-
 
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
             <input placeholder="이미지"></input>
           </div>
+
+          <div className="CHM_plusPageBtnBox">
+            <button type="submit">상품수정</button>
+            <button>
+              취소
+            </button>
+          </div>
         </form>
-      </div>
-      <div className="CHM_plusPageBtnBox">
-        <div
-          onClick={() => {
-            props.setPage("list");
-          }}
-        >
-          상품수정
-        </div>
-        <div
-          onClick={() => {
-            props.setPage("list");
-          }}
-        >
-          취소
-        </div>
       </div>
     </div>
   );
