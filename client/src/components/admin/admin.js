@@ -29,7 +29,7 @@ function Admin() {
           <ul className="admin_tags">
             <li>
               <a
-                href="/admin/user"
+                href="/admin/user/none"
                 className={menu === "회원관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("회원관리")}
               >
@@ -38,7 +38,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/jeryo"
+                href="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
@@ -47,7 +47,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/product"
+                href="/admin/product/none"
                 className={menu === "상품관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("상품관리")}
               >
@@ -56,7 +56,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/assit"
+                href="/admin/assit/none"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
@@ -65,7 +65,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/design"
+                href="/admin/design/none"
                 className={menu === "디자인관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("디자인관리")}
               >
@@ -74,7 +74,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/option"
+                href="/admin/option/none"
                 className={menu === "설정" ? "active" : "noactive"}
                 onClick={() => MenuClick("설정")}
               >
@@ -83,7 +83,7 @@ function Admin() {
             </li>
             <li>
               <a
-                href="/admin/store"
+                href="/admin/store/none"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >

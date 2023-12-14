@@ -70,7 +70,7 @@ function Plus(props) {
       })
       .then(() => {
         console.log("성공");
-        navigate("/admin/product");
+        navigate("/admin/product/none");
       })
       .catch((e) => {
         console.log("에러남");
@@ -152,6 +152,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="0">클래식</option>
                   <option value="1">프레쉬&라이트</option>
                   <option value="2">프리미엄</option>
@@ -172,6 +173,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="4">시그니처 랩</option>
                   <option value="5">미니 랩</option>
                 </select>
@@ -190,6 +192,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="6">클래식</option>
                   <option value="7">프레쉬&라이트</option>
                   <option value="8">프리미엄</option>
@@ -210,6 +213,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="10">샌드위치</option>
                   <option value="11">랩</option>
                 </select>
@@ -228,6 +232,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="12">스마일 썹</option>
                 </select>
               )}
@@ -245,6 +250,7 @@ function Plus(props) {
                     width: "70%",
                   }}
                 >
+                  <option value="">=카테고리선택=</option>
                   <option value="13">샌드위치</option>
                   <option value="14">쿠키</option>
                 </select>

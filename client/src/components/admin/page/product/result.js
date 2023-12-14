@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { API_URL } from "../../../config/contansts";
+import { useNavigate } from 'react-router-dom';
 
 const getKindsLabel = (kinds) => {
   switch (kinds) {
@@ -65,6 +66,7 @@ const getStatusLabel = (status) => {
 };
 
 function Result(props) {
+  const navigate = useNavigate();
   const [checkedItems, setCheckedItems] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
 
@@ -97,10 +99,8 @@ function Result(props) {
   };
 
   const handleEditButtonClick = (id) => {
-    // 수정 버튼 클릭 시 해당 상품의 아이디를 가져와서 사용할 수 있습니다.
-    props.setPage("edit");
     props.setId(id);
-    // 여기에서 아이디를 사용하여 수정하는 로직을 추가할 수 있습니다.
+    navigate("/admin/product/edit")
   };
 
   const count = props.filteredResults.length;
@@ -109,12 +109,9 @@ function Result(props) {
     <>
       <div className="CHM_adminProductPageSubTitle">
         <div style={{ fontSize: "1.7vw" }}>상품리스트 ({count}건)</div>
-        <div
-          className="CHM_adminProductPlusBtn"
-          onClick={() => props.setPage("plus")}
-        >
-          +상품추가
-        </div>
+        <a href="/admin/product/plus">
+          <div className="CHM_adminProductPlusBtn">+상품추가</div>
+        </a>
       </div>
       <div className="CHM_adminProductpageTableBox">
         <table>
@@ -161,7 +158,10 @@ function Result(props) {
                   </td>
                   <td>{i + 1}</td>
                   <td>
-                    <img src={API_URL+"/upload/"+a.image_url} width="70%"></img>
+                    <img
+                      src={API_URL + "/upload/" + a.image_url}
+                      width="70%"
+                    ></img>
                   </td>
                   <td>{a.id}</td>
                   <td
@@ -206,7 +206,7 @@ function Result(props) {
                         padding: "0.3vw 0.6vw",
                         backgroundColor: "rgb(52, 52, 52)",
                         color: "white",
-                        border: "none"
+                        border: "none",
                       }}
                       onClick={() => handleEditButtonClick(a.id)}
                     >
@@ -215,7 +215,13 @@ function Result(props) {
                     <button
                       className="CHM_adminproducttdBtn"
                       onClick={handleDeleteButtonClick}
-                      style={{ fontSize: "1vw", padding: "0.3vw 0.6vw", backgroundColor:"red", color:"white", border:"none"}}
+                      style={{
+                        fontSize: "1vw",
+                        padding: "0.3vw 0.6vw",
+                        backgroundColor: "red",
+                        color: "white",
+                        border: "none",
+                      }}
                     >
                       삭제
                     </button>

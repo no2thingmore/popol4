@@ -6,8 +6,10 @@ import Plus from "./plus";
 import Edit from "./edit";
 import axios from "axios";
 import { API_URL } from "../../../config/contansts";
+import { useParams } from "react-router-dom";
 
 function Product() {
+  const { category } = useParams();
   const [selectedSalesStatus, setSelectedSalesStatus] = useState("");
   const [categorySelect1, setCategorySelect1] = useState("");
   const [categorySelect2, setCategorySelect2] = useState("");
@@ -15,7 +17,6 @@ function Product() {
   const [endprice, setEndprice] = useState(0);
   const [searchcategory, setSearchcategory] = useState("상품명");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState("list");
   const [id, setId] = useState("");
 
   console.log("id: ", id);
@@ -105,7 +106,7 @@ function Product() {
 
   return (
     <div className="CHM_adminProductPageBg">
-      {page === "list" ? (
+      {category === "none" ? (
         <Search
           categorySelect1={categorySelect1}
           setCategorySelect1={setCategorySelect1}
@@ -126,24 +127,19 @@ function Product() {
       ) : (
         ""
       )}
-      {page === "list" ? (
+      {category === "none" ? (
         <Result
           filteredResults={filteredResults}
           onDeleteItems={handleDeleteItems}
-          setPage={setPage}
           setId={setId}
         ></Result>
       ) : (
         ""
       )}
 
-      {page === "plus" ? <Plus setPage={setPage}></Plus> : ""}
+      {category === "plus" ? <Plus></Plus> : ""}
 
-      {page === "edit" ? (
-        <Edit setPage={setPage} data={data} id={id}></Edit>
-      ) : (
-        ""
-      )}
+      {category === "edit" ? <Edit data={data} id={id}></Edit> : ""}
     </div>
   );
 }
