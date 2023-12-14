@@ -372,11 +372,7 @@ function Jeryoplus(props) {
 
           <div className="CHM_jeryoplusPageBtnBox">
             <button type="submit">상품등록</button>
-            <button
-              onClick={() => {
-                props.setPage("list");
-              }}
-            >
+            <button>
               취소
             </button>
           </div>

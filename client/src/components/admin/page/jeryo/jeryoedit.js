@@ -323,11 +323,7 @@ function Jeryoedit(props) {
 
           <div className="CHM_plusPageBtnBox">
             <button type="submit">상품수정</button>
-            <button
-            onClick={() => {
-              props.setPage("list");
-            }}
-            >
+            <button>
               취소
             </button>
           </div>
