@@ -31,7 +31,7 @@
   width: 4215%;
   position: relative;
   transition-duration: 0.5s;
-  transform: translate3d(-1800px, 0px, 0px);
+  transform: translate3d(-00px, 0px, 0px);
 }
 .slide_li_item{
   float: left;
@@ -160,9 +160,14 @@
   border-radius: 30px;
   transition-duration: 0.3s;
 }
-.clicked_dot_active{
+.clicked_dot:active{
   background-color: #ffc300;
   width: 30px;
+}
+.clicked_dot.on{
+  background-color: #ffc300;
+  width: 30px;
+  
 }
 
 /*************** 핵 심 요 소 ***************/
