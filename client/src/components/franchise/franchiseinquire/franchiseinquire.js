@@ -67,69 +67,70 @@ function FranchiseInquire() {
                   </div>
               ))}
             </div>
-              <div className='kk_ask_btm_section'>
-                <div className='kk_ask_btm_title'>
-                  문의 작성하기
-                </div>
-                <div className='kk_ask_btm_title_right'>
-                  필수입력사항
-                </div>
+            <div className='kk_ask_btm_section'>
+              <div className='kk_ask_btm_title'>
+                문의 작성하기
               </div>
-            <table className='kk_ask_btm_table'>
-              <caption>문의 작성하기 테이블</caption>
-              <colgroup>
-                  <col width="130px" />
-                  <col width="*" />
-              </colgroup>
-                {Submit_Data.map((item) => (
-                  <tbody key={item.id}>
-                    <tr scopte="col">
-                      <th scope="col">
-                        {item.title}
-                      </th>
-                      <td>
-                        <span className='kk_form_text' style={{ width: '100%' }}>
-                          {item.type === 'textarea' ? (
-                            <textarea
+              <div className='kk_ask_btm_title_right'>
+                필수입력사항
+              </div>
+            </div>
+            <form>
+              <table className='kk_ask_btm_table'>
+                <caption>문의 작성하기 테이블</caption>
+                <colgroup>
+                    <col width="130px" />
+                    <col width="*" />
+                </colgroup>
+                  {Submit_Data.map((item) => (
+                    <tbody key={item.id}>
+                      <tr scopte="col">
+                        <th scope="col">
+                          {item.title}
+                        </th>
+                        <td>
+                          <span className='kk_form_text' style={{ width: '100%' }}>
+                            {item.type === 'textarea' ? (
+                              <textarea
+                                id={item.input_id}
+                                name={item.name}
+                                placeholder={item.holder}
+                                className='kk_form_textarea'
+                              />
+                            ) : (
+                            <input
                               id={item.input_id}
                               name={item.name}
                               placeholder={item.holder}
-                              className='kk_form_textarea'
+                              type={item.type}
                             />
-                          ) : (
-                          <input
-                            id={item.input_id}
-                            name={item.name}
-                            placeholder={item.holder}
-                            type={item.type}
-                          />
-                          )}
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                ))}
-            </table>
-            <div className="jj_ask_alart0">
-              <div className="jj_ask_alart">
-                <div className="jj_ask_alart_1">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                </div>
-                <div className="jj_ask_alart_2">
-                  <p>· 문의가 집중되거나 주말의 경우 답변이 지연될 수 있습니다. 최대한 빠르게 답변 드리도록 하겠습니다.</p>
-                  <p>· 욕설, 비속어, 비방성 등의 부적절한 단어 포함되어 있는 경우, 답변 진행이 어려울 수 있습니다.</p>
+                            )}
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  ))}
+              </table>
+              <div className="jj_ask_alart0">
+                <div className="jj_ask_alart">
+                  <div className="jj_ask_alart_1">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                  </div>
+                  <div className="jj_ask_alart_2">
+                    <p>· 문의가 집중되거나 주말의 경우 답변이 지연될 수 있습니다. 최대한 빠르게 답변 드리도록 하겠습니다.</p>
+                    <p>· 욕설, 비속어, 비방성 등의 부적절한 단어 포함되어 있는 경우, 답변 진행이 어려울 수 있습니다.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='kk_ask_btm_btn_sction'>
-              <Link to ="/" className='kk_ask_btm_btn_cancel'>
-                <span>취소</span>
-              </Link>
-                {/* 이부분은 데이터 취합해서 submit 하는 부분 만들어야함 */}
-              <Link to ="/" className='kk_ask_btm_btn_reg'>
-                <span>등록하기</span> 
-              </Link>
-            </div>
+              <div className='kk_ask_btm_btn_sction'>
+                <Link to ="/" className='kk_ask_btm_btn_cancel'>
+                  <span>취소</span>
+                </Link>
+                <button type="submit" className='kk_ask_btm_btn_reg'>
+                  <span>등록하기</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

@@ -84,10 +84,10 @@ function Admin() {
             <li>
               <a
                 href="/admin/store"
-                className={menu === "방 등록하기" ? "active" : "noactive"}
-                onClick={() => MenuClick("방 등록하기")}
+                className={menu === "가맹신청 문의" ? "active" : "noactive"}
+                onClick={() => MenuClick("가맹신청 문의")}
               >
-                가게 등록하기
+                가맹신청 문의
               </a>
             </li>
           </ul>
