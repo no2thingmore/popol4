@@ -1,13 +1,19 @@
 import "./notice.css";
-import React from "react";
+import {n_data}from"./notice_all/notice_data.js";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function notice(){
+function Notice(){
+
+  const [data, setData] = useState(n_data);
+
   return(
     <div className="j_notice_all">
       <div className="j_Title">
         <h2> 뉴스ㆍ공지사항 </h2>
       </div>
       <div className="j_all">
+        
         <div className="j_the_number">
           <p className="">
             "총"
@@ -18,17 +24,37 @@ function notice(){
 
         <div className="j_list_all">
 
-          <div className="j_list">
-            <div className="j_number">
-              <h3>1</h3>
+        {
+          data.map((aa,i) => (
+            <div className="j_list">
+              <div className="j_number">
+                <h3>{aa.id}</h3>
+              </div>
+              <div className="j_content">
+                <Link to={`/news/${aa}}`}>
+                  <a>{aa.title}</a>
+                </Link>
+              </div>
+              <div className="j_date">
+                <p>{aa.created_at}</p>
+              </div>
             </div>
-            <div className="j_content">
-              <a href="#">고객 경험 설문조사 프로그램(Subway Listen®) 안내</a>
+          ))
+        }
+
+            
+            
+            {/* <div className="j_list">
+              <div className="j_number">
+                <h3>1</h3>
+              </div>
+              <div className="j_content">
+                <a href="#">고객 경험 설문조사 프로그램(Subway Listen®) 안내</a>
+              </div>
+              <div className="j_date">
+                <p>21.09.09</p>
+              </div> 
             </div>
-            <div className="j_date">
-              <p>21.09.09</p>
-            </div> 
-          </div>
 
           <div className="j_list">
             <div className="j_number">
@@ -136,7 +162,7 @@ function notice(){
             <div className="j_date">
               <p>23.08.29</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
       </div>
@@ -144,4 +170,4 @@ function notice(){
   )
 }
 
-export default notice;
+export default Notice;
