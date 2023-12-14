@@ -113,9 +113,7 @@ function Admin() {
 
         {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
 
-
         {menu === "product" && <Product></Product>}
-
 
         {menu === "support/inquiry" && <Inquiry />}
         {menu === "support/res" && <Res />}
