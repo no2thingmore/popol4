@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import styled from "styled-components";
 import './apply.css';
@@ -13,45 +13,150 @@ import icon_2 from './art_images/icon_sw_artist_point02.png';
 import icon_3 from './art_images/icon_sw_artist_point03.png';
 import icon_4 from './art_images/icon_sw_artist_point04.png';
 import WakDo from './art_images/GgamJjickYee.mp4';
+import axios from "axios";
 
 
 
 
 function Apply(){
 // 슬라이드 기본 함수
+const slide_list = document.querySelector('.slide_li');
+const slide_items = document.querySelectorAll('.slide_li_item');
+const slide_arrow = document.querySelector('.slide_ctl_Arrow');
+const slide_btn = document.querySelector('.slide_ctl_Dot');
+console.log(slide_list);
+console.log(slide_items);
+console.log(slide_items.length);
+console.log(slide_arrow);
+console.log(slide_btn);
+const lastIndex = slide_items.length - 1;
+let selected = 0;
+
+// 슬라이드 트랜지션 함수
+const setTransition = (value) => {
+  slide_list.style.transition = value;
+
+};
+
+const setTranslate = ({ index, reset }) => {
+  if(reset) slide_list.transform = `translate3d(-${slide_list}px, 0, 0)`;
+  else slide_list.transform = `translate3d(-${(index + 1) * slide_list}px, 0 ,0)`;
+};
+
+// 슬라이드 버튼 함수
+const handlePrev = (e) => {
+  selected -= 1;
+  console.log(selected);
+  setTranslate({ index: selected });
+  if(selected < 0){
+    selected = lastIndex;
+    setTimeout(() => {
+      setTransition('');
+      setTranslate({ index: selected });
+    }, 300);
+  }
+}
+const handleNext = (e) => {
+  selected += 1;
+  console.log(selected);
+  setTranslate({ index: selected });
+  if(selected > lastIndex){
+    selected = 0;
+    setTimeout(() => {
+      setTransition('');
+      setTranslate({ index: selected });
+    }, 300);
+  }
+};
+const handleDot = (e) => {
+  if(e.target.dataset.num){
+    selected = parseInt(e.target.dataset.num);
+    console.log('selected = ' + selected);
+    // setTranslate({ index: selected });
+  }
+};
+// 슬라이드 개수에 맞춰 페이지네이션(점) 생성
+const [data, setData] = useState(slide_items);
+useEffect(() => {
+  setData(slide_items);
+  console.log('data = ' + data);
+  makeDot();
+}, []);
+
+
+const makeDot = () => {
+  console.log('Dotdata = ' + data);
+  
+  // if(slide_items.length > 1){
+  //   for(let i = 0; i <slide_items.length; i++){
+
+  //     const dots_div = document.createElement('div');
+  //     const dot = document.createElement('a');
+  //     dots_div.classList.add('Dot_items');
+  //     }
+  //   }
+  }
+
+
+// 맨 처음과 마지막 리스트 복사
+const cloneSlide = () => {
+  slide_list.prepend(slide_items[lastIndex].cloneNode(true));
+  slide_list.append(slide_items[0].cloneNode(true));
+  setTranslate({ reset:true });
+};
 
 
 // 임시 클릭확인 코드
-const [click_btn, setClick_btn] = useState();
-const click_what = (e) => {
-  const intxt = e.target.textContent;
-  setClick_btn(intxt);
-  console.log(intxt + '버튼 클릭');
-}
+// const [click_btn, setClick_btn] = useState();
+// const click_what = (e) => {
+//   const intxt = e.target.textContent;
+//   setClick_btn(intxt);
+//   console.log(intxt + '버튼 클릭');
+// }
 
-// 1. 슬라이드 버튼 함수
-const [arrow, setArrow] = useState();
-  const slide_act = (e) => {
-    let direction = e.target.className;
-    let x_Coordinates = 0;
-    setArrow(direction);
-    console.log('방향 = ' + direction);
-    if(direction === 'bt_prev') {
-      console.log('이전 슬라이드');
-      x_Coordinates += 900;
-    }
-    else if(direction === 'bt_next') {
-      console.log('다음 슬라이드');
-      x_Coordinates -= 900;
-    }
+// 
+// ----------------------------------------
+// let x_Coordinates = -4500; //viewport의 출력 x좌표
 
-  }
-  
+// const reset_X = (x_Coordinates) => {
+//   if (x_Coordinates == -3600) {
+//     x_Coordinates = -8100;
+//     console.log('res_x = ' + x_Coordinates);
+//   }
+//   else if(x_Coordinates == -9000){
+//     x_Coordinates = -4500;
+//     console.log('res_x = ' + x_Coordinates);
+//   }
+// }
+
+// const [arrow, setArrow] = useState();
+//   const slide_act = (e) => {
+//     let direction = e.target.className;
+
+//     if(direction === 'bt_prev') {
+//       console.log('이전 슬라이드');
+//       x_Coordinates += 900;
+//       reset_X(x_Coordinates);
+//       console.log('x = ' + x_Coordinates);
+      
+//     }
+//     else if(direction === 'bt_next') {
+//       console.log('다음 슬라이드');
+//       x_Coordinates -= 900;
+//       reset_X(x_Coordinates);
+//       console.log('x = ' + x_Coordinates);
+      
+//     }
+
+//     setArrow(direction);
+
+//     console.log('arrow = ' + arrow);
+//     console.log('방향 = ' + direction);
+//   }
+// ----------------------------------------
 // 점을 눌렀을 때 바뀌는 함수
 // 비활성화된 슬라이드의 이미지는 투명도 0.5 글자는 0
 // 활성화된 슬라이드의 텍스트만 활성화 하는 함수
-
-
 
 
   return(
@@ -139,86 +244,35 @@ const [arrow, setArrow] = useState();
                     </p>
                   </div>
                 </li>
-                <li className="slide_li_item">
-                  <div className="slide_img">
-                    <img src={slide_img_1}></img>
-                  </div>
-                  <div className="slide_info">
-                    <strong className="slide_info_tit">Best Artist</strong>
-                    <p className="slide_info_txt">
-                    샌드위치 아티스트™는
-                    <br />
-                    언제나 완벽한 샌드위치를 만듭니다.
-                    </p>
-                  </div>
-                </li>
-                <li className="slide_li_item">
-                  <div className="slide_img">
-                    <img src={slide_img_2}></img>
-                  </div>
-                  <div className="slide_info">
-                    <strong className="slide_info_tit">Best Fresh Keeper</strong>
-                    <p className="slide_info_txt">
-                    샌드위치 아티스트™는 각종 재료의 신선함과
-                    <br />
-                    매장의 청결을 철저하게 관리합니다.
-                    </p>
-                  </div>
-                </li>
-                <li className="slide_li_item">
-                  <div className="slide_img">
-                    <img src={slide_img_3}></img>
-                  </div>
-                  <div className="slide_info">
-                    <strong className="slide_info_tit">Best Service Professional</strong>
-                    <p className="slide_info_txt">
-                    샌드위치 아티스트™는 항상 고객을 우선으로 생각하며
-                    <br />
-                    고객이 무엇을 원하는지 경청합니다.
-                    </p>
-                  </div>
-                </li>
-                <li className="slide_li_item">
-                  <div className="slide_img">
-                    <img src={slide_img_4}></img>
-                  </div>
-                  <div className="slide_info">
-                    <strong className="slide_info_tit">Best Team Member</strong>
-                    <p className="slide_info_txt">
-                    샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을
-                    <br />
-                    제공하기 위해 다른 팀원들과 함께 노력합니다.
-                    </p>
-                  </div>
-                </li>
-                <li className="slide_li_item">
-                  <div className="slide_img">
-                    <img src={slide_img_5}></img>
-                  </div>
-                  <div className="slide_info">
-                    <strong className="slide_info_tit">Best Artist</strong>
-                    <p className="slide_info_txt">
-                    LE SSERAFIM은
-                    <br />
-                    언제나 완벽한 무대를 만듭니다.
-                    </p>
-                  </div>
-                </li>
               </ul>
             </div>
 
             <div className="slide_ctl">
               <div className="slide_ctl_Arrow">
-                <a className="bt_prev" onClick={slide_act}>Prev</a>
-                <a className="bt_next" onClick={slide_act}>Next</a>
+                <a className="bt_prev" onClick={handlePrev}>Prev</a>
+                <a className="bt_next" onClick={handleNext}>Next</a>
               </div>
 
               <div className="slide_ctl_Dot">
-                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={click_what}>1</a></div>
-                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={click_what}>2</a></div>
-                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={click_what}>3</a></div>
-                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={click_what}>4</a></div>
-                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={click_what}>5</a></div>
+                <button onClick={makeDot}>아아아아아앍</button>
+                
+{/*                 
+                {data &&
+                data.map((a,i) => (
+                  <div className="Dot_item">
+                    <a href="" className="clicked_dot" onClick={handleDot}>{i}</a>
+                  </div>
+                ))} */}
+                
+
+
+                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={handleDot}>1</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={handleDot}>2</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={handleDot}>3</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={handleDot}>4</a></div>
+                <div className="Dot_item"><a href="#" className="clicked_dot" onClick={handleDot}>5</a></div>
+              
+              
               </div>
             </div>
           </div>
