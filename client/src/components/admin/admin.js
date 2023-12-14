@@ -16,16 +16,16 @@ import News from "./page/suppot/submenu/news";
 import Faq from "./page/suppot/submenu/faq";
 
 function Admin() {
-  const { type } = useParams();
+  const { type, category } = useParams();
   const [menu, setMenu] = useState(type);
 
   // type 값이 변경될 때마다 실행됨
   // URL 변경에 따라 menu 상태를 동기화
   useEffect(() => {
-    if (type) {
-      setMenu(type);
+    if (type && category) {
+      setMenu(`${type}/${category}`);
     }
-  }, [type]);
+  }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -68,7 +68,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/support-inquiry"
+                to="/admin/support/inquiry"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
@@ -115,11 +115,11 @@ function Admin() {
 
         {menu === "product" && <div>{<Product></Product>}</div>}
 
-        {menu === "support-inquiry" && <Inquiry />}
-        {menu === "support-res" && <Res />}
-        {menu === "support-event" && <Event />}
-        {menu === "support-news" && <News />}
-        {menu === "support-faq" && <Faq />}
+        {menu === "support/inquiry" && <Inquiry />}
+        {menu === "support/res" && <Res />}
+        {menu === "support/event" && <Event />}
+        {menu === "support/news" && <News />}
+        {menu === "support/faq" && <Faq />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
