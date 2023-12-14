@@ -10,7 +10,7 @@ function Jeryoedit(props) {
   const [selectedTag, setSelectedTag] = useState(jeryoeditdata[0].tags);
   const [kname, setKname] = useState(jeryoeditdata[0].kname);
   const [ename, setEname] = useState(jeryoeditdata[0].ename);
-  const [coment, setComent] = useState(jeryoeditdata[0].coment);
+  const [comment, setComent] = useState(jeryoeditdata[0].comment);
   const [price, setPrice] = useState(jeryoeditdata[0].price);
   const [status, setStatus] = useState(jeryoeditdata[0].status);
   const [kcal, setKcal] = useState(jeryoeditdata[0].ingred_kcal);
@@ -33,11 +33,11 @@ function Jeryoedit(props) {
   const updateDataItem = (e) => {
     e.preventDefault();
     axios
-      .patch(`${API_URL}/food/admin`, {
+      .patch(`${API_URL}/ingredient/admin`, {
         id: props.id,
         kname: kname,
         ename: ename,
-        coment: coment,
+        comment: comment,
         price: price,
         status: status,
         ingred_kcal: kcal,
@@ -51,7 +51,7 @@ function Jeryoedit(props) {
       })
       .then((response) => {
         console.log("데이터 업데이트 성공");
-        navigate("/admin/product");
+        navigate("/admin/jeryo");
       })
       .catch((error) => {
         console.error("데이터 업데이트 실패:", error);
@@ -108,7 +108,8 @@ function Jeryoedit(props) {
                 <option value="">=카테고리선택=</option>
                 <option value="0">빵</option>
                 <option value="1">야채</option>
-                <option value="2">소스</option>
+                <option value="2">치즈</option>
+                <option value="3">소스</option>
               </select>
             </div>
             <div className="CHM_plustablegrid">
@@ -125,10 +126,9 @@ function Jeryoedit(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="0">클래식</option>
-                  <option value="1">프레쉬&라이트</option>
+                  <option value="0">화이트</option>
+                  <option value="1">곡물</option>
                   <option value="2">프리미엄</option>
-                  <option value="3">신제품</option>
                 </select>
               )}
 
@@ -144,8 +144,9 @@ function Jeryoedit(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="4">시그니처 랩</option>
-                  <option value="5">미니 랩</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="3">야채</option>
+                  <option value="4">피클</option>
                 </select>
               )}
 
@@ -161,10 +162,10 @@ function Jeryoedit(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="6">클래식</option>
-                  <option value="7">프레쉬&라이트</option>
-                  <option value="8">프리미엄</option>
-                  <option value="9">신제품</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="5">아메리칸</option>
+                  <option value="6">슈레드</option>
+                  <option value="7">모차렐라</option>
                 </select>
               )}
 
@@ -180,43 +181,13 @@ function Jeryoedit(props) {
                     width: "70%",
                   }}
                 >
-                  <option value="10">샌드위치</option>
-                  <option value="11">랩</option>
+                  <option value="">=카테고리선택=</option>
+                  <option value="8">소스</option>
+                  <option value="9">오일/식초</option>
+                  <option value="10">소금/후추</option>
                 </select>
               )}
 
-              {categort1 == "4" && (
-                <select
-                  id="categorySelect2"
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="12">스마일 썹</option>
-                </select>
-              )}
-
-              {categort1 == "5" && (
-                <select
-                  id="categorySelect2"
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="13">샌드위치</option>
-                  <option value="14">쿠키</option>
-                </select>
-              )}
             </div>
           </div>
 
@@ -281,7 +252,7 @@ function Jeryoedit(props) {
             <input
               placeholder="상품설명"
               style={{ width: "90%" }}
-              value={coment}
+              value={comment}
               onChange={(e) => {
                 setComent(e.target.value);
               }}

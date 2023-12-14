@@ -7,8 +7,13 @@ import Store from "./page/store/store";
 import Product from "./page/product/product";
 import Option from "./page/option/option";
 import Design from "./page/design/design";
-import Assit from "./page/assit/assit";
+import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
+import Inquiry from "./page/suppot/submenu/inquiry";
+import Res from "./page/suppot/submenu/res";
+import Event from "./page/suppot/submenu/event";
+import News from "./page/suppot/submenu/news";
+import Faq from "./page/suppot/submenu/faq";
 
 function Admin() {
   const { type, category } = useParams();
@@ -45,7 +50,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/jeryo"
+                to="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
@@ -106,9 +111,9 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
+        {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
 
-        {menu === "product" && <div>{<Product></Product>}</div>}
+        {menu === "product/none" && <div>{<Product></Product>}</div>}
 
         {menu === "support/inquiry" && <Inquiry />}
         {menu === "support/res" && <Res />}

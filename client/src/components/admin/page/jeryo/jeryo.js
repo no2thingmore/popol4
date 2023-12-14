@@ -85,7 +85,7 @@ function Jeryo() {
           (searchcategory === "상품명" && item.kname.includes(search)) ||
           (searchcategory === "상품아이디" &&
             item.id === parseInt(search, 10)) ||
-          (searchcategory === "설명" && item.coment.includes(search))
+          (searchcategory === "설명" && item.comment.includes(search))
       );
     }
 
