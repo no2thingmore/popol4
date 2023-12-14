@@ -28,7 +28,7 @@ function Franchise() {
       <div className="f_button">
         <button id="outline">
           <a 
-            href="/" 
+            href="/subwayfranchise" 
             className={menu === "subwayfranchise" ? "active" : "noactive"}
             onClick={() => MenuClick("subwayfranchise")}
           >
