@@ -49,12 +49,12 @@ function SubTemplate(){
                             <>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support-inquiry">문의 내역</Link>
+                                        <Link to ="/admin/support/inquiry">문의 내역</Link>
                                     </div>
                                 </div>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support-res">응답 관리</Link>
+                                        <Link to ="/admin/support/res">응답 관리</Link>
                                     </div>
                                 </div>
                             </>
@@ -69,17 +69,17 @@ function SubTemplate(){
                             <>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support-event">이벤트</Link>
+                                        <Link to ="/admin/support/event">이벤트</Link>
                                     </div>
                                 </div>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support-news">공지사항</Link>
+                                        <Link to ="/admin/support/news">공지사항</Link>
                                     </div>
                                 </div>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support-faq">FAQ</Link>
+                                        <Link to ="/admin/support/faq">FAQ</Link>
                                     </div>
                                 </div>
                             </>

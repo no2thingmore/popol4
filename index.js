@@ -4,7 +4,9 @@ const app = express();
 const morgan = require('morgan');
 const fs = require('fs');
 const { sequelize } = require('./models');
+
 const FoodRouter = require('./routes/Food.js')
+const IngredientRouter = require('./routes/Ingredient.js')
 
 
 const port = process.env.NODE_ENV || '8080';
@@ -44,6 +46,7 @@ app.post('/image', upload.single('image'), (req, res)=>{
 })
 
 app.use('/food', FoodRouter)
+app.use('/ingredient', IngredientRouter)
 
 // const Food = require('./models/food.js');
 // const list = []
