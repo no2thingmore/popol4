@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../../config/contansts";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Upload } from "antd";
 
 function Edit(props) {
   const navigate = useNavigate();
   const editdata = props.data.filter((item) => item.id == props.id);
+  console.log(editdata);
   const [categort1, setCategory1] = useState(editdata[0].kinds);
   const [selectedTag, setSelectedTag] = useState(editdata[0].tags);
   const [kname, setKname] = useState(editdata[0].kname);
@@ -19,6 +21,7 @@ function Edit(props) {
   const [sugars, setSugars] = useState(editdata[0].ingred_sugars);
   const [salt, setSalt] = useState(editdata[0].ingred_salt);
   const [gram, setGram] = useState(editdata[0].ingred_gram);
+  const [imageUrl, setImageUrl] = useState(editdata[0].image_url);
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -27,6 +30,23 @@ function Edit(props) {
       setCategory1(value);
     } else {
       setCategory1(value);
+    }
+  };
+
+  const onChangeImage = (info) => {
+    // 파일이 업로드 중일 때
+    console.log("new", info.file);
+    if (info.file.status === "uploading") {
+      console.log("업로드중");
+      return;
+    }
+    // 파일이 업로드 완료 되었을 때
+    if (info.file.status === "done") {
+      console.log("성공");
+      const response = info.file.response;
+      const imageUrl = response.imageUrl;
+      // 받은 이미지경로를 imageUrl에 넣어줌
+      setImageUrl(imageUrl);
     }
   };
 
@@ -48,10 +68,12 @@ function Edit(props) {
         kinds: categort1,
         tags: selectedTag,
         ingred_gram: gram,
+        image_url: imageUrl,
       })
       .then((response) => {
         console.log("데이터 업데이트 성공");
         navigate("/admin/product/none");
+        window.location.reload();
       })
       .catch((error) => {
         console.error("데이터 업데이트 실패:", error);
@@ -234,6 +256,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">가격</div>
               <input
                 placeholder="가격"
+                type="number"
                 value={price}
                 onChange={(e) => {
                   setPrice(e.target.value);
@@ -302,6 +325,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">칼로리</div>
               <input
                 value={kcal}
+                type="number"
                 onChange={(e) => {
                   setKcal(e.target.value);
                 }}
@@ -311,6 +335,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">무게(g)</div>
               <input
                 value={gram}
+                type="number"
                 onChange={(e) => {
                   setGram(e.target.value);
                 }}
@@ -320,6 +345,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">단백질</div>
               <input
                 value={protein}
+                type="number"
                 onChange={(e) => {
                   setProtein(e.target.value);
                 }}
@@ -329,6 +355,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">포화지방</div>
               <input
                 value={fat}
+                type="number"
                 onChange={(e) => {
                   setFat(e.target.value);
                 }}
@@ -338,6 +365,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">당류</div>
               <input
                 value={sugars}
+                type="number"
                 onChange={(e) => {
                   setSugars(e.target.value);
                 }}
@@ -347,6 +375,7 @@ function Edit(props) {
               <div className="CHM_plusTableTitle">나트륨</div>
               <input
                 value={salt}
+                type="number"
                 onChange={(e) => {
                   setSalt(e.target.value);
                 }}
@@ -356,7 +385,23 @@ function Edit(props) {
 
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
-            <input placeholder="이미지"></input>
+            <Upload
+              name="image"
+              action={`${API_URL}/image`}
+              listType="picture"
+              showUploadList={false}
+              onChange={onChangeImage}
+            >
+              {imageUrl ? (
+                <p>{imageUrl}</p>
+              ) : (
+                <div id="upload-img-placeholder">
+                  <i class="fa-regular fa-file-image"></i>
+                  <br />
+                  <span>제품사진을 등록 해주세요.</span>
+                </div>
+              )}
+            </Upload>
           </div>
 
           <div className="CHM_plusPageBtnBox">
