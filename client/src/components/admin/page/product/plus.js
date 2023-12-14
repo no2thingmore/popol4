@@ -19,7 +19,7 @@ function Plus(props) {
   const [sugars, setSugars] = useState("");
   const [salt, setSalt] = useState("");
   const [gram, setGram] = useState("");
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -51,31 +51,51 @@ function Plus(props) {
   const productplus = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post(`${API_URL}/food/admin`, {
-        kname: kname,
-        ename: ename,
-        kinds: categort1,
-        tags: selectedTag,
-        coment: coment,
-        image_url: imageUrl,
-        price: price,
-        status: status,
-        ingred_kcal: kcal,
-        ingred_protein: protein,
-        ingred_fat: fat,
-        ingred_sugars: sugars,
-        ingred_salt: salt,
-        ingred_gram: gram,
-      })
-      .then(() => {
-        console.log("성공");
-        navigate("/admin/product/none");
-      })
-      .catch((e) => {
-        console.log("에러남");
-        console.error(e);
-      });
+    if (
+      kname === "" ||
+      ename === "" ||
+      categort1 === "" ||
+      selectedTag === "" ||
+      coment === "" ||
+      imageUrl === "" ||
+      price === "" ||
+      status === "" ||
+      kcal === "" ||
+      protein === "" ||
+      fat === "" ||
+      sugars === "" ||
+      salt === "" ||
+      gram === ""
+    ) {
+      alert("빈칸없이 전부 채워주세요");
+    } else {
+      await axios
+        .post(`${API_URL}/food/admin`, {
+          kname: kname,
+          ename: ename,
+          kinds: categort1,
+          tags: selectedTag,
+          coment: coment,
+          image_url: imageUrl,
+          price: price,
+          status: status,
+          ingred_kcal: kcal,
+          ingred_protein: protein,
+          ingred_fat: fat,
+          ingred_sugars: sugars,
+          ingred_salt: salt,
+          ingred_gram: gram,
+        })
+        .then(() => {
+          console.log("성공");
+          navigate("/admin/product/none");
+          window.location.reload();
+        })
+        .catch((e) => {
+          console.log("에러남");
+          console.error(e);
+        });
+    }
   };
 
   return (
@@ -263,6 +283,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">가격</div>
               <input
                 placeholder="가격"
+                type="number"
                 name="price"
                 value={price}
                 onChange={(e) => {
@@ -333,6 +354,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">칼로리</div>
               <input
                 value={kcal}
+                type="number"
                 name="ingred_kcal"
                 onChange={(e) => {
                   setKcal(e.target.value);
@@ -343,6 +365,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">무게(g)</div>
               <input
                 value={gram}
+                type="number"
                 name="ingred_gram"
                 onChange={(e) => {
                   setGram(e.target.value);
@@ -353,6 +376,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">단백질</div>
               <input
                 value={protein}
+                type="number"
                 name="ingred_protein"
                 onChange={(e) => {
                   setProtein(e.target.value);
@@ -363,6 +387,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">포화지방</div>
               <input
                 value={fat}
+                type="number"
                 name="ingred_fat"
                 onChange={(e) => {
                   setFat(e.target.value);
@@ -373,6 +398,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">당류</div>
               <input
                 value={sugars}
+                type="number"
                 name="ingred_sugars"
                 onChange={(e) => {
                   setSugars(e.target.value);
@@ -383,6 +409,7 @@ function Plus(props) {
               <div className="CHM_plusTableTitle">나트륨</div>
               <input
                 value={salt}
+                type="number"
                 name="ingred_salt"
                 onChange={(e) => {
                   setSalt(e.target.value);
@@ -394,21 +421,22 @@ function Plus(props) {
           <div className="CHM_plustablegrid3">
             <div className="CHM_plusTableTitle">이미지</div>
             <Upload
-                name="image"
-                action={`${API_URL}/image`}
-                listType="picture"
-                showUploadList={false}
-                onChange={onChangeImage}
-              >
-                {imageUrl ? (
-                  <p>{imageUrl}</p>
-                ) : (
-                  <div id="upload-img-placeholder">
-                    <i class="fa-regular fa-file-image"></i><br/>
-                    <span>제품사진을 등록 해주세요.</span>
-                  </div>
-                )}
-              </Upload>
+              name="image"
+              action={`${API_URL}/image`}
+              listType="picture"
+              showUploadList={false}
+              onChange={onChangeImage}
+            >
+              {imageUrl ? (
+                <p>{imageUrl}</p>
+              ) : (
+                <div id="upload-img-placeholder">
+                  <i class="fa-regular fa-file-image"></i>
+                  <br />
+                  <span>제품사진을 등록 해주세요.</span>
+                </div>
+              )}
+            </Upload>
           </div>
 
           <div className="CHM_plusPageBtnBox">

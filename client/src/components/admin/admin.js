@@ -53,13 +53,13 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/product"
+              <a
+                href="/admin/product/none"
                 className={menu === "상품관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("상품관리")}
               >
                 상품관리
-              </Link>
+              </a>
             </li>
             <li>
               <Link

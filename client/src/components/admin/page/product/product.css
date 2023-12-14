@@ -1,3 +1,9 @@
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 label {
   box-sizing: border-box;
 }
