@@ -1,10 +1,10 @@
 import './sub_template.css';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DropdownIcon from './icon/dropdown.png';
 
 function SubTemplate(){
-
+    const {category} = useParams();
     // 문의사항 관리 드롭다운 상태관리
     const [inquiryDropdown, setInquiryDropdown] = useState(false);
     // 문의사항 관리 아이콘 회전 상태관리
@@ -49,7 +49,7 @@ function SubTemplate(){
                             <>
                                 <div className='KJH_sub_list_dropdown'>
                                     <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/support/inquiry">문의 내역</Link>
+                                        <a href="/admin/support/inquiry">문의 내역</a>
                                     </div>
                                 </div>
                                 <div className='KJH_sub_list_dropdown'>

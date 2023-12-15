@@ -6,7 +6,6 @@ function Inquiry(){
     return (
         <>
             {/* 서브메뉴 템플릿 */}
-            <SubTemplate />
             <div className='KJH_inq_section'>
                 {/* 경로 표시 */}
                 <div className='KJH_inq_route'>

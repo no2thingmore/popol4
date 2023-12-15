@@ -14,18 +14,12 @@ import Res from "./page/suppot/submenu/res";
 import Event from "./page/suppot/submenu/event";
 import News from "./page/suppot/submenu/news";
 import Faq from "./page/suppot/submenu/faq";
+import SubTemplate from './page/suppot/sub_template';
+import Suppot from './page/suppot/suppot';
 
 function Admin() {
-  const { type, category } = useParams();
+  const { type } = useParams();
   const [menu, setMenu] = useState(type);
-
-  // type 값이 변경될 때마다 실행됨
-  // URL 변경에 따라 menu 상태를 동기화
-  // useEffect(() => {
-  //   if (type && category) {
-  //     setMenu(`${type}/${category}`);
-  //   }
-  // }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -67,13 +61,13 @@ function Admin() {
               </a>
             </li>
             <li>
-              <Link
-                to="/admin/support/inquiry"
+              <a
+                href="/admin/support/inquiry"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
                 고객지원
-              </Link>
+              </a>
             </li>
             <li>
               <Link
@@ -113,15 +107,9 @@ function Admin() {
 
         {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
 
-
         {menu === "product" && <Product></Product>}
 
-
-        {menu === "support/inquiry" && <Inquiry />}
-        {menu === "support/res" && <Res />}
-        {menu === "support/event" && <Event />}
-        {menu === "support/news" && <News />}
-        {menu === "support/faq" && <Faq />}
+        {menu === "support" && <Suppot />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
