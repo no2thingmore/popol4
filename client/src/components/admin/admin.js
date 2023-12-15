@@ -94,13 +94,13 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/store"
-                className={menu === "방 등록하기" ? "active" : "noactive"}
-                onClick={() => MenuClick("방 등록하기")}
+              <a
+                href="/admin/store/none"
+                className={menu === "가게 등록하기" ? "active" : "noactive"}
+                onClick={() => MenuClick("가게 등록하기")}
               >
                 가게 등록하기
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
