@@ -12,6 +12,7 @@ import Home from "./page/home/home";
 import Sup from "./page/sup/sup";
 
 function Admin() {
+  
   const { type } = useParams();
   const [menu, setMenu] = useState(type);
 

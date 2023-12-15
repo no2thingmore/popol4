@@ -8,9 +8,10 @@ const { sequelize } = require('./models');
 const FoodRouter = require('./routes/Food.js')
 const IngredientRouter = require('./routes/Ingredient.js')
 const UserRouter = require('./routes/User.js')
+const BoardRouter = require('./routes/Board.js')
+const InquiryRouter = require('./routes/Inquiry.js')
 
-
-const port = process.env.NODE_ENV || '8080';
+const port = process.env.NODE_ENV || 8080;
 const multer = require('multer');
 
 app.set('view engine', 'html');
@@ -46,116 +47,132 @@ app.post('/image', upload.single('image'), (req, res)=>{
   })
 })
 
-app.use('/food', FoodRouter)
-app.use('/ingredient', IngredientRouter)
-app.use('/user', UserRouter)
+app.use('/food', FoodRouter);
+app.use('/ingredient', IngredientRouter);
+app.use('/user', UserRouter);
+app.use('/board',BoardRouter)
+app.use('/inquiry',InquiryRouter)
 
-const Food = require('./models/food.js');
-const Ingredient = require('./models/ingredient.js')
-const Event = require('./models/event.js');
+// const Food = require('./models/food.js');
+// const Ingredient = require('./models/ingredient.js')
+// const Event = require('./models/event.js');
 const { title } = require('process');
+const Board = require('./models/board.js');
+const Inquiry = require('./models/inquiry.js');
 const list = [
   {
-      admin_id:1,
-      title: "랍스터 컬렉션",
-      content: "신선한 리얼 랍스터가 그대로! 올겨울 한정판으로 더욱 특별하게 준비한 써브웨이 랍스터 컬렉션",
-      image_url: "event_lobster_collection.png",
-      status: 0
+      "admin_id":1,
+      "kinds":0,
+      "tags":2,
+      "title":"결제 오류 문의드려요",
+      "content":"결제도중 오류가 떳어요 어떻게 해야할까요",
+      "add_file":"event_2023_super_pop.png",
+      "status":0,
+      "create_at":"2014-11-22 5:01"
   },
   {
-      admin_id:1,
-      title: "써브웨이 오늘의 수프",
-      content: "오늘의 수프를 원하는 사이즈로! 샌드위치랑 함께 먹으면 든든하고 맛있썹!",
-      image_url: "event_subway_today_soup.png",
-      status: 0
+      "admin_id":1,
+      "kinds":1,
+      "tags":4,
+      "title":"배송이 늦게되네요",
+      "content":"주문한 물건이 늦게오네요 어디까지 배달됫나요",
+      "add_file":"event_caddo_summer_slipper_beach pack.png",
+      "status":1,
+      "create_at":"1981-11-29 1:49"
   },
   {
-      admin_id:1,
-      title: "Eat Fresh Fell Good",
-      content: "써브웨이 X 차은우 신선함 가득! 즐거움 가득! 함께하는 이 순간이 즐거워!",
-      image_url: "event_eat_fresh_feel_good.png",
-      status: 0
+      "admin_id":1,
+      "kinds":1,
+      "tags":2,
+      "title":"환불하고싶어요",
+      "content":"단순변심으로 물건을 사고싶지 않아졋어요",
+      "add_file":"event_cha_eunwoo_menu_promotion.png",
+      "status":1,
+      "create_at":"1971-10-23 1:17"
   },
   {
-      admin_id:1,
-      title: "말이 안 나올 땐 손으로 주문하자!",
-      content: "말이 안 나올 땐? 손으로 주문하자!",
-      image_url: "event_order_by_hand.png",
-      status: 0
+      "admin_id":1,
+      "kinds":1,
+      "tags":4,
+      "title":"제품 교환이 되나요",
+      "content":"받은 물건이 마음에 들지않아서 교환하고싶은데 어떻게 해야하나요",
+      "add_file":"event_chicken_collection.png",
+      "status":1,
+      "create_at":"2015-05-28 15:23"
   },
   {
-      admin_id:1,
-      title: "스파이시 시리즈",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_spicy_series.png",
-      status: 1
+      "admin_id":1,
+      "kinds":0,
+      "tags":3,
+      "title":"포인트 적립이 안됫어요",
+      "content":"최근에 구매한 물건에 대한 포인트가 적립이 안됫어요 확인해주세요",
+      "add_file":"event_eat_fresh_feel_good.png",
+      "status":0,
+      "create_at":"2004-08-18 6:51"
   },
   {
-      admin_id:1,
-      title: "2023 슈퍼팝 프로모션",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_2023_super_pop.png",
-      status: 1
+      "admin_id":1,
+      "kinds":0,
+      "tags":2,
+      "title":"회원가입이 되질 않아요",
+      "content":"회원가입을 했는데 오류가 떳어요 이거 어떻게 하나요",
+      "add_file":"event_lobster_collection.png",
+      "status":0,
+      "create_at":"1973-10-30 7:22"
   },
   {
-      admin_id:1,
-      title: "차은우 메뉴 프로모션",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_cha_eunwoo_menu_promotion.png",
-      status: 1
+      "admin_id":1,
+      "kinds":1,
+      "tags":3,
+      "title":"주문 취소할래요",
+      "content":"실수로 잘못 주문했어요 취소해줘요",
+      "add_file":"event_mon_surprise.png",
+      "status":0,
+      "create_at":"1970-03-22 11:40"
   },
   {
-      admin_id:1,
-      title: "카도 썸머 슬리퍼 & 비치팩",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_caddo_summer_slipper_beach pack.png",
-      status: 1
+      "admin_id":1,
+      "kinds":1,
+      "tags":1,
+      "title":"이거 어떻게 써요",
+      "content":"물건이 도착했는데 동작을 안하네요 어떻게 써요",
+      "add_file":"event_new_shrimp_series.png",
+      "status":0,
+      "create_at":"1998-02-04 10:48"
   },
   {
-      admin_id:1,
-      title: "New 쉬림프 시리즈",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_new_shrimp_series.png",
-      status: 1
+      "admin_id":1,
+      "kinds":0,
+      "tags":1,
+      "title":"물건이 불량으로 왔어요",
+      "content":"배송된 물건이 불량인데 어떻게 조치해주실 건가요",
+      "add_file":"event_order_by_hand.png",
+      "status":1,
+      "create_at":"1970-05-23 13:18"
   },
   {
-      admin_id:1,
-      title: "WaterBomB! Seoul",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_waterbomb_seoul.png",
-      status: 1
-  },
-  {
-      admin_id:1,
-      title: "트러플 마요 시리즈",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_truffle_mayo_series.png",
-      status: 1
-  },
-  {
-      admin_id:1,
-      title: "이달의 썹!프라이즈",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_mon_surprise.png",
-      status: 1
-  },
-  {
-      admin_id:1,
-      title: "치킨 컬렉션",
-      content: "이벤트가 종료되었습니다.",
-      image_url: "event_chicken_collection.png",
-      status: 1
+      "admin_id":1,
+      "kinds":1,
+      "tags":4,
+      "title":"계정 로그인이 안된대요",
+      "content":"로그인이 안되는데 어떻게 해결하나요",
+      "add_file":"event_spicy_series.png",
+      "status":1,
+      "create_at":"2011-03-16 19:25"
   }
 ]
 
 app.get('/test',async ()=>{
   for (let i = 0; i < list.length; i++) {
     const elements = list[i];
-    Event.create({
+    Inquiry.create({
       admin_id:elements.admin_id,
+      tags: elements.tags,
+      kinds: elements.kinds,
+      create_at: elements.create_at,
       title: elements.title,
       content: elements.content,
-      image_url: elements.image_url,
+      add_file: elements.add_file,
       status: elements.status
     })
   }
@@ -172,12 +189,3 @@ sequelize.sync({ force: false })
 app.listen(port, function () {
   console.log(`${port}에서 대기중`)
 }); 
-
-
-
-
-
-
-
-
-
