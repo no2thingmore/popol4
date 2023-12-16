@@ -1,13 +1,16 @@
 import './inquiry.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_URL } from '../../../../../config/contansts';;
+import { API_URL } from '../../../../../config/contansts';
+import ArrowDown from './arrowdown.png';
+import ArrowUp from './arrowup.png';
 
 function Inquiry() {
     
-    const [inquiries, setInquiries] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const pageLimit = 10;
+    const [inquiries, setInquiries] = useState([]); // 문의내역
+    const [currentPage, setCurrentPage] = useState(1); // 페이지변경
+    const pageLimit = 10; // 페이지 글 제한
+    const [showContents, setShowContents] = useState({}); // title 의 내용보기
 
     // 종류 변환
     const tagsMapping = {
@@ -41,6 +44,7 @@ function Inquiry() {
             try {
                 const response = await axios.get(`${API_URL}/inquiry`);
                 setInquiries(response.data);
+                // console.log(response);
             } catch (error) {
                 console.error(error);
             }
@@ -57,6 +61,27 @@ function Inquiry() {
         setCurrentPage(pageNumber);
     };
 
+    // 내용보기 toggle
+    const toggleContent = (id) => {
+        setShowContents(prevState => ({
+            ...prevState,
+            [id]: !prevState[id]
+        }));
+    };
+
+    // 활성화된 내용 toggle 모두 닫기
+    const closeAllToggles = () => {
+        setShowContents({});
+    };
+    // 내용 모두 열기
+    const openAllToggles = () => {
+        const allOpen = inquiries.reduce((acc, inquiry) => {
+            acc[inquiry.id] = true;
+            return acc;
+        }, {});
+        setShowContents(allOpen);
+    };
+
     return (
         <>
             <div className='KJH_inq_section'>
@@ -68,6 +93,17 @@ function Inquiry() {
                         <span className='KJH_inq_top_list'>전체목록</span>
                         <span className='KJH_inq_top_pos_num_info'>문의사항</span>
                         <span className='KJH_inq_top_pos_num'>{inquiries.length} 건</span>
+                        <span className='KJH_inq_top_toggle_section'>
+                            {/* 내용 모두 닫기 */}
+                            <button onClick={closeAllToggles} className="KJH_inq_top_close_toggle_section">
+                                <img src={ArrowUp} alt='위쪽 화살표' />
+                            </button>
+                            {/* 내용 모두 열기 */}
+                            <button onClick={openAllToggles} className="KJH_inq_open_all_toggle">
+                                <img src={ArrowDown} alt='아래쪽 화살표' />
+                            </button>
+                        </span>
+                        {/* 페이지 버튼 */}
                         <span className='KJH_inq_top_page_button_section'>
                             {[...Array(Math.ceil(inquiries.length / pageLimit)).keys()].map(number => (
                             <button key={number} onClick={() => handlePageChange(number + 1)}>
@@ -97,24 +133,33 @@ function Inquiry() {
                         </thead>
                         <tbody>
                             {displayedPosts.map((item) => (
-                                <tr key={item.id} className='KJH_inq_contents_section'>
-                                    <td className='KJH_inq_contents_id'>{item.id}</td>
-                                    <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags.toString()] || '알 수 없음'}</td>
-                                    <td className='KJH_inq_contents_title'>{item.title}</td>
-                                    <td className='KJH_inq_contents_created'>{formatDate(item.createdAt)}</td>
-                                    <td className='KJH_inq_contents_ctrl'>
-                                        <span>답변</span>
-                                        <span>삭제</span>
-                                    </td>
-                                    <td className={`KJH_inq_contents_status ${item.status === 0 || item.status === '0' ? 'status-waiting' : 'status-completed'}`}>
-                                        {statusMapping[item.status.toString()] || '알 수 없음'}
-                                    </td>
-                                </tr>
+                                <React.Fragment key={item.id}>
+                                    <tr className='KJH_inq_contents_section' onClick={() => toggleContent(item.id)}>
+                                        <td className='KJH_inq_contents_id'>{item.id}</td>
+                                        <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags.toString()] || '알 수 없음'}</td>
+                                        <td className='KJH_inq_contents_title' >{item.title}</td>
+                                        <td className='KJH_inq_contents_created'>{formatDate(item.createdAt)}</td>
+                                        <td className='KJH_inq_contents_ctrl'>
+                                            <span>답변</span>
+                                            <span>삭제</span>
+                                        </td>
+                                        <td className={`KJH_inq_contents_status ${item.status === 0 || item.status === '0' ? 'status-waiting' : 'status-completed'}`}>
+                                            {statusMapping[item.status.toString()] || '알 수 없음'}
+                                        </td>
+                                    </tr>
+                                    {showContents[item.id] && (
+                                        <tr>
+                                            <td className='KJH_inq_contents_content_td_cells'/>
+                                            <td className='KJH_inq_contents_content_td_cells' />
+                                            <td colSpan="2" className='KJH_inq_contents_content'>{item.content}</td>
+                                            <td className='KJH_inq_contents_content_td_cells' />
+                                            <td className='KJH_inq_contents_content_td_cells' />
+                                        </tr>
+                                    )}
+                                </React.Fragment>
                             ))}
                         </tbody>
                     </table>
-                    <div className="pagination">
-                </div>
                 </div>
             </div>
         </>
