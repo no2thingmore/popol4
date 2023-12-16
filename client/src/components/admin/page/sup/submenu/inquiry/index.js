@@ -12,7 +12,9 @@ function Inquiry() {
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({}); // title 의 내용보기
     const [comentInput, setComentInput] = useState({}); // 답변
-    const [answers, setAnswers] = useState({}); // 각 문의사항 답변관리
+    const [answers, setAnswers] = useState([]); // 각 문의사항 답변관리
+
+    const answerList = []
 
     // 종류 변환
     const tagsMapping = {
@@ -43,9 +45,14 @@ function Inquiry() {
     // 데이터 가져오기
     const fetchInquiries = async () => {
         try {
-            const response = await axios.get(`${API_URL}/inquiry`);
-            setInquiries(response.data);
-            console.log(response.data);
+            await axios.get(`${API_URL}/inquiry`)
+            .then((response)=>{
+                setInquiries(response.data);
+
+            })
+            .catch((err)=>{
+                console.error(err);
+            })
         } catch (error) {
             console.error(error);
         }
@@ -110,6 +117,11 @@ function Inquiry() {
             [id]: true
         }));
     };
+
+    const commentFind = (id)=>{
+        //id값이 배열의 id값보다 1이 차이가 있어서 -1을 해줘야함
+        setAnswers(inquiries[id-1].comment)
+    }
 
     // 활성화된 내용 toggle 모두 닫기
     const closeAllToggles = () => {
@@ -187,6 +199,7 @@ function Inquiry() {
                                         <span onClick={(e) => {
                                             e.stopPropagation();
                                             toggleComentInput(item.id);
+                                            commentFind(item.id);
                                         }}>답변</span>
                                             <span>삭제</span>
                                         </td>
@@ -209,8 +222,7 @@ function Inquiry() {
                                                     <td colSpan="2">
                                                         <textarea 
                                                             placeholder="답변을 작성해주세요." 
-                                                            value={answers[item.id] || ''} 
-                                                            onChange={(e) => handleAnswerChange(item.id, e.target.value)}
+                                                            value={answers}
                                                         ></textarea>
                                                         <button onClick={() => submitAnswer(item.id)}>작성</button>
                                                     </td>
