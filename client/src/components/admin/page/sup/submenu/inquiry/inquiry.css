@@ -196,15 +196,39 @@
     box-shadow: inset 0 0 2px 2px white;
 }
 
-.KJH_inq_contents_content_td_cells, .KJH_inq_contents_content {
-    background-color: #bdbcff;
-}
-
 .KJH_inq_contents_content {
+    background-color: #bdbcff;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 700;
     padding: 10px 15px;
 }
+
+.KJH_inq_coment_tr_1st, .KJH_inq_coment_tr_2nd {
+    background-color: #bdbcff;
+}
+
+.KJH_inq_coment_tr_2nd td[colspan="2"] {
+    padding: 10px;
+}
+
+.KJH_inq_coment_tr_2nd textarea {
+    width: 100%;    /* 너비를 100%로 설정 */
+    height: 100px;  /* 원하는 높이 값으로 설정 */
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;  /* 텍스트 영역 내부 여백 */
+    border: 1px solid #ccc; /* 테두리 */
+    resize: vertical; /* 수직 방향으로만 크기 조절 가능 */
+    box-sizing: border-box; /* border와 padding이 width와 height에 포함되도록 설정 */
+    resize: none;
+}
+
+.KJH_inq_coment_tr_2nd button {
+    float: right;
+    margin-top: 5px;
+    padding: 5px 10px;
+}
+
 
 @keyframes dropdownAnimation {
     from { height: 0; opacity: 0; }
