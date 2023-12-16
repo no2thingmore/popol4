@@ -5,9 +5,9 @@ import { API_URL } from '../../../../../config/contansts';;
 
 function Inquiry() {
     
-    const [문의사항, 변경문의사항] = useState([]);
-    const [현재페이지, 변경현재페이지] = useState(1)
-    const 페이지글제한 = 10;
+    const [inquiries, setInquiries] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageLimit = 10;
 
     // 종류 변환
     const tagsMapping = {
@@ -18,7 +18,7 @@ function Inquiry() {
         '4': '매장이용'
     };
     // 날짜 형식 변환 함수
-    // 20년 10월 10일 15:30:45
+    // 예시) 20년 10월 10일 15:30:45
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const year = date.getFullYear();
@@ -37,25 +37,25 @@ function Inquiry() {
 
     // 데이터 가져오기
     useEffect(() => {
-        const 문의가져오기 = async () => {
+        const fetchInquiries = async () => {
             try {
-                const 응답 = await axios.get(`${API_URL}/inquiry`);
-                변경문의사항(응답.data);
-                // console.log(응답.data);
-            } catch (에러) {
-                console.error(에러);
+                const response = await axios.get(`${API_URL}/inquiry`);
+                setInquiries(response.data);
+            } catch (error) {
+                console.error(error);
             }
         };
-        문의가져오기();
+        fetchInquiries();
     }, []);
 
-    const 게시글당첫번째글 = ( 현재페이지 -1 ) * 페이지글제한
-    const 게시글당마지막째글 = 현재페이지 * 페이지글제한
-    const 표시될글들 = 문의사항.slice(게시글당첫번째글, 게시글당마지막째글);
+    // 페이지 계산
+    const firstPostIndex = (currentPage - 1) * pageLimit;
+    const lastPostIndex = currentPage * pageLimit;
+    const displayedPosts = inquiries.slice(firstPostIndex, lastPostIndex);
 
-    const 페이지변경처리 = (페이지숫자) => {
-        변경현재페이지(페이지숫자)
-    }
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
     return (
         <>
@@ -67,10 +67,10 @@ function Inquiry() {
                     <div className='KJH_inq_top_section'>
                         <span className='KJH_inq_top_list'>전체목록</span>
                         <span className='KJH_inq_top_pos_num_info'>문의사항</span>
-                        <span className='KJH_inq_top_pos_num'>{문의사항.length} 건</span>
+                        <span className='KJH_inq_top_pos_num'>{inquiries.length} 건</span>
                         <span className='KJH_inq_top_page_button_section'>
-                            {[...Array(Math.ceil(문의사항.length / 페이지글제한)).keys()].map(number => (
-                            <button key={number} onClick={() => 페이지변경처리(number + 1)}>
+                            {[...Array(Math.ceil(inquiries.length / pageLimit)).keys()].map(number => (
+                            <button key={number} onClick={() => handlePageChange(number + 1)}>
                                 {number + 1}
                             </button>
                             ))}
@@ -96,7 +96,7 @@ function Inquiry() {
                             </tr>
                         </thead>
                         <tbody>
-                            {표시될글들.map((item) => (
+                            {displayedPosts.map((item) => (
                                 <tr key={item.id} className='KJH_inq_contents_section'>
                                     <td className='KJH_inq_contents_id'>{item.id}</td>
                                     <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags.toString()] || '알 수 없음'}</td>

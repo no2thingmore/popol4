@@ -57,6 +57,11 @@ function SubTemplate(){
                                         <Link to ="/admin/support/inquiry">문의 내역</Link>
                                     </div>
                                 </div>
+                                <div className='KJH_sub_list_dropdown'>
+                                    <div className='KJH_sub_list_info'>
+                                        <Link to ="/admin/support/test">테스트</Link>
+                                    </div>
+                                </div>
                             </>
                         )}
                     </div>
