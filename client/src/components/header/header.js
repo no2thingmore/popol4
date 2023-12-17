@@ -32,6 +32,7 @@ const Login = (e) => {
           <div className="util_menu">
             <button style={{cursor: "pointer"}}><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
             <button><a href="/mypage/none">마이페이지</a></button>
+
           </div>
           :
           <div className="util_menu">

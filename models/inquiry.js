@@ -40,6 +40,14 @@ class Inquiry extends Sequelize.Model {
         allowNull: true,
         comment: "본문 내용",
       },
+<<<<<<< HEAD
+=======
+      comment:{
+        type: Sequelize.TEXT,
+        allowNull: true,
+        comment: "답변 내용",
+      },
+>>>>>>> a2f53e9c925515f40a8d5e720c70c0fe90bbff9f
       add_file:{
         type: Sequelize.STRING,
         allowNull:true,

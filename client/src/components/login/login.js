@@ -16,6 +16,7 @@ function Login() {
     const email = e.target.login_id.value;
     const password = e.target.login_pwd.value;
     const saveID = e.target.login_saveID.checked;
+
     axios
       .get(`${API_URL}/user/login`, { params: { email, password } })
       .then((response) => {

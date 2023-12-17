@@ -8,9 +8,13 @@ const { sequelize } = require('./models');
 const FoodRouter = require('./routes/Food.js')
 const IngredientRouter = require('./routes/Ingredient.js')
 const UserRouter = require('./routes/User.js')
+<<<<<<< HEAD
+=======
+const BoardRouter = require('./routes/Board.js')
+const InquiryRouter = require('./routes/Inquiry.js')
+>>>>>>> a2f53e9c925515f40a8d5e720c70c0fe90bbff9f
 
-
-const port = process.env.NODE_ENV || '8080';
+const port = process.env.NODE_ENV || 8080;
 const multer = require('multer');
 
 app.set('view engine', 'html');
@@ -46,6 +50,7 @@ app.post('/image', upload.single('image'), (req, res)=>{
   })
 })
 
+<<<<<<< HEAD
 app.use('/food', FoodRouter)
 app.use('/ingredient', IngredientRouter)
 app.use('/user', UserRouter)
@@ -160,6 +165,36 @@ app.get('/test',async ()=>{
     })
   }
 }) //데이터 저장용 axios 
+=======
+app.use('/food', FoodRouter);
+app.use('/ingredient', IngredientRouter);
+app.use('/user', UserRouter);
+app.use('/board',BoardRouter)
+app.use('/inquiry',InquiryRouter)
+
+// const Food = require('./models/food.js');
+// const Ingredient = require('./models/ingredient.js')
+// const Event = require('./models/event.js');
+// const Board = require('./models/board.js');
+// const Inquiry = require('./models/inquiry.js');
+// const list = 
+
+// app.get('/test',async ()=>{
+//   for (let i = 0; i < list.length; i++) {
+//     const elements = list[i];
+//     Inquiry.create({
+//       admin_id:elements.admin_id,
+//       tags: elements.tags,
+//       kinds: elements.kinds,
+//       create_at: elements.create_at,
+//       title: elements.title,
+//       content: elements.content,
+//       add_file: elements.add_file,
+//       status: elements.status
+//     })
+//   }
+// }) //데이터 저장용 axios 
+>>>>>>> a2f53e9c925515f40a8d5e720c70c0fe90bbff9f
 
 sequelize.sync({ force: false })
   .then(() => {
@@ -172,12 +207,3 @@ sequelize.sync({ force: false })
 app.listen(port, function () {
   console.log(`${port}에서 대기중`)
 }); 
-
-
-
-
-
-
-
-
-
