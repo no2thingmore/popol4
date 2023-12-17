@@ -24,7 +24,7 @@ const Login = (e) => {
 
   return (
     <div className="header">
-      <button onClick={test}>등록</button>
+      {/* <button onClick={test}>등록</button> */}
       <div className="topheader">
         <h1 id="logo">
           <Link to="/">SUBWAY</Link>
