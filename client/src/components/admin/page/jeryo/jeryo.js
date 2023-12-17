@@ -8,8 +8,11 @@ import Jeryoedit from "./jeryoedit";
 import axios from "axios";
 
 import { API_URL } from "../../../config/contansts";
+import { useParams } from "react-router-dom";
 
 function Jeryo() {
+
+  const { category } = useParams();
   const [selectedSalesStatus, setSelectedSalesStatus] = useState("");
   const [categorySelect1, setCategorySelect1] = useState("");
   const [categorySelect2, setCategorySelect2] = useState("");
@@ -17,7 +20,7 @@ function Jeryo() {
   const [endprice, setEndprice] = useState(0);
   const [searchcategory, setSearchcategory] = useState("상품명");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState("list");
+  // const [page, setPage] = useState("list");
   const [id, setId] = useState("");
 
   console.log("id: ", id);
@@ -85,7 +88,7 @@ function Jeryo() {
           (searchcategory === "상품명" && item.kname.includes(search)) ||
           (searchcategory === "상품아이디" &&
             item.id === parseInt(search, 10)) ||
-          (searchcategory === "설명" && item.coment.includes(search))
+          (searchcategory === "설명" && item.comment.includes(search))
       );
     }
 
@@ -108,7 +111,7 @@ function Jeryo() {
 
   return (
     <div className="CHM_adminProductPageBg">
-      {page === "list" ? (
+      {category === "none" ? (
         <Jeryosearch
           categorySelect1={categorySelect1}
           setCategorySelect1={setCategorySelect1}
@@ -129,22 +132,22 @@ function Jeryo() {
       ) : (
         ""
       )}
-      {page === "list" ? (
+      {category === "none" ? (
         <Jeryoresult
           filteredResults={filteredResults}
           onDeleteItems={handleDeleteItems}
-          setPage={setPage}
+          // setPage={setPage}
           setId={setId}
         ></Jeryoresult>
       ) : (
         ""
       )}
 
-      {page === "plus" ? <Jeryoplus setPage={setPage}></Jeryoplus> : ""}
+      {category === "jeryoplus" ? <Jeryoplus></Jeryoplus> : ""}
 
-      {page === "jeryoedit" ? (
+      {category === "jeryoedit" ? (
         <Jeryoedit
-          setPage={setPage}
+          // setPage={setPage}
           data={data}
           id={id}
         ></Jeryoedit>

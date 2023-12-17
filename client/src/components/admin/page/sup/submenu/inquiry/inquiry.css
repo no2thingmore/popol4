@@ -1,0 +1,128 @@
+.KJH_inq_section {
+    padding-left: 50px;
+}
+
+.KJH_inq_route {
+    font-size: 14px;
+    padding: 2.5em 0 5em 190px;
+}
+
+.KJH_inq_info {
+    padding-left: 190px;
+}
+
+.KJH_inq_top_section {
+    margin-bottom: 3em;
+}
+
+.KJH_inq_top_section > span {
+    padding: 15px 25px;
+    font-size: 20px;
+}
+
+.KJH_inq_top_list {
+    border: 2px solid #999999;
+    margin-right: 10px;
+    background-color: #c7c7c7;
+    border-radius: 10px;
+}
+
+.KJH_inq_top_pos_num_info {
+    border-left: 2px solid #999999;
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    border-radius: 10px 0 0 10px;
+}
+
+.KJH_inq_top_pos_num {
+    border-right: 2px solid #999999;
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    border-radius: 0 10px 10px 0;
+    background-color: #777777;
+    color: white;
+}
+
+.KJH_inq_table_section {
+    min-width: 800px;
+    overflow-x: auto;
+    border: 5px solid gray;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+    .KJH_inq_table_section th,
+    .KJH_inq_table_section td {
+        font-size: 14px; /* 폰트 크기 줄임 */
+    }
+    /* 필요에 따라 더 많은 스타일 규칙 추가 */
+}
+
+.KJH_inq_list_nums {
+    width: 200px;
+}
+
+.KJH_inq_title_section {
+    height: 40px;
+}
+
+.KJH_inq_title_section > th {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    padding: 0;
+    height: 30px;
+    border-bottom: 2px solid #999999;
+}
+
+.KJH_inq_contents_section > td {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    height: 37px;
+    background-color: #dddddd;
+}
+
+.KJH_inq_contents_id {
+    min-width: 140px;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.KJH_inq_contents_kind {
+    min-width: 150px;
+    text-align: center;
+}
+
+.KJH_inq_contents_title {
+    min-width: 500px;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_created {
+    min-width: 300px;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_ctrl {
+    min-width: 150px;
+    text-align: center;
+}
+
+.KJH_inq_contents_status {
+    min-width: 120px;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_ctrl > span {
+    margin: 0 10px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.KJH_inq_contents_ctrl > span:hover {
+    background-color: #999999;
+    color: white;
+    cursor: pointer;
+}

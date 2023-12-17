@@ -4,8 +4,9 @@ import Result from "./result";
 import { Link, useParams, useLocation } from "react-router-dom";
 
 function Step2() {
-  const cart = useLocation().state;
-  console.log("haha: ", cart);
+  // const cart = useLocation().state;
+  const [cart, setCart] = useState([{id:1, name: "차하민"}]);
+  console.log("setp2Cart: ", cart);
   const { product } = useParams();
   const { id } = useParams();
   const { location } = useParams();
@@ -14,11 +15,11 @@ function Step2() {
     setState(a);
   };
 
+
   const encodedString = location;
   const decodedString = decodeURIComponent(encodedString);
   const replacedString = decodedString.replace(/%20/g, " ");
 
-  console.log(replacedString);
   return (
     <div>
       <div className="CHM_faststep2SelectBox">
@@ -73,7 +74,7 @@ function Step2() {
       </div>
 
       {id === "Nan" ? <Detail state={state}></Detail> : ""}
-      {id !== "Nan" ? <Result product={product} id={id}></Result> : ""}
+      {id !== "Nan" ? <Result product={product} cart={cart} setCart={setCart} id={id}></Result> : ""}
     </div>
   );
 }

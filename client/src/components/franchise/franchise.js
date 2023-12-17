@@ -28,7 +28,7 @@ function Franchise() {
       <div className="f_button">
         <button id="outline">
           <a 
-            href="/subwayfranchise" 
+            href="/franchise/subwayfranchise" 
             className={menu === "subwayfranchise" ? "active" : "noactive"}
             onClick={() => MenuClick("subwayfranchise")}
           >
@@ -37,7 +37,7 @@ function Franchise() {
         </button>
         <button id="outline">
           <a 
-            href="/faq" 
+            href="/franchise/faq" 
             className={menu === "faq" ? "active" : "noactive"}
             onClick={() => MenuClick("faq")}
           >
@@ -46,7 +46,7 @@ function Franchise() {
         </button>
         <button id="outline"> 
           <a 
-            href="/franchiseinquire" 
+            href="/franchise/franchiseinquire" 
             className={menu === "franchiseinquire" ? "active" : "noactive"}
             onClick={() => MenuClick("franchiseinquire")}
           >
@@ -55,7 +55,7 @@ function Franchise() {
         </button>
         <button id="outline"> 
           <a 
-          href="/branchinformation" 
+          href="/franchise/branchinformation" 
           className={menu === "branchinformation" ? "active" : "noactive"}
           onClick={() => MenuClick("branchinformation")}
           >
@@ -64,7 +64,7 @@ function Franchise() {
         </button>
         <button id="outline"> 
           <a 
-          href="/briefing" 
+          href="/franchise/briefing" 
           className={menu === "briefing" ? "active" : "noactive"}
           onClick={() => MenuClick("briefing")}
           >

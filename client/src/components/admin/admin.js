@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./header";
 import "./admin.css";
 import { useParams, Link } from "react-router-dom";
@@ -9,13 +9,7 @@ import Option from "./page/option/option";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
-import Inquiry from "./page/suppot/submenu/inquiry";
-import Res from "./page/suppot/submenu/res";
-import Event from "./page/suppot/submenu/event";
-import News from "./page/suppot/submenu/news";
-import Faq from "./page/suppot/submenu/faq";
-import SubTemplate from './page/suppot/sub_template';
-import Suppot from './page/suppot/suppot';
+import Sup from "./page/sup/sup";
 
 function Admin() {
   const { type } = useParams();
@@ -89,7 +83,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/store"
+                to="/admin/store/none"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >
@@ -109,13 +103,13 @@ function Admin() {
 
         {menu === "product" && <Product></Product>}
 
-        {menu === "support" && <Suppot />}
+        {menu === "support" && <Sup />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
         {menu === "option" && <div>{<Option></Option>}</div>}
 
-        {menu === "store" && <div>{<Store></Store>}</div>}
+        {menu === "store/none" && <div>{<Store></Store>}</div>}
       </div>
     </div>
   );
