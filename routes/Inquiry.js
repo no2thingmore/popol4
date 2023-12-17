@@ -6,7 +6,7 @@ router
 .get('/',(req,res,next)=>{
   Inquiry.findAll()
   .then((result)=>{
-    console.log(result);
+    // console.log(result);
     res.status(201).send(result);
   })
   .catch((err)=>{
@@ -17,19 +17,21 @@ router
 
 .patch("/admin",async (req,res,next)=>{
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const data = await Inquiry.findOne({where:{id:req.body.id}})
     console.log("find",data);
 
-    const editKinds = data.kinds || req.body.kinds;
-    const editTags = data.tags || req.body.tags;
-    const editTitle = data.title || req.body.title;
-    const editContent = data.content || req.body.content;
-    const editComment = data.comment || req.body.comment;
-    const editStatus = data.status || req.body.status;
-    const editAdmin_id = data.admin_id || req.body.admin_id;
-    const editUser_id = data.user_id || req.body.user_id;
+    const editKinds = req.body.kinds || data.kinds;
+    const editTags = req.body.tags || data.tags;
+    const editTitle = req.body.title  || data.title ;
+    const editContent = req.body.content || data.content;
+    const editComment = req.body.comment || data.comment;
+    const editStatus = req.body.status || data.status;
+    const editAdmin_id = req.body.admin_id || data.admin_id;
+    const editUser_id = req.body.user_id || data.user_id;
+    const update_at = new Date();
 
+    
     console.log("edit",editComment);
     await Inquiry.update({
       admin_id:editAdmin_id,
@@ -40,6 +42,7 @@ router
       content:editContent,
       comment:editComment,
       status:editStatus,
+      update_at:update_at
     },
     {where:{id:req.body.id}})
     .then(()=>{
@@ -66,4 +69,5 @@ router
     console.log();
   }
 })
+
 module.exports = router
