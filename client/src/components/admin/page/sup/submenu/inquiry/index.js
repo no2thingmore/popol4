@@ -142,7 +142,7 @@ function Inquiry() {
         <>
             <div className='KJH_inq_section'>
                 <div className='KJH_inq_route'>
-                    HOME &gt; 문의사항 관리 &gt; 문의 내역
+                    Admin &gt; 고객 지원 &gt; 문의 내역
                 </div>
                 <div className='KJH_inq_info'>
                     <div className='KJH_inq_top_section'>
