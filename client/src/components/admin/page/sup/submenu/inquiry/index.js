@@ -2,19 +2,19 @@ import './inquiry.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../../config/contansts';
+import { Link } from 'react-router-dom';
 import ArrowDown from './arrowdown.png';
 import ArrowUp from './arrowup.png';
+import { useParams } from 'react-router-dom';
 
 function Inquiry() {
-    
+
+    const { id } = useParams();
+
     const [inquiries, setInquiries] = useState([]); // 문의내역
     const [currentPage, setCurrentPage] = useState(1); // 페이지변경
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({}); // title 의 내용보기
-    const [comentInput, setComentInput] = useState({}); // 답변
-    const [answers, setAnswers] = useState([]); // 각 문의사항 답변관리
-
-    const answerList = []
 
     // 종류 변환
     const tagsMapping = {
@@ -48,7 +48,7 @@ function Inquiry() {
             await axios.get(`${API_URL}/inquiry`)
             .then((response)=>{
                 setInquiries(response.data);
-
+                console.log(response.data);
             })
             .catch((err)=>{
                 console.error(err);
@@ -61,22 +61,6 @@ function Inquiry() {
         fetchInquiries();
     }, []);
 
-    // 답변 제출
-    const submitAnswer = async (id) => {
-        try {
-            const response = await axios.patch(`${API_URL}/inquiry/admin`, {
-                id: id,
-                status: 1,
-                comment: answers[id],
-                admin_id: 1
-            });
-            fetchInquiries();
-            console.log('답변이 성공적으로 제출되었습니다:', response.data);
-        } catch (error) {
-            console.error('답변 제출 중 오류가 발생했습니다:', error);
-        }
-    };
-
     // 페이지 계산
     const firstPostIndex = (currentPage - 1) * pageLimit;
     const lastPostIndex = currentPage * pageLimit;
@@ -86,42 +70,13 @@ function Inquiry() {
         setCurrentPage(pageNumber);
     };
 
-    // 답변 변경 핸들러
-    const handleAnswerChange = (id, text) => {
-        setAnswers(prevAnswers => ({
-            ...prevAnswers,
-            [id]: text
-        }));
-    };
-
     // 내용보기 toggle
     const toggleContent = (id) => {
         setShowContents(prevState => ({
             ...prevState,
             [id]: !prevState[id]
         }));
-        setComentInput(prevState => ({
-            ...prevState,
-            [id]: !prevState[id] && prevState[id] // showContents가 활성화되면 comentInput도 닫힘
-        }));
     };
-
-    // 답변 토글 핸들러
-    const toggleComentInput = (id) => {
-        setComentInput(prevState => ({
-            ...prevState,
-            [id]: !prevState[id]
-        }));
-        setShowContents(prevState => ({
-            ...prevState,
-            [id]: true
-        }));
-    };
-
-    const commentFind = (id)=>{
-        //id값이 배열의 id값보다 1이 차이가 있어서 -1을 해줘야함
-        setAnswers(inquiries[id-1].comment)
-    }
 
     // 활성화된 내용 toggle 모두 닫기
     const closeAllToggles = () => {
@@ -135,8 +90,6 @@ function Inquiry() {
         }, {});
         setShowContents(allOpen);
     };
-
-    
 
     return (
         <>
@@ -196,13 +149,10 @@ function Inquiry() {
                                         <td className='KJH_inq_contents_title' >{item.title}</td>
                                         <td className='KJH_inq_contents_created'>{formatDate(item.createdAt)}</td>
                                         <td className='KJH_inq_contents_ctrl'>
-                                        <span onClick={(e) => {
-                                            e.stopPropagation();
-                                            toggleComentInput(item.id);
-                                            commentFind(item.id);
-                                        }}>답변</span>
-                                            <span>삭제</span>
+                                            <Link to={`${item.id}`}><span className='KJH_inq_contents_ans'>답변</span></Link>
+                                            <span className='KJH_inq_contents_del'>삭제</span>
                                         </td>
+                                        {/* 상태 state 관리 : 완료 or 대기 */}
                                         <td className={`KJH_inq_contents_status ${item.status === 0 || item.status === '0' ? 'status-waiting' : 'status-completed'}`}>
                                             {statusMapping[item.status.toString()] || '알 수 없음'}
                                         </td>
@@ -216,21 +166,6 @@ function Inquiry() {
                                                 <td />
                                                 <td />
                                             </tr>
-                                            {comentInput[item.id] && (
-                                                <tr className='KJH_inq_coment_tr_2nd'>
-                                                    <td />
-                                                    <td colSpan="2">
-                                                        <textarea 
-                                                            placeholder="답변을 작성해주세요." 
-                                                            value={answers}
-                                                        ></textarea>
-                                                        <button onClick={() => submitAnswer(item.id)}>작성</button>
-                                                    </td>
-                                                    <td />
-                                                    <td />
-                                                    <td />
-                                                </tr>
-                                            )}
                                         </>
                                     )}
                                 </React.Fragment>
