@@ -14,6 +14,8 @@ router
     })
 })
 
+// 가나다
+
 .get('/ingreDient', (req,res,next)=>{
     Ingredient.findAll()
     .then((result)=>{
