@@ -23,5 +23,4 @@ router
       res.status(500).send(err)
     })
 })
-//test
 module.exports = router;
