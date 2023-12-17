@@ -14,8 +14,6 @@ router
     })
 })
 
-// 가나다
-
 .get('/ingreDient', (req,res,next)=>{
     Ingredient.findAll()
     .then((result)=>{
@@ -25,5 +23,4 @@ router
       res.status(500).send(err)
     })
 })
-//test
 module.exports = router;
