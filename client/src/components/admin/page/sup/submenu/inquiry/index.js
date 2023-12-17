@@ -48,7 +48,7 @@ function Inquiry() {
             await axios.get(`${API_URL}/inquiry`)
             .then((response)=>{
                 setInquiries(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch((err)=>{
                 console.error(err);
@@ -108,7 +108,7 @@ function Inquiry() {
                                 <img src={ArrowUp} alt='위쪽 화살표' />
                             </button>
                             {/* 내용 모두 열기 */}
-                            <button onClick={openAllToggles} className="KJH_inq_open_all_toggle">
+                            <button onClick={openAllToggles} className="KJH_inq_top_open_toggle_section">
                                 <img src={ArrowDown} alt='아래쪽 화살표' />
                             </button>
                         </span>
