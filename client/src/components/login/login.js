@@ -4,7 +4,6 @@ import axios from "axios";
 import { getCookie, removeCookie, setCookie } from "../../useCookies";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/contansts";
-import { API_URL } from "../config/contansts";
 
 function Login() {
   const navigate = useNavigate();
