@@ -3,7 +3,10 @@ import './test.css';
 function Test() {
     return (
         <>
-            <div>테스트</div>
+            <div className='KJH_comment_section'>
+                <div>제목</div>
+                <div>내용</div>
+            </div>
         </>
     )
 }
