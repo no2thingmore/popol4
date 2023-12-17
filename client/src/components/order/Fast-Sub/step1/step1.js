@@ -9,6 +9,7 @@ function Step1() {
     setState(a);
   };
 
+  localStorage.removeItem('cart')
   return (
     <div>
       <div className='CHM_faststep1SelectBox'>

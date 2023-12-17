@@ -75,6 +75,7 @@ app.use('/inquiry',InquiryRouter)
 //     })
 //   }
 // }) //데이터 저장용 axios 
+>>>>>>> a2f53e9c925515f40a8d5e720c70c0fe90bbff9f
 
 sequelize.sync({ force: false })
   .then(() => {

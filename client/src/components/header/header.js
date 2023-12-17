@@ -1,19 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./header.css";
 import { API_URL } from '../config/contansts';
 import axios from "axios"
 import { getCookie, removeCookie } from '../../useCookies';
 
 function Header() {
-
-  const test = async ()=>{
-    await axios.get(`${API_URL}/test`)
-  }//데이터 한번에 등록할려고 임시로 만들어둔 axios 나중에 삭제 할 것
-
+const navigate = useNavigate();
   const Logout = (e)=>{
     e.preventDefault()
     removeCookie('user')
+    navigate("/")
+    window.location.reload();
   }
+
+const Login = (e) => {
+  e.preventDefault()
+  if(getCookie('user')){
+    navigate("/order/Fast-Sub/step1/Noplace/Null/Nan")
+  } else {
+    navigate("/login")
+  }
+}
 
   return (
     <div className="header">
@@ -24,8 +31,9 @@ function Header() {
         </h1>
         { getCookie('user') ? 
           <div className="util_menu">
-            <button><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
-            <button><a href="/mypage">마이페이지</a></button>
+            <button style={{cursor: "pointer"}}><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
+            <button><a href="/mypage/none">마이페이지</a></button>
+
           </div>
           :
           <div className="util_menu">
@@ -75,19 +83,17 @@ function Header() {
         <li className="menu-item">
           가맹점
           <ul className="submenu">
-            <li><a href="/subwayfranchise">프랜차이즈</a></li>
-            <li><a href="/faq">가맹관련 FAQ</a></li>
-            <li><a href="/franchiseinquire">가맹신청 문의</a></li>
-            <li><a href="/branchinformation">지사안내</a></li>
-            <li><a href="/briefing">사업설명회</a></li>
+            <li><a href="/franchise/subwayfranchise">프랜차이즈</a></li>
+            <li><a href="/franchise/faq">가맹관련 FAQ</a></li>
+            <li><a href="/franchise/franchiseinquire">가맹신청 문의</a></li>
+            <li><a href="/franchise/branchinformation">지사안내</a></li>
+            <li><a href="/franchise/briefing">사업설명회</a></li>
           </ul>
         </li>
         <li className="menu-item">
           온라인 주문
           <ul className="submenu" style={{width: "100%"}}>
-            <Link to="/order/Fast-Sub/step1/Noplace/Null/Nan"><li>FAST-SUB</li></Link>
-            <Link to="/order/Home-Sub/step1/Null/Nan"><li>HOME-SUB</li></Link>
-            <Link to="/order/group/select/Null/Nan"><li>단체주문</li></Link>
+            <li onClick={Login}>FAST-SUB</li>
           </ul>
         </li>
       </ul>

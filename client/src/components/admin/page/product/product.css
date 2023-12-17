@@ -20,7 +20,7 @@ label {
 }
 
 .CHM_adminProductPageSubTitle {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.3vw;
@@ -164,73 +164,70 @@ label {
   background-color: rgb(240, 240, 240);
 }
 
-
-
-.CHM_plusformBox form{
+.CHM_plusformBox form {
   font-size: 1.3vw;
   text-align: center;
   margin-bottom: 2vw;
 }
 
-.CHM_plustable1grid{
+.CHM_plustable1grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.CHM_plustable6grid{
+.CHM_plustable6grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-
 }
 
-.CHM_plustablegrid{
+.CHM_plustablegrid {
   display: grid;
   grid-template-columns: 1.2fr 4fr;
   align-items: center;
   border-bottom: 1px solid #c6c6c6;
 }
 
-.CHM_plustablegrid input{
+.CHM_plustablegrid input {
   width: 70%;
   margin-left: 1vw;
   font-size: 1.3vw;
-  padding:  0.3vw;
+  padding: 0.3vw;
 }
 
-.CHM_plustablegrid2{
+.CHM_plustablegrid2 {
   display: grid;
   grid-template-columns: 1.8fr 0.8fr;
   align-items: center;
   border-bottom: 1px solid #c6c6c6;
 }
 
-.CHM_plustablegrid2 input{
+.CHM_plustablegrid2 input {
   width: 60%;
   margin-left: 0.5vw;
-  padding:  0.3vw;
+  padding: 0.3vw;
   font-size: 1.3vw;
 }
 
-.CHM_plustablegrid3{
+.CHM_plustablegrid3 {
   display: grid;
   grid-template-columns: 0.9fr 6.9fr;
   align-items: center;
   border-bottom: 1px solid #c6c6c6;
 }
 
-.CHM_plustablegrid3 input{
+.CHM_plustablegrid3 input {
   width: 60%;
   margin-left: 1vw;
-  padding:  0.3vw;
+  padding: 0.3vw;
   font-size: 1.3vw;
 }
 
-.CHM_plusTableTitle{
+.CHM_plusTableTitle {
   background-color: white;
   padding: 1vw;
 }
 
-.CHM_plusPageBtnBox{
+.CHM_plusPageBtnBox {
   display: flex;
   justify-content: center;
   column-gap: 2vw;
@@ -238,7 +235,7 @@ label {
   margin-top: 2vw;
 }
 
-.CHM_plusPageBtnBox button{
+.CHM_plusPageBtnBox button {
   border: 1px solid black;
   padding: 1vw;
   font-size: 1.3vw;
@@ -247,7 +244,7 @@ label {
   cursor: pointer;
 }
 
-.CHM_adminProductPlusBtn{
+.CHM_adminProductPlusBtn {
   border: 1px solid black;
   padding: 1vw;
   font-size: 1.3vw;
@@ -256,6 +253,14 @@ label {
   cursor: pointer;
 }
 
-.CHM_adminproducttdBtn{
+.CHM_adminproducttdBtn {
   cursor: pointer;
+}
+
+.CHM_adminContentBox {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* 원하는 줄 수로 설정 */
+  max-height: 3em; /* 줄 수에 따라 조절할 수 있는 높이값 설정 */
 }

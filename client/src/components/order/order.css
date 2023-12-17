@@ -191,14 +191,13 @@
 }
 
 .CHM_faststep2Result2pushTitle {
-  padding-bottom: 2vw;
+  border-left: #009223 5px solid;
+  margin-bottom: 2vw;
+  padding-left: 1vw;
   font-size: 2vw;
 }
 
 .CHM_faststep2Result2pushGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2vw;
   padding-bottom: 3vw;
 }
 
@@ -208,6 +207,8 @@
   cursor: pointer;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
   transition: background-color 0.5s;
+  padding: 1vw;
+  width: 95% !important;
 }
 
 .CHM_faststep2Result2pushCard:hover {
@@ -378,9 +379,11 @@
 
 .CHM_step3CartContentGrid {
   display: grid;
-  grid-template-columns: 8fr 1.5fr 1.3fr;
+  grid-template-columns: 8fr 1.5fr 1.3fr 0.5fr;
   border-top: 1px solid #009223;
   padding: 2vw 2vw;
+  align-items: center;
+  justify-content: center;
 }
 
 .CHM_step3CartContentname{
@@ -388,13 +391,12 @@
 }
 
 .CHM_step3CartContentcount{
-  color: gray;
   text-align: center;
   font-size: 1.2vw;
 } 
 
 .CHM_step3CartContentprice{
-  text-align: end;
+  text-align: center;
   font-size: 1.2vw;
 }
 
@@ -414,7 +416,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2vw;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   border-bottom: 1px solid rgba(128, 128, 128, 0.358);
 }
 
@@ -474,7 +476,7 @@
 .CHM_step3StoreContent{
   padding: 2vw;
   background-color: #ececec;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   margin-bottom: 3vw;
 }
 
@@ -498,4 +500,36 @@
 
 .CHM_step4Content{
   font-size: 2.5vw;
+}
+
+.CHM_selectedCard{
+  background-color: #009223;
+  color: white
+}
+
+.CHM_selectedCard img{
+  scale: 1;
+}
+
+.slick-list{
+  width: 100%;
+  height: 20vw;
+}
+
+.slick-track{
+  width: 160vw !important;
+}
+
+.slick-prev:before, .slick-next:before{
+  color: #009223 !important;
+}
+
+.CHM_step3DeletBtn{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer; 
+  color: red; 
+  font-family: 'TTWanjudaedunsancheB';
+  font-size: 1.3vw;
 }

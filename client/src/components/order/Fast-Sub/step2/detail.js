@@ -28,9 +28,9 @@ function Detail(props) {
     },
     {
       id: 3,
-      Kname: "스파이시 바비큐",
+      Kname: "차하민",
       Ename: "Spicy BBQ",
-      kcal: 374,
+      kcal: 375,
       img: img,
       type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
       content:
