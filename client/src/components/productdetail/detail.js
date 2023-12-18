@@ -7,18 +7,18 @@ import Potassium from "./potassium";
 import Threerool from './threerool';
 
 function Detail() {
-  const { product } = useParams(); //kinds으로
-  const { id } = useParams(); //그대로
+  const { product } = useParams();
+  const { id } = useParams();
   const [isSticky, setIsSticky] = useState(false);
   const [menu, setMenu] = useState(product);
 
   const menuItems = [
-    { id: "sandwich", text: "샌드위치" },
-    { id: "wrap", text: "랩ㆍ기타" },
-    { id: "salad", text: "샐러드" },
-    { id: "breakfast", text: "아침메뉴" },
-    { id: "smile", text: "스마일 썹" },
-    { id: "group", text: "단체주문" },
+    { id: 0, text: "샌드위치" },
+    { id: 1, text: "랩ㆍ기타" },
+    { id: 2, text: "샐러드" },
+    { id: 3, text: "아침메뉴" },
+    { id: 4, text: "스마일 썹" },
+    { id: 5, text: "단체주문" },
   ];
 
   const handleMenuClick = (menuType) => {
@@ -40,21 +40,179 @@ function Detail() {
 
   const [data, setData] = useState([
     {
+      id: 0,
+      admin_id: 1,
+      kname: "샌드위치1",
+      ename: "sandwitch1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 1,
+      ingred_gram: 1,
+      ingred_protein: 1,
+      ingred_fat: 1,
+      ingred_sugars: 1,
+      ingred_salt: 1,
+      price: 1000,
+      tags: 0,
+      kinds: 0,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
       id: 1,
-      Kname: "그룹 스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      중량: 256,
-      단백질: 25.2,
-      포화지방: 7.4,
-      당류: 15.0,
-      나트륨: 903,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
+      admin_id: 1,
+      kname: "샌드위치2",
+      ename: "sandwitch2",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 1,
+      kinds: 0,
+      status: 1,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 2,
+      admin_id: 1,
+      kname: "샌드위치3",
+      ename: "sandwitch3",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 3,
+      ingred_gram: 3,
+      ingred_protein: 3,
+      ingred_fat: 3,
+      ingred_sugars: 3,
+      ingred_salt: 3,
+      price: 3000,
+      tags: 2,
+      kinds: 0,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 3,
+      admin_id: 1,
+      kname: "랩1",
+      ename: "wrap1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 1,
+      ingred_gram: 1,
+      ingred_protein: 1,
+      ingred_fat: 1,
+      ingred_sugars: 1,
+      ingred_salt: 1,
+      price: 1000,
+      tags: 4,
+      kinds: 1,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 4,
+      admin_id: 1,
+      kname: "랩2",
+      ename: "wrap2",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 5,
+      kinds: 1,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 5,
+      admin_id: 1,
+      kname: "샐러드1",
+      ename: "salad1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 6,
+      kinds: 2,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 6,
+      admin_id: 1,
+      kname: "아침메뉴1",
+      ename: "breakfast1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 10,
+      kinds: 3,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 7,
+      admin_id: 1,
+      kname: "스마일 썹",
+      ename: "smilesub1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 12,
+      kinds: 4,
+      status: 0,
+      created_at: "2023-11-13",
+    },
+    {
+      id: 8,
+      admin_id: 1,
+      kname: "단체메뉴",
+      ename: "group1",
+      image_url: img,
+      coment: "잉~ 앗쌀라말라이꿍~",
+      ingred_kcal: 2,
+      ingred_gram: 2,
+      ingred_protein: 2,
+      ingred_fat: 2,
+      ingred_sugars: 2,
+      ingred_salt: 2,
+      price: 2000,
+      tags: 13,
+      kinds: 5,
+      status: 0,
+      created_at: "2023-11-13",
     },
   ]);
+
+  const filterdata = data.filter((a) => id == a.id)
   return (
     <div>
       <div
@@ -62,15 +220,15 @@ function Detail() {
         style={{ top: isSticky ? 0 : "unset" }}
       >
         {menuItems.map((menuItem) => (
-          <a
-            href={`/menuIntro/${menuItem.id}`}
+          <Link
+            to={`/menuIntro/${menuItem.id}`}
             key={menuItem.id}
             style={isSticky ? { color: "black" } : {}}
           >
             <div
               onClick={() => handleMenuClick(menuItem.id)}
               style={
-                menu === menuItem.id
+                menu == menuItem.id
                   ? isSticky
                     ? { borderBottom: "0.2vw solid black" }
                     : { borderBottom: "0.2vw solid black", color: "black" }
@@ -79,11 +237,11 @@ function Detail() {
             >
               {menuItem.text}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
-      <DetailContent data={data} id={id} product={product}></DetailContent>
-      <Potassium data={data}></Potassium>
+      <DetailContent data={filterdata}></DetailContent>
+      <Potassium data={filterdata}></Potassium>
       <Threerool></Threerool>
     </div>
   );

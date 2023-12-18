@@ -183,7 +183,7 @@ function Step3() {
           </div>
         </Link>
 
-        <Link to={`/order/Fast-Sub/step2/${replacedString}/sandwich/Nan`}>
+        <Link to={`/order/Fast-Sub/step2/${replacedString}/0/Nan`}>
           <div
             className="CHM_faststep2ResultCartBtn2"
             style={{ margin: "0 2vw" }}

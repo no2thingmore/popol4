@@ -46,12 +46,12 @@ const Login = (e) => {
         <li className="menu-item">
           메뉴소개
           <ul className="submenu">
-          <Link to="/menuIntro/sandwich"><li>샌드위치</li></Link>
-          <Link to="/menuIntro/wrap"><li>랩 · 기타</li></Link>
-          <Link to="/menuIntro/salad"><li>샐러드</li></Link>
-          <Link to="/menuIntro/breakfast"><li>아침메뉴</li></Link>
-          <Link to="/menuIntro/smile"><li>스마일 썹</li></Link>
-          <Link to="/menuIntro/group"><li>단체메뉴</li></Link>
+          <Link to="/menuIntro/0"><li>샌드위치</li></Link>
+          <Link to="/menuIntro/1"><li>랩 · 기타</li></Link>
+          <Link to="/menuIntro/2"><li>샐러드</li></Link>
+          <Link to="/menuIntro/3"><li>아침메뉴</li></Link>
+          <Link to="/menuIntro/4"><li>스마일 썹</li></Link>
+          <Link to="/menuIntro/5"><li>단체메뉴</li></Link>
           </ul>
         </li>
         <li className="menu-item">
