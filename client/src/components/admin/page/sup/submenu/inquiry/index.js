@@ -5,11 +5,9 @@ import { API_URL } from '../../../../../config/contansts';
 import { Link } from 'react-router-dom';
 import ArrowDown from './arrowdown.png';
 import ArrowUp from './arrowup.png';
-import { useParams } from 'react-router-dom';
+import Comment from './comment';
 
 function Inquiry() {
-
-    const { id } = useParams();
 
     const [inquiries, setInquiries] = useState([]); // 문의내역
     const [currentPage, setCurrentPage] = useState(1); // 페이지변경
