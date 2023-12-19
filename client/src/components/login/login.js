@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios"
 import { getCookie, removeCookie, setCookie } from "../../useCookies";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/contansts";
 
 function Login(){
   const navigate = useNavigate()
@@ -15,15 +16,18 @@ function Login(){
     const email = e.target.login_id.value;
     const password = e.target.login_pwd.value;
     const saveID = e.target.login_saveID.checked;
-    axios.post('/user/login',{email,password})
-    .then(()=>{
+    axios.get(`${API_URL}/user/login`,{params:{email,password}})
+    .then((response)=>{
       console.log("로그인 성공");
       if (saveID == 1) {
         setCookie("saveID",email)
       }else if(saveID == 0){
         removeCookie("saveID");
       }
-      // navigate('/')
+      console.log(response);
+      setCookie('rolo', response.data.rolo);
+      setCookie('user', response.data.id);
+      navigate('/')
     })
     .catch((err)=>{
       console.log(err);

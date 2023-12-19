@@ -31,24 +31,9 @@ class Board extends Sequelize.Model{
         allowNull: false,
         comment: "이미지 주소",
       },
-      status: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: 1,
-        comment: "상태(0:종료,1:진행중)",
-      },
-      type: {
-        type: Sequelize.INTEGER(1),
-        allowNull: false,
-        comment: "0:공지사항, 1:이벤트, 2:문의사항",
-      },
-      kinds: {
-        type: Sequelize.INTEGER(1),
-        allowNull: false,
-        comment: "1: 사이트이용, 2:포인트관련, 3: 제품관련, 4:매장이용",
-      },
       created_at: {
         type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW,
         allowNull: false,
         comment: "최초등록 시간",
       },

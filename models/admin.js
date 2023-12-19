@@ -54,7 +54,7 @@ class Admin extends Sequelize.Model {
           }
         },
         comment: "연락처",
-      },
+      }
     }, {
       sequelize,
       timestamps: true,
@@ -69,8 +69,9 @@ class Admin extends Sequelize.Model {
   //참조키로 Order모델에 id(sourceKey)를 userId(foreignKey)라는 이름으로 보냄
   static associate(db) {
     db.Admin.hasMany(db.Board, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Event, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Inquiry, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Ingredient, { foreignKey: 'admin_id', sourceKey: 'id' });
-    db.Admin.hasMany(db.Contents, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Food, { foreignKey: 'admin_id', sourceKey: 'id' });
   }
   
