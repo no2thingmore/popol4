@@ -2,10 +2,12 @@ import './comment.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../../../../../../config/contansts';
+
 
 
 function Comment() {
+
+    const API_URL = 'http://168.126.242.77:8080'
 
     const [commentData, setCommnetData] = useState([]);
     const [status, setStatus] = useState('');
