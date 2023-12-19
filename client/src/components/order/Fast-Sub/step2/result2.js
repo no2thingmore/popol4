@@ -5,6 +5,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { API_URL } from '../../../config/contansts';
 
 function Result2(props) {
   const settings = {
@@ -48,7 +49,7 @@ function Result2(props) {
   const lastTotalPrice = totalPrice + price;
 
   //----------카트에 상품 추가---------------
-  const handleAddToCart = (itemName, itemKind, itemId) => {
+  const handleAddToCart = (itemName, itemKind, itemId, itemImg) => {
     //같은 종류가 있는지 확인
     const existingItemIndex = cart.findIndex((item) => item.kinds === itemKind);
     const existing = cart.findIndex((item) => item.id === itemId);
@@ -72,6 +73,7 @@ function Result2(props) {
             kinds: itemKind,
             name: menuItem.kname,
             price: itemPrice,
+            img: itemImg
           },
         ];
         setCart(copy);
@@ -89,6 +91,7 @@ function Result2(props) {
           kinds: itemKind,
           name: menuItem.kname,
           price: itemPrice,
+          img: itemImg
         },
       ];
 
@@ -170,16 +173,16 @@ function Result2(props) {
                   }`}
                   onClick={() => {
                     if (selectedCardIndex1 === i) {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex1(null);
                     } else {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex1(i);
                     }
                   }}
                 >
                   <div className="CHM_faststep2Result2pushCardImg">
-                    <img src={img} alt={a} />
+                    <img src={API_URL + "/upload/" + a.image_url} alt={a} />
                   </div>
                   <div className="CHM_faststep2Result2pushCardTitle">
                     {a.kname}
@@ -208,16 +211,16 @@ function Result2(props) {
                   }`}
                   onClick={() => {
                     if (selectedCardIndex2 === i) {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex2(null);
                     } else {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex2(i);
                     }
                   }}
                 >
                   <div className="CHM_faststep2Result2pushCardImg">
-                    <img src={img} alt={a} />
+                    <img src={API_URL + "/upload/" + a.image_url} alt={a} />
                   </div>
                   <div className="CHM_faststep2Result2pushCardTitle">
                     {a.kname}
@@ -247,16 +250,16 @@ function Result2(props) {
                   }`}
                   onClick={() => {
                     if (selectedCardIndex3 === i) {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex3(null);
                     } else {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex3(i);
                     }
                   }}
                 >
                   <div className="CHM_faststep2Result2pushCardImg">
-                    <img src={img} alt={a} />
+                    <img src={API_URL + "/upload/" + a.image_url} alt={a} />
                   </div>
                   <div className="CHM_faststep2Result2pushCardTitle">
                     {a.kname}
@@ -286,16 +289,16 @@ function Result2(props) {
                   }`}
                   onClick={() => {
                     if (selectedCardIndex4 === i) {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex4(null);
                     } else {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex4(i);
                     }
                   }}
                 >
                   <div className="CHM_faststep2Result2pushCardImg">
-                    <img src={img} alt={a} />
+                    <img src={API_URL + "/upload/" + a.image_url} alt={a} />
                   </div>
                   <div className="CHM_faststep2Result2pushCardTitle">
                     {a.kname}
@@ -325,16 +328,16 @@ function Result2(props) {
                   }`}
                   onClick={() => {
                     if (selectedCardIndex5 === i) {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex5(null);
                     } else {
-                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      handleAddToCart(a.kname, a.kinds, a.id, a.image_url);
                       setSelectedCardIndex5(i);
                     }
                   }}
                 >
                   <div className="CHM_faststep2Result2pushCardImg">
-                    <img src={img} alt={a} />
+                    <img src={API_URL + "/upload/" + a.image_url} alt={a} />
                   </div>
                   <div className="CHM_faststep2Result2pushCardTitle">
                     {a.kname}
@@ -352,13 +355,16 @@ function Result2(props) {
       )}
 
       <div className="CHM_faststep2ResultReservation">
-        <div className="CHM_faststep2ResultReservationTitle">주문 내역</div>
+        <div className="CHM_faststep2ResultReservationTitle">
+          <div>주문내역</div>
+          <div style={{fontSize: "1.5vw", color: "rgb(68, 68, 68)"}}>* 상품 갯수는 결제페이지에서 조절할 수 있습니다.</div>
+        </div>
         <div className="CHM_faststep2ResultReservationGrid">
           <div
             className="CHM_faststep2ResultReservationImg"
             style={{ borderTop: "none" }}
           >
-            <img src={img} />
+            <img src={API_URL + "/upload/" + props.filterdata[0].image_url} />
           </div>
           <div
             className="CHM_faststep2ResultReservationName"
@@ -379,7 +385,7 @@ function Result2(props) {
           {cart.map((a, i) => (
             <React.Fragment key={i}>
               <div className="CHM_faststep2ResultReservationImg">
-                <img src={img} alt={a} />
+                <img src={API_URL + "/upload/" + a.img} alt={a} />
               </div>
               <div className="CHM_faststep2ResultReservationName">{a.name}</div>
               <div className="CHM_faststep2ResultReservationCountBox"></div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/contansts';
 
 function Wrapct(props) {
   const propsdata = props.data.filter((a) => a.kinds === 1 && a.status === 0)
@@ -71,7 +72,7 @@ function Wrapct(props) {
                 </Link>
 
                 <div className="CHM_selectCardImg">
-                  <img src={a.image_url} width="100%"></img>
+                  <img src={API_URL + "/upload/" + a.image_url} width="100%"></img>
                 </div>
                 <div className="CHM_selectCardKname">{a.kname}</div>
                 <div className="CHM_selectCardEname">{a.ename}</div>
