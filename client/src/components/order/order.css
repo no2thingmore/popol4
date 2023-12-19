@@ -1,12 +1,26 @@
 .CHM_fastsubBg {
   background-color: #89cd2f;
   padding: 4vw 0;
+  position: relative;;
+}
+
+.CHM_orderpageImg1{
+  position: absolute;
+  right:0;
+  width: 16.6vw;
+  top:2.1vw
+}
+
+.CHM_orderpageImg2{
+  position: absolute;
+  top: 0;
+  width: 12vw;
 }
 
 .CHM_fastsubTitle {
   font-family: 'TTWanjudaedunsancheB';
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 5vw;
   padding-bottom: 1vw;
 }
@@ -74,7 +88,7 @@
 
 .CHM_faststep2DetaileGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2vw;
 }
 
@@ -379,11 +393,12 @@
 
 .CHM_step3CartContentGrid {
   display: grid;
-  grid-template-columns: 8fr 1.5fr 1.3fr 0.5fr;
+  grid-template-columns: 2fr 7fr 1.5fr 1.3fr 0.5fr;
   border-top: 1px solid #009223;
-  padding: 2vw 2vw;
+  padding: 0 2vw;
   align-items: center;
   justify-content: center;
+  height: 7vw;
 }
 
 .CHM_step3CartContentname{
@@ -393,6 +408,8 @@
 .CHM_step3CartContentcount{
   text-align: center;
   font-size: 1.2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 } 
 
 .CHM_step3CartContentprice{
@@ -532,4 +549,9 @@
   color: red; 
   font-family: 'TTWanjudaedunsancheB';
   font-size: 1.3vw;
+}
+
+.CHM_step3CartContentname2{
+  display: flex;
+  flex-direction: column;
 }

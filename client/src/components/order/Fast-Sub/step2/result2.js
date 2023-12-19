@@ -125,6 +125,35 @@ function Result2(props) {
       localStorage.setItem("cart", JSON.stringify(copy));
     }
   }
+
+  const deleteCartItem = (index, itemKind) => {
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+  
+    // 해당하는 selectedCardIndex들을 null로 초기화
+    switch (itemKind) {
+      case 0:
+        setSelectedCardIndex1(null);
+        break;
+      case 1:
+        setSelectedCardIndex2(null);
+        break;
+      case 2:
+        setSelectedCardIndex3(null);
+        break;
+      case 3:
+        setSelectedCardIndex4(null);
+        break;
+      case 4:
+        setSelectedCardIndex5(null);
+        break;
+      // 추가 상품 종류가 더 있다면 추가하시면 됩니다.
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="CHM_faststep2Result2Box">
       <div className="CHM_faststep2Result2pushTitle">빵 교체</div>
@@ -314,7 +343,7 @@ function Result2(props) {
                   props.추천메뉴.find((menu) => menu.kname === a.name)
                     ?.add_price
                 )}
-                원
+                원<span style={{marginLeft: "2.5vw", color:"red", cursor: "pointer", fontFamily: 'TTWanjudaedunsancheB', fontSize:"1.7vw"}} onClick={()=>deleteCartItem(i, a.kinds)}>X</span>
               </div>
             </React.Fragment>
           ))}
