@@ -1,30 +1,170 @@
-.js-load {
-  display: none;
+/*************** 본 문 ***************/
+
+
+
+/*************** 슬 라 이 드 ***************/
+
+.Artist_slide_content{
+  margin-top: 60px;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
 }
-.js-load.active {
-  display: block;
+
+.Artist_slide{
+  max-width: 2570px;
+  width: 100%;
+  overflow: hidden;
 }
-.is_comp.js-load:after {
-  display: none;
+.Artist_slide_viewport{
+  position: absolute !important;
+  left: 50% !important;
+  width: 2478px !important;
+  margin-left: -378px !important;
+  overflow: initial !important;
 }
-.btn-wrap, .lists, .main {
-  display: block;
+.slide_li{
+  right: 39px;
+  top: -10px;
+  margin: auto;
+  list-style: none;
+  width: 4215%;
+  position: relative;
+  transition-duration: 0.5s;
+  transform: translate3d(0px, 0px, 0px);
 }
-.main {
-  max-width: 640px;
-  margin: 0 auto;
+.slide_li_item{
+  float: left;
+  list-style: none;
+  position: relative;
+  width: 770px;
+  margin-right: 130px;
 }
-.lists {
-  margin-bottom: 4rem;
+/*************** 슬 라 이 드 이 미 지 ***************/
+.slide_img{
+  width: 770px;
+  height: 390px;
+  opacity: 1;
+  overflow: hidden;
+  transition-delay: 0.3s;
+  transition-duration: 0.45s
 }
-.lists__item {
-  padding: 20px;
-  background: #EEE;
+
+.slide_img > img{
+  position: relative;
+  width: 770px;
+  /* height: 390px; */
+  vertical-align: top;
+  border: 0;
 }
-.lists__item:nth-child(2n) {
-  background: #59b1eb;
-  color: #fff;
+.slide_li:nth-child(5n){
+  background-position: 0 60px;
 }
-.btn-wrap {
+
+/*************** 슬 라 이 드 텍 스 트 ***************/
+.slide_info{
   text-align: center;
+  padding-top: 30px;
+  position: relative;
+  margin-top: 40px;
+  /* opacity: 0; */
+  /* top: 30px; */
+  top: 0;
+}
+.slide_info::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 4px;
+  width: 50px;
+  margin-left: -25px;
+  background-color: #ffc300;
+}
+.slide_info_tit{
+  font-size: 22px;
+  font-weight: bold;
+  color: #292929;
+  letter-spacing: 0em;
+}
+.slide_info_txt{
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #666666;
+  line-height: 26px;
+  letter-spacing: -0.05em;
+}
+
+
+/*************** 슬 라 이 드 버 튼 ***************/
+.slide_ctl_Arrow{
+  /* border: 1px solid #000; */
+}
+
+.slide_ctl_Arrow > a{
+  width: 50px;
+  height: 50px;
+  background: url(./art_images/icon_slider_arr.png) no-repeat;
+  position: absolute;
+  top: 170px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0px;
+  text-indent: -9999px;
+  color: #333;
+  cursor: pointer;
+}
+.slide_ctl_Arrow > .bt_next{
+  background-position: 100% 0;
+}
+.bt_prev{
+  background-position: 0 0;
+  left: 50%;
+  margin-left: -467px;
+}
+.bt_next{
+  right: 50%;
+  margin-right: -482px;
+}
+.bt_prev:hover{
+  background-position: 0 100%;
+}
+.bt_next:hover{
+  background-position: 100% 100%;
+}
+
+.slide_ctl_Dot{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 97px;
+  text-align: center;
+}
+
+.Dot_item{
+  display: inline-block;
+  margin: 0 5px;
+
+}
+.clicked_dot{
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #dddddd;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition-duration: 0.3s;
+}
+.clicked_dot:active{
+  background-color: #ffc300;
+  width: 30px;
+}
+.clicked_dot.on{
+  background-color: #ffc300;
+  width: 30px;
 }

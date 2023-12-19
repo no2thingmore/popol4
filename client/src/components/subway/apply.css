@@ -31,7 +31,7 @@
   width: 4215%;
   position: relative;
   transition-duration: 0.5s;
-  transform: translate3d(-1800px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 .slide_li_item{
   float: left;
@@ -41,8 +41,9 @@
   margin-right: 130px;
 }
 /*************** 슬 라 이 드 이 미 지 ***************/
+/* 비활성화시 이미지는 opacity 0.5 텍스트는 0 */
 .slide_img{
-  width: 770px;
+  width: 770px; 
   height: 390px;
   opacity: 1;
   overflow: hidden;
