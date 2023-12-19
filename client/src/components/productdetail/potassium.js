@@ -12,12 +12,12 @@ function Potassium(props) {
           <div>나트륨(mg)</div>
         </div>
         <div className="CHM_potassiumGrid2">
-          <div>{props.data[0].중량}</div>
-          <div>{props.data[0].kcal}</div>
-          <div>{props.data[0].단백질}</div>
-          <div>{props.data[0].포화지방}</div>
-          <div>{props.data[0].당류}</div>
-          <div>{props.data[0].나트륨}</div>
+          <div>{props.data[0].ingred_gram}</div>
+          <div>{props.data[0].ingred_kcal}</div>
+          <div>{props.data[0].ingred_protein}</div>
+          <div>{props.data[0].ingred_fat}</div>
+          <div>{props.data[0].ingred_sugars}</div>
+          <div>{props.data[0].ingred_salt}</div>
         </div>
       </div>
       <div className="CHM_potassiumSubContent">

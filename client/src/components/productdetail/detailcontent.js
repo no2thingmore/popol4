@@ -30,20 +30,18 @@ function DetailContent(props) {
   return (
     <div className="CHM_detailpageBg">
       <div className="CHM_detailpageTitle">
-        {props.product}
-        {props.id}
-        {props.data[0].Kname}
+        {props.data[0].kname}
       </div>
       <div className="CHM_detailpageFlex">
-        <div>{props.data[0].Ename}</div>
-        <div>{props.data[0].kcal}kcal</div>
+        <div>{props.data[0].ename}</div>
+        <div>{props.data[0].ingred_kcal}kcal</div>
       </div>
       <section>
         <div className="CHM_detailpageImg">
-          <img src={props.data[0].img}></img>
+          <img src={props.data[0].image_url}></img>
         </div>
       </section>
-      <div className="CHM_detailpageContent">{props.data[0].content}</div>
+      <div className="CHM_detailpageContent">{props.data[0].coment}</div>
       <div className="CHM_detailpageSubContent">
         <div>* 써브웨이가 제공하는 신선한 야채가 정량으로 제공됩니다.</div>
         <div>* 제품 사진은 이미지컷입니다.</div>
