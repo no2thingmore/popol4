@@ -5,7 +5,6 @@ import { API_URL } from '../../../../../config/contansts';
 import { Link } from 'react-router-dom';
 import ArrowDown from './arrowdown.png';
 import ArrowUp from './arrowup.png';
-import Comment from './comment';
 
 function Inquiry() {
 

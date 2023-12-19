@@ -29,7 +29,6 @@ import FFAQ from './components/helpdesk/ffaq';
 import QQNA from './components/helpdesk/qqna';
 import Test from "./components/subway/test";
 import Mypage from './components/mypage/mypage';
-import Com from "./components/admin/page/sup/submenu/inquiry/com";
 import Comment from "./components/admin/page/sup/submenu/inquiry/comment";
 
 function ScrollToTop() {
@@ -44,10 +43,12 @@ function ScrollToTop() {
 }
 
 function App() {
+  const location = useLocation();
+  const isCommentPage = location.pathname.startsWith('/admin/');
   return (
     <div className="App">
       <ScrollToTop />
-      <Header />
+      {!isCommentPage && <Header />}
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/test" element={<Test />}></Route>
@@ -77,7 +78,7 @@ function App() {
         <Route path="/qqna" element={<QQNA />}></Route>
         <Route path="/mypage/:select" element={<Mypage />}></Route>
       </Routes>
-      <Footer />
+      {!isCommentPage && <Footer />}
     </div>
   );
 }
