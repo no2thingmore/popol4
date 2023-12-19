@@ -4,9 +4,11 @@ import Faq from './submenu/faq';
 import Inquiry from './submenu/inquiry';
 import Event from './submenu/event';
 import News from './submenu/news';
+import Comment from "./submenu/inquiry/comment";
 
 function Sup() {
     const { category } = useParams();
+
     return (
         <>
             <SubTemplate />
@@ -18,4 +20,4 @@ function Sup() {
     )
 }
 
-export default Sup
+export default Sup;

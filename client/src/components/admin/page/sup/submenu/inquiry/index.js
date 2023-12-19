@@ -2,7 +2,7 @@ import './inquiry.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../../config/contansts';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ArrowDown from './arrowdown.png';
 import ArrowUp from './arrowup.png';
 import Comment from './comment';
@@ -13,6 +13,13 @@ function Inquiry() {
     const [currentPage, setCurrentPage] = useState(1); // 페이지변경
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({}); // title 의 내용보기
+
+    const { id } = useParams();
+    const [answer, setAnswer] = useState(id);
+
+    const AnswerClick = (ClickAns) => {
+        setAnswer(ClickAns)
+    }
 
     // 종류 변환
     const tagsMapping = {
@@ -148,7 +155,13 @@ function Inquiry() {
                                         <td className='KJH_inq_contents_title' >{item.title}</td>
                                         <td className='KJH_inq_contents_created'>{formatDate(item.createdAt)}</td>
                                         <td className='KJH_inq_contents_ctrl'>
-                                            <Link to={`${item.id}`}><span className='KJH_inq_contents_ans'>답변</span></Link>
+                                            <Link 
+                                            to={`${item.id}`}
+                                            onClick={() => AnswerClick()}>
+                                                <span className='KJH_inq_contents_ans'>
+                                                    답변
+                                                </span>
+                                            </Link>
                                             <span className='KJH_inq_contents_del'>삭제</span>
                                         </td>
                                         {/* 상태 state 관리 : 완료 or 대기 */}
