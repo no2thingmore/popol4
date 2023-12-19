@@ -69,7 +69,7 @@ function App() {
         <Route path="/storeOrder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/slider" element={<Slider></Slider>}></Route>
         <Route path="/groupMenu" element={<Groupmenu></Groupmenu>}></Route>
-        <Route path="/admin/:type/:category" element={<Admin></Admin>}></Route>
+        <Route path="/admin/:type/:category/" element={<Admin></Admin>}></Route>
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
         <Route path="/mypage/:select" element={<Mypage />}></Route>
