@@ -1,39 +1,60 @@
-import './test.css';
+import './comment.css';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../../../../../config/contansts';
+import QMenus from './data/QMenu';
+import SubTemplate from '../../../sub_template';
+import Header from '../../../../../header';
 
 
-function Test() {
 
-    const [commentData, setCommnetData] = useState([]);
+function Comment() {
+    const API_URL = 'http://168.126.242.77:8080';
+    const { id, type } = useParams();
+    const [commentData, setCommentData] = useState([]);
     const [status, setStatus] = useState('');
+    const [menu, setMenu] = useState(type);
 
-    // radio 버튼이 변경될 때 호출되는 핸들러
-    const handleChange = (event) => {
-        setStatus(event.target.value);
-    };
+    const handleChange = (event) => setStatus(event.target.value);
+    const handleMenuClick = (selectedMenu) => setMenu(selectedMenu);
 
-    // 데이터 가져오기
-    const InqComment = async () => {
+    const fetchCommentData = async () => {
         try {
-            await axios.get(`${API_URL}/inquiry`)
-            .then((res) => {
-                setCommnetData(res.data);
-                // console.log(res.data);
-            })
+            const response = await axios.get(`${API_URL}/inquiry/detail/`, { params: { id } });
+            setCommentData(response.data);
         } catch (err) {
-            console.error(err);
+            console.error('Error fetching data:', err);
         }
     };
+
     useEffect(() => {
-        InqComment();
-    }, []);
+        fetchCommentData();
+    }, [id]);
 
     return (
         <>
-            <div className='KJH_comment_section'>
+        <div>
+        <Header menu={menu} setMenu={setMenu} />
+        </div>
+        <div className="admin_tagBox">
+            <nav>
+                <ul className="admin_tags">
+                {QMenus.map((item) => (
+                    <li key={item.name}>
+                        <Link
+                            to={item.path}
+                            className={menu === item.name ? "active" : "noactive"}
+                            onClick={() => handleMenuClick(item.name)}
+                            >
+                            {item.name}
+                        </Link>
+                    </li>
+                ))}
+                </ul>
+            </nav>
+        </div>
+            <SubTemplate />
+            <div className='KJH_comment_section'> 
                 <div className='KJH_comment_width'>
                     <span className='KJH_com_route'>
                         <div>답변관리</div>
@@ -99,4 +120,4 @@ function Test() {
     )
 }
 
-export default Test;
+export default Comment;
