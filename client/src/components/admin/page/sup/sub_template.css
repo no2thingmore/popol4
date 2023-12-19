@@ -24,13 +24,14 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    font-size: 18px;
     border-top: 3px solid #999999;
 }
 
 .KJH_sub_list_title span {
     width: 110px;
     text-align: right;
+    font-size: 16px;
+
 }
 
 .KJH_sub_list_title img {
@@ -41,7 +42,7 @@
 }
 
 .KJH_sub_list_title.rotate img {
-    transform: rotate(+90deg); /* 클릭 시 이미지 회전 */
+    transform: rotate(+90deg);
 }
 
 .KJH_sub_list_title:hover {

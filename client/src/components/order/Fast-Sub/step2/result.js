@@ -1,48 +1,255 @@
 import { useState } from "react";
 import img from "./sandwich.png";
 import Result2 from "./result2";
+import { useParams } from 'react-router-dom';
 
 function Result(props) {
   //props로 상품 종류와 id를 가져와 정확한 상품 추척
-  const [data, setData] = useState({
-    id: 1,
-    Kname: "그룹 스파이시 바비큐",
-    Ename: "Spicy BBQ",
-    kcal: 374,
-    중량: 256,
-    단백질: 25.2,
-    포화지방: 7.4,
-    당류: 15.0,
-    나트륨: 903,
-    img: img,
-    type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-    content:
-      "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    추천메뉴: [
-      { name: "메뉴1", price: 5000000 },
-      { name: "메뉴2", price: 6000000 },
-      { name: "메뉴3", price: 7000000 },
-      { name: "메뉴4", price: 8000000 },
-      { name: "메뉴9", price: 8000 },
-      { name: "메뉴111", price: 5555 },
-    ],
-    price: 50000,
-  });
+  const { product } = useParams();
+  const { id } = useParams();
+  let category = product;
+  const filterdata = props.data.filter((a) => a.id == id && a.kinds == product)
+
+  if (product == 0) {
+    category = "샌드위치";
+  } else if (product == 1) {
+    category = "랩ㆍ기타";
+  } else if (product == 2) {
+    category = "샐러드";
+  } else if (product == 3) {
+    category = "아침메뉴";
+  } else if (product == 4) {
+    category = "스마일 썹";
+  } else if (product == 5) {
+    category = "단체메뉴";
+  }
+
+  const [추천메뉴, set추천메뉴] = useState([
+    {
+      id: 1,
+      img: img,
+      admin_id: 1,
+      kname: "빵1",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 1000,
+    },
+    {
+      id: 2,
+      img: img,
+      admin_id: 1,
+      kname: "빵2",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 2000,
+    },
+    {
+      id: 3,
+      img: img,
+      admin_id: 1,
+      kname: "빵3",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 3000,
+    },
+    {
+      id: 4,
+      img: img,
+      admin_id: 1,
+      kname: "빵4",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 4000,
+    },
+    {
+      id: 5,
+      img: img,
+      admin_id: 1,
+      kname: "빵5",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 5000,
+    },
+    {
+      id: 6,
+      img: img,
+      admin_id: 1,
+      kname: "빵6",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 6000,
+    },
+    {
+      id: 7,
+      img: img,
+      admin_id: 1,
+      kname: "빵7",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 0,
+      add_price: 7000,
+    },
+    {
+      id: 8,
+      img: img,
+      admin_id: 1,
+      kname: "야채1",
+      ename: "v1",
+      coment: "맛있음",
+      kinds: 1,
+      add_price: 1000,
+    },
+    {
+      id: 9,
+      img: img,
+      admin_id: 1,
+      kname: "야채2",
+      ename: "v2",
+      coment: "맛있음",
+      kinds: 1,
+      add_price: 2000,
+    },
+    {
+      id: 10,
+      img: img,
+      admin_id: 1,
+      kname: "야채3",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 1,
+      add_price: 3000,
+    },
+    {
+      id: 11,
+      img: img,
+      admin_id: 1,
+      kname: "야채4",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 1,
+      add_price: 4000,
+    },
+    {
+      id: 12,
+      img: img,
+      admin_id: 1,
+      kname: "야채5",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 1,
+      add_price: 5000,
+    },
+    {
+      id: 13,
+      img: img,
+      admin_id: 1,
+      kname: "치즈1",
+      ename: "c1",
+      coment: "맛있음",
+      kinds: 2,
+      add_price: 1000,
+    },
+    {
+      id: 14,
+      img: img,
+      admin_id: 1,
+      kname: "치즈2",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 2,
+      add_price: 2000,
+    },
+    {
+      id: 15,
+      img: img,
+      admin_id: 1,
+      kname: "치즈3",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 2,
+      add_price: 3000,
+    },
+    {
+      id: 16,
+      img: img,
+      admin_id: 1,
+      kname: "소스1",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 3,
+      add_price: 1000,
+    },
+    {
+      id: 17,
+      img: img,
+      admin_id: 1,
+      kname: "소스2",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 3,
+      add_price: 2000,
+    },
+    {
+      id: 18,
+      img: img,
+      admin_id: 1,
+      kname: "소스3",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 3,
+      add_price: 3000,
+    },
+    {
+      id: 19,
+      img: img,
+      admin_id: 1,
+      kname: "육류1",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 4,
+      add_price: 1000,
+    },
+    {
+      id: 20,
+      img: img,
+      admin_id: 1,
+      kname: "육류2",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 4,
+      add_price: 2000,
+    },
+    {
+      id: 21,
+      img: img,
+      admin_id: 1,
+      kname: "육류3",
+      ename: "b1",
+      coment: "맛있음",
+      kinds: 4,
+      add_price: 3000,
+    },
+  ]);
 
   const [show, setShow] = useState("");
-
   return (
     <>
       <div className="CHM_faststep2ResultBox">
         <div className="CHM_faststep2ResultGrid">
           <div className="CHM_faststep2ResultImg">
-            <img src={data.img}></img>
+            <img src={filterdata[0].image_url}></img>
           </div>
           <div className="CHM_faststep2ResultTitle">
-            <div className="CHM_faststep2ResultType">{props.product}</div>
-            <div className="CHM_faststep2ResultKname">{data.Kname}</div>
-            <div className="CHM_faststep2ResultEname">{data.Ename}</div>
-            <div className="CHM_faststep2ResultContent">{data.content}</div>
+            <div className="CHM_faststep2ResultType">{category}</div>
+            <div className="CHM_faststep2ResultKname">{filterdata[0].kname}</div>
+            <div className="CHM_faststep2ResultEname">{filterdata[0].ename}</div>
+            <div className="CHM_faststep2ResultContent">{filterdata[0].coment}</div>
           </div>
         </div>
         <div className="CHM_faststep2ResultpotassiumTitle">영양성분표</div>
@@ -56,12 +263,12 @@ function Result(props) {
             <div>나트륨(mg)</div>
           </div>
           <div className="CHM_potassiumGrid2">
-            <div>{data.중량}</div>
-            <div>{data.kcal}</div>
-            <div>{data.단백질}</div>
-            <div>{data.포화지방}</div>
-            <div>{data.당류}</div>
-            <div>{data.나트륨}</div>
+            <div>{filterdata[0].ingred_gram}</div>
+            <div>{filterdata[0].ingred_kcal}</div>
+            <div>{filterdata[0].ingred_protein}</div>
+            <div>{filterdata[0].ingred_fat}</div>
+            <div>{filterdata[0].ingred_sugars}</div>
+            <div>{filterdata[0].ingred_salt}</div>
           </div>
         </div>
         <div className="CHM_potassiumSubContent">
@@ -101,7 +308,7 @@ function Result(props) {
         {show === "" ? (
           <div className="CHM_faststep2ResultCart">
             <div
-            className='CHM_faststep2ResultCartBtn3'
+              className="CHM_faststep2ResultCartBtn3"
               onClick={() => {
                 setShow("show");
               }}
@@ -114,14 +321,12 @@ function Result(props) {
         )}
         {show === "show" ? (
           <div>
-            <Result2 data={data}></Result2>
+            <Result2 filterdata={filterdata} 추천메뉴={추천메뉴}></Result2>
           </div>
         ) : (
           ""
         )}
       </div>
-      {props.product}
-      {props.id}제품 상세페이지
     </>
   );
 }

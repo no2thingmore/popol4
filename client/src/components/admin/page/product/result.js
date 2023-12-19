@@ -76,7 +76,7 @@ function Result(props) {
         })
         .then((response) => {
           console.log("아이템 삭제 성공");
-          navigate("/admin/product/none")
+          navigate("/admin/product/none");
           window.location.reload();
           // 성공적으로 삭제된 경우, 로컬 상태를 업데이트하거나 다른 필요한 작업 수행
         })
@@ -87,7 +87,6 @@ function Result(props) {
       console.log("취소. 변화 없음");
     }
   }
-
 
   const handleEditButtonClick = (id) => {
     props.setId(id);
@@ -170,7 +169,9 @@ function Result(props) {
                       {getTagsabel(a.tags)}
                     </div>
                   </td>
-                  <td style={{ padding: "1vw" }}>{a.coment}</td>
+                  <td style={{ padding: "1vw" }}>
+                    <div className="CHM_adminContentBox">{a.coment}</div>
+                  </td>
                   <td>
                     2023-01-01 /<br />
                     <div style={{ marginTop: "0.5vw" }}>2023-12-14</div>

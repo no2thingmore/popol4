@@ -88,9 +88,9 @@ div {
 
 .CHM_sandwichSubSelectList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 12vw;
-  padding: 0 10vw;
+  padding: 0 15vw;
   background-color: white;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }
@@ -107,9 +107,9 @@ div {
 
 .CHM_saladSubSelectList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 12vw;
-  padding: 0 10vw;
+  padding: 0 15vw;
   background-color: white;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
 }

@@ -5,6 +5,10 @@
   background-color: rgb(34, 34, 34);
 }
 
+.admin_header > a > img {
+  width: 18vw;
+}
+
 .admin_ul_list {
   text-align: center;
   margin: 0;

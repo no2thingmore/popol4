@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SubImg from './subway.png';
 function Header(props) {
   const logOut = () => {};
   return (
@@ -8,6 +9,7 @@ function Header(props) {
           <h1>Administrator Page</h1>
         </div>
       </a>
+      <Link to ="/"><img src={SubImg} alt="Subway" /></Link>
       <ul className="admin_ul_list">
         <li>
           <Link to={"#"}>관리자정보</Link>
