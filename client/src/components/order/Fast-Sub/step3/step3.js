@@ -77,6 +77,8 @@ function Step3() {
             (acc, item) => acc + item.price,
             0
           );
+          const breadName = cartItem.find((item) => item.kinds === 0)?.name;
+
           return (
             <div key={i}>
               <div className="CHM_step3CartContentGrid">
@@ -84,28 +86,41 @@ function Step3() {
                   <span style={{ paddingRight: "1.5vw", fontSize: "1.4vw" }}>
                     {cartItem[0].mainName}
                   </span>
+                </div>
+                <div className="CHM_step3CartContentname2">
                   {cartItem.slice(1).length > 0 && (
-                    <span style={{ color: "gray" }}>
-                      ( 추가메뉴:
-                      {cartItem.slice(1).map((item, j) => (
-                        <span
-                          key={j}
-                          className="CHM_step3CartContentname"
-                          style={{ padding: "0 0.5vw" }}
-                        >
-                          {item.name}
-                          {j !== cartItem.slice(1).length - 1 && ","}
-                        </span>
-                      ))}
-                      )
-                    </span>
+                    <div style={{ color: "rgb(70, 70, 70)", fontSize: "1.2vw", display:"flex", flexDirection: "column", rowGap:"0.5vw"}}>
+                      {breadName && (
+                        <div>
+                          [ 빵 변경:
+                          <span style={{ padding: "0 0.5vw" }}>{breadName}</span>]
+                        </div>
+                      )}
+                      <div>
+                        [ 추가메뉴:
+                        {cartItem
+                          .slice(1)
+                          .filter((item) => item.kinds !== 0)
+                          .map((item, j, array) => (
+                            <span
+                              key={j}
+                              className="CHM_step3CartContentname"
+                              style={{ padding: "0 0.5vw" }}
+                            >
+                              {item.name}
+                              {j !== array.length - 1 && ","}
+                            </span>
+                          ))}
+                        ]
+                      </div>
+                    </div>
                   )}
                 </div>
                 <div className="CHM_step3CartContentcount">
                   <span onClick={() => minus(i)} style={{ cursor: "pointer" }}>
                     -
                   </span>
-                  <span style={{ padding: "0 1vw", fontSize: "1.3vw" }}>
+                  <span style={{ fontSize: "1.3vw" }}>
                     {cartItem[0].count + itemCounts[i] - 1}개
                   </span>
                   <span onClick={() => plus(i)} style={{ cursor: "pointer" }}>
@@ -168,7 +183,7 @@ function Step3() {
           </div>
         </Link>
 
-        <Link to={`/order/Fast-Sub/step2/${replacedString}/sandwich/Nan`}>
+        <Link to={`/order/Fast-Sub/step2/${replacedString}/0/Nan`}>
           <div
             className="CHM_faststep2ResultCartBtn2"
             style={{ margin: "0 2vw" }}

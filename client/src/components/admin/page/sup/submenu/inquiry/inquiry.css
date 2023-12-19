@@ -89,6 +89,7 @@
 
 .KJH_inq_table_section {
     min-width: 800px;
+    max-width: 800px;
     overflow-x: auto;
     border: 5px solid gray;
     margin-bottom: 100px;

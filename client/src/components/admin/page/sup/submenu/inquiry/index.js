@@ -1,179 +1,102 @@
-import './inquiry.css';
+import './comment.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../../../../config/contansts';
 import { Link } from 'react-router-dom';
-import ArrowDown from './arrowdown.png';
-import ArrowUp from './arrowup.png';
-import Comment from './comment';
+import axios from 'axios';
+import { API_URL } from '../../../../../../config/contansts';
 
-function Inquiry() {
 
-    const [inquiries, setInquiries] = useState([]); // 문의내역
-    const [currentPage, setCurrentPage] = useState(1); // 페이지변경
-    const pageLimit = 10; // 페이지 글 제한
-    const [showContents, setShowContents] = useState({}); // title 의 내용보기
+function Comment() {
 
-    // 종류 변환
-    const tagsMapping = {
-        '0': '기타',
-        '1': '사이트이용',
-        '2': '포인트',
-        '3': '제품',
-        '4': '매장이용'
-    };
-    // 날짜 형식 변환 함수
-    // 예시) 20년 10월 10일 15:30:45
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hour = String(date.getHours()).padStart(2, '0');
-        const minute = String(date.getMinutes()).padStart(2, '0');
-        const second = String(date.getSeconds()).padStart(2, '0');
+    const [commentData, setCommnetData] = useState([]);
+    const [status, setStatus] = useState('');
 
-        return `${year}년 ${month}월 ${day}일 ${hour}:${minute}:${second}`;
-    };
-    const statusMapping = {
-        '0': '대기',
-        '1': '완료'
+    // radio 버튼이 변경될 때 호출되는 핸들러
+    const handleChange = (event) => {
+        setStatus(event.target.value);
     };
 
     // 데이터 가져오기
-    const fetchInquiries = async () => {
+    const InqComment = async () => {
         try {
             await axios.get(`${API_URL}/inquiry`)
-            .then((response)=>{
-                setInquiries(response.data);
-                // console.log(response.data);
+            .then((res) => {
+                setCommnetData(res.data);
+                // console.log(res.data);
             })
-            .catch((err)=>{
-                console.error(err);
-            })
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
         }
     };
     useEffect(() => {
-        fetchInquiries();
+        InqComment();
     }, []);
-
-    // 페이지 계산
-    const firstPostIndex = (currentPage - 1) * pageLimit;
-    const lastPostIndex = currentPage * pageLimit;
-    const displayedPosts = inquiries.slice(firstPostIndex, lastPostIndex);
-
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
-
-    // 내용보기 toggle
-    const toggleContent = (id) => {
-        setShowContents(prevState => ({
-            ...prevState,
-            [id]: !prevState[id]
-        }));
-    };
-
-    // 활성화된 내용 toggle 모두 닫기
-    const closeAllToggles = () => {
-        setShowContents({});
-    };
-    // 내용 모두 열기
-    const openAllToggles = () => {
-        const allOpen = inquiries.reduce((acc, inquiry) => {
-            acc[inquiry.id] = true;
-            return acc;
-        }, {});
-        setShowContents(allOpen);
-    };
 
     return (
         <>
-            <div className='KJH_inq_section'>
-                <div className='KJH_inq_route'>
-                    Admin &gt; 고객 지원 &gt; 문의 내역
-                </div>
-                <div className='KJH_inq_info'>
-                    <div className='KJH_inq_top_section'>
-                        <span className='KJH_inq_top_list'>전체목록</span>
-                        <span className='KJH_inq_top_pos_num_info'>문의사항</span>
-                        <span className='KJH_inq_top_pos_num'>{inquiries.length} 건</span>
-                        <span className='KJH_inq_top_toggle_section'>
-                            {/* 내용 모두 닫기 */}
-                            <button onClick={closeAllToggles} className="KJH_inq_top_close_toggle_section">
-                                <img src={ArrowUp} alt='위쪽 화살표' />
-                            </button>
-                            {/* 내용 모두 열기 */}
-                            <button onClick={openAllToggles} className="KJH_inq_top_open_toggle_section">
-                                <img src={ArrowDown} alt='아래쪽 화살표' />
-                            </button>
-                        </span>
-                        {/* 페이지 버튼 */}
-                        <span className='KJH_inq_top_page_button_section'>
-                            {[...Array(Math.ceil(inquiries.length / pageLimit)).keys()].map(number => (
-                            <button key={number} onClick={() => handlePageChange(number + 1)}>
-                                {number + 1}
-                            </button>
-                            ))}
-                        </span>
+            <div className='KJH_comment_section'>
+                <div className='KJH_comment_width'>
+                    <span className='KJH_com_route'>
+                        <div>답변관리</div>
+                        <div className='KJH_com_btn_section'>
+                            <div className='KJH_com_btn_comple'>수정완료</div>
+                            <Link to='/admin/support/inquiry'><div className='KJH_com_btn_back'>뒤로가기</div></Link>
+                        </div>
+                    </span>
+                    
+                    <div className='KJH_com_title_section'>
+                        <div className='KJH_com_type_input'>
+                            <span className='KJH_com_type'>
+                                <select>
+                                    <option value="0">기타</option>
+                                    <option value="1">사이트이용</option>
+                                    <option value="2">포인트</option>
+                                    <option value="3">제품</option>
+                                    <option value="4">매장이용</option>
+                                </select>
+                            </span>
+                            <span>
+                                <input 
+                                    type="radio" 
+                                    id="status0" 
+                                    name="status" 
+                                    value="0"
+                                    checked={status === '0'} 
+                                    onChange={handleChange} />
+                                <label htmlFor="status0" className="KJH_com_input_left">대기</label>
+                                <input 
+                                    type="radio" 
+                                    id="status1" 
+                                    name="status" 
+                                    value="1" 
+                                    checked={status === '1'}
+                                    onChange={handleChange} />
+                                <label htmlFor="status1">완료</label>
+                            </span>
+                        </div>
+                        <div className='KJH_com_title'>
+                            제목
+                        </div>
+                        <div className='KJH_com_id_section'>
+                            <span>작성자</span>
+                            <span>작성날짜</span>
+                            <span>작성일</span>
+                        </div>
                     </div>
-                    <table className='KJH_inq_table_section'>
-                        <colgroup>
-                            <col style={{width: "140px"}} />
-                            <col style={{width: "150px"}} />
-                            <col style={{width: "500px"}} />
-                            <col style={{width: "300px"}} />
-                            <col style={{width: "150px"}} />
-                            <col style={{width: "120px"}} />
-                        </colgroup>
-                        <thead className='KJH_inq_table_thead_section'>
-                            <tr className='KJH_inq_title_section'>
-                                <th className='KJH_inq_title_id'>유저 ID</th>
-                                <th className='KJH_inq_title_kinds'>종류</th>
-                                <th className='KJH_inq_title_title'>제목</th>
-                                <th className='KJH_inq_title_created'>등록일</th>
-                                <th className='KJH_inq_title_ctrl'>관리</th>
-                                <th className='KJH_inq_title_status'>상태</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {displayedPosts.map((item) => (
-                                <React.Fragment key={item.id}>
-                                    <tr className='KJH_inq_contents_section' onClick={() => toggleContent(item.id)}>
-                                        <td className='KJH_inq_contents_id'>{item.id}</td>
-                                        <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags.toString()] || '알 수 없음'}</td>
-                                        <td className='KJH_inq_contents_title' >{item.title}</td>
-                                        <td className='KJH_inq_contents_created'>{formatDate(item.createdAt)}</td>
-                                        <td className='KJH_inq_contents_ctrl'>
-                                            <Link to={`${item.id}`}><span className='KJH_inq_contents_ans'>답변</span></Link>
-                                            <span className='KJH_inq_contents_del'>삭제</span>
-                                        </td>
-                                        {/* 상태 state 관리 : 완료 or 대기 */}
-                                        <td className={`KJH_inq_contents_status ${item.status === 0 || item.status === '0' ? 'status-waiting' : 'status-completed'}`}>
-                                            {statusMapping[item.status.toString()] || '알 수 없음'}
-                                        </td>
-                                    </tr>
-                                    {showContents[item.id] && (
-                                        <>
-                                            <tr className='KJH_inq_coment_tr_1st'>
-                                                <td />
-                                                <td colSpan="2" className='KJH_inq_contents_content'>{item.content}</td>
-                                                <td />
-                                                <td />
-                                                <td />
-                                            </tr>
-                                        </>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </tbody>
-                    </table>
+                    <div className='KJH_com_content_section'>
+                        내용
+                    </div>
+                    <div className='KJH_com_comment_section'>
+                        <div className='KJH_com_comment_info'>
+                            <span className='KJH_com_comment'>
+                                답변칸
+                            </span>
+                        </div>
+                        <span className='KJH_com_comment_created'>답변 일 : </span>
+                    </div>
                 </div>
             </div>
         </>
     )
 }
 
-export default Inquiry;
+export default Comment;

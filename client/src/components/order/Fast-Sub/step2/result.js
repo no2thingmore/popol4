@@ -1,25 +1,28 @@
 import { useState } from "react";
 import img from "./sandwich.png";
 import Result2 from "./result2";
+import { useParams } from 'react-router-dom';
 
 function Result(props) {
   //props로 상품 종류와 id를 가져와 정확한 상품 추척
-  const [data, setData] = useState({
-    id: 5,
-    Kname: "차하민",
-    Ename: "Spicy BBQ",
-    kcal: 374,
-    중량: 256,
-    단백질: 25.2,
-    포화지방: 7.4,
-    당류: 15.0,
-    나트륨: 903,
-    img: img,
-    type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-    content:
-      "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    price: 50000,
-  });
+  const { product } = useParams();
+  const { id } = useParams();
+  let category = product;
+  const filterdata = props.data.filter((a) => a.id == id && a.kinds == product)
+
+  if (product == 0) {
+    category = "샌드위치";
+  } else if (product == 1) {
+    category = "랩ㆍ기타";
+  } else if (product == 2) {
+    category = "샐러드";
+  } else if (product == 3) {
+    category = "아침메뉴";
+  } else if (product == 4) {
+    category = "스마일 썹";
+  } else if (product == 5) {
+    category = "단체메뉴";
+  }
 
   const [추천메뉴, set추천메뉴] = useState([
     {
@@ -235,22 +238,18 @@ function Result(props) {
   ]);
 
   const [show, setShow] = useState("");
-  const setCart = props.setCart;
-  const cart = props.cart;
-  console.log("result: ", cart);
-
   return (
     <>
       <div className="CHM_faststep2ResultBox">
         <div className="CHM_faststep2ResultGrid">
           <div className="CHM_faststep2ResultImg">
-            <img src={data.img}></img>
+            <img src={filterdata[0].image_url}></img>
           </div>
           <div className="CHM_faststep2ResultTitle">
-            <div className="CHM_faststep2ResultType">{props.product}</div>
-            <div className="CHM_faststep2ResultKname">{data.Kname}</div>
-            <div className="CHM_faststep2ResultEname">{data.Ename}</div>
-            <div className="CHM_faststep2ResultContent">{data.content}</div>
+            <div className="CHM_faststep2ResultType">{category}</div>
+            <div className="CHM_faststep2ResultKname">{filterdata[0].kname}</div>
+            <div className="CHM_faststep2ResultEname">{filterdata[0].ename}</div>
+            <div className="CHM_faststep2ResultContent">{filterdata[0].coment}</div>
           </div>
         </div>
         <div className="CHM_faststep2ResultpotassiumTitle">영양성분표</div>
@@ -264,12 +263,12 @@ function Result(props) {
             <div>나트륨(mg)</div>
           </div>
           <div className="CHM_potassiumGrid2">
-            <div>{data.중량}</div>
-            <div>{data.kcal}</div>
-            <div>{data.단백질}</div>
-            <div>{data.포화지방}</div>
-            <div>{data.당류}</div>
-            <div>{data.나트륨}</div>
+            <div>{filterdata[0].ingred_gram}</div>
+            <div>{filterdata[0].ingred_kcal}</div>
+            <div>{filterdata[0].ingred_protein}</div>
+            <div>{filterdata[0].ingred_fat}</div>
+            <div>{filterdata[0].ingred_sugars}</div>
+            <div>{filterdata[0].ingred_salt}</div>
           </div>
         </div>
         <div className="CHM_potassiumSubContent">
@@ -322,12 +321,7 @@ function Result(props) {
         )}
         {show === "show" ? (
           <div>
-            <Result2
-              data={data}
-              추천메뉴={추천메뉴}
-              cart={cart}
-              setCart={setCart}
-            ></Result2>
+            <Result2 filterdata={filterdata} 추천메뉴={추천메뉴}></Result2>
           </div>
         ) : (
           ""

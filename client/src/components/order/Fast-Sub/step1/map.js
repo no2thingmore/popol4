@@ -67,7 +67,7 @@ const MapContainer = ({ searchPlace }) => {
       }
 
       window.handleClick = (location) => {
-        navigate(`/order/Fast-Sub/step2/${location}/sandwich/Nan`);
+        navigate(`/order/Fast-Sub/step2/${location}/0/Nan`);
       };
     }
   }, [searchPlace, navigate]);

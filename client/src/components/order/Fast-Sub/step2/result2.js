@@ -15,22 +15,23 @@ function Result2(props) {
     slidesToScroll: 4,
   };
 
+  const { product } = useParams();
   const [selectedCardIndex1, setSelectedCardIndex1] = useState(null);
   const [selectedCardIndex2, setSelectedCardIndex2] = useState(null);
   const [selectedCardIndex3, setSelectedCardIndex3] = useState(null);
   const [selectedCardIndex4, setSelectedCardIndex4] = useState(null);
   const [selectedCardIndex5, setSelectedCardIndex5] = useState(null);
-  const price = props.data.price;
+  const price = props.filterdata[0].price;
   const [cart, setCart] = useState([]);
   const result = [
     {
-      id: props.data.id,
-      mainName: props.data.Kname,
+      id: props.filterdata[0].id,
+      mainName: props.filterdata[0].kname,
       count: 1,
       price: price,
     },
   ];
-  console.log(cart);
+  console.log("price: ", price);
   const bread = props.추천메뉴.filter((item) => item.kinds === 0);
   const vegetable = props.추천메뉴.filter((item) => item.kinds === 1);
   const cheese = props.추천메뉴.filter((item) => item.kinds === 2);
@@ -125,158 +126,231 @@ function Result2(props) {
       localStorage.setItem("cart", JSON.stringify(copy));
     }
   }
+
+  const deleteCartItem = (index, itemKind) => {
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+
+    // 해당하는 selectedCardIndex들을 null로 초기화
+    switch (itemKind) {
+      case 0:
+        setSelectedCardIndex1(null);
+        break;
+      case 1:
+        setSelectedCardIndex2(null);
+        break;
+      case 2:
+        setSelectedCardIndex3(null);
+        break;
+      case 3:
+        setSelectedCardIndex4(null);
+        break;
+      case 4:
+        setSelectedCardIndex5(null);
+        break;
+      // 추가 상품 종류가 더 있다면 추가하시면 됩니다.
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="CHM_faststep2Result2Box">
-      <div className="CHM_faststep2Result2pushTitle">빵 교체</div>
       <div className="CHM_faststep2Result2pushGrid">
-        <Slider {...settings}>
-          {bread.map((a, i) => (
-            <div
-              key={i}
-              className={`CHM_faststep2Result2pushCard ${
-                selectedCardIndex1 === i ? "CHM_selectedCard" : ""
-              }`}
-              onClick={() => {
-                if (selectedCardIndex1 === i) {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex1(null);
-                } else {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex1(i);
-                }
-              }}
-            >
-              <div className="CHM_faststep2Result2pushCardImg">
-                <img src={img} alt={a} />
-              </div>
-              <div className="CHM_faststep2Result2pushCardTitle">{a.kname}</div>
-              <div className="CHM_faststep2Result2pushCardPrice">
-                {formatAmount(a.add_price)}원
-              </div>
-            </div>
-          ))}
-        </Slider>
+        {props.filterdata[0].kinds === 0 ? (
+          <>
+            <div className="CHM_faststep2Result2pushTitle">빵 교체</div>
+            <Slider {...settings}>
+              {bread.map((a, i) => (
+                <div
+                  key={i}
+                  className={`CHM_faststep2Result2pushCard ${
+                    selectedCardIndex1 === i ? "CHM_selectedCard" : ""
+                  }`}
+                  onClick={() => {
+                    if (selectedCardIndex1 === i) {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex1(null);
+                    } else {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex1(i);
+                    }
+                  }}
+                >
+                  <div className="CHM_faststep2Result2pushCardImg">
+                    <img src={img} alt={a} />
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardTitle">
+                    {a.kname}
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardPrice">
+                    {formatAmount(a.add_price)}원
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </>
+        ) : (
+          ""
+        )}
       </div>
-      <div className="CHM_faststep2Result2pushTitle">야채 추가</div>
-      <div className="CHM_faststep2Result2pushGrid">
-        <Slider {...settings}>
-          {vegetable.map((a, i) => (
-            <div
-              key={i}
-              className={`CHM_faststep2Result2pushCard ${
-                selectedCardIndex2 === i ? "CHM_selectedCard" : ""
-              }`}
-              onClick={() => {
-                if (selectedCardIndex2 === i) {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex2(null);
-                } else {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex2(i);
-                }
-              }}
-            >
-              <div className="CHM_faststep2Result2pushCardImg">
-                <img src={img} alt={a} />
-              </div>
-              <div className="CHM_faststep2Result2pushCardTitle">{a.kname}</div>
-              <div className="CHM_faststep2Result2pushCardPrice">
-                {formatAmount(a.add_price)}원
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="CHM_faststep2Result2pushTitle">치즈 추가</div>
-      <div className="CHM_faststep2Result2pushGrid">
-        <Slider {...settings}>
-          {cheese.map((a, i) => (
-            <div
-              key={i}
-              className={`CHM_faststep2Result2pushCard ${
-                selectedCardIndex3 === i ? "CHM_selectedCard" : ""
-              }`}
-              onClick={() => {
-                if (selectedCardIndex3 === i) {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex3(null);
-                } else {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex3(i);
-                }
-              }}
-            >
-              <div className="CHM_faststep2Result2pushCardImg">
-                <img src={img} alt={a} />
-              </div>
-              <div className="CHM_faststep2Result2pushCardTitle">{a.kname}</div>
-              <div className="CHM_faststep2Result2pushCardPrice">
-                {formatAmount(a.add_price)}원
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="CHM_faststep2Result2pushTitle">소스 추가</div>
-      <div className="CHM_faststep2Result2pushGrid">
-        <Slider {...settings}>
-          {sauce.map((a, i) => (
-            <div
-              key={i}
-              className={`CHM_faststep2Result2pushCard ${
-                selectedCardIndex4 === i ? "CHM_selectedCard" : ""
-              }`}
-              onClick={() => {
-                if (selectedCardIndex4 === i) {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex4(null);
-                } else {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex4(i);
-                }
-              }}
-            >
-              <div className="CHM_faststep2Result2pushCardImg">
-                <img src={img} alt={a} />
-              </div>
-              <div className="CHM_faststep2Result2pushCardTitle">{a.kname}</div>
-              <div className="CHM_faststep2Result2pushCardPrice">
-                {formatAmount(a.add_price)}원
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className="CHM_faststep2Result2pushTitle">고기 추가</div>
-      <div className="CHM_faststep2Result2pushGrid">
-        <Slider {...settings}>
-          {meat.map((a, i) => (
-            <div
-              key={i}
-              className={`CHM_faststep2Result2pushCard ${
-                selectedCardIndex5 === i ? "CHM_selectedCard" : ""
-              }`}
-              onClick={() => {
-                if (selectedCardIndex5 === i) {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex5(null);
-                } else {
-                  handleAddToCart(a.kname, a.kinds, a.id, i);
-                  setSelectedCardIndex5(i);
-                }
-              }}
-            >
-              <div className="CHM_faststep2Result2pushCardImg">
-                <img src={img} alt={a} />
-              </div>
-              <div className="CHM_faststep2Result2pushCardTitle">{a.kname}</div>
-              <div className="CHM_faststep2Result2pushCardPrice">
-                {formatAmount(a.add_price)}원
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
+      {props.filterdata[0].kinds !== 4 && props.filterdata[0].kinds !== 5 ? (
+        <>
+          <div className="CHM_faststep2Result2pushTitle">야채 추가</div>
+          <div className="CHM_faststep2Result2pushGrid">
+            <Slider {...settings}>
+              {vegetable.map((a, i) => (
+                <div
+                  key={i}
+                  className={`CHM_faststep2Result2pushCard ${
+                    selectedCardIndex2 === i ? "CHM_selectedCard" : ""
+                  }`}
+                  onClick={() => {
+                    if (selectedCardIndex2 === i) {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex2(null);
+                    } else {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex2(i);
+                    }
+                  }}
+                >
+                  <div className="CHM_faststep2Result2pushCardImg">
+                    <img src={img} alt={a} />
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardTitle">
+                    {a.kname}
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardPrice">
+                    {formatAmount(a.add_price)}원
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      {props.filterdata[0].kinds !== 4 && props.filterdata[0].kinds !== 5 ? (
+        <>
+          <div className="CHM_faststep2Result2pushTitle">치즈 추가</div>
+          <div className="CHM_faststep2Result2pushGrid">
+            <Slider {...settings}>
+              {cheese.map((a, i) => (
+                <div
+                  key={i}
+                  className={`CHM_faststep2Result2pushCard ${
+                    selectedCardIndex3 === i ? "CHM_selectedCard" : ""
+                  }`}
+                  onClick={() => {
+                    if (selectedCardIndex3 === i) {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex3(null);
+                    } else {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex3(i);
+                    }
+                  }}
+                >
+                  <div className="CHM_faststep2Result2pushCardImg">
+                    <img src={img} alt={a} />
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardTitle">
+                    {a.kname}
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardPrice">
+                    {formatAmount(a.add_price)}원
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      {props.filterdata[0].kinds !== 4 && props.filterdata[0].kinds !== 5 ? (
+        <>
+          <div className="CHM_faststep2Result2pushTitle">소스 추가</div>
+          <div className="CHM_faststep2Result2pushGrid">
+            <Slider {...settings}>
+              {sauce.map((a, i) => (
+                <div
+                  key={i}
+                  className={`CHM_faststep2Result2pushCard ${
+                    selectedCardIndex4 === i ? "CHM_selectedCard" : ""
+                  }`}
+                  onClick={() => {
+                    if (selectedCardIndex4 === i) {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex4(null);
+                    } else {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex4(i);
+                    }
+                  }}
+                >
+                  <div className="CHM_faststep2Result2pushCardImg">
+                    <img src={img} alt={a} />
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardTitle">
+                    {a.kname}
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardPrice">
+                    {formatAmount(a.add_price)}원
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
+      {props.filterdata[0].kinds !== 4 && props.filterdata[0].kinds !== 5 ? (
+        <>
+          <div className="CHM_faststep2Result2pushTitle">고기 추가</div>
+          <div className="CHM_faststep2Result2pushGrid">
+            <Slider {...settings}>
+              {meat.map((a, i) => (
+                <div
+                  key={i}
+                  className={`CHM_faststep2Result2pushCard ${
+                    selectedCardIndex5 === i ? "CHM_selectedCard" : ""
+                  }`}
+                  onClick={() => {
+                    if (selectedCardIndex5 === i) {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex5(null);
+                    } else {
+                      handleAddToCart(a.kname, a.kinds, a.id, i);
+                      setSelectedCardIndex5(i);
+                    }
+                  }}
+                >
+                  <div className="CHM_faststep2Result2pushCardImg">
+                    <img src={img} alt={a} />
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardTitle">
+                    {a.kname}
+                  </div>
+                  <div className="CHM_faststep2Result2pushCardPrice">
+                    {formatAmount(a.add_price)}원
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+
       <div className="CHM_faststep2ResultReservation">
         <div className="CHM_faststep2ResultReservationTitle">주문 내역</div>
         <div className="CHM_faststep2ResultReservationGrid">
@@ -290,7 +364,7 @@ function Result2(props) {
             className="CHM_faststep2ResultReservationName"
             style={{ borderTop: "none" }}
           >
-            {props.data.Kname}
+            {props.filterdata[0].kname}
           </div>
           <div
             className="CHM_faststep2ResultReservationCountBox"
@@ -315,6 +389,18 @@ function Result2(props) {
                     ?.add_price
                 )}
                 원
+                <span
+                  style={{
+                    marginLeft: "2.5vw",
+                    color: "red",
+                    cursor: "pointer",
+                    fontFamily: "TTWanjudaedunsancheB",
+                    fontSize: "1.7vw",
+                  }}
+                  onClick={() => deleteCartItem(i, a.kinds)}
+                >
+                  X
+                </span>
               </div>
             </React.Fragment>
           ))}
@@ -333,7 +419,7 @@ function Result2(props) {
           </div>
         </Link>
         <Link
-          to={`/order/Fast-Sub/step2/${replacedString}/sandwich/Nan`}
+          to={`/order/Fast-Sub/step2/${replacedString}/${product}/Nan`}
           onClick={test}
         >
           <div className="CHM_faststep2ResultCartBtn2">
