@@ -29,6 +29,8 @@ import FFAQ from './components/helpdesk/ffaq';
 import QQNA from './components/helpdesk/qqna';
 import Test from "./components/subway/test";
 import Mypage from './components/mypage/mypage';
+import Com from "./components/admin/page/sup/submenu/inquiry/com";
+import Comment from "./components/admin/page/sup/submenu/inquiry/comment";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -70,6 +72,7 @@ function App() {
         <Route path="/slider" element={<Slider></Slider>}></Route>
         <Route path="/groupMenu" element={<Groupmenu></Groupmenu>}></Route>
         <Route path="/admin/:type/:category" element={<Admin></Admin>}></Route>
+        <Route path="/admin/:type/:category/:id" element={<Comment />}/>
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
         <Route path="/mypage/:select" element={<Mypage />}></Route>
