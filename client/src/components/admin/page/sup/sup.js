@@ -18,4 +18,4 @@ function Sup() {
     )
 }
 
-export default Sup
+export default Sup;
