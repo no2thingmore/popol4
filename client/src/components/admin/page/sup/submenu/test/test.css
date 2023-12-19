@@ -1,18 +1,24 @@
 .KJH_comment_section {
-    margin-left: 30%;
+    margin-left: 20%;
     display: block;
-    width: 600px;
+    width: 1000px;
+}
+
+.KJH_comment_width {
+    margin: 40px;
+    padding: 30px 100px;
+    background-color: rgba(213, 213, 213, 0.71);
+    border-radius: 10px;
 }
 
 .KJH_com_route {
     display: flex;
     align-items: center;
-    height: 60px;
+    padding-left: 10px;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 700;
-    font-size: 24px;
-    color: #7a86af;
-    border-bottom: 1px solid #273272;;
+    font-size: 28px;
+    border-left: 3px solid #666666;
 }
 
 .KJH_com_title_section {
@@ -20,11 +26,13 @@
     width: 100%;
     padding: 0 5px 11px;
     margin: 16px 0 29px;
-    border-bottom: 1px solid #8b9bf5;
+    border-bottom: 1px solid #979797;
 }
 
 .KJH_com_type_input {
+    padding-top: 20px;
     margin-bottom: 10px;
+    border-top: 3px solid rgb(55, 55, 55);
 }
 
 .KJH_com_type {
@@ -43,6 +51,8 @@
 .KJH_com_title {
     margin: 20px 0;
     font-size: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #979797;
 }
 
 .KJH_com_id_section {
@@ -53,20 +63,49 @@
 .KJH_com_id_section > span:first-child {
     padding-right: 12px;
     margin-right: 12px;
-    border-right: 2px solid #273272;
+    border-right: 2px solid rgb(88, 88, 88);
+}
+
+.KJH_com_id_section > span:last-child {
+    float: right;
+    margin-right: 5px;
 }
 
 .KJH_com_content_section {
+    background-color: white;
+    min-height: 150px;
     padding: 20px 10px;
     margin-bottom: 40px;
-    border: 2px solid #273272;
+    border: 2px solid rgb(88, 88, 88);
     border-radius: 10px;
 }
 
 .KJH_com_comment_section {
     margin: 20px 0;
-    padding: 0 5px;
-    border-top: 2px solid #3b4890;
-    padding: 20px 10px;
+    border-top: 2px solid #979797;
+    padding: 0 10px 20px;
 }
 
+.KJH_com_comment_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #a0a0a0;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.KJH_com_comment {
+    width: 500px;
+    height: 100px;
+    line-height: 45px;
+    background-color: white;
+    padding: 0 10px;
+    overflow: auto;
+}
+
+.KJH_com_comment_created {
+    margin-right: 5px;
+    font-size: 12px;
+    color: rgba(107, 107, 107, 0.733);
+}
