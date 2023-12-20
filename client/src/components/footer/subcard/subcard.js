@@ -1,7 +1,7 @@
 import React from "react";
-import "curve_card.css";
+import "./subcard.css";
 
-function Curve_card(){
+function Subcard(){
     return(
         <div>
             <div>
@@ -165,4 +165,4 @@ function Curve_card(){
         </div>
       )}
       
-      export default Curve_card;
+      export default Subcard;

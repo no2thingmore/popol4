@@ -9,8 +9,7 @@ function Footer() {
           <button id="jun_b1"><a href="/"><b>개인정보처리방침</b></a></button>
           <button id="jun_b"><a href="/">써브카드</a></button>
           <button id="jun_b"><a href="/admin/home/none">점주관리자</a></button>
-          <button id="jun_b"><a href="/">Subway Listens</a></button>
-      
+
         </div>
         <div className="line"></div>
         <div className="footer_text">
