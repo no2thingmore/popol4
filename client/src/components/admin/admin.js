@@ -38,13 +38,13 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/jeryo/none"
+              <a
+                href="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
                 카테고리관리
-              </Link>
+              </a>
             </li>
             <li>
               <a
@@ -101,7 +101,7 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
+        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
 
         {menu === "product" && <Product></Product>}
 

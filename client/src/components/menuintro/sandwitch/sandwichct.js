@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/contansts';
 
 function Sandwitchct(props) {
   const propsdata = props.data.filter((a) => a.kinds === 0 && a.status === 0)
@@ -68,7 +69,7 @@ function Sandwitchct(props) {
                 </div>
               </Link>
               <div className="CHM_selectCardImg">
-                <img src={item.image_url} width="100%" alt={item.kname}></img>
+                <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname}></img>
               </div>
               <div className="CHM_selectCardKname">{item.kname}</div>
               <div className="CHM_selectCardEname">{item.ename}</div>
