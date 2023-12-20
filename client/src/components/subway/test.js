@@ -34,19 +34,58 @@ function Test() {
       text: "LE SSERAFIM은 언제나 완벽한 무대를 만듭니다."
     },
   ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
+  const [currentSlide, setCurrentSlide] = useState(2);
+  const [noTransition, setNoTransition] = useState(false);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slideData.length - 1 ? 0 : prev + 1));
+    if(currentSlide === clone_slide.length - 3){
+      setCurrentSlide((prev) => (prev === clone_slide.length - 1 ? 0 : prev + 1));
+      setTimeout(() => {
+        setNoTransition(true);
+        setCurrentSlide(2);
+      }, 500);
+      setNoTransition(false);
+    } else{
+      setNoTransition(false);
+      setCurrentSlide((prev) => (prev === clone_slide.length - 1 ? 0 : prev + 1));
+    }
+    console.log(currentSlide);
   };
-
+  
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slideData.length - 1 : prev - 1));
+    if(currentSlide === 2){
+      setCurrentSlide((prev) => (prev === 0 ? clone_slide.length - 1 : prev - 1));
+      setTimeout(() => {
+        setNoTransition(true);
+        setCurrentSlide(clone_slide.length - 3);
+      }, 500);
+      setNoTransition(false);
+    } else {
+      setNoTransition(false);
+      setCurrentSlide((prev) => (prev === 0 ? clone_slide.length - 1 : prev - 1));
+    }
+    console.log(currentSlide);
   };
-
+  
   const goToSlide = (index) => {
-    setCurrentSlide(index);
+      setNoTransition(false);
+      if (index === 1){
+      console.log(index);
+      setTimeout(() => {
+        setCurrentSlide(clone_slide.length - 2);
+      }, 0);
+    }
+    else if(index === clone_slide.length - 2){
+      console.log(index);
+      setTimeout(() => {
+        setCurrentSlide(1);
+      }, 0);
+    }
+    else {
+      console.log(index);
+      setCurrentSlide(index);
+    }
   };
 
   return (
@@ -54,10 +93,13 @@ function Test() {
       <div className="Artist_slide_content">
         <div className="Artist_slide">
           <div className="Artist_slide_viewport" aria-live="polite" >
-            <ul className="slide_li" style={{transform: `translate3d(-${currentSlide * 900}px, 0, 0)` }}>
-              {slideData.map((slide, index) => (
+            <ul className="slide_li" style={{
+              transition: noTransition ? "none" : "transform 0.5s ease",
+              transform: `translate3d(-${currentSlide * 900}px, 0, 0)` ,
+              }}>
+              {clone_slide.map((slide, index) => (
                 <li className="slide_li_item">
-                  <div key={index} className={`slide_img ${index === currentSlide ? "active" : ""}`} >
+                  <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
                   <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
                   </div>
                   <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
@@ -76,15 +118,17 @@ function Test() {
             </div>
 
             <div className="slide_ctl_Dot">
-              {slideData.map((_, index) => (
+              {clone_slide.map((_, index) => (
+                (index > 1 && index < clone_slide.length - 2) &&(
                 <div key={index} className="Dot_item">
                   <a
-                    className={`clicked_dot ${index === currentSlide ? "on" : ""}`}
+                    className={`clicked_dot ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length)? "on" : ""}`}
                     onClick={() => goToSlide(index)}
                   >
                     {index + 1}
                   </a>
                 </div>
+                )
               ))}
             </div>
           </div>
@@ -93,5 +137,34 @@ function Test() {
     </div>
   );
 }
-
 export default Test;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

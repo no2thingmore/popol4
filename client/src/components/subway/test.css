@@ -23,7 +23,7 @@
   width: 2478px !important;
   margin-left: -378px !important;
   overflow: initial !important;
-  height: 546px;
+  /* height: 546px; */
 }
 .slide_li{
   right: 39px;
@@ -31,17 +31,13 @@
   margin: auto;
   list-style: none;
   width: 4215%;
-  
-  /* 추가된 애 */
-  /* width: 500%;   */
-  /* -------- */
   position: relative;
-  transition-duration: 0.5s;
+  /* transition-duration: 0.5s; */
   transform: translate3d(0px, 0px, 0px);
 }
 .slide_li_item{
   /* 추가된 애 */
-  flex: 0 0 20%;
+  /* flex: 0 0 20%; */
   /* -------- */
   
   float: left;
@@ -84,8 +80,6 @@
   opacity: 0;
   /* top: 30px; */
   top: 0;
-  /* 추가된 애 */
-  /* -------- */
 }
 .slide_info::after{
   content: '';
