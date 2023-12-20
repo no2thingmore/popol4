@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../../config/contansts';
 import { Link } from 'react-router-dom';
-import ArrowDown from './arrowdown.png';
-import ArrowUp from './arrowup.png';
+import ArrowDown from '../../images/arrowdown.png';
+import ArrowUp from '../../images/arrowup.png';
 
 function Inquiry() {
 
@@ -97,7 +97,6 @@ function Inquiry() {
                 </div>
                 <div className='KJH_inq_info'>
                     <div className='KJH_inq_top_section'>
-                        <span className='KJH_inq_top_list'>전체목록</span>
                         <span className='KJH_inq_top_pos_num_info'>문의사항</span>
                         <span className='KJH_inq_top_pos_num'>{inquiries.length} 건</span>
                         <span className='KJH_inq_top_toggle_section'>
