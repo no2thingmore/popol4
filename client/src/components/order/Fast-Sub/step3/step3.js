@@ -6,6 +6,14 @@ function Step3() {
   const [cart, setCart] = useState([]);
   const data = localStorage.getItem("cart");
 
+  const totalOrderAmount = cart.reduce((acc, cartItem, index) => {
+    const totalPrice = cartItem.reduce(
+      (itemAcc, item) => itemAcc + item.price,
+      0
+    );
+    return acc + totalPrice * (cartItem[0].count + itemCounts[index] - 1);
+  }, 0);
+
   useEffect(() => {
     setCart(JSON.parse(data));
     setItemCounts(JSON.parse(data).map(() => 1));
@@ -30,8 +38,8 @@ function Step3() {
       pg: 'html5_inicis',                           // PG사
       pay_method: 'card',                           // 결제수단
       merchant_uid: `mid_${new Date().getTime()}`,   // 주문번호
-      amount: 1000,                                 // 결제금액
-      name: '아임포트 결제 데이터 분석',                  // 주문명
+      amount: totalOrderAmount,                                 // 결제금액
+      name: cart[0][0].mainName,                  // 주문명
       buyer_name: '홍길동',                           // 구매자 이름
       buyer_tel: '01012341234',                     // 구매자 전화번호
       buyer_email: 'example@example',               // 구매자 이메일
@@ -99,13 +107,7 @@ function Step3() {
     });
   }
 
-  const totalOrderAmount = cart.reduce((acc, cartItem, index) => {
-    const totalPrice = cartItem.reduce(
-      (itemAcc, item) => itemAcc + item.price,
-      0
-    );
-    return acc + totalPrice * (cartItem[0].count + itemCounts[index] - 1);
-  }, 0);
+  
 
   return (
     <div className="CHM_step3Bg">
