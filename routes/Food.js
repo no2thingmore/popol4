@@ -42,7 +42,7 @@ router
     try {
       console.log('addFood',req.body);
       const result = Food.create({
-        admin_id: 1,
+        admin_id: req.body.admin_id,
         kname: req.body.kname,
         ename: req.body.ename,
         coment: req.body.coment,
