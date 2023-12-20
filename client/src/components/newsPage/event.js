@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import { Link } from 'react-router-dom';
-
 import "./event.css";
 
 import painting1 from "./image/painting1.jpg";
@@ -19,60 +16,13 @@ import ff from "./image/y_f.jpg";
 import xx from "./image/y_xx.jpg";
 import yy from "./image/y_yy.jpg";
 import zz from "./image/y_zz.jpg";
+import { API_URL } from "../config/contansts";
 
 // const images = [painting1, painting2, painting3, painting4];
-// // const images = [Painting1, Painting2, Painting3];
+// const images = [Painting1, Painting2, Painting3];
 
 function Event(){
-  const [data, setData] = useState([
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      aname: "2023.12.04 ~",
-      img: aa,
-    },
-    {
-      id: 1,
-      Kname: "써브웨이 오늘의 수프",
-      img: bb,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: cc,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: dd,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: ee,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: ff,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: xx,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: yy,
-    },
-    {
-      id: 1,
-      Kname: "랍스터 컬렉션",
-      img: zz,
-    },
-    
-  ]);
+  const [data, setData] = useState([]);
 
   const [select, setSelect] = useState("전체");
   const categories = ["전체", "진행중인 이벤트", "종료된 이벤트"];
@@ -83,6 +33,18 @@ function Event(){
 
   const [end ,setEnd] = useState("");
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+  const getData = async()=>{
+    await axios.get(`${API_URL}/event`)
+    .then((response)=>{
+      console.log('test',response.data);
+      setData(response.data)
+    })
+  } 
+
+  useEffect(()=>{
+    getData();
+  },[])
 
   useEffect(() => {
     if (!isInitialLoad) {
@@ -146,17 +108,15 @@ function Event(){
           </div>
           <div className="YMJ_selectcontent">
             <div className="YMJ_selectcontentGridBox">
-              {data.map((a, i) => {
+              {data &&  data.map((a, i) => {
                 return (
                   <div className={"YMJ_selectCard start " + end}>
                     {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
                     <div className="YMJ_selectCardImg">
-                      <img src={a.img} width="100%"></img>
+                      <img src={API_URL+"/upload/"+a.image_url} width="100%"></img>
                     </div>
-                    <div className="YMJ_selectCardEname">{a.noname}</div>
-                    <div className="YMJ_selectCardKname">{a.Kname}</div>
-                    <div className="YMJ_selectCardEname">{a.noname}</div>
-                    <div className="YMJ_selectCardEname">{a.aname}</div>
+                    <div className="YMJ_selectCardEname">{a.title}</div>
+                    <div className="YMJ_selectCardKname">{a.content}</div>
                     <div className="YMJ_selectCardEname">{a.noname}</div>
                   </div>
                 );
@@ -164,8 +124,6 @@ function Event(){
             </div>
           </div>
         </div>
-
-
         <div className="y_morebtn">
           <button onClick={showmore}>더보기</button>
         </div>
