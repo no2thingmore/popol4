@@ -134,7 +134,7 @@ function Jeryoresult(props) {
                   <td>
                     <img
                       src={API_URL + "/upload/" + a.image_url}
-                      width="70%"
+                      width="65%"
                     ></img>
                   </td>
                   <td

@@ -8,6 +8,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { API_URL } from '../../../config/contansts';
 
 function Result2(props) {
+  //----------매점위치 기억---------------
+  const { location } = useParams();
+
+  const encodedString = location;
+  const decodedString = decodeURIComponent(encodedString);
+  const replacedString = decodedString.replace(/%20/g, " ");
+  
   const settings = {
     dots: true,
     infinite: false,
@@ -30,6 +37,7 @@ function Result2(props) {
       mainName: props.filterdata[0].kname,
       count: 1,
       price: price,
+      location: location
     },
   ];
   console.log("price: ", price);
@@ -107,12 +115,7 @@ function Result2(props) {
     }).format(amount);
   }
 
-  //----------매점위치 기억---------------
-  const { location } = useParams();
-
-  const encodedString = location;
-  const decodedString = decodeURIComponent(encodedString);
-  const replacedString = decodedString.replace(/%20/g, " ");
+  
 
   //----------로컬스토리지 추가---------------
   function test() {
