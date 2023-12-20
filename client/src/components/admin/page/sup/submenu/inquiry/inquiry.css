@@ -1,0 +1,242 @@
+.KJH_inq_section {
+    padding-left: 50px;
+}
+
+.KJH_inq_route {
+    position: relative;
+    top: 10px;
+    font-size: 14px;
+    padding: 2.5em 0 2.5em 190px;
+}
+
+.KJH_inq_info {
+    padding-left: 190px;
+}
+
+.KJH_inq_top_section {
+    margin-bottom: 3em;
+}
+
+.KJH_inq_top_section > span {
+    padding: 15px 25px;
+    font-size: 20px;
+}
+
+.KJH_inq_top_list {
+    border: 2px solid #999999;
+    margin-right: 10px;
+    background-color: #c7c7c7;
+    border-radius: 10px;
+}
+
+.KJH_inq_top_pos_num_info {
+    border-left: 2px solid #999999;
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    border-radius: 10px 0 0 10px;
+}
+
+.KJH_inq_top_pos_num {
+    border-right: 2px solid #999999;
+    border-top: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    border-radius: 0 10px 10px 0;
+    background-color: #777777;
+    color: white;
+}
+
+.KJH_inq_top_section > .KJH_inq_top_toggle_section {
+    position: relative;
+    top: 10px;
+    padding: 0;
+    margin: 0 10px 0 30px;
+}
+
+.KJH_inq_top_toggle_section > button:hover {
+    box-shadow: inset 0 0 2px 2px white;
+    background-color: #828282;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.KJH_inq_top_toggle_section > button > img {
+    width: 25px;
+    padding: 4px 1px 2px;
+}
+
+.KJH_inq_top_close_toggle_section {
+    margin-right: 10px;
+}
+
+.KJH_inq_top_page_button_section > button {
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 9px;
+    padding: 7px 13px;
+    border-radius: 5px;
+}
+
+.KJH_inq_top_page_button_section > button:last-child {
+    margin-right: 0;
+}
+
+.KJH_inq_top_page_button_section > button:hover {
+    box-shadow: inset 0 0 2px 2px white;
+    background-color: #828282;
+    color: white;
+    cursor: pointer;
+}
+
+.KJH_inq_table_section {
+    min-width: 800px;
+    max-width: 800px;
+    overflow-x: auto;
+    border: 5px solid gray;
+    margin-bottom: 100px;
+}
+
+.KJH_inq_table_section td {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.KJH_inq_table_section tr:hover td {
+    background-color: #868686;
+    color: white;
+    box-shadow: inset 0 0 2px 2px white;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .KJH_inq_table_section th,
+    .KJH_inq_table_section td {
+        font-size: 14px;
+    }
+}
+
+.KJH_inq_list_nums {
+    width: 200px;
+}
+
+.KJH_inq_title_section {
+    background-color: #cdcdcd;
+    height: 40px;
+}
+
+.KJH_inq_title_section > th {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    padding: 0;
+    height: 30px;
+    border-bottom: 2px solid #999999;
+}
+
+.KJH_inq_contents_section > td {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    height: 37px;
+    background-color: #dddddd;
+}
+
+.KJH_inq_contents_id {
+    min-width: 140px;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.KJH_inq_contents_kind {
+    min-width: 150px;
+    text-align: center;
+}
+
+.KJH_inq_contents_title {
+    min-width: 500px;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_created {
+    min-width: 300px;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_ctrl {
+    min-width: 150px;
+    text-align: center;
+}
+
+.KJH_inq_contents_ans, .KJH_inq_contents_del {
+    position: relative;
+    bottom: 2px;
+    font-size: 12px;
+    margin: 0 5px;
+    border: 2px solid #999999;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.KJH_inq_contents_ans:hover, .KJH_inq_contents_del:hover {
+    background-color: #434343;
+    color: white;
+    cursor: pointer;
+    box-shadow: inset 0 0 2px 2px white;
+}
+
+.KJH_inq_contents_status {
+    min-width: 120px;
+    padding: 0 15px;
+}
+
+.KJH_inq_contents_status.status-waiting {
+    background-color: #ffcccc;
+    color: #cc0000;
+}
+
+.KJH_inq_contents_status.status-completed {
+    background-color: #ccffcc;
+    color: #008000;
+}
+
+.KJH_inq_contents_content {
+    background-color: #bdbcff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    padding: 10px 15px;
+}
+
+.KJH_inq_coment_tr_1st, .KJH_inq_coment_tr_2nd {
+    background-color: #bdbcff;
+}
+
+.KJH_inq_coment_tr_2nd td[colspan="2"] {
+    padding: 10px;
+}
+
+.KJH_inq_coment_tr_2nd textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.KJH_inq_coment_tr_2nd button {
+    float: right;
+    margin-top: 5px;
+    padding: 5px 10px;
+}
+
+
+@keyframes dropdownAnimation {
+    from { height: 0; opacity: 0; }
+    to { height: auto; opacity: 1; }
+}
+
+.dropdown-animate {
+    animation: dropdownAnimation 0.5s ease-out;
+}

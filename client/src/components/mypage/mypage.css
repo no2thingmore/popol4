@@ -1,0 +1,126 @@
+@keyframes 흔들흔들{
+  0% {
+    transform : rotate(0deg);
+  }
+  25% {
+    transform : rotate(-5deg);
+  }
+  50% {
+    transform :  rotate(5deg);
+  }
+  75% {
+    transform :  rotate(-5deg);
+  }
+  100% {
+    transform :  rotate(0deg);
+  }
+}
+
+@keyframes 위아래{
+  0% {
+    transform : translateY(0px);
+  }
+  25% {
+    transform : translateY(-10px);
+  }
+  50% {
+    transform : translateY(-5px);
+  }
+  75% {
+    transform : translateY(-10px);
+  }
+  100% {
+    transform : translateY(0px);
+  }
+}
+
+.CHM_mypageBox {
+  background-color: #f6f6f6;
+  padding: 3.5vw 0;
+
+}
+
+.CHM_mypageTitle {
+  text-align: center;
+  font-family: "GangwonEduPowerExtraBoldA";
+  font-size: 2.5vw;
+}
+
+.CHM_mypageselectBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1vw 20vw;
+  column-gap: 2.5vw;
+}
+
+.CHM_mypageuserInfoBox {
+  border: 4px solid #009223;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.5vw;
+  align-items: center;
+  padding: 2vw;
+  border-radius: 2vw 0;
+  background-color: white;
+}
+
+.CHM_mypageuserInfoBox img{
+  width: 100%;
+}
+
+.CHM_mypageuserEditBtn{
+  border: 2px solid rgba(128, 128, 128, 0.479);
+  padding: 0.7vw;
+  text-align: center;
+  border-radius: 2vw;
+  font-size: 1vw;
+  color: rgb(61, 61, 61);
+  cursor: pointer;
+  background-color:  rgba(128, 128, 128, 0.147);
+  transition: background-color 0.3s;
+}
+
+.CHM_mypageuserEditBtn:hover{
+  background-color:  rgba(128, 128, 128, 0.255);
+}
+
+.CHM_mypageCartBox {
+  border: 4px solid #ffc300;
+  border-radius: 2vw 0;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.CHM_mypageCartImg{
+  display: flex;
+  justify-content: center;
+}
+
+.CHM_mypageCartBox img{
+  width: 40%;
+  text-align: center;
+}
+
+.CHM_mypageCartBtn{
+  text-align: center;
+  margin: 0 6vw;
+  font-size: 1.7vw;
+  padding: 0.7vw;
+  border-radius: 2vw;
+  color: rgb(0, 0, 0);
+  font-family: 'GangwonEduPowerExtraBoldA';
+}
+
+.CHM_mypageuserInfoBox:hover .CHM_mypageuserInfoImgBox{
+  animation-name : 위아래;
+  animation-duration : 0.8s;
+}
+
+.CHM_mypageCartBox:hover .CHM_mypageCartImg{
+  animation-name : 흔들흔들;
+  animation-duration : 0.8s;
+}

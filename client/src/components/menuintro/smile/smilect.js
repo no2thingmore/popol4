@@ -1,123 +1,19 @@
 import { useEffect, useState } from "react";
-import img from "./sandwich.png";
+import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/contansts';
 
-function Smilect() {
-  const [data, setData] = useState([
-    {
-      id: 1,
-      Kname: "스마일 스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 2,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 3,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
+function Smilect(props) {
+  const propsdata = props.data.filter((a) => a.kinds === 4 && a.status === 0)
+  const [select, setSelect] = useState(12);
+  const categories = [12];
 
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-  ]);
-
-  const [select, setSelect] = useState("스마일 썹");
-  const categories = ["스마일 썹"];
+  let filterdata;
+  
+  if(select == "All"){
+    filterdata = propsdata
+  } else {
+    filterdata = propsdata.filter((a) => select === a.tags)
+  }
 
   const handleCategoryClick = (category) => {
     setSelect(category);
@@ -130,7 +26,7 @@ function Smilect() {
     if (!isInitialLoad) {
       setTimeout(() => {
         setEnd("end");
-      }, 400);
+      }, 200);
 
       return () => {
         setEnd("end2");
@@ -150,37 +46,37 @@ function Smilect() {
               onClick={() => handleCategoryClick(category)}
               style={select === category ? { color: "#009223" } : {}}
             >
-              {category}
+              {getCategoryText(category)}
             </div>
           ))}
         </div>
       </div>
       <div className="CHM_selectcontent">
         <div className="CHM_selectcontentGridBox">
-          {data.map((a, i) => {
+          {filterdata.map((a, i) => {
             return (
               <div className={"CHM_selectCard start " + end}>
-                <a href={`/menuIntro/smile/${a.id}`}>
+                <Link to={`/menuIntro/4/${a.id}`}>
                   <div className="CHM_selectBakcCard">
                     <div>
-                      <div className="CHM_selectBackCardKname">{a.Kname}</div>
-                      <div className="CHM_selectBackCardEname">{a.Ename}</div>
+                      <div className="CHM_selectBackCardKname">{a.ename}</div>
+                      <div className="CHM_selectBackCardEname">{a.ename}</div>
                       <div className="CHM_selectBackCardContent">
-                        {a.content}
+                        {a.coment}
                       </div>
                     </div>
                     <div className="CHM_selectBackCardIcon">
                       <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                   </div>
-                </a>
+                </Link>
 
                 <div className="CHM_selectCardImg">
-                  <img src={a.img} width="100%"></img>
+                  <img src={API_URL + "/upload/" + a.image_url} width="100%"></img>
                 </div>
-                <div className="CHM_selectCardKname">{a.Kname}</div>
-                <div className="CHM_selectCardEname">{a.Ename}</div>
-                <div className="CHM_selectCardkcal">{a.kcal} kcal</div>
+                <div className="CHM_selectCardKname">{a.kname}</div>
+                <div className="CHM_selectCardEname">{a.ename}</div>
+                <div className="CHM_selectCardkcal">{a.ingred_kcal} kcal</div>
               </div>
             );
           })}
@@ -191,3 +87,10 @@ function Smilect() {
 }
 
 export default Smilect;
+
+function getCategoryText(category) {
+  switch (category) {
+    case 12:
+      return "스마일 썹";
+  }
+}

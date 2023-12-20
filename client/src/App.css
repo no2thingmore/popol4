@@ -25,6 +25,14 @@ div {
   user-select: none;
 }
 
+input{
+  font-family: "NPSfontBold";
+}
+
+select{
+  font-family: "NPSfontBold";
+}
+
 .App{
   border-top: 5px solid #009223;
   /* 고-----증을 한것이다 고-----증을 by독감보균자*/
@@ -39,5 +47,5 @@ div {
 .end2 {
   scale: 0;
   opacity: 0;
-  transition: scale 0.4s, opacity 0.4s;
+  transition: scale 0.4s;
 }

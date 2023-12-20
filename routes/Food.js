@@ -3,6 +3,31 @@ const Food = require('../models/food');
 const router = express.Router();
 
 router
+.get("/menuIntro", async (req,res,next)=>{
+  try {
+    const foodData = await Food.findAll();
+    // console.log('food',foodData);
+    res.status(201).send(foodData)
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+})
+
+.get("/menuIntro/detail", async (req,res,next)=>{
+  try {
+    console.log(req.query.id);
+    const id = parseInt(req.query.id);
+    const foodData = await Food.findOne({
+      where:{id:id}
+    });
+    // console.log('food',foodData);
+    res.status(201).send(foodData)
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+})
   .get("/admin", async (req,res,next)=>{
     try {
       const foodData = await Food.findAll();

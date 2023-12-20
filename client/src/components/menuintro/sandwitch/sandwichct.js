@@ -1,125 +1,20 @@
 import { useEffect, useState } from "react";
-import img from "./sandwich.png";
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/contansts';
 
-function Sandwitchct() {
-  const [data, setData] = useState([
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 2,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 3,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-
-    {
-      id: 1,
-      Kname: "스파이시 바비큐",
-      Ename: "Spicy BBQ",
-      kcal: 374,
-      img: img,
-      type: 1, //클래식 or 프레쉬&라이트 or 프리미엄 or 신제품 or 추가 선택
-      content:
-        "매콤한 스파이시 바비큐 소스와 부드러운 풀드포크의 만남, 한국식 매운맛을 입안 가득 즐겨보세요.",
-    },
-  ]);
-
+function Sandwitchct(props) {
+  const propsdata = props.data.filter((a) => a.kinds === 0 && a.status === 0)
   const [select, setSelect] = useState("All");
-  const categories = ["All", "클래식", "플레쉬&라이트", "프리미엄", "신제품", "추가 선택"];
+  const categories = ["All", 0, 1, 2, 3];
 
+  let filterdata;
+  
+  if(select == "All"){
+    filterdata = propsdata
+  } else {
+    filterdata = propsdata.filter((a) => select === a.tags)
+  }
+  
   const handleCategoryClick = (category) => {
     setSelect(category);
   };
@@ -131,7 +26,7 @@ function Sandwitchct() {
     if (!isInitialLoad) {
       setTimeout(() => {
         setEnd("end");
-      }, 400);
+      }, 200);
 
       return () => {
         setEnd("end2");
@@ -140,6 +35,7 @@ function Sandwitchct() {
       setIsInitialLoad(false);
     }
   }, [select, isInitialLoad]);
+
 
   return (
     <div style={{ position: "relative" }}>
@@ -151,21 +47,21 @@ function Sandwitchct() {
               onClick={() => handleCategoryClick(category)}
               style={select === category ? { color: "#009223" } : {}}
             >
-              {category}
+              {getCategoryText(category)}
             </div>
           ))}
         </div>
       </div>
       <div className="CHM_selectcontent">
         <div className="CHM_selectcontentGridBox">
-          {data.map((item) => (
+          {filterdata.map((item) => (
             <div key={item.id} className={"CHM_selectCard start " + end}>
-              <Link to={`/menuIntro/sandwich/${item.id}`}>
+              <Link to={`/menuIntro/0/${item.id}`}>
                 <div className="CHM_selectBakcCard">
                   <div>
-                    <div className="CHM_selectBackCardKname">{item.Kname}</div>
-                    <div className="CHM_selectBackCardEname">{item.Ename}</div>
-                    <div className="CHM_selectBackCardContent">{item.content}</div>
+                    <div className="CHM_selectBackCardKname">{item.kname}</div>
+                    <div className="CHM_selectBackCardEname">{item.ename}</div>
+                    <div className="CHM_selectBackCardContent">{item.coment}</div>
                   </div>
                   <div className="CHM_selectBackCardIcon">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -173,11 +69,11 @@ function Sandwitchct() {
                 </div>
               </Link>
               <div className="CHM_selectCardImg">
-                <img src={item.img} width="100%" alt={item.Kname}></img>
+                <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname}></img>
               </div>
-              <div className="CHM_selectCardKname">{item.Kname}</div>
-              <div className="CHM_selectCardEname">{item.Ename}</div>
-              <div className="CHM_selectCardkcal">{item.kcal} kcal</div>
+              <div className="CHM_selectCardKname">{item.kname}</div>
+              <div className="CHM_selectCardEname">{item.ename}</div>
+              <div className="CHM_selectCardkcal">{item.ingred_kcal} kcal</div>
             </div>
           ))}
         </div>
@@ -187,3 +83,18 @@ function Sandwitchct() {
 }
 
 export default Sandwitchct;
+
+function getCategoryText(category) {
+  switch (category) {
+    case "All":
+      return "All";
+    case 0:
+      return "클래식";
+    case 1:
+      return "프레시&라이트";
+    case 2:
+      return "프리미엄";
+    case 3:
+      return "신제품";
+  }
+}
