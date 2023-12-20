@@ -15,15 +15,18 @@ router
   }
 })
 
-
 .get('/admin', (req,res,next)=>{
-    Ingredient.findAll()
-    .then((result)=>{
-      res.status(201).send(result)
-    })
-    .catch((err)=>{
-      res.status(500).send(err)
-    })
+  Ingredient.findAll()
+  .then((result)=>{
+    res.status(201).send(result)
+  })
+  .catch((err)=>{
+    res.status(500).send(err)
+  })
+})
+.post('/admin',(req,res,next)=>{
+  console.log(req.body);
+  res.status(201).end();
 })
 
 .get('/ingreDient', (req,res,next)=>{
@@ -34,5 +37,6 @@ router
     .catch((err)=>{
       res.status(500).send(err)
     })
+
 })
 module.exports = router;

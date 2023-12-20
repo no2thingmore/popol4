@@ -1,4 +1,7 @@
 import "./footer.css";
+import instagram from "./footer_img/instagram.png";
+import facebook from "./footer_img/facebook.png";
+
 
 function Footer() {
   return(
@@ -9,7 +12,8 @@ function Footer() {
           <button id="jun_b1"><a href="/"><b>개인정보처리방침</b></a></button>
           <button id="jun_b"><a href="/">써브카드</a></button>
           <button id="jun_b"><a href="/admin/login/none">점주관리자</a></button>
-
+          <button id="jun_b"><a href="https://www.instagram.com/subwaykorea/"><img src={instagram}></img></a></button>
+          <button id="jun_b"><a href="https://www.facebook.com/Subwaykr"><img src={facebook}></img></a></button>
         </div>
         <div className="line"></div>
         <div className="footer_text">
@@ -18,8 +22,6 @@ function Footer() {
           <span className="tel">전화 : 01-234-5678 | </span>
           <span className="rep">사업자등록번호 : 123-45-6789</span>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;SUBWAY® is a Registered Trademark of Subway IP LLC. © 2021 Subway IP LLC. All Rights Reserved.</p>
-          {/* <a>인스타그램</a>
-          <a>페이스북</a> */}
         </div>
       </div>
     </div>
