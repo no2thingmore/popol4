@@ -1,13 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./header.css";
 import { API_URL } from '../config/contansts';
 import axios from "axios"
+import { getCookie, removeCookie } from '../../useCookies';
 
 function Header() {
+const navigate = useNavigate();
+  const Logout = (e)=>{
+    e.preventDefault()
+    removeCookie('user')
+    navigate("/")
+    window.location.reload();
+  }
 
-  // const test = async ()=>{
-  //   await axios.get(`${API_URL}/test`)
-  // }//데이터 한번에 등록할려고 임시로 만들어둔 axios 나중에 삭제 할 것
+const Login = (e) => {
+  e.preventDefault()
+  if(getCookie('user')){
+    navigate("/order/Fast-Sub/step1/Noplace/Null/Nan")
+  } else {
+    navigate("/login")
+  }
+}
 
   return (
     <div className="header">
@@ -16,21 +29,29 @@ function Header() {
         <h1 id="logo">
           <Link to="/">SUBWAY</Link>
         </h1>
-          <div className="util_menu">           
+        { getCookie('user') ? 
+          <div className="util_menu">
+            <button style={{cursor: "pointer"}}><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
+            <button><a href="/mypage/none">마이페이지</a></button>
+
+          </div>
+          :
+          <div className="util_menu">
             <button><a href="/login">로그인</a></button>&nbsp;&nbsp;
             <button><a href="/register">회원가입</a></button>
           </div>
+        }
       </div>
       <ul className="menu">
         <li className="menu-item">
           메뉴소개
           <ul className="submenu">
-          <Link to="/menuIntro/sandwich"><li>샌드위치</li></Link>
-          <Link to="/menuIntro/wrap"><li>랩 · 기타</li></Link>
-          <Link to="/menuIntro/salad"><li>샐러드</li></Link>
-          <Link to="/menuIntro/breakfast"><li>아침메뉴</li></Link>
-          <Link to="/menuIntro/smile"><li>스마일 썹</li></Link>
-          <Link to="/menuIntro/group"><li>단체메뉴</li></Link>
+          <Link to="/menuIntro/0"><li>샌드위치</li></Link>
+          <Link to="/menuIntro/1"><li>랩 · 기타</li></Link>
+          <Link to="/menuIntro/2"><li>샐러드</li></Link>
+          <Link to="/menuIntro/3"><li>아침메뉴</li></Link>
+          <Link to="/menuIntro/4"><li>스마일 썹</li></Link>
+          <Link to="/menuIntro/5"><li>단체메뉴</li></Link>
           </ul>
         </li>
         <li className="menu-item">
@@ -62,19 +83,17 @@ function Header() {
         <li className="menu-item">
           가맹점
           <ul className="submenu">
-            <li><a href="/subwayfranchise">프랜차이즈</a></li>
-            <li><a href="/faq">가맹관련 FAQ</a></li>
-            <li><a href="/franchiseinquire">가맹신청 문의</a></li>
-            <li><a href="/branchinformation">지사안내</a></li>
-            <li><a href="/briefing">사업설명회</a></li>
+            <li><a href="/franchise/subwayfranchise">프랜차이즈</a></li>
+            <li><a href="/franchise/faq">가맹관련 FAQ</a></li>
+            <li><a href="/franchise/franchiseinquire">가맹신청 문의</a></li>
+            <li><a href="/franchise/branchinformation">지사안내</a></li>
+            <li><a href="/franchise/briefing">사업설명회</a></li>
           </ul>
         </li>
         <li className="menu-item">
           온라인 주문
           <ul className="submenu" style={{width: "100%"}}>
-            <Link to="/order/Fast-Sub/step1/Noplace/Null/Nan"><li>FAST-SUB</li></Link>
-            <Link to="/order/Home-Sub/step1/Null/Nan"><li>HOME-SUB</li></Link>
-            <Link to="/order/group/select/Null/Nan"><li>단체주문</li></Link>
+            <li onClick={Login}>FAST-SUB</li>
           </ul>
         </li>
       </ul>

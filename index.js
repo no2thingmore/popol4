@@ -7,9 +7,11 @@ const { sequelize } = require('./models');
 
 const FoodRouter = require('./routes/Food.js')
 const IngredientRouter = require('./routes/Ingredient.js')
+const UserRouter = require('./routes/User.js')
+const BoardRouter = require('./routes/Board.js')
+const InquiryRouter = require('./routes/Inquiry.js')
 
-
-const port = process.env.NODE_ENV || '8080';
+const port = process.env.NODE_ENV || 8080;
 const multer = require('multer');
 
 app.set('view engine', 'html');
@@ -37,7 +39,7 @@ const upload = multer({
   })
 })
 
-app.post('/image', upload.single('image'), (req, res)=>{ 
+app.post('/image', upload.single('image'), (req, res)=>{
   const file = req.file; 
   console.log("post(/image) file:",file);
   res.send({ 
@@ -45,31 +47,31 @@ app.post('/image', upload.single('image'), (req, res)=>{
   })
 })
 
-app.use('/food', FoodRouter)
-app.use('/ingredient', IngredientRouter)
+app.use('/food', FoodRouter);
+app.use('/ingredient', IngredientRouter);
+app.use('/user', UserRouter);
+app.use('/board',BoardRouter)
+app.use('/inquiry',InquiryRouter)
 
 // const Food = require('./models/food.js');
-// const list = []
+// const Ingredient = require('./models/ingredient.js')
+// const Event = require('./models/event.js');
+// const Board = require('./models/board.js');
+// const Inquiry = require('./models/inquiry.js');
+// const list = 
 
 // app.get('/test',async ()=>{
 //   for (let i = 0; i < list.length; i++) {
 //     const elements = list[i];
-//     Food.create({
-//     admin_id:elements.admin_id,
-//     kname:elements.kname,
-//     ename:elements.ename,
-//     image_url:elements.image_url,
-//     coment:elements.coment,
-//     ingred_gram:elements.ingred_gram,
-//     ingred_kcal:elements.ingred_kcal,
-//     ingred_protein:elements.ingred_protein,
-//     ingred_fat:elements.ingred_fat,
-//     ingred_sugars:elements.ingred_sugars,
-//     ingred_salt:elements.ingred_salt,
-//     price: elements.price,
-//     tags: elements.tags,
-//     kinds: elements.kinds,
-//     status: elements.status
+//     Inquiry.create({
+//       admin_id:elements.admin_id,
+//       tags: elements.tags,
+//       kinds: elements.kinds,
+//       create_at: elements.create_at,
+//       title: elements.title,
+//       content: elements.content,
+//       add_file: elements.add_file,
+//       status: elements.status
 //     })
 //   }
 // }) //데이터 저장용 axios 
@@ -85,12 +87,3 @@ sequelize.sync({ force: false })
 app.listen(port, function () {
   console.log(`${port}에서 대기중`)
 }); 
-
-
-
-
-
-
-
-
-

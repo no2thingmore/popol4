@@ -7,24 +7,22 @@ function Register() {
   const navigate = useNavigate();
   const NewUser = async (e) => {
     e.preventDefault();
-    const Nid = e.target.Nid.value;
     const Npwd = e.target.Npwd.value;
     const CKpwd = e.target.CKpwd.value;
     const Nemail = e.target.Nemail.value;
     const Nname = e.target.Nname.value;
     const Nphone = e.target.Nphone.value; // 0
-    if ((Nid, Npwd, CKpwd, Nemail, Nname, Nphone != "")) {
+    if (( Npwd, CKpwd, Nemail, Nname, Nphone != "")) {
       if (Npwd === CKpwd) {
-        console.log(Nid, Npwd, CKpwd, Nemail, Nname, Nphone);
+        console.log(Npwd, CKpwd, Nemail, Nname, Nphone);
         const data = {
-          id: Nid,
           pwd: Npwd,
           name: Nname,
           email: Nemail,
           phone: Nphone,
         };
         await axios
-          .post(`${API_URL}/user`, data)
+          .post(`${API_URL}/user/register`, data)
           .then(() => {
             console.log("회원가입");
             navigate("/");
@@ -45,13 +43,14 @@ function Register() {
         <form className="registerform" onSubmit={NewUser}>
           <h3>회원가입</h3>
           <div className='registerpageborderBox'>
+            
             <div className="registerpagegrid">
-              <label>닉네임</label>
+              <label>이메일</label>
               <input
-                id="Nid"
-                type="text"
+                id="Nemail"
+                type="email"
                 className="form-control"
-                placeholder="ID"
+                placeholder="Email"
               />
             </div>
 
@@ -85,15 +84,6 @@ function Register() {
               />
             </div>
 
-            <div className="registerpagegrid">
-              <label>이메일</label>
-              <input
-                id="Nemail"
-                type="email"
-                className="form-control"
-                placeholder="Email"
-              />
-            </div>
 
             <div className="registerpagegrid" style={{ borderBottom: "none" }}>
               <label>연락처</label>

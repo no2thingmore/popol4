@@ -20,7 +20,7 @@ function LandingPage() {
       <div className='CHM_serachFlex'>
         <form className="CHM_inputForm" onSubmit={handleSubmit}>
           <input
-            placeholder="검색어를 입력하세요"
+            placeholder="지역을 입력해주세요"
             onChange={onChange}
             value={InputText}
           />

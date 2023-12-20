@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./header";
 import "./admin.css";
 import { useParams, Link } from "react-router-dom";
@@ -10,23 +10,11 @@ import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
-import Inquiry from "./page/suppot/submenu/inquiry";
-import Res from "./page/suppot/submenu/res";
-import Event from "./page/suppot/submenu/event";
-import News from "./page/suppot/submenu/news";
-import Faq from "./page/suppot/submenu/faq";
+import Sup from "./page/sup/sup";
 
 function Admin() {
-  const { type, category } = useParams();
+  const { type } = useParams();
   const [menu, setMenu] = useState(type);
-
-  // type 값이 변경될 때마다 실행됨
-  // URL 변경에 따라 menu 상태를 동기화
-  // useEffect(() => {
-  //   if (type && category) {
-  //     setMenu(`${type}/${category}`);
-  //   }
-  // }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -50,13 +38,13 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <a
-                href="/admin/jeryo/none"
+              <Link
+                to="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
                 카테고리관리
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -68,13 +56,13 @@ function Admin() {
               </a>
             </li>
             <li>
-              <Link
-                to="/admin/support/inquiry"
+              <a
+                href="/admin/support/inquiry"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
                 고객지원
-              </Link>
+              </a>
             </li>
             <li>
               <Link
@@ -96,7 +84,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/store"
+                to="/admin/store/none"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >
@@ -113,21 +101,17 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
+        {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
 
         {menu === "product" && <Product></Product>}
 
-        {menu === "support/inquiry" && <Inquiry />}
-        {menu === "support/res" && <Res />}
-        {menu === "support/event" && <Event />}
-        {menu === "support/news" && <News />}
-        {menu === "support/faq" && <Faq />}
+        {menu === "support" && <Sup />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
         {menu === "option" && <div>{<Option></Option>}</div>}
 
-        {menu === "store" && <div>{<Store></Store>}</div>}
+        {menu === "store/none" && <div>{<Store></Store>}</div>}
       </div>
     </div>
   );

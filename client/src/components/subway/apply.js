@@ -1,4 +1,4 @@
-import React, { ReactDOM, useState, useRef } from "react";
+import React, { ReactDOM, useState, useRef, useEffect } from "react";
 import $ from 'jquery';
 import styled from "styled-components";
 import './apply.css';
@@ -13,6 +13,7 @@ import icon_2 from './art_images/icon_sw_artist_point02.png';
 import icon_3 from './art_images/icon_sw_artist_point03.png';
 import icon_4 from './art_images/icon_sw_artist_point04.png';
 import WakDo from './art_images/GgamJjickYee.mp4';
+import axios from "axios";
 
 
 
@@ -129,8 +130,6 @@ function change_dot_class() {
 // 비활성화된 슬라이드의 이미지는 투명도 0.5 글자는 0
 // 활성화된 슬라이드의 텍스트만 활성화 하는 함수
 // 슬라이드 개수에 따라 점을 생성하는 함수
-
-
 
   return(
     <div id="Artist_Main_Div">
