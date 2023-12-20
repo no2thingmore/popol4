@@ -1,4 +1,4 @@
-import React, { ReactDOM, useState, useRef, useEffect } from "react";
+import React, { ReactDOM, useState, useRef } from "react";
 import $ from 'jquery';
 import styled from "styled-components";
 import './apply.css';
