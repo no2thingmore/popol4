@@ -1,3 +1,4 @@
+/* test.css 백업 */
 /*************** 본 문 ***************/
 
 
@@ -22,6 +23,7 @@
   width: 2478px !important;
   margin-left: -378px !important;
   overflow: initial !important;
+  height: 546px;
 }
 .slide_li{
   right: 39px;
@@ -29,11 +31,19 @@
   margin: auto;
   list-style: none;
   width: 4215%;
+  
+  /* 추가된 애 */
+  /* width: 500%;   */
+  /* -------- */
   position: relative;
   transition-duration: 0.5s;
   transform: translate3d(0px, 0px, 0px);
 }
 .slide_li_item{
+  /* 추가된 애 */
+  flex: 0 0 20%;
+  /* -------- */
+  
   float: left;
   list-style: none;
   position: relative;
@@ -42,12 +52,12 @@
 }
 /*************** 슬 라 이 드 이 미 지 ***************/
 .slide_img{
-  width: 770px;
+  /* width: 770px; */
   height: 390px;
   opacity: 0.5;
   overflow: hidden;
   transition-delay: 0.3s;
-  transition-duration: 0.45s
+  transition-duration: 0.45s;
 }
 .slide_img.active{
   opacity: 1;
@@ -58,6 +68,8 @@
   /* height: 390px; */
   vertical-align: top;
   border: 0;
+  max-width: 100%; /* 수정된 부분 */
+  height: auto; /* 수정된 부분 */
 }
 .slide_li:nth-child(5n){
   background-position: 0 60px;
@@ -72,6 +84,8 @@
   opacity: 0;
   /* top: 30px; */
   top: 0;
+  /* 추가된 애 */
+  /* -------- */
 }
 .slide_info::after{
   content: '';
@@ -141,21 +155,6 @@
 }
 
 
-/* .slick-prev{
-  background-position: 0 0;
-  left: 50%;
-  margin-left: -467px;
-}
-.slick-next{
-  right: 50%;
-  margin-right: -482px;
-}
-.slick-prev:hover{
-  background-position: 0 100%;
-}
-.slick-next:hover{
-  background-position: 100% 100%;
-} */
 
 
 .slide_ctl_Dot{
