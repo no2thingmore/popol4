@@ -10,6 +10,7 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Main from "./components/mainPage";
 import Event from "./components/newsPage/event";
+import Newspage from "./components/newsPage/newspage";
 import Advertising from "./components/newsPage/advertising";
 import Notice from "./components/newsPage/notice";
 import Login from './components/login/login';
@@ -68,6 +69,8 @@ function App() {
         <Route path="/howToUseSubway" element={<Howtousesubway></Howtousesubway>}></Route>
         <Route path="/ingreDient/:product" element={<Ingredient></Ingredient>}></Route>
         <Route path="/ingreDient/:product/:id" element={<Detail></Detail>}></Route>
+        <Route path="/newsPage/:product" element={<Newspage></Newspage>}></Route>
+        <Route path="/newsPage/:product/:id" element={<Detail></Detail>}></Route>
         <Route path="/orderTip_1" element={<Ordertip_1></Ordertip_1>}></Route>
         <Route path="/storeOrder" element={<Storeorder></Storeorder>}></Route>
         <Route path="/slider" element={<Slider></Slider>}></Route>
