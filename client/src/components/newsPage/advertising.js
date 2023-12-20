@@ -44,7 +44,7 @@ function Advertising(){
         id: 1,
         Kname: "Eat Fresh Feel Good #2 30s",
         img: me,
-        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws?si=R1uUzq5vJNNwJhWZ"
+        videoUrl:"https://www.youtube.com/embed/VE4sUxm2N7k"
       },
       {
         id: 1,

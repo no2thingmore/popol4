@@ -26,7 +26,7 @@ function Ingredient() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+ 
   useEffect(() => {
     setMenu(product);
     const colors = {

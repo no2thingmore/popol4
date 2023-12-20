@@ -76,7 +76,7 @@ const Base = () => {
                                     </div>
                                 ))}
                                 <div className="base_btm_info_more">
-                                    <Link to="/">더보기</Link>
+                                    <Link to="/newsPage/Notice">더보기</Link>
                                 </div>
                             </div>
                         </div>
