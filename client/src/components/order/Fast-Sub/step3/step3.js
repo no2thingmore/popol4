@@ -38,7 +38,7 @@ function Step3() {
       pg: 'html5_inicis',                           // PG사
       pay_method: 'card',                           // 결제수단
       merchant_uid: `mid_${new Date().getTime()}`,   // 주문번호
-      amount: totalOrderAmount,                                 // 결제금액
+      amount: 1,                                 // 결제금액
       name: cart[0][0].mainName,                  // 주문명
       buyer_name: '홍길동',                           // 구매자 이름
       buyer_tel: '01012341234',                     // 구매자 전화번호
