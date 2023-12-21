@@ -1,4 +1,26 @@
-function Potassium(props) {
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_URL } from '../config/contansts';
+
+function Potassium() {
+  const {id} = useParams();
+  const [data, setData] = useState("")
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/food/menuintro/detail`, {params : {id: id}})
+      .then((res) => {
+        console.log("db조회 완료");
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("실패");
+      });
+  }, []);
+
   return (
     <div className="CHM_potassiumPartBg">
       <div className="CHM_potassiumTitle">영양성분표</div>
@@ -12,12 +34,12 @@ function Potassium(props) {
           <div>나트륨(mg)</div>
         </div>
         <div className="CHM_potassiumGrid2">
-          <div>{props.data[0].중량}</div>
-          <div>{props.data[0].kcal}</div>
-          <div>{props.data[0].단백질}</div>
-          <div>{props.data[0].포화지방}</div>
-          <div>{props.data[0].당류}</div>
-          <div>{props.data[0].나트륨}</div>
+          <div>{data.ingred_gram}</div>
+          <div>{data.ingred_kcal}</div>
+          <div>{data.ingred_protein}</div>
+          <div>{data.ingred_fat}</div>
+          <div>{data.ingred_sugars}</div>
+          <div>{data.ingred_salt}</div>
         </div>
       </div>
       <div className="CHM_potassiumSubContent">

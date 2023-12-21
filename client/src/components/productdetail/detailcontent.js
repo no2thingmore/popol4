@@ -1,8 +1,21 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { API_URL } from '../config/contansts';
+import { useParams } from 'react-router-dom';
 
 function DetailContent(props) {
   const [sections, setSections] = useState([]);
   const sectionPoint = 100;
+  const {id} = useParams()
+  const [data, setData] = useState("")
+
+  const getData = async()=>{
+    await axios.get(`${API_URL}/Food/menuIntro/detail`,{params:{id:id}})
+    .then((res)=>{
+      console.log(res.data);
+      setData(res.data)
+    })
+  }
 
   useEffect(() => {
     const allSections = document.querySelectorAll("section");
@@ -19,6 +32,7 @@ function DetailContent(props) {
       });
     }
 
+    getData();
     window.addEventListener("scroll", revealSections);
 
     return () => {
@@ -30,20 +44,18 @@ function DetailContent(props) {
   return (
     <div className="CHM_detailpageBg">
       <div className="CHM_detailpageTitle">
-        {props.product}
-        {props.id}
-        {props.data[0].Kname}
+        {data.kname}
       </div>
       <div className="CHM_detailpageFlex">
-        <div>{props.data[0].Ename}</div>
-        <div>{props.data[0].kcal}kcal</div>
+        <div>{data.ename}</div>
+        <div>{data.ingred_kcal}kcal</div>
       </div>
       <section>
         <div className="CHM_detailpageImg">
-          <img src={props.data[0].img}></img>
+          <img src={API_URL + "/upload/" + data.image_url}></img>
         </div>
       </section>
-      <div className="CHM_detailpageContent">{props.data[0].content}</div>
+      <div className="CHM_detailpageContent">{data.coment}</div>
       <div className="CHM_detailpageSubContent">
         <div>* 써브웨이가 제공하는 신선한 야채가 정량으로 제공됩니다.</div>
         <div>* 제품 사진은 이미지컷입니다.</div>

@@ -166,7 +166,7 @@ section {
 .CHM_threeroolBg{
   background-color: rgb(250, 250, 250);
   padding-top: 4vw;
-  padding-bottom: 8vw;
+  padding-bottom: 11vw;
 }
 
 .CHM_threeroolSubTitle{
@@ -220,6 +220,7 @@ section {
   color: #009223;
   font-size: 3vw;
   padding-right: 0.5vw;
+  font-family: 'TTWanjudaedunsancheB';
 }
 
 .CHM_threeroolContentDetail{

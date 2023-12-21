@@ -1,11 +1,11 @@
-.m_advertising{
+  .m_advertising{
   text-align: center;
 }
 
 .m_h2>h2{
   margin-bottom: 50px;
 }
-
+/*
 .m_advertising_list_all{
   width: fit-content;
   height: fit-content;
@@ -13,7 +13,6 @@
   grid-template-rows:1fr 1fr 1fr; 
   grid-template-columns:1fr 1fr 1fr;
   gap: 70px;
-  /* margin: auto; */
 }
 
 .m_advertising_list_all{
@@ -30,15 +29,14 @@
 
 .m_play{
   position: absolute;
-  /* left: 10px; */
   top: -25px;
   width: fit-content;
   height: fit-content;
   display: none;
-}
+} */
 
 /* 이미지 크기 */
-.m_advertising_Image>a>img{
+/* .m_advertising_Image>a>img{
   width:  450px
 }
 
@@ -50,4 +48,79 @@
   text-align: center;
   font-size: 20px;
   
+} */
+
+
+
+
+
+
+.m_play{
+  position: absolute;
+  /* top: -12%;
+  left: -35%; */
+  margin: -80% -35%;
+  width: fit-content;
+  height: fit-content;
+  display: none;
 }
+
+
+/* 하민이css */
+
+
+.YMJ_selectcontent {
+  position: relative;
+  
+  background-color: rgb(242, 242, 242);
+  z-index: 3;
+  margin: 0 auto;
+}
+
+.YMJ_selectcontentGridBox {
+  padding: 4vw 0;
+  margin: 0 21vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+
+}
+
+.YMJ_selectCard {
+  position: relative;
+  cursor: pointer;
+
+  /* width: 450px; */
+  
+}
+.YMJ_selectCard:hover {
+  box-shadow: 0 0 0 10px green;
+  
+}
+.YMJ_selectCard:hover img {
+  display: block;
+}
+
+
+.YMJ_selectCardKname {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2vw;
+}
+
+.YMJ_selectCardEname {
+  text-align: center;
+  font-size: 1vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.5vw;
+  color: gray;
+}
+
+.YMJ_selectCardkcal {
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 900;
+  color: gold;
+  padding-bottom: 2vw;
+}
+

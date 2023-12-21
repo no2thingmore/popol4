@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./header";
 import "./admin.css";
 import { useParams, Link } from "react-router-dom";
@@ -6,26 +6,15 @@ import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
 import Option from "./page/option/option";
+import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
-import Inquiry from "./page/suppot/submenu/inquiry";
-import Res from "./page/suppot/submenu/res";
-import Event from "./page/suppot/submenu/event";
-import News from "./page/suppot/submenu/news";
-import Faq from "./page/suppot/submenu/faq";
+import Sup from "./page/sup/sup";
 
 function Admin() {
-  const { type, category } = useParams();
+  const { type } = useParams();
   const [menu, setMenu] = useState(type);
-
-  // type 값이 변경될 때마다 실행됨
-  // URL 변경에 따라 menu 상태를 동기화
-  // useEffect(() => {
-  //   if (type && category) {
-  //     setMenu(`${type}/${category}`);
-  //   }
-  // }, [type, category]);
 
   const MenuClick = (selectMenu) => {
     setMenu(selectMenu);
@@ -67,13 +56,13 @@ function Admin() {
               </a>
             </li>
             <li>
-              <Link
-                to="/admin/support/inquiry"
+              <a
+                href="/admin/support/inquiry"
                 className={menu === "고객지원" ? "active" : "noactive"}
                 onClick={() => MenuClick("고객지원")}
               >
                 고객지원
-              </Link>
+              </a>
             </li>
             <li>
               <Link
@@ -85,23 +74,24 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/option"
+              <a
+                href="/admin/setting/none"
                 className={menu === "설정" ? "active" : "noactive"}
                 onClick={() => MenuClick("설정")}
               >
                 설정
-              </Link>
+              </a>
             </li>
             <li>
               <Link
-                to="/admin/store"
+                to="/admin/store/none"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >
                 가게 등록하기
               </Link>
             </li>
+
           </ul>
         </nav>
       </div>
@@ -115,17 +105,13 @@ function Admin() {
 
         {menu === "product" && <Product></Product>}
 
-        {menu === "support/inquiry" && <Inquiry />}
-        {menu === "support/res" && <Res />}
-        {menu === "support/event" && <Event />}
-        {menu === "support/news" && <News />}
-        {menu === "support/faq" && <Faq />}
+        {menu === "support" && <Sup />}
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
-        {menu === "option" && <div>{<Option></Option>}</div>}
+        {menu === "setting" && <div>{<Setting></Setting>}</div>}
 
-        {menu === "store" && <div>{<Store></Store>}</div>}
+        {menu === "store/none" && <div>{<Store></Store>}</div>}
       </div>
     </div>
   );

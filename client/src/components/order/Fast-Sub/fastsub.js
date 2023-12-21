@@ -3,11 +3,15 @@ import Step1 from "./step1/step1";
 import Step2 from "./step2/step2";
 import Step3 from "./step3/step3";
 import Step4 from "./step4/step4";
+import img1 from "./../order1.png"
+import img2 from "./../order2.png"
 
 function FastSub() {
   const { step } = useParams();
   return (
     <div className="CHM_fastsubBg">
+      <img src={img1} className='CHM_orderpageImg1'></img>
+      <img src={img2} className='CHM_orderpageImg2'></img>
       <div className="CHM_fastsubTitle">Fast-Sub</div>
       <div className="CHM_fastsubContent">
         온라인 주문 후 매장에서 픽업/시식하는 서비스 입니다.

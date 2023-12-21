@@ -1,106 +1,93 @@
 [
     {
         "admin_id":1,
-        "type": 0,
         "title": "랍스터 컬렉션",
         "content": "신선한 리얼 랍스터가 그대로! 올겨울 한정판으로 더욱 특별하게 준비한 써브웨이 랍스터 컬렉션",
         "image_url": "event_lobster_collection.png",
-        "status": 1
+        "status": 0
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "써브웨이 오늘의 수프",
         "content": "오늘의 수프를 원하는 사이즈로! 샌드위치랑 함께 먹으면 든든하고 맛있썹!",
         "image_url": "event_subway_today_soup.png",
-        "status": 1
+        "status": 0
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "Eat Fresh Fell Good",
         "content": "써브웨이 X 차은우 신선함 가득! 즐거움 가득! 함께하는 이 순간이 즐거워!",
         "image_url": "event_eat_fresh_feel_good.png",
-        "status": 1
+        "status": 0
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "말이 안 나올 땐 손으로 주문하자!",
         "content": "말이 안 나올 땐? 손으로 주문하자!",
         "image_url": "event_order_by_hand.png",
+        "status": 0
+    },
+    {
+        "admin_id":1,
+        "title": "스파이시 시리즈",
+        "content": "이벤트가 종료되었습니다.",
+        "image_url": "event_spicy_series.png",
         "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
-        "title": "스파이시 시리즈",
-        "content": "이벤트가 종료되었습니다.",
-        "image_url": "event_spicy_series.png",
-        "status": 0
-    },
-    {
-        "admin_id":1,
-        "type": 0,
         "title": "2023 슈퍼팝 프로모션",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_2023_super_pop.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "차은우 메뉴 프로모션",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_cha_eunwoo_menu_promotion.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "카도 썸머 슬리퍼 & 비치팩",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_caddo_summer_slipper_beach pack.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "New 쉬림프 시리즈",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_new_shrimp_series.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "WaterBomB! Seoul",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_waterbomb_seoul.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "트러플 마요 시리즈",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_truffle_mayo_series.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "이달의 썹!프라이즈",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_mon_surprise.png",
-        "status": 0
+        "status": 1
     },
     {
         "admin_id":1,
-        "type": 0,
         "title": "치킨 컬렉션",
         "content": "이벤트가 종료되었습니다.",
         "image_url": "event_chicken_collection.png",
-        "status": 0
+        "status": 1
     }
-]
+  ]

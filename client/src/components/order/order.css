@@ -1,12 +1,26 @@
 .CHM_fastsubBg {
   background-color: #89cd2f;
   padding: 4vw 0;
+  position: relative;;
+}
+
+.CHM_orderpageImg1{
+  position: absolute;
+  right:0;
+  width: 16.6vw;
+  top:2.1vw
+}
+
+.CHM_orderpageImg2{
+  position: absolute;
+  top: 0;
+  width: 12vw;
 }
 
 .CHM_fastsubTitle {
   font-family: 'TTWanjudaedunsancheB';
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 5vw;
   padding-bottom: 1vw;
 }
@@ -40,7 +54,7 @@
 .CHM_faststep1SelectBox div {
   text-align: center;
   padding:  1.5vw 2vw;
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   cursor: pointer;
 }
 
@@ -74,7 +88,7 @@
 
 .CHM_faststep2DetaileGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2vw;
 }
 
@@ -109,7 +123,7 @@
 
 .CHM_faststep2DetaileCardKname {
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   color: black;
 }
 
@@ -122,7 +136,7 @@
 
 .CHM_faststep2DetaileCardKcal {
   text-align: center;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   padding-bottom: 2vw;
   color: #ffc300;
 }
@@ -151,7 +165,7 @@
 }
 
 .CHM_faststep2ResultKname {
-  font-size: 3vw;
+  font-size: 2.8vw;
   padding-bottom: 1vw;
 }
 
@@ -191,14 +205,16 @@
 }
 
 .CHM_faststep2Result2pushTitle {
-  padding-bottom: 2vw;
+  border-left: #009223 5px solid;
+  margin-bottom: 2vw;
+  padding-left: 1vw;
   font-size: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .CHM_faststep2Result2pushGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2vw;
   padding-bottom: 3vw;
 }
 
@@ -208,6 +224,8 @@
   cursor: pointer;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
   transition: background-color 0.5s;
+  padding: 1vw;
+  width: 95% !important;
 }
 
 .CHM_faststep2Result2pushCard:hover {
@@ -247,6 +265,9 @@
 }
 
 .CHM_faststep2ResultReservationTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 2vw;
 }
 
@@ -378,9 +399,12 @@
 
 .CHM_step3CartContentGrid {
   display: grid;
-  grid-template-columns: 8fr 1.5fr 1.3fr;
+  grid-template-columns: 2fr 7fr 1.5fr 1.3fr 0.5fr;
   border-top: 1px solid #009223;
-  padding: 2vw 2vw;
+  padding: 0 2vw;
+  align-items: center;
+  justify-content: center;
+  height: 7vw;
 }
 
 .CHM_step3CartContentname{
@@ -388,13 +412,14 @@
 }
 
 .CHM_step3CartContentcount{
-  color: gray;
   text-align: center;
   font-size: 1.2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 } 
 
 .CHM_step3CartContentprice{
-  text-align: end;
+  text-align: center;
   font-size: 1.2vw;
 }
 
@@ -414,7 +439,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2vw;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   border-bottom: 1px solid rgba(128, 128, 128, 0.358);
 }
 
@@ -474,7 +499,7 @@
 .CHM_step3StoreContent{
   padding: 2vw;
   background-color: #ececec;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   margin-bottom: 3vw;
 }
 
@@ -498,4 +523,41 @@
 
 .CHM_step4Content{
   font-size: 2.5vw;
+}
+
+.CHM_selectedCard{
+  background-color: #009223;
+  color: white
+}
+
+.CHM_selectedCard img{
+  scale: 1;
+}
+
+.slick-list{
+  width: 100%;
+  height: 20vw;
+}
+
+.slick-track{
+  width: 300vw !important;
+}
+
+.slick-prev:before, .slick-next:before{
+  color: #009223 !important;
+}
+
+.CHM_step3DeletBtn{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer; 
+  color: red; 
+  font-family: 'TTWanjudaedunsancheB';
+  font-size: 1.3vw;
+}
+
+.CHM_step3CartContentname2{
+  display: flex;
+  flex-direction: column;
 }

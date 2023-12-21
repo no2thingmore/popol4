@@ -47,5 +47,5 @@ select{
 .end2 {
   scale: 0;
   opacity: 0;
-  transition: scale 0.4s, opacity 0.4s;
+  transition: scale 0.4s;
 }
