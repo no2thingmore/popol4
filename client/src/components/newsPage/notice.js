@@ -1,11 +1,15 @@
 import "./notice.css";
 import {n_data}from"./notice_all/notice_data.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Notice(){
 
   const [data, setData] = useState(n_data);
+
+  useEffect(()=>{
+
+  })
 
   return(
     <div className="j_notice_all">
@@ -24,7 +28,7 @@ function Notice(){
 
         <div className="j_list_all">
 
-        {
+        { 
           data.map((aa,i) => (
             <div className="j_list">
               <div className="j_number">

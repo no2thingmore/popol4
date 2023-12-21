@@ -6,6 +6,7 @@ import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
 import Option from "./page/option/option";
+import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
@@ -37,13 +38,13 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/jeryo/none"
+              <a
+                href="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
                 카테고리관리
-              </Link>
+              </a>
             </li>
             <li>
               <a
@@ -74,7 +75,7 @@ function Admin() {
             </li>
             <li>
               <Link
-                to="/admin/option"
+                to="/admin/setting"
                 className={menu === "설정" ? "active" : "noactive"}
                 onClick={() => MenuClick("설정")}
               >
@@ -90,6 +91,7 @@ function Admin() {
                 가게 등록하기
               </Link>
             </li>
+
           </ul>
         </nav>
       </div>
@@ -99,7 +101,7 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
+        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
 
         {menu === "product" && <Product></Product>}
 

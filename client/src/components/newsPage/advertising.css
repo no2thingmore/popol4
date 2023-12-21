@@ -57,8 +57,9 @@
 
 .m_play{
   position: absolute;
-  top: -12%;
-  left: -12%;
+  /* top: -12%;
+  left: -35%; */
+  margin: -80% -35%;
   width: fit-content;
   height: fit-content;
   display: none;

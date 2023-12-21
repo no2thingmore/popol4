@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Freshingredientsct() {
   const [data, setData] = useState([
-    
+   
   ]);
 
   useEffect(() => {
@@ -70,10 +70,10 @@ function Freshingredientsct() {
                 {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
                   <div className="CHM_selectBakcCard">
                     <div>
-                      <div className="CHM_selectBackCardKname">{a.Kname}</div>
-                      <div className="CHM_selectBackCardEname">{a.Ename}</div>
+                      <div className="CHM_selectBackCardKname">{a.kname}</div>
+                      <div className="CHM_selectBackCardEname">{a.ename}</div>
                       <div className="CHM_selectBackCardContent">
-                        {a.content}
+                        {a.comment}
                       </div>
                     </div>
                     <div className="CHM_selectBackCardIcon">
@@ -83,10 +83,10 @@ function Freshingredientsct() {
                 {/* </Link> */}
 
                 <div className="CHM_selectCardImg">
-                  <img src={a.img} width="100%"></img>
+                  <img src={API_URL+"/upload/"+a.image_url} width="100%"></img>
                 </div>
-                <div className="CHM_selectCardKname">{a.Kname}</div>
-                <div className="CHM_selectCardEname">{a.Ename}</div>
+                <div className="CHM_selectCardKname">{a.kname}</div>
+                <div className="CHM_selectCardEname">{a.ename}</div>
                 <div className="CHM_selectCardkcal">{a.kcal} kcal</div>
               </div>
             );

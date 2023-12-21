@@ -37,7 +37,7 @@ class Board extends Sequelize.Model{
         allowNull: false,
         comment: "최초등록 시간",
       },
-      update_at: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
