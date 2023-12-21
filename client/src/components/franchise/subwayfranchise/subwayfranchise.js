@@ -232,7 +232,7 @@ function SubwayFranchise() {
                 <p>※ 별도 비용 : 외부공사(갈바, 데크 등), 추가공사(철거, 자동문 등), 전기 간선작업, 건물의 공사 준수사항에 따른 비용 등 매장 여건에 따라 투자비용이 달라질 수 있습니다</p>
               </div>
               <div>
-                <button className="last_button"><a href="/franchiseinquire">가맹신청 / 문의</a></button>
+                <a href="/franchise/franchiseinquire"><button className="last_button">가맹신청 / 문의</button></a>
               </div>
             </div>
           </div>

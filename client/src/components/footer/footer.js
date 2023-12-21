@@ -12,8 +12,10 @@ function Footer() {
           <button id="jun_b1"><a href="/"><b>개인정보처리방침</b></a></button>
           <button id="jun_b"><a href="/">써브카드</a></button>
           <button id="jun_b"><a href="/admin/login/none">점주관리자</a></button>
-          <button id="jun_b"><a href="https://www.instagram.com/subwaykorea/"><img src={instagram}></img></a></button>
-          <button id="jun_b"><a href="https://www.facebook.com/Subwaykr"><img src={facebook}></img></a></button>
+          <div className="util_menu_jun1"> 
+            <button id="jun_b"><a href="https://www.instagram.com/subwaykorea/"><img src={instagram}></img></a></button>
+            <button id="jun_b"><a href="https://www.facebook.com/Subwaykr"><img src={facebook}></img></a></button>
+          </div>
         </div>
         <div className="line"></div>
         <div className="footer_text">
