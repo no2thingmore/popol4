@@ -1,4 +1,7 @@
 import "./footer.css";
+// import f_img from "../footer/footer_img/free_icon_facebook.png";
+// import i_img from "../footer/footer_img/free_icon_instagram.png";
+
 
 function Footer() {
   return(
@@ -9,8 +12,12 @@ function Footer() {
           <button id="jun_b1"><a href="/"><b>개인정보처리방침</b></a></button>
           <button id="jun_b"><a href="/">써브카드</a></button>
           <button id="jun_b"><a href="/admin/home/none">점주관리자</a></button>
-          <button id="jun_b"><a href="/">Subway Listens</a></button>
-      
+          {/* <a href="/" id="jun_facebook">
+            <img className="f_img" src={free_icon_facebook}/>
+          </a>
+          <a href="/" id="jun_instagram">
+            <img className="i_img" src={free_icon_instagram}/>
+          </a> */}
         </div>
         <div className="line"></div>
         <div className="footer_text">
