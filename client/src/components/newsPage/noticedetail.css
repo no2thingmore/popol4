@@ -23,10 +23,15 @@
   color: aliceblue;
   border: none;
   border-radius: 50px;
+  margin-left: 140px;
   
 }
 
 
 .n_back_b :hover{
   background-color: darkgreen;
+}
+
+.n_1_image {
+ margin-left: 75px; 
 }
