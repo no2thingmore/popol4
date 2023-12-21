@@ -31,7 +31,7 @@ function Notice(){
                 <h3>{aa.id}</h3>
               </div>
               <div className="j_content">
-                <Link to={`/news/${aa}}`}>
+                <Link to={`/news/${aa.id}`}>
                   <a>{aa.title}</a>
                 </Link>
               </div>
