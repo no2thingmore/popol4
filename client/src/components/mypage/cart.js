@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./cart.css";
 import cart1 from "./mypage_img/cart1.png";
 
 function Cart() {
   const [itemCounts, setItemCounts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [location,setLocation] = useState("");
   const data = localStorage.getItem("cart");
-
+  
   useEffect(() => {
-    setCart(JSON.parse(data));
-    setItemCounts(JSON.parse(data).map(() => 1));
-
+    const parsedData = JSON.parse(data);
+    console.log("tttttt",parsedData);
+  
+    if (Array.isArray(parsedData) && parsedData.length > 0) {
+      setCart(parsedData);
+      setItemCounts(parsedData.map(() => 1));
+    }
+    setLocation(parsedData[0][0].location);
     const { IMP } = window;
     IMP.init('imp72356683');
   }, [data]);
-
-  const { location } = useParams();
-
-  const encodedString = location;
-  const decodedString = decodeURIComponent(encodedString);
-  const replacedString = decodedString.replace(/%20/g, " ");
 
   function onClickPayment() {
     /* 1. 가맹점 식별하기 */
@@ -110,9 +110,9 @@ function Cart() {
   }, 0);
 
   return (
-    <div className="CHM_step3Bg">
+    <div className="CHM_step3Bg1">
       <div className="jj_cart_title">장바구니<img src={cart1}></img></div>
-      <div className="CHM_step3StoreContent">{replacedString}</div>
+      <div className="CHM_step3StoreContent">장소: {location}</div>
       <div className="CHM_step3CartTitle">주문내역</div>
       <div className="CHM_step3CartContent">
         {cart.map((cartItem, i) => {
@@ -203,13 +203,11 @@ function Cart() {
             홈으로 <i class="fa-solid fa-house"></i>
           </div>
         </Link>
-        <Link to={`/order/Fast-Sub/step2/${replacedString}/0/Nan`}>
           <div
             className="CHM_faststep2ResultCartBtn2"
             style={{ margin: "0 2vw" }}>
             메뉴 추가하기 <i class="fa-solid fa-plus"></i>
           </div>
-        </Link>
           <div className="CHM_faststep2ResultCartBtn3"  onClick={onClickPayment}>
             결제하기 <i class="fa-solid fa-check"></i>
           </div>
