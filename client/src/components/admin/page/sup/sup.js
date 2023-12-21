@@ -4,6 +4,7 @@ import Faq from './submenu/faq';
 import Inquiry from './submenu/inquiry';
 import Event from './submenu/event';
 import News from './submenu/news';
+import CreateFAQ from "./submenu/faq/createfaq";
 
 function Sup() {
     const { category } = useParams();
@@ -14,6 +15,9 @@ function Sup() {
             {category === "inquiry" && <Inquiry />}
             {category === "event" && <Event />}
             {category === "news" && <News />}
+
+            {/* FAQ 등록 */}
+            {category === "createfaq" && <CreateFAQ />}
         </>
     )
 }
