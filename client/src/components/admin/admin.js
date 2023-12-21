@@ -6,6 +6,7 @@ import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
 import Option from "./page/option/option";
+import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
@@ -98,7 +99,6 @@ function Admin() {
               </ul>
             </nav>
           </div>
-
           <div className="menu_info">
             {menu === "home" && <div>{<Home></Home>}</div>}
 
