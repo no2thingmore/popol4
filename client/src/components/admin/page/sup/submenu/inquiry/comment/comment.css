@@ -1,5 +1,5 @@
 .KJH_comment_section {
-    margin-left: 20%;
+    margin-left: 20em;
     display: block;
     width: 800px;
     padding-top: 40px;
@@ -17,7 +17,6 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 10px;
-    font-family: 'Nanum Gothic', sans-serif;
     font-weight: 700;
     font-size: 28px;
     border-left: 3px solid #666666;
@@ -90,43 +89,31 @@
     border-right: 2px solid rgb(88, 88, 88);
 }
 
-.KJH_com_id_section > span:last-child {
-    float: right;
-    margin-right: 5px;
-}
-
 .KJH_com_content_section {
+    font-family: 'Nanum Gothic', sans-serif;
     background-color: white;
-    min-height: 150px;
+    min-height: 130px;
     padding: 20px 10px;
     border: 2px solid rgb(88, 88, 88);
     border-radius: 10px;
 }
 
 .KJH_com_comment_section {
+    width: 100%;
     margin: 15px 0;
     border-top: 2px solid #979797;
     padding: 0 10px 20px;
 }
 
-.KJH_com_comment_info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #a0a0a0;
-    padding: 10px 0;
-}
-
-.KJH_com_comment {
+.KJH_com_comment_input {
+    margin-top: 10px;
     width: 100%;
-    height: 80px;
-    line-height: 45px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 0 10px;
+    height: 70px;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
     overflow: auto;
-    border: 1px solid rgb(88, 88, 88);
-    font-size: 14px;
 }
 
 .KJH_com_comment_created {

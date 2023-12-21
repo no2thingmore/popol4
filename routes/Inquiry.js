@@ -18,7 +18,7 @@ router
 .get('/detail',(req,res,next)=>{
   Inquiry.findOne({where:{id:req.query.id}})
   .then((result)=>{
-    console.log(result);
+    // console.log(result);
     res.status(201).send(result);
   })
   .catch((err)=>{
@@ -73,7 +73,7 @@ router
 .delete("/admin",async (req,res,next)=>{
   try {
     console.log("진입");
-    console.log(req.body);
+    // console.log(req.body);
     await Inquiry.destroy({where:{id:req.body.id}})
     res.status(201).end()
   } catch (error) {

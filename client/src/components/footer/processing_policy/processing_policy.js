@@ -1,5 +1,5 @@
 import React from "react";
-import "processing_policy.css";
+import "./processing_policy.css";
 
 function Processing_policy(){
     return(

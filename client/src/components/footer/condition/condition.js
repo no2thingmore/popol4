@@ -1,5 +1,7 @@
 import React from "react";
-import "condition.css";
+import "./condition.css";
+
+
 function Condition(){
     return(
       <div>
