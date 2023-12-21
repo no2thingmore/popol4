@@ -1,3 +1,5 @@
+// CSS 는 submenu/inquiry/inquiry.css 에 기반합니다
+
 import './faq.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';

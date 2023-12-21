@@ -69,7 +69,6 @@ const getStatusLabel = (status) => {
 function Result(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productbasedata, setProductbasedata] = useState([]);
-  console.log("aa",productbasedata);
 
   const navigate = useNavigate();
 
