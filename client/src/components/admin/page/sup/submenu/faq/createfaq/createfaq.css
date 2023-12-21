@@ -1,0 +1,167 @@
+.KJH_createfaq_section {
+    margin-left: 20em;
+    display: block;
+    width: 800px;
+    padding-top: 40px;
+}
+
+.KJH_createfaq_width {
+    padding: 30px 100px 50px;
+    background-color: rgba(211, 211, 211, 0.71);
+    border-radius: 10px;
+    border: 2px solid #666666;
+}
+
+.KJH_createfaq_route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 28px;
+    border-left: 3px solid #666666;
+}
+
+.KJH_createfaq_btn_section {
+    display: flex;
+    font-size: 16px;
+}
+
+.KJH_createfaq_btn_back {
+    border: 1px solid gray;
+    padding: 5px 8px;
+    border: 2px solid #666666;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 15px;
+    background-color: white;
+}
+
+.KJH_createfaq_btn_back:hover {
+    background-color: #666666;
+    color: white;
+    cursor: pointer;
+}
+
+.KJH_createfaq_title_section {
+    display: inline-block;
+    width: 100%;
+    padding: 0 5px 11px;
+    margin: 16px 0 15px;
+    border-bottom: 1px solid #979797;
+}
+
+.KJH_createfaq_make_title_line, .KJH_createfaq_content_section {
+    display: flex;
+    align-items: flex-start;
+}
+
+.KJH_createfaq_question_label, .KJH_createfaq_content_a_label {
+    position: relative;
+    top: 5px;
+    white-space: nowrap;
+}
+
+.KJH_createfaq_content_a_label {
+    font-weight: bold;
+}
+
+.KJH_createfaq_type_input {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    border-top: 3px solid rgb(55, 55, 55);
+}
+
+.KJH_createfaq_make_title_info, .KJH_createfaq_make_a_info {
+    margin-left: 10px;
+    padding: 10px;
+    resize: none;
+    font-size: 14px;
+}
+
+.KJH_createfaq_make_title_info {
+    min-width: 380px;
+    font-weight: bold;
+}
+
+.KJH_createfaq_make_a_info {
+    min-width: 530px;
+    min-height: 90px;
+}
+
+.KJH_createfaq_type {
+    margin-right: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.KJH_createfaq_type_input > span > select {
+    padding: 5px;
+    font-size: 16px;
+    width: 120px;
+}
+
+.KJH_createfaq_input_left {
+    margin-right: 5px;
+}
+
+.KJH_createfaq_id_section {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.KJH_createfaq_id_section > span:first-child {
+    padding-right: 12px;
+    margin-right: 12px;
+    border-right: 2px solid rgb(88, 88, 88);
+}
+
+.KJH_createfaq_content_section {
+    font-family: 'Nanum Gothic', sans-serif;
+    min-height: 130px;
+    padding: 0 5px;
+}
+
+.KJH_createfaq_comment_section {
+    width: 100%;
+    margin: 15px 0;
+    border-top: 2px solid #979797;
+    padding: 0 10px 20px;
+}
+
+.KJH_createfaq_comment_input {
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic', sans-serif;
+    overflow: auto;
+}
+
+.KJH_createfaq_comment_created {
+    padding: 10px 5px;
+    float: right;
+    margin-right: 5px;
+    font-size: 10px;
+    color: rgba(107, 107, 107, 0.733);
+}
+
+.KJH_createfaq_data_submit {
+    float: right;
+    margin-right: 15px;
+    padding: 5px 10px;
+    border: 2px solid #666666;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.KJH_createfaq_data_submit:hover {
+    background-color: #666666;
+    color: white;
+    cursor: pointer;
+}
