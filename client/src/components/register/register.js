@@ -51,6 +51,7 @@ function Register() {
                 type="email"
                 className="form-control"
                 placeholder="Email"
+                autocomplete="off" 
               />
             </div>
 
@@ -81,6 +82,7 @@ function Register() {
                 type="text"
                 className="form-control"
                 placeholder="Name"
+                autocomplete="off" 
               />
             </div>
 
@@ -92,6 +94,7 @@ function Register() {
                 type="text"
                 className="form-control"
                 placeholder="Phone number"
+                autocomplete="off" 
               />
             </div>
           </div>
