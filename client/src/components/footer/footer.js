@@ -2,7 +2,6 @@ import "./footer.css";
 import instagram from "./footer_img/instagram.png";
 import facebook from "./footer_img/facebook.png";
 
-
 function Footer() {
   return(
     <div className="footer111">
