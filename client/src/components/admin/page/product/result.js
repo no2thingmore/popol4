@@ -67,7 +67,16 @@ const getStatusLabel = (status) => {
 };
 
 function Result(props) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productbasedata, setProductbasedata] = useState([]);
+  console.log("aa",productbasedata);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setProductbasedata(props.filteredResults);
+  }, [props.filteredResults]);
+
   function confirmModal(id, kname) {
     if (window.confirm(`"${kname}"상품을 정말 삭제하시겠습니까?`)) {
       axios
@@ -94,6 +103,31 @@ function Result(props) {
   };
 
   const count = props.filteredResults.length;
+
+  const itemsPerPage = 5; // 한 페이지당 표시할 공지사항 수
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = productbasedata.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(productbasedata.length / itemsPerPage);
+  const maxVisiblePages = 3; // 보이는 페이지 숫자의 최대 개수
+  let startPage = Math.max(currentPage - Math.floor(maxVisiblePages / 2), 1);
+  let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
+
+  if (endPage - startPage < maxVisiblePages - 1) {
+    startPage = Math.max(endPage - maxVisiblePages + 1, 1);
+  }
+
+  const pageNumbers = [];
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+
   return (
     <>
       <div className="CHM_adminProductPageSubTitle">
@@ -130,10 +164,11 @@ function Result(props) {
             </tr>
           </thead>
           <tbody>
-            {props.filteredResults.map((a, i) => {
+            {currentItems.map((a, i) => {
+              const itemNumber = (currentPage - 1) * itemsPerPage + i + 1;
               return (
                 <tr key={a.id} style={{ height: "6vw" }}>
-                  <td>{i + 1}</td>
+                  <td>{itemNumber}</td>
                   <td>
                     <img
                       src={API_URL + "/upload/" + a.image_url}
@@ -212,8 +247,47 @@ function Result(props) {
             })}
           </tbody>
         </table>
+        <Pagination
+          itemsPerPage={itemsPerPage}
+          totalItems={productbasedata.length}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          totalPages={totalPages}
+          pageNumbers={pageNumbers}
+        />
       </div>
     </>
+  );
+}
+
+function Pagination({
+  itemsPerPage,
+  totalItems,
+  currentPage,
+  onPageChange,
+  totalPages,
+  pageNumbers,
+}) {
+  return (
+    <div className="CHM_pagination">
+      {" "}
+      {/* 현재 페이지의 위치를 알려주는 컴포넌트 */}
+      {currentPage > 1 && (
+        <span onClick={() => onPageChange(currentPage - 1)}>&laquo;</span>
+      )}
+      {pageNumbers.map((number) => (
+        <span
+          key={number}
+          onClick={() => onPageChange(number)}
+          className={currentPage === number ? "active" : ""}
+        >
+          {number}
+        </span>
+      ))}
+      {currentPage < totalPages && (
+        <span onClick={() => onPageChange(currentPage + 1)}>&raquo;</span>
+      )}
+    </div>
   );
 }
 

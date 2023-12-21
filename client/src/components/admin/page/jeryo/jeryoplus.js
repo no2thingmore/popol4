@@ -1,25 +1,18 @@
 import axios from "axios";
 import { useState } from "react";
 import { Upload } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config/contansts";
 
 function Jeryoplus(props) {
   const navigate = useNavigate();
   const [categort1, setCategory1] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
   const [kname, setKname] = useState("");
   const [ename, setEname] = useState("");
   const [comment, setComent] = useState("");
   const [price, setPrice] = useState("");
-  const [status, setStatus] = useState("");
   const [kcal, setKcal] = useState("");
-  const [protein, setProtein] = useState("");
-  const [fat, setFat] = useState("");
-  const [sugars, setSugars] = useState("");
-  const [salt, setSalt] = useState("");
-  const [gram, setGram] = useState("");
-  const [imageUrl, setImageUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleCategorySelect1Change = (event) => {
     const value = event.target.value;
@@ -51,31 +44,36 @@ function Jeryoplus(props) {
   const productjeryoplus = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post(`${API_URL}/food/admin`, {
-        kname: kname,
-        ename: ename,
-        kinds: categort1,
-        tags: selectedTag,
-        comment: comment,
-        image_url: imageUrl,
-        price: price,
-        status: status,
-        ingred_kcal: kcal,
-        ingred_protein: protein,
-        ingred_fat: fat,
-        ingred_sugars: sugars,
-        ingred_salt: salt,
-        ingred_gram: gram,
-      })
-      .then(() => {
-        console.log("성공");
-        navigate("/admin/jeryo");
-      })
-      .catch((e) => {
-        console.log("에러남");
-        console.error(e);
-      });
+    if (
+      kname === "" ||
+      ename === "" ||
+      categort1 === "" ||
+      imageUrl === "" ||
+      price === ""
+    ) {
+      alert("빈칸없이 전부 채워주세요");
+    } else {
+      await axios
+        .post(`${API_URL}/ingredient/admin`, {
+          kname: kname,
+          ename: ename,
+          kinds: categort1,
+          comment: comment,
+          image_url: imageUrl,
+          price: price,
+          ingred_kcal: kcal,
+          admin_id: 1,
+        })
+        .then(() => {
+          console.log("성공");
+          navigate("/admin/jeryo/none");
+          window.location.reload();
+        })
+        .catch((e) => {
+          console.log("에러남");
+          console.error(e);
+        });
+    }
   };
 
   return (
@@ -135,86 +133,17 @@ function Jeryoplus(props) {
                 <option value="3">소스</option>
               </select>
             </div>
-            {/* <div className="CHM_jeryoplustablegrid">
-              <div className="CHM_jeryoplusTableTitle">태그</div>
-              {categort1 == "0" && (
-                <select
-                  id="categorySelect2"
-                  name="tags"
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="0">화이트</option>
-                  <option value="1">곡물</option>
-                  <option value="2">프리미엄</option>
-                </select>
-              )}
-
-              {categort1 == "1" && (
-                <select
-                  id="categorySelect2"
-                  name="tags"
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="3">야채</option>
-                  <option value="4">피클</option>
-                </select>
-              )}
-
-              {categort1 == "2" && (
-                <select
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  id="categorySelect2"
-                  name="tags"
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="6">클래식</option>
-                  <option value="5">아메리칸</option>
-                  <option value="6">슈레드</option>
-                  <option value="7">모차렐라</option>
-                </select>
-              )}
-
-              {categort1 == "3" && (
-                <select
-                  id="categorySelect2"
-                  name="tags"
-                  value={selectedTag}
-                  onChange={(e) => setSelectedTag(e.target.value)}
-                  style={{
-                    marginLeft: "1vw",
-                    padding: "0.3vw",
-                    fontSize: "1.3vw",
-                    width: "70%",
-                  }}
-                >
-                  <option value="">=카테고리선택=</option>
-                  <option value="8">소스</option>
-                  <option value="9">오일/식초</option>
-                  <option value="10">소금/후추</option>
-                </select>
-              )}
-
-            </div> */}
+            <div className="CHM_jeryoplustablegrid">
+              <div className="CHM_jeryoplusTableTitle">칼로리</div>
+              <input
+                value={kcal}
+                type="number"
+                name="ingred_kcal"
+                onChange={(e) => {
+                  setKcal(e.target.value);
+                }}
+              ></input>
+            </div>
           </div>
 
           <div className="CHM_jeryoplustable1grid">
@@ -230,47 +159,24 @@ function Jeryoplus(props) {
               ></input>
             </div>
             <div className="CHM_jeryoplustablegrid">
-              <div className="CHM_jeryoplusTableTitle">판매여부</div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "start",
-                }}
-              >
-                <label style={{ paddingRight: "1vw" }}>
-                  <input
-                    type="radio"
-                    name="status"
-                    value="0"
-                    checked={status === 0}
-                    onChange={() => setStatus(0)}
-                    style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
-                  />
-                  출시
-                </label>
-                <label style={{ paddingRight: "1vw" }}>
-                  <input
-                    type="radio"
-                    name="status"
-                    value="1"
-                    checked={status === 1}
-                    onChange={() => setStatus(1)}
-                    style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
-                  />
-                  품절
-                </label>
-                <label style={{ paddingRight: "1vw" }}>
-                  <input
-                    type="radio"
-                    name="status"
-                    value="2"
-                    checked={status === 2}
-                    onChange={() => setStatus(2)}
-                    style={{ marginRight: "0.5vw", width: "auto", padding: 0 }}
-                  />
-                  판매종료
-                </label>
-              </div>
+            <div className="CHM_jeryoplusTableTitle">이미지</div>
+            <Upload
+              name="image"
+              action={`${API_URL}/image`}
+              listType="picture"
+              showUploadList={false}
+              onChange={onChangeImage}
+            >
+              {imageUrl ? (
+                <p>{imageUrl}</p>
+              ) : (
+                <div id="upload-img-placeholder">
+                  <i class="fa-regular fa-file-image"></i>
+                  <br />
+                  <span>제품사진을 등록 해주세요.</span>
+                </div>
+              )}
+            </Upload>
             </div>
           </div>
 
@@ -287,94 +193,9 @@ function Jeryoplus(props) {
             ></input>
           </div>
 
-          <div className="CHM_jeryoplustable6grid">
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">칼로리</div>
-              <input
-                value={kcal}
-                name="ingred_kcal"
-                onChange={(e) => {
-                  setKcal(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">무게(g)</div>
-              <input
-                value={gram}
-                name="ingred_gram"
-                onChange={(e) => {
-                  setGram(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">단백질</div>
-              <input
-                value={protein}
-                name="ingred_protein"
-                onChange={(e) => {
-                  setProtein(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">포화지방</div>
-              <input
-                value={fat}
-                name="ingred_fat"
-                onChange={(e) => {
-                  setFat(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">당류</div>
-              <input
-                value={sugars}
-                name="ingred_sugars"
-                onChange={(e) => {
-                  setSugars(e.target.value);
-                }}
-              ></input>
-            </div>
-            <div className="CHM_jeryoplustablegrid2">
-              <div className="CHM_jeryoplusTableTitle">나트륨</div>
-              <input
-                value={salt}
-                name="ingred_salt"
-                onChange={(e) => {
-                  setSalt(e.target.value);
-                }}
-              ></input>
-            </div>
-          </div>
-
-          <div className="CHM_jeryoplustablegrid3">
-            <div className="CHM_jeryoplusTableTitle">이미지</div>
-            <Upload
-                name="image"
-                action={`${API_URL}/image`}
-                listType="picture"
-                showUploadList={false}
-                onChange={onChangeImage}
-              >
-                {imageUrl ? (
-                  <p>{imageUrl}</p>
-                ) : (
-                  <div id="upload-img-placeholder">
-                    <i class="fa-regular fa-file-image"></i><br/>
-                    <span>제품사진을 등록 해주세요.</span>
-                  </div>
-                )}
-              </Upload>
-          </div>
-
           <div className="CHM_jeryoplusPageBtnBox">
             <button type="submit">상품등록</button>
-            <button>
-              취소
-            </button>
+            <Link className='CHM_plusPageBackBtn' to="/admin/product/none">취소</Link>
           </div>
         </form>
       </div>
