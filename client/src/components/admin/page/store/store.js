@@ -1,6 +1,7 @@
 import "./store.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../../../config/contansts";
 
 function Store() {
   
@@ -14,7 +15,7 @@ function Store() {
   // 데이터를 가져오는 함수
   const fetchData = async () => {
     try {
-      const response = await axios.get("");
+      const response = await axios.get(`${API_URL}/store`);
       setData(response.data);
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
@@ -30,7 +31,7 @@ function Store() {
             <tr>
               <th style={{ width: "3%" }}>
                 <input 
-                  type="checkbox" 
+                  type="checkbox"
                 />
               </th>
               <th style={{ width: "6%" }}>이름</th>
@@ -38,8 +39,9 @@ function Store() {
               <th style={{ width: "10%" }}>이메일</th>
               <th style={{ width: "20%" }}>지역</th>
               <th style={{ width: "10%" }}>제목</th>
-              <th style={{ width: "35%" }}>내용</th>
+              <th style={{ width: "29%" }}>내용</th>
               <th style={{ width: "6%" }}>첨부파일</th>
+              <th style={{ width: "6%" }}>처리상태</th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +60,7 @@ function Store() {
                 <td>{item.title}</td>
                 <td>{item.content}</td>
                 <td>{item.attachment}</td>
+                <td colSpan="2">{item.processStatus}</td>
               </tr>
             ))}
           </tbody>

@@ -235,7 +235,7 @@ label {
   margin-top: 2vw;
 }
 
-.CHM_plusPageBtnBox button {
+.CHM_plusPageBtnBox button, .CHM_plusPageBackBtn {
   border: 1px solid black;
   padding: 1vw;
   font-size: 1.3vw;
@@ -263,4 +263,21 @@ label {
   overflow: hidden;
   -webkit-line-clamp: 3; /* 원하는 줄 수로 설정 */
   max-height: 3em; /* 줄 수에 따라 조절할 수 있는 높이값 설정 */
+}
+
+.CHM_pagination{
+  font-size: 1.5vw;
+  padding-top: 1vw;
+  display: flex;
+  justify-content: center;
+  color: rgb(99, 99, 99)
+}
+
+.CHM_pagination span{
+  padding: 0 1vw;
+  cursor: pointer;
+}
+
+.CHM_pagination .active{
+  color: black;
 }

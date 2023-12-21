@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Upload } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../../../config/contansts";
 
 function Plus(props) {
@@ -71,6 +71,7 @@ function Plus(props) {
     } else {
       await axios
         .post(`${API_URL}/food/admin`, {
+          admin_id: 1,
           kname: kname,
           ename: ename,
           kinds: categort1,
@@ -441,13 +442,7 @@ function Plus(props) {
 
           <div className="CHM_plusPageBtnBox">
             <button type="submit">상품등록</button>
-            <button
-              onClick={() => {
-                props.setPage("list");
-              }}
-            >
-              취소
-            </button>
+            <Link className='CHM_plusPageBackBtn' to="/admin/product/none">취소</Link>
           </div>
         </form>
       </div>
