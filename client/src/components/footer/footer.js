@@ -5,7 +5,7 @@ import facebook from "./footer_img/facebook.png";
 
 function Footer() {
   return(
-    <div className="footer">
+    <div className="footer111">
       <div className="content_jun">
         <div className="util_menu_jun">
           <button id="jun_b"><a href="/">이용약관</a></button>
