@@ -1,3 +1,5 @@
+// CSS 는 submenu/inquiry/inquiry.css 에 기반합니다
+
 import './faq.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -14,24 +16,20 @@ function Faq(){
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({});
 
-    // // faq 데이터 요청
-    // const fetchFaq = async () => {
-    //     try {
-    //         await axios.get(`${API_URL}/support/faq`)
-    //         .then((res)=>{
-    //             setFaq(res.data);
-    //             console.log(res.data);
-    //         })
-    //         .catch((err)=>{
-    //             console.error(err);
-    //         })
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // };
-    // useEffect(() => {
-    //     fetchFaq();
-    // }, []);
+    // faq 데이터 요청
+    const fetchFaq = async () => {
+        try {
+            const res = await axios.get(`${API_URL}/faq`);
+            setFaq(res.data);
+            console.log(res.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    
+    useEffect(() => {
+        fetchFaq();
+    }, []);
 
     // 종류 변환
     const tagsMapping = {
@@ -124,10 +122,14 @@ function Faq(){
                             {displayedPosts.map((item) => (
                                 <React.Fragment key={item.id}>
                                     <tr className='KJH_inq_contents_section' onClick={() => toggleContent(item.id)}>
-                                        <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags.toString()] || '알 수 없음'}</td>
+                                        <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags] || '알 수 없음'}</td>
                                         <td className='KJH_inq_contents_title' >{item.title}</td>
                                         <td className='KJH_inq_contents_ctrl'>
-                                            <Link to={`${item.id}`}><span className='KJH_inq_contents_ans'>수정</span></Link>
+                                            <span className='KJH_inq_contents_ans'>
+                                            <Link to={`/admin/support/updatefaq`}
+                                                state={{id:item.id}}
+                                            >수정</Link>
+                                            </span>
                                             <span className='KJH_inq_contents_del'>삭제</span>
                                         </td>
                                     </tr>

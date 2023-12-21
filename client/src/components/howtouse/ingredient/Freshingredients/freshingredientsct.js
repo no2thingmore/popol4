@@ -1,31 +1,43 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { API_URL } from "../../../config/contansts";
+
 import axios from "axios";
 
-import { Link } from 'react-router-dom';
 
-function Freshingredientsct() {
-  const [data, setData] = useState([
+function Freshingredientsct(props) {
+  // const [data, setData] = useState([
    
-  ]);
+  // ]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API_URL}/ingredient/ingreDient`)
+  //     .then((res) => {
+  //       console.log("db조회 완료");
+  //       console.log("bbang",res.data);
+  //       setData(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       console.log("실패");
+  //     });
+  // }, []);
+  
+  const [select, setSelect] = useState("All");
+  const categories = ["All", 0, 1, 2, 3];
+  const [filteredData, setFilteredData] = useState(props.data);
+
+  let filterdata;
 
   useEffect(() => {
-    axios
-      .get(`${API_URL}/ingredient/ingreDient`)
-      .then((res) => {
-        console.log("db조회 완료");
-        console.log("bbang",res.data);
-        setData(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-        console.log("실패");
-      });
-  }, []);
-
-  const [select, setSelect] = useState("All");
-  const categories = ["All", "빵", "야채", "치즈", "소스"];
-
+    if (select === "All") {
+      setFilteredData(props.data);
+    } else {
+      setFilteredData(props.data.filter((a) => select === a.kinds));
+    }
+  }, [select, props.data]);
+  
   const handleCategoryClick = (category) => {
     setSelect(category);
   };
@@ -48,49 +60,44 @@ function Freshingredientsct() {
   }, [select, isInitialLoad]);
 
   return (
-    <div style={{position: "relative"}}>
+    <div style={{ position: "relative" }}>
       <div className="CHM_subSelectbar">
-        <div className="CHM_saladSubSelectList1">
-        {categories.map((category) => (
+        <div className="CHM_sandwichSubSelectList">
+          {categories.map((category) => (
             <div
               key={category}
               onClick={() => handleCategoryClick(category)}
               style={select === category ? { color: "#009223" } : {}}
             >
-              {category}
+              {getCategoryText(category)}
             </div>
           ))}
         </div>
       </div>
       <div className="CHM_selectcontent">
         <div className="CHM_selectcontentGridBox">
-          {data.map((a, i) => {
-            return (
-              <div className={"CHM_selectCard start " + end}>
-                {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
-                  <div className="CHM_selectBakcCard">
-                    <div>
-                      <div className="CHM_selectBackCardKname">{a.kname}</div>
-                      <div className="CHM_selectBackCardEname">{a.ename}</div>
-                      <div className="CHM_selectBackCardContent">
-                        {a.comment}
-                      </div>
-                    </div>
-                    <div className="CHM_selectBackCardIcon">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
+          {filteredData.map((item) => (
+            <div key={item.id} className={"CHM_selectCard start " + end}>
+              {/* <Link to={`/ingreDient/2/${item.id}`}> */}
+                <div className="CHM_selectBakcCard">
+                  <div>
+                    <div className="CHM_selectBackCardKname">{item.kname}</div>
+                    <div className="CHM_selectBackCardEname">{item.ename}</div>
+                    <div className="CHM_selectBackCardContent">{item.coment}</div>
                   </div>
-                {/* </Link> */}
-
-                <div className="CHM_selectCardImg">
-                  <img src={API_URL+"/upload/"+a.image_url} width="100%"></img>
+                  {/* <div className="CHM_selectBackCardIcon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </div> */}
                 </div>
-                <div className="CHM_selectCardKname">{a.kname}</div>
-                <div className="CHM_selectCardEname">{a.ename}</div>
-                <div className="CHM_selectCardkcal">{a.kcal} kcal</div>
+              {/* </Link> */}
+              <div className="CHM_selectCardImg">
+                <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname}></img>
               </div>
-            );
-          })}
+              <div className="CHM_selectCardKname">{item.kname}</div>
+              <div className="CHM_selectCardEname">{item.ename}</div>
+              <div className="CHM_selectCardkcal">{item.ingred_kcal} kcal</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -99,6 +106,22 @@ function Freshingredientsct() {
 
 export default Freshingredientsct;
 
+function getCategoryText(category) {
+  switch (category) {
+    case "All":
+      return "All";
+    case 0:
+      return "빵";
+    case 1:
+      return "야채";
+    case 2:
+      return "치즈";
+    case 3:
+      return "소스";
+    default:
+      return "";
+  }
+}
 
 // import id1 from "../../image/bread/honeyoat.jpg";
 // import id2 from "../../image/bread/heartyitalian.jpg";

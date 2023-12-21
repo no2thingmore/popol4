@@ -35,7 +35,7 @@ function Adminlogin() {
   //     });
   // };
   return (
-    <div className="login_container" style={{display:"flex", alignItems:"center"}}>
+    <div className="login_container" style={{display:"flex", alignItems:"center", justifyContent: "center"}}>
       <div className="login_section">
         <h1>관리자 LOGIN</h1>
         <a href="/admin/home/none">a</a>

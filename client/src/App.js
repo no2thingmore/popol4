@@ -13,6 +13,7 @@ import Event from "./components/newsPage/event";
 import Newspage from "./components/newsPage/newspage";
 import Advertising from "./components/newsPage/advertising";
 import Notice from "./components/newsPage/notice";
+import NoticeDetail from "./components/newsPage/noticedetail";
 import Login from './components/login/login';
 import Franchise from './components/franchise/franchise'
 import Menuintro from "./components/menuintro/menuintro";
@@ -31,7 +32,9 @@ import QQNA from './components/helpdesk/qqna';
 import Test from "./components/subway/test";
 import Mypage from './components/mypage/mypage';
 import Comment from "./components/admin/page/sup/submenu/inquiry/comment";
-
+import Subcard from "./components/footer/subcard/subcard";
+import Condition from "./components/footer/condition/condition";
+import Processing_policy from "./components/footer/processing_policy/processing_policy";
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -60,6 +63,7 @@ function App() {
         <Route path="/event" element={<Event />}></Route>
         <Route path="/advertising" element={<Advertising />}></Route>
         <Route path="/notice" element={<Notice />}></Route>
+        <Route path="/news/:id" element={<NoticeDetail />}></Route>
         <Route path="/order/:type/:step/:location/:product/:id" element={<Order></Order>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
@@ -81,6 +85,9 @@ function App() {
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
         <Route path="/mypage/:select" element={<Mypage />}></Route>
+        <Route path="/subcard" element={<Subcard />}></Route>
+        <Route path="/condition" element={<Condition />}></Route>
+        <Route path="/processing_policy" element={<Processing_policy />}></Route>
       </Routes>
       {!isCommentPage && <Footer />}
     </div>

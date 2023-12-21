@@ -5,28 +5,56 @@ import Freshingredientsct from './Freshingredients/freshingredientsct';
 import Howtousesubway from '../howtousesubway/howtousesubway';
 import Groupmenu from '../groupmenu/groupmenu';
 import { useParams, Link } from "react-router-dom";
+import { API_URL } from '../../config/contansts';
+import axios from 'axios';
 
 // import { useParams, Link } from "react-router-dom";
 
 function Ingredient() {
   const { product } = useParams();
   const [menu, setMenu] = useState(product);
+  
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/ingredient/ingreDient`)
+      .then((res) => {
+        console.log("db조회 완료");
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("실패");
+      });
+  }, []);
+  
+  const handleMenuClick = (menuType) => {
+    setMenu(menuType);
+  };
+  
+  const menuItems = [
+    { id: "howtousesubway", text: "써브웨이 이용방법" },
+    { id: "groupmenu", text: "단체메뉴 이용방법" },
+    { id: "freshingredients", text: "신선한 재료소개" },
+  ];
   const [isSticky, setIsSticky] = useState(false);
   const [color, setColor] = useState("");
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
       setIsSticky(prevIsSticky => offset > 200 ? true : false);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
-
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
- 
+
   useEffect(() => {
     setMenu(product);
     const colors = {
@@ -37,9 +65,6 @@ function Ingredient() {
     setColor(colors[product]);
   }, [product]);
 
-  const handleMenuClick = (menuType) => {
-    setMenu(menuType);
-  };
 
   const renderMenuComponent = (component, componentct) => (
     <>
@@ -47,12 +72,6 @@ function Ingredient() {
       {componentct}
     </>
   );
-
-  const menuItems = [
-    { id: "howtousesubway", text: "써브웨이 이용방법" },
-    { id: "groupmenu", text: "단체메뉴 이용방법" },
-    { id: "freshingredients", text: "신선한 재료소개" },
-  ];
 
   return (
     <>
@@ -77,7 +96,7 @@ function Ingredient() {
 
       {menu === "howtousesubway" && renderMenuComponent(<Howtousesubway color={color} />, )}
       {menu === "groupmenu" && renderMenuComponent(<Groupmenu color={color} />, )}
-      {menu === "freshingredients" && renderMenuComponent(<Freshingredients color={color} />, <Freshingredientsct />)}
+      {menu === "freshingredients" && renderMenuComponent(<Freshingredients color={color} />, <Freshingredientsct data={data}/>)}
     </>
   );
 }

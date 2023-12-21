@@ -18,10 +18,10 @@ router
   try {
     const data = await Board.findOne({where:{id:req.body.id}})
 
-    const editFile = data.image_url || req.body.image_url;
-    const editTitle = data.title || req.body.title;
-    const editContent = data.content || req.body.content;
-    const editAdmin_id = data.admin_id || req.body.admin_id;
+    const editFile = req.body.image_url || data.image_url;
+    const editTitle = req.body.title || data.title;
+    const editContent = req.body.content || data.content;
+    const editAdmin_id = req.body.admin_id || data.admin_id;
     const update_at = new Date();
 
     await Board.update({

@@ -32,7 +32,7 @@ function Groupmenu(props) {
       <div id="group2">
         <h3>단체메뉴 주문하기</h3>
         <ul>
-          <li className="li1">
+          <li className="li1_jsw">
             <div className="icon">
             <img src={bar}/>
             </div>
@@ -43,7 +43,7 @@ function Groupmenu(props) {
               원하는 단체메뉴를 선택하세요
             </dd>
           </li>
-          <li className="li1">
+          <li className="li1_jsw">
             <div className="icon">
             <img src={phone}/>
             </div>
@@ -55,7 +55,7 @@ function Groupmenu(props) {
               ※ 최소 1일 전 문의하시기 바랍니다.
             </dd>
           </li>
-          <li>
+          <li className="li1_jsw">
             <div className="icon">
             <img src={subway}/>
             </div>
@@ -69,8 +69,8 @@ function Groupmenu(props) {
         </ul>
       </div>
       <div id="undermenu">
-        <a href='/'><span>단체메뉴 보기</span></a>
-        <a href='/'><span>매장찾기</span></a>
+        <a href='/menuIntro/5'><span>단체메뉴 보기</span></a>
+        <a href='/StoreSearch'><span>매장찾기</span></a>
       </div>
     </div>
   );
