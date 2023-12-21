@@ -29,7 +29,6 @@ const Base = () => {
         console.error(err);
         console.log("실패");
       });
-
     return () => clearInterval(interval);
   }, []);
   
