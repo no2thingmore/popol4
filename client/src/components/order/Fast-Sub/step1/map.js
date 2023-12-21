@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MapContainer = ({ searchPlace }) => {
   const navigate = useNavigate();
@@ -7,7 +7,12 @@ const MapContainer = ({ searchPlace }) => {
   useEffect(() => {
     const { kakao } = window;
 
-    if (kakao && kakao.maps && kakao.maps.services && kakao.maps.services.Places) {
+    if (
+      kakao &&
+      kakao.maps &&
+      kakao.maps.services &&
+      kakao.maps.services.Places
+    ) {
       var infowindow = new kakao.maps.InfoWindow({ zIndex: 3 });
       const container = document.getElementById("myMap");
       const options = {
@@ -20,10 +25,14 @@ const MapContainer = ({ searchPlace }) => {
 
       // 검색어에 "써브웨이"가 포함되어 있는지 확인
       if (searchPlace.includes("써브웨이")) {
-        ps.keywordSearch(searchPlace, placesSearchCB, { category_filter: "FD6" });
+        ps.keywordSearch(searchPlace, placesSearchCB, {
+          category_filter: "FD6",
+        });
       } else {
         // 포함되어 있지 않으면 "써브웨이" 키워드를 추가하여 검색
-        ps.keywordSearch(`${searchPlace} 써브웨이`, placesSearchCB, { category_filter: "FD6" });
+        ps.keywordSearch(`${searchPlace} 써브웨이`, placesSearchCB, {
+          category_filter: "FD6",
+        });
       }
 
       function placesSearchCB(data, status, pagination) {
@@ -59,9 +68,12 @@ const MapContainer = ({ searchPlace }) => {
         console.log("location: ", location);
 
         kakao.maps.event.addListener(marker, "click", function () {
-          infowindow.setContent(
-            `<div style="padding:5px;font-size:0.8vw;cursor: pointer;" onclick="handleClick('${location}')">${location}</div>`
-          );
+          const content = `
+      <div style=" text-align:center; padding-top:5px; font-size:1vw;">${location}</div>
+      <div style="border-radius: 1vw; text-align:center; color: white; margin:0.5vw; background-color:green; padding:5px; font-size:0.8vw; cursor: pointer;" onclick="handleClick('${location}')">주문하기</div>
+    `;
+
+          infowindow.setContent(content);
           infowindow.open(map, marker);
         });
       }
