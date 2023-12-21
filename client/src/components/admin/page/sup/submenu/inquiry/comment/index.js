@@ -80,7 +80,7 @@ function Comment() {
     };
 
     return (
-        <div className=''>
+        <div className='KJH_comment_main_section'>
             <div>
                 <Header menu={menu} setMenu={setMenu} />
             </div>
