@@ -119,7 +119,6 @@ function Comment() {
                             </Link>
                         </div>
                     </span>
-                    
                     <div className='KJH_com_title_section'>
                         <div className='KJH_com_type_input'>
                         <span className='KJH_com_type'>
