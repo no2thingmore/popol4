@@ -30,8 +30,8 @@
   list-style: none;
   width: 4215%;
   position: relative;
-  transition-duration: 0.5s;
-  transform: translate3d(-00px, 0px, 0px);
+  /* transition-duration: 0.5s; */
+  transform: translate3d(0px, 0px, 0px);
 }
 .slide_li_item{
   float: left;
@@ -41,15 +41,18 @@
   margin-right: 130px;
 }
 /*************** 슬 라 이 드 이 미 지 ***************/
+/* 비활성화시 이미지는 opacity 0.5 텍스트는 0 */
 .slide_img{
-  width: 770px;
+  width: 770px; 
   height: 390px;
-  opacity: 1;
+  opacity: 0.5;
   overflow: hidden;
   transition-delay: 0.3s;
   transition-duration: 0.45s
 }
-
+.slide_img.active{
+  opacity: 1;
+}
 .slide_img > img{
   position: relative;
   width: 770px;
@@ -67,7 +70,7 @@
   padding-top: 30px;
   position: relative;
   margin-top: 40px;
-  /* opacity: 0; */
+  opacity: 0;
   /* top: 30px; */
   top: 0;
 }
@@ -96,7 +99,9 @@
   line-height: 26px;
   letter-spacing: -0.05em;
 }
-
+.slide_info.active{
+  opacity: 1;
+}
 
 /*************** 슬 라 이 드 버 튼 ***************/
 .slide_ctl_Arrow{
