@@ -3,6 +3,7 @@ import "./header.css";
 import { API_URL } from '../config/contansts';
 import axios from "axios"
 import { getCookie, removeCookie } from '../../useCookies';
+import subway1 from "../header/subway1.png";
 
 function Header() {
 const navigate = useNavigate();
@@ -26,9 +27,7 @@ const Login = (e) => {
     <div className="header">
       {/* <button onClick={test}>등록</button> */}
       <div className="topheader">
-        <h1 id="logo">
-          <Link to="/">SUBWAY</Link>
-        </h1>
+        <Link to="/"><img src={subway1}></img></Link>
         { getCookie('user') ? 
           <div className="util_menu">
             <button style={{cursor: "pointer"}}><a onClick={Logout}>로그아웃</a></button>&nbsp;&nbsp;
