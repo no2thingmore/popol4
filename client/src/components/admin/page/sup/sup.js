@@ -17,7 +17,7 @@ function Sup() {
             {category === "news" && <News />}
 
             {/* FAQ 등록 */}
-            {category === "createFAQ" && <CreateFAQ />}
+            {category === "createfaq" && <CreateFAQ />}
         </>
     )
 }

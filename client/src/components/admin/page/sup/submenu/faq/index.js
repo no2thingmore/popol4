@@ -81,7 +81,7 @@ function Faq(){
                 <div className='KJH_inq_info'>
                     <div className='KJH_inq_top_section'>
                         <span className='KJH_inq_top_pos_num_info'>등록된 FAQ</span>
-                        <span className='KJH_inq_top_pos_num'>{faq.length} 건</span>
+                        <span className='KJH_inq_top_pos_num'>{faq.length} 개</span>
                         <span className='KJH_inq_top_toggle_section'>
                             {/* 내용 모두 닫기 */}
                             <button onClick={closeAllToggles} className="KJH_inq_top_close_toggle_section">
@@ -101,9 +101,11 @@ function Faq(){
                             </button>
                             ))}
                         </span>
-                        <div className='KJH_inq_top_create_faq'>
-                            등록하기
-                        </div>
+                        <Link to="/admin/support/createfaq">
+                            <div className='KJH_inq_top_create_faq'>
+                                등록하기
+                            </div>
+                        </Link>
                     </div>
                     <table className='KJH_inq_table_section'>
                         <colgroup>
