@@ -25,8 +25,8 @@ const imageFiles = [
     content3: "샐러드 중 선택 가능합니다.",
     button: "샌드위치 메뉴",
     button2: "샐러드 메뉴",
-    link : '../../menuintro/sandwich',
-    link2 : '../../menuintro/salad'
+    link : '/menuIntro/0',
+    link2 : '/menuIntro/2'
   },
   {
     img: order_step4,
@@ -35,7 +35,7 @@ const imageFiles = [
     content2: "고객님이 원하는 빵으로",
     content3: "추가비용 없이 선택 가능합니다.",
     button: "빵 종류",
-    link : '../../menuintro/salad'
+    link : '/ingreDient/freshingredients'
   },
   {
     img: order_step3,
@@ -44,7 +44,7 @@ const imageFiles = [
     content2: "",
     content3: "",
     button: "추가토핑 메뉴",
-    link : '../../menuintro/salad'
+    link : '/ingreDient/freshingredients'
   },
   {
     img: order_step2,
@@ -54,8 +54,8 @@ const imageFiles = [
     content3: "오늘의 기분에 맞는 소스를 선택해주세요.",
     button: "야채 종류",
     button2: "소스 종류",
-    link : '../../menuintro/salad',
-    link2 : '../../menuintro/salad'
+    link : '/ingreDient/freshingredients',
+    link2 : '/ingreDient/freshingredients'
   },
   {
     img: order_step1,
@@ -64,7 +64,7 @@ const imageFiles = [
     content2: "세트로 더욱 든든하고 알차게 즐기세요.",
     content3: "",
     button: "스마일 썸"
-    ,link : '../../menuintro/smile'
+    ,link : '/menuIntro/4'
   },
 ];
 

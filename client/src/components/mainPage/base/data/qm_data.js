@@ -10,7 +10,7 @@ const QM_Data = [
         text: '개설절차/투자비용 정보',
         img: QM_01,
         alt: '프랜차이즈',
-        path: '/subwayfranchise'
+        path: '/franchise/subwayfranchise'
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const QM_Data = [
         text: '수도권/지방 지사정보',
         img: QM_02,
         alt: '지사안내',
-        path: '/branchinformation'
+        path: '/franchise/branchinformation'
     },
     {
         id: 3,

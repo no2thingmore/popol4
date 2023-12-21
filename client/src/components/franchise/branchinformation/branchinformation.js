@@ -75,7 +75,7 @@ function BranchInformation() {
                       <p>팩스번호 : 02-6356-7907</p>
                     </div>
                     <div id="seoul_a">
-                    <a href="/franchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="/franchise/subwayfranchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
                   </div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ function BranchInformation() {
                         <p>팩스번호 : 0504-384-1146</p>
                       </div>
                       <div id="seoul_a">
-                        <a href="/subwayfranchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="/franchise/subwayfranchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>
@@ -187,7 +187,7 @@ function BranchInformation() {
                         <p>팩스번호 : 0504-384-1146</p>
                       </div>
                       <div id="seoul_a">
-                        <a href="/subwayfranchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="/franchise/subwayfranchise">가맹요건 알아보기 <i class="fa-solid fa-arrow-right"></i></a>
                       </div>
                     </div>
                   </div>

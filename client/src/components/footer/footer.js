@@ -1,23 +1,20 @@
 import "./footer.css";
-// import f_img from "../footer/footer_img/free_icon_facebook.png";
-// import i_img from "../footer/footer_img/free_icon_instagram.png";
-
+import instagram from "./footer_img/instagram.png";
+import facebook from "./footer_img/facebook.png";
 
 function Footer() {
   return(
-    <div className="footer">
+    <div className="footer111">
       <div className="content_jun">
         <div className="util_menu_jun">
-          <button id="jun_b"><a href="/">이용약관</a></button>
-          <button id="jun_b1"><a href="/"><b>개인정보처리방침</b></a></button>
-          <button id="jun_b"><a href="/">써브카드</a></button>
+          <button id="jun_b"><a href="/condition">이용약관</a></button>
+          <button id="jun_b1"><a href="/processing_policy"><b>개인정보처리방침</b></a></button>
+          <button id="jun_b"><a href="/subcard">써브카드</a></button>
           <button id="jun_b"><a href="/admin/home/none">점주관리자</a></button>
-          {/* <a href="/" id="jun_facebook">
-            <img className="f_img" src={free_icon_facebook}/>
-          </a>
-          <a href="/" id="jun_instagram">
-            <img className="i_img" src={free_icon_instagram}/>
-          </a> */}
+          <div className="util_menu_jun1"> 
+            <button id="jun_b"><a href="https://www.instagram.com/subwaykorea/"><img src={instagram}></img></a></button>
+            <button id="jun_b"><a href="https://www.facebook.com/Subwaykr"><img src={facebook}></img></a></button>
+          </div>
         </div>
         <div className="line"></div>
         <div className="footer_text">
@@ -26,8 +23,6 @@ function Footer() {
           <span className="tel">전화 : 01-234-5678 | </span>
           <span className="rep">사업자등록번호 : 123-45-6789</span>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;SUBWAY® is a Registered Trademark of Subway IP LLC. © 2021 Subway IP LLC. All Rights Reserved.</p>
-          {/* <a>인스타그램</a>
-          <a>페이스북</a> */}
         </div>
       </div>
     </div>

@@ -11,6 +11,8 @@
 
 .KJH_inq_info {
     padding-left: 190px;
+    min-width: 1000px;
+    max-width: 1000px;
 }
 
 .KJH_inq_top_section {
@@ -20,13 +22,6 @@
 .KJH_inq_top_section > span {
     padding: 15px 25px;
     font-size: 20px;
-}
-
-.KJH_inq_top_list {
-    border: 2px solid #999999;
-    margin-right: 10px;
-    background-color: #c7c7c7;
-    border-radius: 10px;
 }
 
 .KJH_inq_top_pos_num_info {
@@ -82,9 +77,27 @@
 
 .KJH_inq_top_page_button_section > button:hover {
     box-shadow: inset 0 0 2px 2px white;
-    background-color: #828282;
+    background-color: #aaaaaa;
     color: white;
     cursor: pointer;
+}
+
+.KJH_inq_top_create_faq {
+    float: right;
+    position: relative;
+    top: 33px;
+    margin-right: 10px;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px 13px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.KJH_inq_top_create_faq:hover {
+    background-color: #666666;
+    color: white;
 }
 
 .KJH_inq_table_section {

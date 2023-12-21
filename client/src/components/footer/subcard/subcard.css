@@ -1,0 +1,46 @@
+.subcard_all{
+  width: 50%; 
+  margin: 0 auto;
+  /* font-family: font_ns, sans-serif; */
+  margin-bottom: 70px;
+}
+
+.ymjs_large_title > h2{
+  font-family: font_ns, sans-serif;
+}
+
+
+.ymjs_small_title{
+  border-bottom: 3px dashed gray;
+}
+
+.ymjs_small_title_s{
+  background-color: rgb(238, 236, 236);
+  width: 950px; 
+  height: 180px;
+  margin: auto;
+}
+
+.ymjs_small_title_s > p {
+  padding-top:30px;
+  color: #000000;
+  margin-right: 30px;
+  margin-left: 30px;
+  font-family: font_ns, sans-serif;
+}
+
+.ymjs_small_title > h3{
+  font-size: 20px;
+  font-weight: 500;
+  font-family: font_ns, sans-serif;
+  font-weight: 550;
+}
+
+.ymjs_small_title > p{
+  font-family: font_ns, sans-serif;
+  color: gray;
+}
+
+.ymjs_small_title {
+  margin-left: 10px;
+}

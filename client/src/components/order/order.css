@@ -54,7 +54,7 @@
 .CHM_faststep1SelectBox div {
   text-align: center;
   padding:  1.5vw 2vw;
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   cursor: pointer;
 }
 
@@ -123,7 +123,7 @@
 
 .CHM_faststep2DetaileCardKname {
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   color: black;
 }
 
@@ -136,7 +136,7 @@
 
 .CHM_faststep2DetaileCardKcal {
   text-align: center;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   padding-bottom: 2vw;
   color: #ffc300;
 }
@@ -165,7 +165,7 @@
 }
 
 .CHM_faststep2ResultKname {
-  font-size: 3vw;
+  font-size: 2.8vw;
   padding-bottom: 1vw;
 }
 
@@ -209,6 +209,9 @@
   margin-bottom: 2vw;
   padding-left: 1vw;
   font-size: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .CHM_faststep2Result2pushGrid {
@@ -262,6 +265,9 @@
 }
 
 .CHM_faststep2ResultReservationTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 2vw;
 }
 
@@ -455,6 +461,18 @@
   height: 40vw;
 }
 
+.CHM_kakaomap > div > div > div > div{
+  width: 10vw !important;
+}
+
+.CHM_kakaomap > div > div > div > div > div{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .CHM_inputForm{
   display: flex;
   align-items: center;
@@ -472,7 +490,6 @@
   width: 87%;
   font-size: 1vw;
   font-family: "NPSfontBold";
-
 }
 
 .CHM_serachBG{
@@ -534,7 +551,7 @@
 }
 
 .slick-track{
-  width: 160vw !important;
+  width: 300vw !important;
 }
 
 .slick-prev:before, .slick-next:before{

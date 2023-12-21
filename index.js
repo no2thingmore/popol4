@@ -10,6 +10,9 @@ const IngredientRouter = require('./routes/Ingredient.js')
 const UserRouter = require('./routes/User.js')
 const BoardRouter = require('./routes/Board.js')
 const InquiryRouter = require('./routes/Inquiry.js')
+const EventRouter = require('./routes/Event.js')
+const StoreRouter = require('./routes/Store.js')
+const FaqRouter = require('./routes/Faq.js')
 
 const port = process.env.NODE_ENV || 8080;
 const multer = require('multer');
@@ -50,8 +53,11 @@ app.post('/image', upload.single('image'), (req, res)=>{
 app.use('/food', FoodRouter);
 app.use('/ingredient', IngredientRouter);
 app.use('/user', UserRouter);
-app.use('/board',BoardRouter)
-app.use('/inquiry',InquiryRouter)
+app.use('/board',BoardRouter);
+app.use('/inquiry',InquiryRouter);
+app.use("/event", EventRouter);
+app.use("/store", StoreRouter);
+app.use("/faq", FaqRouter);
 
 // const Food = require('./models/food.js');
 // const Ingredient = require('./models/ingredient.js')

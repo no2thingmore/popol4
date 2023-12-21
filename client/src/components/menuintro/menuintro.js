@@ -14,184 +14,28 @@ import Smilect from "./smile/smilect";
 import Wrapct from "./wrap/wrapct";
 import { useParams, Link } from "react-router-dom";
 import img from "./sandwitch/sandwich.png";
+import axios from 'axios';
+import { API_URL } from '../config/contansts';
 
 function Menuintro() {
   const { product } = useParams();
   const [menu, setMenu] = useState(0);
 
-  const [data, setData] = useState([
-    {
-      id: 0,
-      admin_id: 1,
-      kname: "샌드위치1",
-      ename: "sandwitch1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 1,
-      ingred_gram: 1,
-      ingred_protein: 1,
-      ingred_fat: 1,
-      ingred_sugars: 1,
-      ingred_salt: 1,
-      price: 1000,
-      tags: 0,
-      kinds: 0,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 1,
-      admin_id: 1,
-      kname: "샌드위치2",
-      ename: "sandwitch2",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 1,
-      kinds: 0,
-      status: 1,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 2,
-      admin_id: 1,
-      kname: "샌드위치3",
-      ename: "sandwitch3",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 3,
-      ingred_gram: 3,
-      ingred_protein: 3,
-      ingred_fat: 3,
-      ingred_sugars: 3,
-      ingred_salt: 3,
-      price: 3000,
-      tags: 2,
-      kinds: 0,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 3,
-      admin_id: 1,
-      kname: "랩1",
-      ename: "wrap1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 1,
-      ingred_gram: 1,
-      ingred_protein: 1,
-      ingred_fat: 1,
-      ingred_sugars: 1,
-      ingred_salt: 1,
-      price: 1000,
-      tags: 4,
-      kinds: 1,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 4,
-      admin_id: 1,
-      kname: "랩2",
-      ename: "wrap2",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 5,
-      kinds: 1,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 5,
-      admin_id: 1,
-      kname: "샐러드1",
-      ename: "salad1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 6,
-      kinds: 2,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 6,
-      admin_id: 1,
-      kname: "아침메뉴1",
-      ename: "breakfast1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 10,
-      kinds: 3,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 7,
-      admin_id: 1,
-      kname: "스마일 썹",
-      ename: "smilesub1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 12,
-      kinds: 4,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-    {
-      id: 8,
-      admin_id: 1,
-      kname: "단체메뉴",
-      ename: "group1",
-      image_url: img,
-      coment: "잉~ 앗쌀라말라이꿍~",
-      ingred_kcal: 2,
-      ingred_gram: 2,
-      ingred_protein: 2,
-      ingred_fat: 2,
-      ingred_sugars: 2,
-      ingred_salt: 2,
-      price: 2000,
-      tags: 13,
-      kinds: 5,
-      status: 0,
-      created_at: "2023-11-13",
-    },
-  ]);
+  const [data, setData] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/food/menuintro`)
+      .then((res) => {
+        console.log("db조회 완료");
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("실패");
+      });
+  }, []);
 
   const handleMenuClick = (menuType) => {
     setMenu(menuType);

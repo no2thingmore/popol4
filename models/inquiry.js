@@ -68,6 +68,7 @@ class Inquiry extends Sequelize.Model {
   }
   static associate(db) {
     db.Inquiry.belongsTo(db.Admin, { foreignKey: 'admin_id', targetKey: 'id' });
+    db.Inquiry.belongsTo(db.User, { foreignKey: 'user_id', targetKey: 'id' });
   }
 };
 
