@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./cart.css";
 import cart1 from "./mypage_img/cart1.png";
 
@@ -11,21 +11,16 @@ function Cart() {
   
   useEffect(() => {
     const parsedData = JSON.parse(data);
-    console.log("tttttt",parsedData);
+    console.log("test",parsedData);
   
     if (Array.isArray(parsedData) && parsedData.length > 0) {
       setCart(parsedData);
       setItemCounts(parsedData.map(() => 1));
     }
     setLocation(parsedData[0][0].location);
-    const { IMP } = window;
-    IMP.init('imp72356683');
   }, [data]);
 
   function onClickPayment() {
-    /* 1. 가맹점 식별하기 */
-    const { IMP } = window;
-    IMP.init('imp72356683');
 
     /* 2. 결제 데이터 정의하기 */
     const data = {
@@ -40,9 +35,8 @@ function Cart() {
       buyer_addr: '신사동 661-16',                    // 구매자 주소
       buyer_postcode: '06018',                      // 구매자 우편번호
     };
-
     /* 4. 결제 창 호출하기 */
-    IMP.request_pay(data, callback);
+    window.IMP.request_pay(data, callback);
   }
 
   /* 3. 콜백 함수 정의하기 */
@@ -91,6 +85,7 @@ function Cart() {
     setCart((prevCart) => {
       const newCart = [...prevCart];
       newCart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
     });
 
