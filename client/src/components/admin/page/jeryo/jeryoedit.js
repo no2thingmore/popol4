@@ -116,6 +116,7 @@ function Jeryoedit(props) {
                 <option value="1">야채</option>
                 <option value="2">치즈</option>
                 <option value="3">소스</option>
+                <option value="4">고기</option>
               </select>
             </div>
             <div className="CHM_plustablegrid">

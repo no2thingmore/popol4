@@ -1,16 +1,20 @@
 import "./login.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getCookie, removeCookie, setCookie } from "../../useCookies";
-import { useNavigate } from "react-router-dom";
+import { useFetcher, useNavigate } from "react-router-dom";
 import { API_URL } from "../config/contansts";
 
 function Login() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
-  if (getCookie("saveID")) {
-    setUserId(getCookie("saveID"));
-  }
+
+  useEffect(() => {
+    if (getCookie("saveID")) {
+      setUserId(getCookie("saveID"));
+    }
+  }, []);
+
   const login = async (e) => {
     e.preventDefault();
     const email = e.target.login_id.value;
