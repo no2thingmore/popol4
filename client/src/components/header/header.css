@@ -27,15 +27,20 @@ a {
 .topheader {
   text-align: center;
 }
+.topheader img{
+  width: 300px;
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
 
-#logo {
+/* #logo {
   font-family: 'TTWanjudaedunsancheB';
   text-align: center;
   padding-top: 50px;
   margin-bottom: 20px;
   margin-top: 0;
   font-size: 50px;
-}
+} */
 
 .util_menu {
   display: flex;
