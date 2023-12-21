@@ -42,6 +42,8 @@ function FranchiseInquire() {
       const response = await axios.post(`${API_URL}/store/admin`, formData);
       console.log("데이터 전송 성공:", response.data);
       // 성공적으로 전송되면 필요한 처리 수행
+      window.alert("문의 등록이 완료되었습니다.");
+
     } catch (error) {
       console.error("데이터 전송 실패:", error);
       // 전송 실패 시에 필요한 처리 수행
@@ -141,9 +143,9 @@ function FranchiseInquire() {
                 </div>
               </div>
               <div className='kk_ask_btm_btn_sction'>
-                <Link to ="/" className='kk_ask_btm_btn_cancel'>
+                <a href ="/franchise/subwayfranchise" className='kk_ask_btm_btn_cancel'>
                   <span>취소</span>
-                </Link>
+                </a>
                 <button type="submit" className='kk_ask_btm_btn_reg'>
                   <span>등록하기</span>
                 </button>
