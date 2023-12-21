@@ -52,6 +52,7 @@ function Login() {
                   type="text"
                   value={userId}
                   placeholder="아이디(이메일) 입력"
+                  autocomplete="off" 
                 ></input>
               </div>
               <div className="login_pwd_input">

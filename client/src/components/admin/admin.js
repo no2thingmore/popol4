@@ -5,7 +5,6 @@ import { useParams, Link } from "react-router-dom";
 import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
-import Option from "./page/option/option";
 import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";

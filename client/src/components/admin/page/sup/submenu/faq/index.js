@@ -1,5 +1,3 @@
-// CSS 는 submenu/inquiry/inquiry.css 에 기반합니다
-
 import './faq.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -21,8 +19,10 @@ function Faq(){
         try {
             const res = await axios.get(`${API_URL}/faq`);
             setFaq(res.data);
+            // console.log('FAQ 데이터조회 완료')
             console.log(res.data);
         } catch (error) {
+            // console.log('FAQ 데이터조회 실패')
             console.error(error);
         }
     };
@@ -72,27 +72,27 @@ function Faq(){
 
     return (
         <>
-            <div className='KJH_inq_section'>
-                <div className='KJH_inq_route'>
+            <div className='KJH_faq_section'>
+                <div className='KJH_faq_route'>
                     Admin &gt; 고객 지원 &gt; FAQ
                 </div>
-                <div className='KJH_inq_info'>
-                    <div className='KJH_inq_top_section'>
-                        <span className='KJH_inq_top_pos_num_info'>등록된 FAQ</span>
-                        <span className='KJH_inq_top_pos_num'>{faq.length} 개</span>
-                        <span className='KJH_inq_top_toggle_section'>
+                <div className='KJH_faq_info'>
+                    <div className='KJH_faq_top_section'>
+                        <span className='KJH_faq_top_pos_num_info'>등록된 FAQ</span>
+                        <span className='KJH_faq_top_pos_num'>{faq.length} 개</span>
+                        <span className='KJH_faq_top_toggle_section'>
                             {/* 내용 모두 닫기 */}
-                            <button onClick={closeAllToggles} className="KJH_inq_top_close_toggle_section">
+                            <button onClick={closeAllToggles} className="KJH_faq_top_close_toggle_section">
                                 <img src={ArrowUp} alt='위쪽 화살표' />
                             </button>
                             {/* 내용 모두 열기 */}
-                            <button onClick={openAllToggles} className="KJH_inq_top_open_toggle_section">
+                            <button onClick={openAllToggles} className="KJH_faq_top_open_toggle_section">
                                 <img src={ArrowDown} alt='아래쪽 화살표' />
                             </button>
                         </span>
                         
                         {/* 페이지 버튼 */}
-                        <span className='KJH_inq_top_page_button_section'>
+                        <span className='KJH_faq_top_page_button_section'>
                             {[...Array(Math.ceil(faq.length / pageLimit)).keys()].map(number => (
                             <button key={number} onClick={() => handlePageChange(number + 1)}>
                                 {number + 1}
@@ -100,47 +100,44 @@ function Faq(){
                             ))}
                         </span>
                         <Link to="/admin/support/createfaq">
-                            <div className='KJH_inq_top_create_faq'>
+                            <div className='KJH_faq_top_create_faq'>
                                 등록하기
                             </div>
                         </Link>
                     </div>
-                    <table className='KJH_inq_table_section'>
+                    <table className='KJH_faq_table_section'>
                         <colgroup>
                             <col style={{width: "150px"}} />
                             <col style={{width: "500px"}} />
                             <col style={{width: "150px"}} />
                         </colgroup>
-                        <thead className='KJH_inq_table_thead_section'>
-                            <tr className='KJH_inq_title_section'>
-                                <th className='KJH_inq_title_kinds'>종류</th>
-                                <th className='KJH_inq_title_title'>제목</th>
-                                <th className='KJH_inq_title_ctrl'>관리</th>
+                        <thead className='KJH_faq_table_thead_section'>
+                            <tr className='KJH_faq_title_section'>
+                                <th className='KJH_faq_title_kinds'>종류</th>
+                                <th className='KJH_faq_title_title'>제목</th>
+                                <th className='KJH_faq_title_ctrl'>관리</th>
                             </tr>
                         </thead>
                         <tbody>
                             {displayedPosts.map((item) => (
                                 <React.Fragment key={item.id}>
-                                    <tr className='KJH_inq_contents_section' onClick={() => toggleContent(item.id)}>
-                                        <td className='KJH_inq_contents_kind'>{tagsMapping[item.tags] || '알 수 없음'}</td>
-                                        <td className='KJH_inq_contents_title' >{item.title}</td>
-                                        <td className='KJH_inq_contents_ctrl'>
-                                            <span className='KJH_inq_contents_ans'>
+                                    <tr className='KJH_faq_contents_section' onClick={() => toggleContent(item.id)}>
+                                        <td className='KJH_faq_contents_kind'>{tagsMapping[item.tags] || '알 수 없음'}</td>
+                                        <td className='KJH_faq_contents_title' >{item.title}</td>
+                                        <td className='KJH_faq_contents_ctrl'>
+                                            <span className='KJH_faq_contents_ans'>
                                             <Link to={`/admin/support/updatefaq`}
                                                 state={{id:item.id}}
                                             >수정</Link>
                                             </span>
-                                            <span className='KJH_inq_contents_del'>삭제</span>
+                                            <span className='KJH_faq_contents_del'>삭제</span>
                                         </td>
                                     </tr>
                                     {showContents[item.id] && (
                                         <>
-                                            <tr className='KJH_inq_coment_tr_1st'>
+                                            <tr className='KJH_faq_coment_tr_1st'>
                                                 <td />
-                                                <td colSpan="2" className='KJH_inq_contents_content'>{item.content}</td>
-                                                <td />
-                                                <td />
-                                                <td />
+                                                <td colSpan="2" className='KJH_faq_contents_content'>{item.content}</td>
                                             </tr>
                                         </>
                                     )}

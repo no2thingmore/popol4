@@ -80,16 +80,50 @@ function Event(){
         <h2> 이벤트ㆍ프로모션 </h2>
       </div>
 
-      <div className="y_painting">
-        {/* {images.map((image, index) => (
-            <img 
-                key={index}
-                className={`top_slide ${index === currentIndex ? 'active' : ''}`}
-                src={image}
-                alt={`이미지 ${index + 1}`}
-            />
-        ))} */}
-      </div>
+      {/* <div className="y_painting">
+        <div className="Artist_slide">
+          <div className="Artist_slide_viewport" aria-live="polite" >
+            <ul className="slide_li" style={{
+              transition: noTransition ? "none" : "transform 0.5s ease",
+              transform: `translate3d(-${currentSlide * 900}px, 0, 0)` ,
+              }}>
+              {clone_slide.map((slide, index) => (
+                <li className="slide_li_item">
+                  <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
+                  <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
+                  </div>
+                  <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
+                    <strong className="slide_info_tit">{slide.title}</strong>
+                    <p className="slide_info_txt">{slide.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="slide_ctl">
+            <div className="slide_ctl_Arrow">
+              <a className="bt_prev" onClick={prevSlide}>Prev</a>
+              <a className="bt_next" onClick={nextSlide}>Next</a>
+            </div>
+
+            <div className="slide_ctl_Dot">
+              {clone_slide.map((_, index) => (
+                (index > 1 && index < clone_slide.length - 2) &&(
+                <div key={index} className="Dot_item">
+                  <a
+                    className={`clicked_dot ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length)? "on" : ""}`}
+                    onClick={() => goToSlide(index)}
+                  >
+                    {index + 1}
+                  </a>
+                </div>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      </div> */}
 
       <div className="y_all_button">
         <div style={{position: "relative"}}>

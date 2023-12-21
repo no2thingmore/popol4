@@ -28,7 +28,7 @@ function UpdateFAQ() {
         try {
             const res = await axios.get(`${API_URL}/faq/update`,{params:{id:faqId}});
             setFaqListData(res.data);
-            console.log('데이터가 조회되었습니다')
+            // console.log('해당 ID 데이터를 불러왔습니다')
             console.log(res.data);
         } catch (err) {
             console.error('FAQ 데이터 오류')
