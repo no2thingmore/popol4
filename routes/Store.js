@@ -3,10 +3,10 @@ const Store = require('../models/store');
 const router = express.Router();
 
 router
-  .get('/',(req,res,next)=>{
+  .get('/admin',(req,res,next)=>{
     Store.findAll()
     .then((response)=>{
-      console.log(response);
+      console.log(response);  
       res.status(201).send(response)
     })
     .catch((err)=>{
@@ -15,14 +15,17 @@ router
     })
   })
 
+
   .post('/admin',(req,res,next)=>{
     try {
+      console.log(req.body);
       Store.create({
-        name:req.body.name,
-        address:req.body.name,
-        phone:req.body.name,
+        name:req.body.storeadd,
+        address:req.body.add,
+        phone:req.body.tell,
+        email:req.body.email,
         oner:req.body.name,
-        status:req.body.status,
+        status:3,//승인 대기중
         created_at:new Date(),
         updated_at:new Date(),
       })

@@ -4,7 +4,7 @@ const Faq = require('../models/Faq');
 const router = express.Router();
 
 router
-.get('/site', async(req,res,next)=>{
+.get('/', async(req,res,next)=>{
   try {
     const foodData = await Faq.findAll();
     // console.log('food',foodData);

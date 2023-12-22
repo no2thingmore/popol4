@@ -87,7 +87,7 @@ function Login() {
           </Link>
 
           <li>
-            <a>회원가입</a>
+            <Link to={'/register'}>회원가입</Link>
           </li>
         </ol>
       </div>
