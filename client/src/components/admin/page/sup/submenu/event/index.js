@@ -30,8 +30,6 @@ function Event(){
         fetchEvent();
     }, []);
 
-
-
     // 페이지 계산
     const firstPostIndex = (currentPage - 1) * pageLimit;
     const lastPostIndex = currentPage * pageLimit;

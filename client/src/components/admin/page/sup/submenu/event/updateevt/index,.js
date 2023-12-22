@@ -32,10 +32,11 @@ function UpdateEvt() {
         try {
             const res = await axios.get(`${API_URL}/event/update`,{params:{id:evtId}});
             setEvtListData(res.data);
-            // console.log('해당 이벤트 데이터를 불러왔습니다')
+            console.log('해당 이벤트 데이터를 불러왔습니다')
             console.log(res.data);
         } catch (err) {
-            console.error('이벤트 데이터를 가져오지 못하였습니다')
+            console.error('해당 이벤트 데이터를 가져오지 못하였습니다')
+            console.error(err);
         }
     }
     useEffect(() => {
@@ -46,7 +47,7 @@ function UpdateEvt() {
         }
     }, [evtId]);
 
-    // 수정하기 | 데이터 : 제목, 내용, 진행상태
+    // 이벤트 수정하기 | 수정데이터 : 제목, 내용, 진행상태, 이미지
     const handleSubmit = async () => {
         const formData = new FormData();
         formData.append('title', title);
@@ -69,7 +70,6 @@ function UpdateEvt() {
             console.error('수정 에러', err);
         }
     };
-    
     useEffect(() => {
         if (evtListData) {
             setTitle(evtListData.title);
@@ -83,7 +83,7 @@ function UpdateEvt() {
             <div className='KJH_update-evt_section'> 
                 <div className='KJH_update-evt_width'>
                     <span className='KJH_update-evt_route'>
-                        <div>이벤트 등록하기</div>
+                        <div>이벤트 수정</div>
                         <div className='KJH_update-evt_btn_section'>
                             <Link to='/admin/support/event'>
                                 <div className='KJH_update-evt_btn_back'>

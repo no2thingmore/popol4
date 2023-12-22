@@ -138,6 +138,18 @@
     border-bottom: 2px solid #999999;
 }
 
+.KJH_evt_title_title {
+    width: 530px;
+}
+
+.KJH_evt_title_ctrl {
+    width: 140px;
+}
+
+.KJH_evt_contents_status {
+    width: 120px;
+}
+
 .KJH_evt_contents_section > td {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 700;
