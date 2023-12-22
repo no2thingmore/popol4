@@ -24,6 +24,18 @@ function Store() {
     }
   };
 
+  const deleteData = async (id) => {
+    try {
+
+      await axios.delete(`${API_URL}/store/admin`,{data: { id:id }});
+
+      // 클라이언트 상태에서도 해당 데이터 삭제
+      setData((prevData) => prevData.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("데이터 삭제 실패:", error);
+    }
+  };
+
   return (
     <div className="CHM_adminProductPageBg">
       <div className="jj_franchise">가맹신청 문의</div>
@@ -36,13 +48,14 @@ function Store() {
                   type="checkbox"
                 />
               </th>
-              <th style={{ width: "10%" }}>이름</th>
+              <th style={{ width: "5%" }}>이름</th>
               <th style={{ width: "10%" }}>연락처</th>
               <th style={{ width: "10%" }}>이메일</th>
-              <th style={{ width: "15%" }}>지역</th>
+              <th style={{ width: "13%" }}>지역</th>
               <th style={{ width: "10%" }}>가게 지점명</th>
               <th style={{ width: "5%" }}>처리상태</th>
-              <th style={{ width: "5%" }}>제거</th>
+              <th style={{ width: "8%" }}>가게관리</th>
+              <th style={{ width: "5%" }}>데이터 삭제</th>
             </tr>
           </thead>
           <tbody>
@@ -60,7 +73,16 @@ function Store() {
                 <td>{item.address}</td>
                 <td>{item.name}</td>
                 <td>{item.status}</td>
-                <td></td>
+                <td>
+                  <button id="jj_td_btn">승인</button>
+                  <button id="jj_td_btn">폐업</button></td>
+                <td>
+                  <button onClick={() => 
+                    deleteData(item.id)}
+                  >
+                  삭제
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -71,3 +93,7 @@ function Store() {
 }
 
 export default Store;
+
+// 0번 운영중(승인완료)
+// 1번 운영종료
+// 2번 승인대기중
