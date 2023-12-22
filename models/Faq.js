@@ -45,11 +45,6 @@ class Faq extends Sequelize.Model {
         allowNull:true,
         comment:"이미지가 필요한 경우 경로 작성"
       },
-      status:{
-        type: Sequelize.CHAR(1),
-        allowNull: false,
-        comment: "0:대기, 1:완료",
-      }
     }, {
       sequelize,
       timestamps: true,

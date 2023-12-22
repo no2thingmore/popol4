@@ -54,16 +54,22 @@ router
     })
   })
 
-  .get('/admin',(req,res,next)=>{
-
+  .get('/nomal',(req,res,next)=>{
+    User.findAll({where:{role:0}})
+    .then((result)=>{
+      res.status(201).send(result)
+    })
+  })
+  .get('/oner',(req,res,next)=>{
+    User.findAll({where:{role:1}})
+    .then((result)=>{
+      res.status(201).send(result)
+    })
   })
   .patch('/admin/nomal',()=>{
 
   })
   .patch('/admin/oner',()=>{
-
-  })
-  .patch('/admin/admin',()=>{
 
   })
 
