@@ -1,24 +1,33 @@
 import axios from "axios";
 import { API_URL } from "../config/contansts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./mypage.css";
 import { useParams } from 'react-router-dom';
 import Cart from './cart';
 import Select from './select';
 import Infoedit from './infoedit';
+import { getCookie } from '../../useCookies';
 
 function Mypage() {
   const {select} = useParams()
   const [status, setStatus] = useState(select)
-  const [user, setUser] = useState({
-    id: 1,
-    email: "ssp04364@naver.com",
-    password: "gkals5542@",
-    name: "차하민",
-    contact_number: 21705542,
-    role: 0,
-    created_at: "2023-12-15",
-  });
+  const userdata = getCookie('user')
+  const [user, setUser] = useState("");
+  console.log(user);
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/user/mypage`, {params:{id: userdata}})
+      .then((res) => {
+        console.log("db조회 완료");
+        console.log(res.data);
+        setUser(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("실패");
+      });
+  }, []);
 
   return (
     <div className="CHM_mypageBox">
