@@ -13,6 +13,8 @@ const getKindsLabel = (kinds) => {
       return "치즈";
     case 3:
       return "소스";
+    case 4:
+      return "고기";
   }
 };
 
@@ -34,7 +36,7 @@ function Jeryoresult(props) {
         })
         .then((response) => {
           console.log("아이템 삭제 성공");
-          navigate("/admin/jeryo/none")
+          navigate("/admin/jeryo/none");
           window.location.reload();
           // 성공적으로 삭제된 경우, 로컬 상태를 업데이트하거나 다른 필요한 작업 수행
         })
@@ -45,7 +47,6 @@ function Jeryoresult(props) {
       console.log("취소. 변화 없음");
     }
   }
-
 
   const handleEditButtonClick = (id) => {
     props.setId(id);
