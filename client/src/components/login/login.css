@@ -1,7 +1,9 @@
 .login_container {
   background-color: #eeeeee;
-  padding: 4vw 0;
-  height: 100vh;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login_section {

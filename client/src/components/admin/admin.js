@@ -42,7 +42,7 @@ function Admin() {
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
-                카테고리관리
+                재료관리
               </a>
             </li>
             <li>

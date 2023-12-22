@@ -50,6 +50,8 @@ function Apply(){
   const [currentSlide, setCurrentSlide] = useState(2);
   const [noTransition, setNoTransition] = useState(false);
 
+
+  //다음슬라이드로 이동하는 함수 (마지막 슬라이드에서 첫번째로 이동함) 
   const nextSlide = () => {
     if(currentSlide === clone_slide.length - 3){
       setCurrentSlide((prev) => (prev === clone_slide.length - 1 ? 0 : prev + 1));
@@ -65,6 +67,8 @@ function Apply(){
     console.log(currentSlide);
   };
   
+
+  // 이전슬라이드로 이동하는 함수
   const prevSlide = () => {
     if(currentSlide === 2){
       setCurrentSlide((prev) => (prev === 0 ? clone_slide.length - 1 : prev - 1));
@@ -80,6 +84,7 @@ function Apply(){
     console.log(currentSlide);
   };
   
+  // 지정된 인덱스로 이동하는 함수
   const goToSlide = (index) => {
       setNoTransition(false);
       if (index === 1){
