@@ -71,7 +71,7 @@ function CreateEvt() {
                                 value="0"
                                 checked={status === '0'}
                                 onChange={handleStatusChange} />
-                            <label htmlFor="status0" className="KJH_com_input_left">신규</label>
+                            <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
                             <input 
                                 type="radio" 
                                 id="status1"

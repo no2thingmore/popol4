@@ -1,18 +1,18 @@
-.KJH_create-evt_section {
+.KJH_update-news_section {
     margin-left: 20em;
     display: block;
     width: 800px;
     padding-top: 40px;
 }
 
-.KJH_create-evt_width {
+.KJH_update-news_width {
     padding: 30px 100px 50px;
     background-color: rgba(211, 211, 211, 0.71);
     border-radius: 10px;
     border: 2px solid #666666;
 }
 
-.KJH_create-evt_route {
+.KJH_update-news_route {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,28 +22,28 @@
     border-left: 3px solid #666666;
 }
 
-.KJH_create-evt_btn_section {
+.KJH_update-news_btn_section {
     display: flex;
     font-size: 16px;
 }
 
-.KJH_create-evt_btn_back {
+.KJH_update-news_btn_back {
     border: 1px solid gray;
     padding: 5px 8px;
     border: 2px solid #666666;
     border-radius: 5px;
     font-size: 14px;
-    margin-right: 15px;
+    margin-right: 30px;
     background-color: white;
 }
 
-.KJH_create-evt_btn_back:hover {
+.KJH_update-news_btn_back:hover {
     background-color: #666666;
     color: white;
     cursor: pointer;
 }
 
-.KJH_create-evt_title_section {
+.KJH_update-news_title_section {
     display: inline-block;
     width: 100%;
     padding: 0 5px 11px;
@@ -51,83 +51,79 @@
     border-bottom: 1px solid #979797;
 }
 
-.KJH_create-evt_question_label, .KJH_create-evt_content_a_label {
+.KJH_update-news_question_label, .KJH_update-news_content_a_label {
     position: relative;
     top: 5px;
     white-space: nowrap;
 }
 
-.KJH_create-evt_content_a_label {
+.KJH_update-news_content_a_label {
     font-weight: bold;
 }
 
-.KJH_create-evt_type_input {
-    padding-top: 20px;
-    margin: 0 0 10px 10px;
+.KJH_update-news_type_input {
+    margin: 0 0 0 10px;
     border-top: 3px solid rgb(55, 55, 55);
 }
 
-.KJH_create-evt_input_left {
-    margin-right: 5px;
-}
-
-.KJH_create-evt_make_title_info, .KJH_create-evt_make_a_info {
+.KJH_update-news_make_title_info, .KJH_update-news_make_a_info {
     margin-left: 10px;
     padding: 10px;
     resize: none;
     font-size: 14px;
 }
 
-.KJH_create-evt_make_title_info {
+.KJH_update-news_make_title_info {
     min-width: 530px;
     font-weight: bold;
 }
 
-.KJH_create-evt_make_a_info {
+.KJH_update-news_make_a_info {
     min-width: 530px;
-    min-height: 90px;
+    min-height: 130px;
 }
 
-.KJH_create-evt_type {
+.KJH_update-news_type {
     margin-right: 10px;
     display: flex;
     align-items: flex-end;
 }
 
-.KJH_create-evt_type_input > span > select {
+.KJH_update-news_type_input > span > select {
     padding: 5px;
     font-size: 16px;
     width: 120px;
 }
 
-.KJH_create-evt_input_left {
+.KJH_update-news_input_left {
     margin-right: 5px;
 }
 
-.KJH_create-evt_id_section {
+.KJH_update-news_id_section {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-.KJH_create-evt_id_section > span:first-child {
+.KJH_update-news_id_section > span:first-child {
     padding-right: 12px;
     margin-right: 12px;
     border-right: 2px solid rgb(88, 88, 88);
 }
 
-.KJH_create-evt_content_section {
+.KJH_update-news_content_section {
     font-family: 'Nanum Gothic', sans-serif;
     min-height: 130px;
     padding: 0 5px;
+    margin-bottom: 10px;
 }
 
-.KJH_create-evt_comment_section {
+.KJH_update-news_comment_section {
     width: 100%;
     margin: 15px 0;
     border-top: 2px solid #979797;
     padding: 0 10px 20px;
 }
 
-.KJH_create-evt_comment_input {
+.KJH_update-news_comment_input {
     margin-top: 10px;
     width: 100%;
     height: 70px;
@@ -138,7 +134,7 @@
     overflow: auto;
 }
 
-.KJH_create-evt_comment_created {
+.KJH_update-news_comment_created {
     padding: 10px 5px;
     float: right;
     margin-right: 5px;
@@ -146,20 +142,21 @@
     color: rgba(107, 107, 107, 0.733);
 }
 
-.KJH_create-evt_file_upload_section {
+.KJH_update-news_file_upload_section {
     margin-left: 15px;
     display: inline-block;
 }
 
-.KJH_create-evt_file_upload {
+.KJH_update-news_file_upload {
     background-color: white;
     border: 1px solid black;
     padding: 10px 15px;
 }
 
-.KJH_create-evt_data_submit {
+.KJH_update-news_data_submit {
     float: right;
-    margin-right: 15px;
+    margin-top: 14px;
+    margin-right: 30px;
     padding: 5px 10px;
     border: 2px solid #666666;
     border-radius: 5px;
@@ -168,7 +165,15 @@
     font-weight: bold;
 }
 
-.KJH_create-evt_data_submit:hover {
+.KJH_update-news_date_created {
+    margin-left: 15px;
+    padding: 15px 0;
+    float: left;
+    font-size: 16px;
+    color: rgba(107, 107, 107, 0.733);
+}
+
+.KJH_update-news_data_submit:hover {
     background-color: #666666;
     color: white;
     cursor: pointer;
