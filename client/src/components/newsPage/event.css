@@ -47,19 +47,21 @@
 /* 하민이  css */
 
 .YMJ2_subSelectbar {
-  border-radius: 10%       ;
-
   position: absolute;
-  width: 700px;
   color: black;
   top: -1.5vw;
   z-index: 4;
 
-  margin: 0 36%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
 
 .YMJ2_saladSubSelectList1 {
+  width: 500px;
+  border-radius: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: white;
@@ -76,6 +78,13 @@
   cursor: pointer;
 }
 
+
+/* .YMJ2_saladSubSelectList1 div:hover {
+  border-radius: 50px;
+  background-color: #58006C;
+  color: white;
+
+} */
 
 
 
@@ -109,23 +118,32 @@
   /* width: 450px; */
   
 }
+
+
 .YMJ_selectCard:hover {
   box-shadow: 0 0 0 10px green;
   
 }
 .YMJ_selectCard:hover img {
   display: block;
+  
+}
+
+.jsw_selectCardbox {
+  background-color: white;
 }
 
 
-.YMJ_selectCardKname {
-  text-align: center;
+.YMJ_selectCardKname1 {
+  margin-left: 10%;
   font-weight: 900;
-  font-size: 1.2vw;
+  font-size: 0.8vw;
+  color: #009223;
 }
 
-.YMJ_selectCardEname {
-  text-align: center;
+.YMJ_selectCardEname1 {
+  /* text-align: center; */
+  margin-left: 10%;
   font-size: 1vw;
   padding-top: 0.2vw;
   padding-bottom: 0.5vw;
