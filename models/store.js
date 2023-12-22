@@ -20,16 +20,6 @@ class Store extends Sequelize.Model{
         allowNull: false,
         comment: "주소(지번)",
       },
-      address_lat: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
-        comment: "주소(경도)",
-      },
-      address_long: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
-        comment: "주소(위도)",
-      },
       phone: {
         type: Sequelize.INTEGER,
         allowNull: false,

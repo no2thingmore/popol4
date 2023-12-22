@@ -28,13 +28,13 @@ function Admin() {
         <nav>
           <ul className="admin_tags">
             <li>
-              <Link
-                to="/admin/user"
+              <a
+                href="/admin/user/main"
                 className={menu === "회원관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("회원관리")}
               >
                 회원관리
-              </Link>
+              </a>
             </li>
             <li>
               <a

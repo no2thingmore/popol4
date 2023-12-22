@@ -29,7 +29,7 @@ function Login() {
         removeCookie("saveID");
       }
       console.log(response);
-      setCookie('rolo', response.data.rolo);
+      setCookie('role', response.data.role);
       setCookie('user', response.data.id);
       navigate('/')
     })
