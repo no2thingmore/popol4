@@ -154,7 +154,7 @@ function Event(){
         <h2> 이벤트ㆍ프로모션 </h2>
       </div>
 
-      {/* <div className="y_painting">
+      <div className="y_painting">
         <div className="Artist_slide">
           <div className="Artist_slide_viewport" aria-live="polite" >
             <ul className="slide_li" style={{
@@ -198,7 +198,7 @@ function Event(){
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="y_all_button">
         <div style={{position: "relative"}}>

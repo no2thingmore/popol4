@@ -11,7 +11,7 @@ import mf from "./image/m_f.jpg";
 import mg from "./image/m_g.jpg";
 import mh from "./image/m_h.jpg";
 import mr from "./image/m_r.jpg";
-import go from "./image/go.png";
+import go from "./image/icon_play.png";
 
 function Advertising(){
   const [data, setData] = useState([
@@ -133,8 +133,9 @@ function Advertising(){
 
                     <div className="YMJ_selectCardImg">
                       <img src={a.img} width="100%"></img>
+                      <img src={go} className="m_play"></img>
                     </div>
-                    <img src={go} className="m_play"></img>
+                    
                     <div className="YMJ_selectCardEname">{a.Ename}</div>
                     <div className="YMJ_selectCardKname">{a.Kname}</div>
                     <div className="YMJ_selectCardEname">{a.Ename}</div>
