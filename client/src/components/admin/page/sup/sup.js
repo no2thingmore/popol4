@@ -6,6 +6,8 @@ import Event from './submenu/event';
 import News from './submenu/news';
 import CreateFAQ from "./submenu/faq/createfaq";
 import UpdateFAQ from "./submenu/faq/updatefaq";
+import CreateEvt from "./submenu/event/createevt/index,";
+import UpdateEvt from "./submenu/event/updateevt/index,";
 
 function Sup() {
     const { category } = useParams();
@@ -18,8 +20,12 @@ function Sup() {
             {category === "news" && <News />}
 
             {/* FAQ  */}
-            {category === "createfaq" && <CreateFAQ />} {/* FAQ 등록 */}
-            {category === "updatefaq" && <UpdateFAQ />} {/* FAQ 수정 */}
+            {category === "create-faq" && <CreateFAQ />} {/* FAQ 등록 */}
+            {category === "update-faq" && <UpdateFAQ />} {/* FAQ 수정 */}
+
+            {/* 이벤트 */}
+            {category === "create-evt" && <CreateEvt />} {/* FAQ 등록 */}
+            {category === "update-evt" && <UpdateEvt />} {/* FAQ 등록 */}
         </>
     )
 }
