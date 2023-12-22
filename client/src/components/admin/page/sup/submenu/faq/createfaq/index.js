@@ -29,7 +29,7 @@ function CreateFAQ() {
         try {
             const createData = { admin_id:1, tags, title, content };
             await axios.post(`${API_URL}/faq/admin`, createData);
-            console.log('FAQ 등록이 완료되었습니다.')
+            console.log('FAQ 등록이 완료되었습니다');
         } catch (err) {
             console.error('등록 에러', err);
         }

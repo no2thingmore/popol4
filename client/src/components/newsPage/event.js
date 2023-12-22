@@ -136,6 +136,7 @@ function Event(){
       setIsInitialLoad(false);
     }
   }, [select, isInitialLoad]);
+
   
   // 더보기 함수  
 
@@ -152,7 +153,8 @@ function Event(){
       <div className="y_subtitle">
         <h2> 이벤트ㆍ프로모션 </h2>
       </div>
-      <div className="Artist_slide_content">
+
+      {/* <div className="y_painting">
         <div className="Artist_slide">
           <div className="Artist_slide_viewport" aria-live="polite" >
             <ul className="slide_li" style={{
@@ -196,8 +198,8 @@ function Event(){
             </div>
           </div>
         </div>
-      </div>
-  
+      </div> */}
+
       <div className="y_all_button">
         <div style={{position: "relative"}}>
           <div className="YMJ2_subSelectbar">
@@ -206,7 +208,7 @@ function Event(){
                 <div
                   key={category}
                   onClick={() => handleCategoryClick(category)}
-                  style={select === category ? { color: "#009223" } : { }}
+                  style={select === category ? { color: "White",borderRadius: "50px",backgroundColor: "#58006C" } : {}}
                 >
                   {category}
                 </div>
@@ -216,15 +218,21 @@ function Event(){
           <div className="YMJ_selectcontent">
             <div className="YMJ_selectcontentGridBox">
               {data &&  data.map((a, i) => {
+                  //날짜 표출시 T이후의 글자 삭제 
+                const formattedDate = a.createdAt.split('T')[0];
                 return (
                   <div className={"YMJ_selectCard start " + end}>
                     {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
                     <div className="YMJ_selectCardImg">
-                      <img src={API_URL+"/upload/"+a.image_url} width="100%"></img>
+                      <img src={API_URL+"/upload/"+a.image_url } width="100%" height="180px"></img>
                     </div>
-                    <div className="YMJ_selectCardEname">{a.title}</div>
-                    <div className="YMJ_selectCardKname">{a.content}</div>
-                    <div className="YMJ_selectCardEname">{a.noname}</div>
+                    <div className="jsw_selectCardbox">
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                      <div className="YMJ_selectCardEname1">{a.title}</div>
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                      <div className="YMJ_selectCardKname1">{formattedDate}~</div>
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                    </div>
                   </div>
                 );
               })}

@@ -9,8 +9,8 @@ const Submit_Data = [
     },
     {
         id: 2,
-        input_id: `contact`,
-        name: `contact`,
+        input_id: `tell`,
+        name: `tell`,
         title: `연락처`,  
         holder: `연락 가능한 전화번호를 입력해주세요`,
         type: `text`,
@@ -25,6 +25,14 @@ const Submit_Data = [
     },
     {
         id: 4,
+        input_id: `storeadd`,
+        name: `storeadd`,
+        title: `매점명`,  
+        holder: `매점명을 입력해주세요 (예: 평택시 서정점)`,
+        type: `text`,
+    },
+    {
+        id: 5,
         input_id: `add`,
         name: `add`,
         title: `지역`,  
@@ -32,28 +40,12 @@ const Submit_Data = [
         type: `text`,
     },
     {
-        id: 5,
+        id: 6,
         input_id: `_title`,
         name: `_title`,
         title: `제목`,  
         holder: `제목을 입력해주세요`,
         type: `_title`,
-    },
-    {
-        id: 6,
-        input_id: `content`,
-        name: `content`,
-        title: `내용`,  
-        holder: `· 문의가 집중되거나 주말의 경우 답변이 지연될 수 있습니다. 최대한 빠르게 답변 드리도록 하겠습니다`,
-        type: `textarea`,
-    },
-    {
-        id: 7,
-        input_id: `image_url`,
-        name: `image_url`,
-        title: `첨부파일`,  
-        holder: ``,
-        type: `file`,
     },
 ]
 

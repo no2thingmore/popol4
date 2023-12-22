@@ -78,5 +78,4 @@ class Admin extends Sequelize.Model {
   
 };
 
-
 module.exports = Admin;

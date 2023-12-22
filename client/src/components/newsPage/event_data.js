@@ -36,6 +36,8 @@
 //     },
 //   ];
 
+  
+
 
   
 //   const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];

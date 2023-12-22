@@ -41,7 +41,6 @@ function UpdateFAQ() {
             fetchFaqData();
         }
     }, [faqId]);
-    
 
 
     // 수정하기 | 데이터 : 종류, 제목, 내용
@@ -70,7 +69,8 @@ function UpdateFAQ() {
         '1': '사이트이용',
         '2': '포인트',
         '3': '제품',
-        '4': '매장이용'
+        '4': '매장이용',
+        '5': '가맹관련 FAQ'
     };
 
     return (

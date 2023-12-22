@@ -69,7 +69,7 @@ const MapContainer = ({ searchPlace }) => {
 
         kakao.maps.event.addListener(marker, "click", function () {
           const content = `
-      <div style=" text-align:center; padding-top:5px; font-size:1vw;">${location}</div>
+      <div style=" text-align:center; padding-top:10px; font-size:1vw;">${location}</div>
       <div style="border-radius: 1vw; text-align:center; color: white; margin:0.5vw; background-color:green; padding:5px; font-size:0.8vw; cursor: pointer;" onclick="handleClick('${location}')">주문하기</div>
     `;
 
