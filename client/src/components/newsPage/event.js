@@ -22,6 +22,71 @@ import { API_URL } from "../config/contansts";
 // const images = [Painting1, Painting2, Painting3];
 
 function Event(){
+
+  // 슬라이드 이미지
+  const slideData = [
+    {
+      imgURL: painting1,
+      title: "Best Artist",
+      text: "샌드위치 아티스트™는 \r 언제나 완벽한 샌드위치를 만듭니다."
+    },
+    {
+      imgURL: painting2,
+      title: "Best Fresh Keeper",
+      text: "샌드위치 아티스트™는 각종 재료의 신선함과 매장의 청결을 철저하게 관리합니다."
+    },
+    {
+      imgURL: painting3,
+      title: "Best Service Professional",
+      text: "샌드위치 아티스트™는 항상 고객을 우선으로 생각하며 고객이 무엇을 원하는지 경청합니다."
+    },
+    {
+      imgURL: painting4,
+      title: "Best Team Member",
+      text: "샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을 제공하기 위해 다른 팀원들과 함께 노력합니다."
+    },
+
+  ];
+
+  // 슬라이드
+
+  const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
+  const [currentSlide, setCurrentSlide] = useState(2);
+  const [noTransition, setNoTransition] = useState(false);
+
+  const nextSlide = () => {
+      setCurrentSlide((prev) => (prev === clone_slide.length - 1 ? 0 : prev + 1));
+      console.log(currentSlide);
+    };
+  
+  
+  const prevSlide = () => {
+      setCurrentSlide((prev) => (prev === 0 ? clone_slide.length - 1 : prev - 1));
+      console.log(currentSlide);
+    
+  };
+  
+  const goToSlide = (index) => {
+      setNoTransition(false);
+      if (index === 1){
+      console.log(index);
+      setTimeout(() => {
+        setCurrentSlide(clone_slide.length - 2);
+      }, 0);
+    }
+    else if(index === clone_slide.length - 2){
+      console.log(index);
+      setTimeout(() => {
+        setCurrentSlide(1);
+      }, 0);
+    }
+    else {
+      console.log(index);
+      setCurrentSlide(index);
+    }
+  };
+
+
   const [data, setData] = useState([]);
 
   const [select, setSelect] = useState("전체");
@@ -60,6 +125,7 @@ function Event(){
     }
   }, [select, isInitialLoad]);
 
+
   
   // 더보기 함수  
 
@@ -80,7 +146,8 @@ function Event(){
         <h2> 이벤트ㆍ프로모션 </h2>
       </div>
 
-      {/* <div className="y_painting">
+      {/* 슬라이드 */}
+      <div className="Artist_slide_content">
         <div className="Artist_slide">
           <div className="Artist_slide_viewport" aria-live="polite" >
             <ul className="slide_li" style={{
@@ -123,7 +190,7 @@ function Event(){
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="y_all_button">
         <div style={{position: "relative"}}>
@@ -133,7 +200,7 @@ function Event(){
                 <div
                   key={category}
                   onClick={() => handleCategoryClick(category)}
-                  style={select === category ? { color: "#009223" } : { }}
+                  style={select === category ? { color: "White",borderRadius: "50px",backgroundColor: "#58006C" } : {}}
                 >
                   {category}
                 </div>
@@ -143,15 +210,21 @@ function Event(){
           <div className="YMJ_selectcontent">
             <div className="YMJ_selectcontentGridBox">
               {data &&  data.map((a, i) => {
+                  //날짜 표출시 T이후의 글자 삭제 
+                const formattedDate = a.createdAt.split('T')[0];
                 return (
                   <div className={"YMJ_selectCard start " + end}>
                     {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
                     <div className="YMJ_selectCardImg">
-                      <img src={API_URL+"/upload/"+a.image_url} width="100%"></img>
+                      <img src={API_URL+"/upload/"+a.image_url } width="100%" height="180px"></img>
                     </div>
-                    <div className="YMJ_selectCardEname">{a.title}</div>
-                    <div className="YMJ_selectCardKname">{a.content}</div>
-                    <div className="YMJ_selectCardEname">{a.noname}</div>
+                    <div className="jsw_selectCardbox">
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                      <div className="YMJ_selectCardEname1">{a.title}</div>
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                      <div className="YMJ_selectCardKname1">{formattedDate}~</div>
+                      <div className="YMJ_selectCardEname1">{a.noname}</div>
+                    </div>
                   </div>
                 );
               })}
