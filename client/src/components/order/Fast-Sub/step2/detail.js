@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import img from "./sandwich.png";
 import { useState } from "react";
 import Result from "./result";
+import { API_URL } from '../../../config/contansts';
 
 function Detail(props) {
   //props를 토대로 데이터 찾기
@@ -30,7 +31,7 @@ function Detail(props) {
                 >
                   <div className="CHM_faststep2DetaileCard">
                     <div className="CHM_faststep2DetaileCardImg">
-                      <img src={a.image_url}></img>
+                      <img src={API_URL + "/upload/" + a.image_url}></img>
                     </div>
                     <div className="CHM_faststep2DetaileCardKname">
                       {a.kname}

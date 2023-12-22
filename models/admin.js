@@ -71,11 +71,11 @@ class Admin extends Sequelize.Model {
     db.Admin.hasMany(db.Board, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Event, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Inquiry, { foreignKey: 'admin_id', sourceKey: 'id' });
+    db.Admin.hasMany(db.Faq, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Ingredient, { foreignKey: 'admin_id', sourceKey: 'id' });
     db.Admin.hasMany(db.Food, { foreignKey: 'admin_id', sourceKey: 'id' });
   }
   
 };
-
 
 module.exports = Admin;

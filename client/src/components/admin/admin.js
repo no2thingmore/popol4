@@ -5,7 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import User from "./page/user/user";
 import Store from "./page/store/store";
 import Product from "./page/product/product";
-import Option from "./page/option/option";
+import Setting from "./page/setting/setting";
 import Design from "./page/design/design";
 import Jeryo from "./page/jeryo/jeryo";
 import Home from "./page/home/home";
@@ -28,22 +28,22 @@ function Admin() {
         <nav>
           <ul className="admin_tags">
             <li>
-              <Link
-                to="/admin/user"
+              <a
+                href="/admin/user/main"
                 className={menu === "회원관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("회원관리")}
               >
                 회원관리
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/admin/jeryo/none"
+              <a
+                href="/admin/jeryo/none"
                 className={menu === "카테고리관리" ? "active" : "noactive"}
                 onClick={() => MenuClick("카테고리관리")}
               >
-                카테고리관리
-              </Link>
+                재료관리
+              </a>
             </li>
             <li>
               <a
@@ -73,23 +73,24 @@ function Admin() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/option"
+              <a
+                href="/admin/setting/none"
                 className={menu === "설정" ? "active" : "noactive"}
                 onClick={() => MenuClick("설정")}
               >
                 설정
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/admin/store/none"
+              <a 
+                href="/admin/store/none"
                 className={menu === "방 등록하기" ? "active" : "noactive"}
                 onClick={() => MenuClick("방 등록하기")}
               >
                 가게 등록하기
-              </Link>
+              </a>
             </li>
+
           </ul>
         </nav>
       </div>
@@ -99,7 +100,7 @@ function Admin() {
 
         {menu === "user" && <div>{<User></User>}</div>}
 
-        {menu === "jeryo/none" && <div>{<Jeryo></Jeryo>}</div>}
+        {menu === "jeryo" && <div>{<Jeryo></Jeryo>}</div>}
 
         {menu === "product" && <Product></Product>}
 
@@ -107,9 +108,9 @@ function Admin() {
 
         {menu === "design" && <div>{<Design></Design>}</div>}
 
-        {menu === "option" && <div>{<Option></Option>}</div>}
+        {menu === "setting" && <div>{<Setting></Setting>}</div>}
 
-        {menu === "store/none" && <div>{<Store></Store>}</div>}
+        {menu === "store" && <div>{<Store></Store>}</div>}
       </div>
     </div>
   );

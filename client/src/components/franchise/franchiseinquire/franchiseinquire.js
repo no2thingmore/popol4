@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Ask_Data from './data/ask_data';
 import Submit_Data from './data/submit_data';
+import axios from 'axios';  // axios 추가
+import { API_URL } from "../../config/contansts";
 
 
 function FranchiseInquire() {
@@ -28,6 +30,36 @@ function FranchiseInquire() {
         ...checkedState,
         [id]: !checkedState[id],
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userName = e.target.id.value;
+    const userTell = e.target.tell.value;
+    const userEmail = e.target.email.value;
+    const userAdd = e.target.add.value;
+    const userTitle = e.target.title.value;
+    const userStoreadd = e.target.storeadd.value;
+
+    const formData = {
+      name:       userName,
+      tell:       userTell,
+      email:      userEmail,
+      add:        userAdd,
+      title:      userTitle,
+      storeadd:   userStoreadd
+    };
+
+    try {
+      const response = await axios.post(`${API_URL}/store/admin`, formData);
+      console.log("데이터 전송 성공:", response.data);
+      // 성공적으로 전송되면 필요한 처리 수행
+      window.alert("문의 등록이 완료되었습니다.");
+
+    } catch (error) {
+      console.error("데이터 전송 실패:", error);
+      // 전송 실패 시에 필요한 처리 수행
+    }
   };
 
   return (
@@ -72,15 +104,15 @@ function FranchiseInquire() {
                 문의 작성하기
               </div>
               <div className='kk_ask_btm_title_right'>
-                필수입력사항
+                ※ 필수입력사항
               </div>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <table className='kk_ask_btm_table'>
                 <caption>문의 작성하기 테이블</caption>
                 <colgroup>
-                    <col width="130px" />
-                    <col width="*" />
+                    <col width="130px"/>
+                    <col width="*"/>
                 </colgroup>
                   {Submit_Data.map((item) => (
                     <tbody key={item.id}>
@@ -114,7 +146,7 @@ function FranchiseInquire() {
               <div className="jj_ask_alart0">
                 <div className="jj_ask_alart">
                   <div className="jj_ask_alart_1">
-                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <i className="fa-solid fa-circle-exclamation"></i>
                   </div>
                   <div className="jj_ask_alart_2">
                     <p>· 문의가 집중되거나 주말의 경우 답변이 지연될 수 있습니다. 최대한 빠르게 답변 드리도록 하겠습니다.</p>
@@ -123,9 +155,9 @@ function FranchiseInquire() {
                 </div>
               </div>
               <div className='kk_ask_btm_btn_sction'>
-                <Link to ="/" className='kk_ask_btm_btn_cancel'>
+                <a href ="/franchise/subwayfranchise" className='kk_ask_btm_btn_cancel'>
                   <span>취소</span>
-                </Link>
+                </a>
                 <button type="submit" className='kk_ask_btm_btn_reg'>
                   <span>등록하기</span>
                 </button>

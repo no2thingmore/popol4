@@ -184,6 +184,10 @@ label {
   border-bottom: 1px solid #c6c6c6;
 }
 
+.CHM_jeryoplustablegrid p{
+  margin: 0;
+}
+
 .CHM_jeryoplustablegrid input{
   width: 70%;
   margin-left: 1vw;

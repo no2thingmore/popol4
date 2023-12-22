@@ -1,88 +1,21 @@
 
-.y_painting{
-  justify-content: center;
-  text-align: center;
+
+#event_all {
+  width: 100%;
+  height: 100%;
+}
+
+.y_painting {
+  width: 100Vw;
+  height: 500px;
+
+  background-color: #999;
 }
 
 .y_all_button{
   background-color: beige;
 }
 
-.y_button{
-  margin-bottom: 30px;
-}
-
-.y_list_button>button:focus{
-  background-color: Purple;
-  color: White;
-}
-
-.y_list_button{
-  
-  display: flex;
-  justify-content: center;
-  padding-top:50px;
-  padding-bottom: 25px;
-
-}
-
-.y_list_button button{
-  border: none;
-  background-color: white;
-  color: black;
-  width: 230px;
-  height: 60px;
-  font-size: 22px;
-  font-weight: 700 ;
-  
-}
-
-.y_list_button>button:first-child{
-  border-radius: 50px 0 0 50px;
-}
-
-.y_list_button>button:last-child{
-  border-radius: 0 50px 50px 0;
-}
-
-.y_list_all{
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-
-.y_list_ongoing{
-  width: fit-content;
-  height: fit-content;
-  display: grid;
-  grid-template-rows:1fr 1fr 1fr; 
-  grid-template-columns:1fr 1fr 1fr;
-  gap: 30px;
-  
-}
-
-/* 리스트 그림 사이즈*/
-.list_photo>img{
-  width: 500px;
-}
-
-.y_list_item{
-  width: fit-content;
-  height: fit-content;
-  
-  }
-
-
-/* 마우스 가져다 대면 색 바낌 */
-.y_list_item:hover{
-  box-shadow: 0 0 0 10px green;
-}
-
-.list_content{
-  justify-content: center;
-  text-align: center;
-}
 
 .y_morebtn{
   display: flex;
@@ -109,4 +42,118 @@
   display: block;
   margin-bottom: 20px;
 
+}
+
+/* 하민이  css */
+
+.YMJ2_subSelectbar {
+  position: absolute;
+  color: black;
+  top: -1.5vw;
+  z-index: 4;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+.YMJ2_saladSubSelectList1 {
+  width: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: white;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.316);
+}
+
+.YMJ2_saladSubSelectList1 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  font-weight: 900;
+  height: 3vw;
+  cursor: pointer;
+}
+
+
+/* .YMJ2_saladSubSelectList1 div:hover {
+  border-radius: 50px;
+  background-color: #58006C;
+  color: white;
+
+} */
+
+
+
+
+
+/*  */
+
+
+
+.YMJ_selectcontent {
+  position: relative;
+  
+  background-color: rgb(242, 242, 242);
+  z-index: 3;
+  margin: 0 auto;
+}
+
+.YMJ_selectcontentGridBox {
+  padding: 4vw 0;
+  margin: 0 21vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+
+}
+
+.YMJ_selectCard {
+  position: relative;
+  cursor: pointer;
+
+  /* width: 450px; */
+  
+}
+
+
+.YMJ_selectCard:hover {
+  box-shadow: 0 0 0 10px green;
+  
+}
+.YMJ_selectCard:hover img {
+  display: block;
+  
+}
+
+.jsw_selectCardbox {
+  background-color: white;
+}
+
+
+.YMJ_selectCardKname1 {
+  margin-left: 10%;
+  font-weight: 900;
+  font-size: 0.8vw;
+  color: #009223;
+}
+
+.YMJ_selectCardEname1 {
+  /* text-align: center; */
+  margin-left: 10%;
+  font-size: 1vw;
+  padding-top: 0.2vw;
+  padding-bottom: 0.5vw;
+  color: gray;
+}
+
+.YMJ_selectCardkcal {
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 900;
+  color: gold;
+  padding-bottom: 2vw;
 }

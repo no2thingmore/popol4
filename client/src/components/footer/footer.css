@@ -1,4 +1,4 @@
-.footer {
+.footer111 {
   background-color: #292929;
 }
 
@@ -13,14 +13,42 @@
 .util_menu_jun{
   display: flex;
 }
+.util_menu_jun1{
+  display: flex;
+}
 
-
-#jun_b{ 
+#jun_b { 
   border: none;
   background-color: #292929;
   padding: 0 20px 0;
   color: #7a6f6f;
   font-size: large;
+}
+#jun_facebook {
+  border: none;
+  float: right;
+  width: 50px;
+  height: 50px;
+}
+
+#jun_instagram {
+  border: none;
+  float: right;
+  width: 50px;
+  height: 50px;
+}
+
+#jun_b img {
+  position: relative;
+  left: 480px;
+  width: 40px;
+  height: 40px;
+}
+#jun_b img {
+  position: relative;
+  left: 480px;
+  width: 40px;
+  height: 40px;
 }
 
 #jun_b1{ 

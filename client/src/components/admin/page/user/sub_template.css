@@ -1,0 +1,80 @@
+.KJH_adm_sub_section {
+    float: left;
+    width: 204px;
+    height: em;
+    border-right: 4px solid #999999;
+    border-bottom: 3px solid #999999;
+}
+
+.KJH_adm_sub_header_section {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.KJH_adm_sub_header_info {
+    padding: 20px 0 20px 0;
+    font-size: 26px;
+}
+
+.KJH_sub_list_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    border-top: 3px solid #999999;
+}
+
+.KJH_sub_list_title span {
+    width: 110px;
+    text-align: right;
+    font-size: 16px;
+
+}
+
+.KJH_sub_list_title img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.KJH_sub_list_title.rotate img {
+    transform: rotate(+90deg);
+}
+
+.KJH_sub_list_title:hover {
+    background-color: #999999;
+    color: white;
+    cursor: pointer;
+}
+
+.KJH_sub_list_dropdown {
+    animation: slideDown 0.3s ease-in-out;
+    text-align: center;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.KJH_sub_list_info {
+    text-align: right;
+    font-size: 14px;
+    padding: 10px 30px 10px;
+}
+
+.KJH_sub_list_info:hover {
+    background-color: #999999;
+    color: white;
+    cursor: pointer;
+}

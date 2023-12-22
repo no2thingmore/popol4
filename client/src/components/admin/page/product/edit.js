@@ -7,7 +7,6 @@ import { Upload } from "antd";
 function Edit(props) {
   const navigate = useNavigate();
   const editdata = props.data.filter((item) => item.id == props.id);
-  console.log(editdata);
   const [categort1, setCategory1] = useState(editdata[0].kinds);
   const [selectedTag, setSelectedTag] = useState(editdata[0].tags);
   const [kname, setKname] = useState(editdata[0].kname);
