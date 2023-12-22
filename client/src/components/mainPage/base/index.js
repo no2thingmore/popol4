@@ -46,7 +46,7 @@ const Base = () => {
                   제데로 즐기는 방법 !
                 </div>
                 <div className="base_top_button">
-                  <Link to="/" className="base_top_1_info_button">
+                  <Link to="/ingreDient/howtousesubway" className="base_top_1_info_button">
                     <span>이용방법</span>
                   </Link>
                 </div>
@@ -84,7 +84,7 @@ const Base = () => {
                   </div>
                 ))}
                 <div className="base_btm_info_more">
-                  <Link to="/">더보기</Link>
+                  <Link to="/newsPage/Notice">더보기</Link>
                 </div>
               </div>
             </div>

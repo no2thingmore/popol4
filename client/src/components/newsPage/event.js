@@ -24,7 +24,7 @@ import { API_URL } from "../config/contansts";
 function Event(){
 
   // 슬라이드 이미지
-  const slideData = [
+  const event_slideData = [
     {
       imgURL: painting1,
       title: "Best Artist",
@@ -50,20 +50,24 @@ function Event(){
 
   // 슬라이드
 
-  const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
-  const [currentSlide, setCurrentSlide] = useState(2);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [noTransition, setNoTransition] = useState(false);
 
   const nextSlide = () => {
-      setCurrentSlide((prev) => (prev === clone_slide.length - 1 ? 0 : prev + 1));
+    if(currentSlide === event_slideData.length - 1) {}
+    else{
+      setCurrentSlide((prev) => (prev === event_slideData.length - 1 ? 0 : prev + 1));
+    }
       console.log(currentSlide);
     };
   
   
   const prevSlide = () => {
-      setCurrentSlide((prev) => (prev === 0 ? clone_slide.length - 1 : prev - 1));
+    if(currentSlide === 0) {}
+    else {
+      setCurrentSlide((prev) => (prev === 0 ? event_slideData.length - 1 : prev - 1));
+    }
       console.log(currentSlide);
-    
   };
   
   const goToSlide = (index) => {
@@ -71,10 +75,10 @@ function Event(){
       if (index === 1){
       console.log(index);
       setTimeout(() => {
-        setCurrentSlide(clone_slide.length - 2);
+        setCurrentSlide(event_slideData.length - 2);
       }, 0);
     }
-    else if(index === clone_slide.length - 2){
+    else if(index === event_slideData.length - 2){
       console.log(index);
       setTimeout(() => {
         setCurrentSlide(1);
@@ -154,9 +158,9 @@ function Event(){
               transition: noTransition ? "none" : "transform 0.5s ease",
               transform: `translate3d(-${currentSlide * 900}px, 0, 0)` ,
               }}>
-              {clone_slide.map((slide, index) => (
+              {event_slideData.map((slide, index) => (
                 <li className="slide_li_item">
-                  <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
+                  <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length) ? "active" : ""}`} >
                   <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
                   </div>
                   <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
@@ -175,11 +179,10 @@ function Event(){
             </div>
 
             <div className="slide_ctl_Dot">
-              {clone_slide.map((_, index) => (
-                (index > 1 && index < clone_slide.length - 2) &&(
-                <div key={index} className="Dot_item">
+              {event_slideData.map((_, index) => (
+                (<div key={index} className="Dot_item">
                   <a
-                    className={`clicked_dot ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length)? "on" : ""}`}
+                    className={`clicked_dot ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length)? "on" : ""}`}
                     onClick={() => goToSlide(index)}
                   >
                     {index + 1}
@@ -233,6 +236,7 @@ function Event(){
         </div>
         <div className="y_morebtn">
           <button onClick={showmore}>더보기</button>
+
         </div>
 
       </div>
@@ -243,6 +247,8 @@ function Event(){
 )
 }
 export default Event;
+
+
 
 {/* <div className="y_list_button">
   <button className="y_button_l"  onClick={buttonlistClick}>
