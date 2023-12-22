@@ -22,12 +22,6 @@ function SubTemplate(){
         setInquiryIconRotation(!inquiryIconRotation);
     };
 
-    // 게시판 관리 토글 형식
-    const toggleHubDropdown = () => {
-        setHubDropdown(!hubDropdown);
-        setHubIconRotation(!hubIconRotation);
-    };
-
     return (
         <>
             {/* 서브 메뉴 리스트 전체 */}
@@ -35,7 +29,7 @@ function SubTemplate(){
                 {/* 서브 메뉴 title */}
                 <div className='KJH_adm_sub_header_section'>
                     <div className='KJH_adm_sub_header_info'>
-                        고객지원
+                        회원관리
                     </div>
                 </div>
                 {/* 서브 메뉴 리스트 */}

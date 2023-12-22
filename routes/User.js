@@ -45,6 +45,33 @@ router
       return res.status(500).end();
     }
   })
+  .get('/mypage',async(req,res,next)=>{
+    console.log(req.query);
+   await User.findOne({//selete * from User
+      where:{id: req.query.id} //wheere id=id
+    }).then((result)=>{
+      res.status(201).send(result)
+    })
+  })
+
+  .get('/nomal',(req,res,next)=>{
+    User.findAll({where:{role:0}})
+    .then((result)=>{
+      res.status(201).send(result)
+    })
+  })
+  .get('/oner',(req,res,next)=>{
+    User.findAll({where:{role:1}})
+    .then((result)=>{
+      res.status(201).send(result)
+    })
+  })
+  .patch('/admin/nomal',()=>{
+
+  })
+  .patch('/admin/oner',()=>{
+
+  })
 
 
 module.exports = router;

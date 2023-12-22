@@ -6,7 +6,7 @@ router
 .get('/',(req,res,next)=>{
   Event.findAll()
   .then((response)=>{
-    console.log(response);
+    // console.log(response);
     res.status(201).send(response)
   })
   .catch((err)=>{

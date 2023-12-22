@@ -14,7 +14,7 @@ function Faq(){
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({});
 
-    // faq 데이터 요청
+    // FAQ 데이터 요청
     const fetchFaq = async () => {
         try {
             const res = await axios.get(`${API_URL}/faq`);
@@ -63,8 +63,8 @@ function Faq(){
     };
     // 내용 모두 열기
     const openAllToggles = () => {
-        const allOpen = faq.reduce((acc, inquiry) => {
-            acc[inquiry.id] = true;
+        const allOpen = faq.reduce((acc, faq) => {
+            acc[faq.id] = true;
             return acc;
         }, {});
         setShowContents(allOpen);
@@ -99,7 +99,7 @@ function Faq(){
                             </button>
                             ))}
                         </span>
-                        <Link to="/admin/support/createfaq">
+                        <Link to="/admin/support/create-faq">
                             <div className='KJH_faq_top_create_faq'>
                                 등록하기
                             </div>
@@ -126,7 +126,7 @@ function Faq(){
                                         <td className='KJH_faq_contents_title' >{item.title}</td>
                                         <td className='KJH_faq_contents_ctrl'>
                                             <span className='KJH_faq_contents_ans'>
-                                            <Link to={`/admin/support/updatefaq`}
+                                            <Link to={`/admin/support/update-faq`}
                                                 state={{id:item.id}}
                                             >수정</Link>
                                             </span>

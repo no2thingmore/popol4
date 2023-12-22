@@ -15,27 +15,22 @@ class Store extends Sequelize.Model{
         allowNull: false,
         comment: "업체명",
       },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        comment: "이메일",
+      },
       address: {
         type: Sequelize.STRING,
         allowNull: false,
         comment: "주소(지번)",
-      },
-      address_lat: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
-        comment: "주소(경도)",
-      },
-      address_long: {
-        type: Sequelize.FLOAT,
-        allowNull: true,
-        comment: "주소(위도)",
       },
       phone: {
         type: Sequelize.INTEGER,
         allowNull: false,
         comment: "매장 전화번호",
       },
-      representative: {
+      oner: {
         type: Sequelize.STRING,
         allowNull: false,
         comment: "대표이름",

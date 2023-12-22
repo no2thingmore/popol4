@@ -2,7 +2,7 @@ import "./login.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getCookie, removeCookie, setCookie } from "../../useCookies";
-import { useFetcher, useNavigate } from "react-router-dom";
+import { Link, useFetcher, useNavigate } from "react-router-dom";
 import { API_URL } from "../config/contansts";
 
 function Login() {
@@ -29,7 +29,7 @@ function Login() {
         removeCookie("saveID");
       }
       console.log(response);
-      setCookie('rolo', response.data.rolo);
+      setCookie('role', response.data.role);
       setCookie('user', response.data.id);
       navigate('/')
     })
@@ -84,7 +84,7 @@ function Login() {
             <a>비밀번호 찾기</a>
           </li>
           <li>
-            <a>회원가입</a>
+            <Link to={'/register'}>회원가입</Link>
           </li>
         </ol>
       </div>
