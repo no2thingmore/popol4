@@ -16,24 +16,29 @@ function Cart() {
     if (Array.isArray(parsedData) && parsedData.length > 0) {
       setCart(parsedData);
       setItemCounts(parsedData.map(() => 1));
+      setLocation(parsedData[0][0]?.location || "");
+    } else {
+      // 데이터가 없을 때 처리할 로직 추가
+      setCart([]);
+      setItemCounts([]);
+      setLocation("");
     }
-    setLocation(parsedData[0][0].location);
   }, [data]);
 
   function onClickPayment() {
 
     /* 2. 결제 데이터 정의하기 */
     const data = {
-      pg: 'html5_inicis',                           // PG사
-      pay_method: 'card',                           // 결제수단
-      merchant_uid: `mid_${new Date().getTime()}`,   // 주문번호
-      amount: 1000,                                 // 결제금액
-      name: '아임포트 결제 데이터 분석',                  // 주문명
+      pg: 'html5_inicis',                             // PG사
+      pay_method: 'card',                             // 결제수단
+      merchant_uid: `mid_${new Date().getTime()}`,    // 주문번호
+      amount: 1000,                                   // 결제금액
+      name: '아임포트 결제 데이터 분석',               // 주문명
       buyer_name: '홍길동',                           // 구매자 이름
-      buyer_tel: '01012341234',                     // 구매자 전화번호
-      buyer_email: 'example@example',               // 구매자 이메일
+      buyer_tel: '01012341234',                       // 구매자 전화번호
+      buyer_email: 'example@example',                 // 구매자 이메일
       buyer_addr: '신사동 661-16',                    // 구매자 주소
-      buyer_postcode: '06018',                      // 구매자 우편번호
+      buyer_postcode: '06018',                        // 구매자 우편번호
     };
     /* 4. 결제 창 호출하기 */
     window.IMP.request_pay(data, callback);
@@ -198,11 +203,13 @@ function Cart() {
             홈으로 <i class="fa-solid fa-house"></i>
           </div>
         </Link>
+        <Link to="http://localhost:3000/order/Fast-Sub/step2/매장이름/0/Nan">
           <div
             className="CHM_faststep2ResultCartBtn2"
             style={{ margin: "0 2vw" }}>
             메뉴 추가하기 <i class="fa-solid fa-plus"></i>
           </div>
+        </Link>
           <div className="CHM_faststep2ResultCartBtn3"  onClick={onClickPayment}>
             결제하기 <i class="fa-solid fa-check"></i>
           </div>

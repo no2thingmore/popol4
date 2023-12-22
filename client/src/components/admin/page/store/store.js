@@ -15,8 +15,10 @@ function Store() {
   // 데이터를 가져오는 함수
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${API_URL}/store`);
+      const response = await axios.get(`${API_URL}/store/admin`);
       setData(response.data);
+      console.log(response.data);
+
     } catch (error) {
       console.error("데이터 가져오기 실패:", error);
     }
@@ -34,14 +36,13 @@ function Store() {
                   type="checkbox"
                 />
               </th>
-              <th style={{ width: "6%" }}>이름</th>
+              <th style={{ width: "10%" }}>이름</th>
               <th style={{ width: "10%" }}>연락처</th>
               <th style={{ width: "10%" }}>이메일</th>
-              <th style={{ width: "20%" }}>지역</th>
-              <th style={{ width: "10%" }}>제목</th>
-              <th style={{ width: "29%" }}>내용</th>
-              <th style={{ width: "6%" }}>첨부파일</th>
-              <th style={{ width: "6%" }}>처리상태</th>
+              <th style={{ width: "15%" }}>지역</th>
+              <th style={{ width: "10%" }}>가게 지점명</th>
+              <th style={{ width: "5%" }}>처리상태</th>
+              <th style={{ width: "5%" }}>제거</th>
             </tr>
           </thead>
           <tbody>
@@ -53,14 +54,13 @@ function Store() {
                     type="checkbox" 
                   />
                 </td>
-                <td>{item.name}</td>
+                <td>{item.oner}</td>
                 <td>{item.phone}</td>
                 <td>{item.email}</td>
                 <td>{item.address}</td>
-                <td>{item.title}</td>
-                <td>{item.content}</td>
-                <td>{item.attachment}</td>
-                <td colSpan="2">{item.processStatus}</td>
+                <td>{item.name}</td>
+                <td>{item.status}</td>
+                <td></td>
               </tr>
             ))}
           </tbody>

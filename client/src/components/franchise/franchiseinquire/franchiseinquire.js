@@ -34,8 +34,20 @@ function FranchiseInquire() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userName = e.target.id.value;
+    const userTell = e.target.tell.value;
+    const userEmail = e.target.email.value;
+    const userAdd = e.target.add.value;
+    const userTitle = e.target.title.value;
+    const userStoreadd = e.target.storeadd.value;
 
     const formData = {
+      name:       userName,
+      tell:       userTell,
+      email:      userEmail,
+      add:        userAdd,
+      title:      userTitle,
+      storeadd:   userStoreadd
     };
 
     try {
@@ -92,15 +104,15 @@ function FranchiseInquire() {
                 문의 작성하기
               </div>
               <div className='kk_ask_btm_title_right'>
-                필수입력사항
+                ※ 필수입력사항
               </div>
             </div>
             <form onSubmit={handleSubmit}>
               <table className='kk_ask_btm_table'>
                 <caption>문의 작성하기 테이블</caption>
                 <colgroup>
-                    <col width="130px" />
-                    <col width="*" />
+                    <col width="130px"/>
+                    <col width="*"/>
                 </colgroup>
                   {Submit_Data.map((item) => (
                     <tbody key={item.id}>
