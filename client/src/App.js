@@ -15,6 +15,8 @@ import Advertising from "./components/newsPage/advertising";
 import Notice from "./components/newsPage/notice";
 import NoticeDetail from "./components/newsPage/noticedetail";
 import Login from './components/login/login';
+import Searchid from './components/login/searchid';
+import Searchpw from './components/login/searchpw';
 import Franchise from './components/franchise/franchise'
 import Menuintro from "./components/menuintro/menuintro";
 import Detail from './components/productdetail/detail';
@@ -35,6 +37,8 @@ import Comment from "./components/admin/page/sup/submenu/inquiry/comment";
 import Subcard from "./components/footer/subcard/subcard";
 import Condition from "./components/footer/condition/condition";
 import Processing_policy from "./components/footer/processing_policy/processing_policy";
+
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -65,6 +69,9 @@ function App() {
         <Route path="/notice" element={<Notice />}></Route>
         <Route path="/news/:id" element={<NoticeDetail />}></Route>
         <Route path="/order/:type/:step/:location/:product/:id" element={<Order></Order>}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/searchid' element={<Searchid />}></Route>
+        <Route path='/searchpw' element={<Searchpw />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/franchise/:franchisee' element={<Franchise />}></Route>
