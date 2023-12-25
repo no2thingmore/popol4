@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-
+function editUser(id){
+  console.log("edit",id);
+}
+function delUser(id){
+  console.log("delete",id);
+}
 function Table(params) {
-  console.log("table",params.data);
+  // console.log("table",params.data);
   const data = params.data
+
+  
   return(
     <table className='KJH_inq_table_section'>
       <thead className='KJH_inq_table_thead_section'>
@@ -13,17 +20,25 @@ function Table(params) {
           <th className='KJH_inq_title_created'>전화번호</th>
           <th className='KJH_inq_title_ctrl'>가입 일</th>
           <th className='KJH_inq_title_status'>수정 일</th>
+          <th className='KJH_inq_title_status'>변경</th>
+          <th className='KJH_inq_title_status'>탈퇴</th>
         </tr>
       </thead>
       <tbody>
         {data.map((item) => (
           <tr className='KJH_inq_contents_section'>
-              <td className='KJH_inq_contents_id'>{item.name}</td>
-              <td className='KJH_inq_contents_kind'>{item.email}</td>
-              <td className='KJH_inq_contents_title' >{item.password}</td>
-              <td className='KJH_inq_contents_created'>{item.contact_number}</td>
-              <td className='KJH_inq_contents_ctrl'>{item.createdAt}</td>
-              <td className='KJH_inq_contents_ctrl'>{item.updatedAt}</td>
+            <td className='KJH_inq_contents_id'>{item.name}</td>
+            <td className='KJH_inq_contents_kind'>{item.email}</td>
+            <td className='KJH_inq_contents_title' >{item.password}</td>
+            <td className='KJH_inq_contents_created'>{item.contact_number}</td>
+            <td className='KJH_inq_contents_ctrl'>{item.createdAt}</td>
+            <td className='KJH_inq_contents_ctrl'>{item.updatedAt}</td>
+            <td className='KJH_inq_contents_ctrl'>
+            <Link to={`/admin/user/edit`} state={{userID: item.id}}><span className='KJH_inq_contents_ans'>수정</span></Link>
+            </td>
+            <td className='KJH_inq_contents_ctrl'>
+            <span className='KJH_inq_contents_del'>삭제</span>
+            </td>
           </tr>
         ))}
       </tbody>

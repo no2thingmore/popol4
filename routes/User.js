@@ -19,6 +19,7 @@ router
       res.status(500).end();
     })
   })
+
   .get('/login',async (req,res,next)=>{
     try {
       // console.log('test',req.body.id);
@@ -45,6 +46,7 @@ router
       return res.status(500).end();
     }
   })
+  
   .get('/mypage',async(req,res,next)=>{
     console.log(req.query);
    await User.findOne({//selete * from User
@@ -66,12 +68,47 @@ router
       res.status(201).send(result)
     })
   })
-  .patch('/admin/nomal',()=>{
-
+  .patch('/admin/0',(req,res,next)=>{
+    
   })
-  .patch('/admin/oner',()=>{
-
+  .patch('/admin/1',(req,res,next)=>{
+    console.log(req.body);
+    User.update({
+      name:req.body.Nname,
+      email:req.body.Nemail,
+      password:req.body.Npwd,
+      contact_number:req.body.Nphone,
+      role:req.body.Nrole,
+      updated_at:new Date()
+    },{
+      where:{id:req.body.id}
+    })
+    res.status(201).end();
   })
 
+  .get('/findId',(req,res,next)=>{
+    console.log(req.query);
+    User.findOne({where:{name:req.query.name,contact_number:req.query.contact_number}})
+    .then((result)=>{
+      console.log(result);
+      res.status(201).send(result)
+    })
+    .catch((err)=>{
+      console.error(err);
+      res.status(501).end();
+    })
+  })
+  .get('/findPW',(req,res,next)=>{
+    console.log(req.query);
+    User.findOne({where:{email:req.query.email,name:req.query.name,contact_number:req.query.contact_number}})
+    .then((result)=>{
+      console.log(result);
+      res.status(201).send(result)
+    })
+    .catch((err)=>{
+      console.error(err);
+      res.status(501).end();
+    })
+  })
 
 module.exports = router;
