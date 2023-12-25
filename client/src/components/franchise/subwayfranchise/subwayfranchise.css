@@ -118,7 +118,16 @@
   background-color: rgb(232, 232, 69);
   color: rgb(21, 141, 21);
   font-family: 'TTWanjudaedunsancheB';
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.band_comp_h4 h4{
+  margin: 0.5vw 0;
+}
+
 .band_comp_ul{
   list-style: none;
   width: 350px;

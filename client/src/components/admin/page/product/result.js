@@ -114,7 +114,7 @@ function Result(props) {
   const currentItems = productbasedata.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(productbasedata.length / itemsPerPage);
-  const maxVisiblePages = 3; // 보이는 페이지 숫자의 최대 개수
+  const maxVisiblePages = 5; // 보이는 페이지 숫자의 최대 개수
   let startPage = Math.max(currentPage - Math.floor(maxVisiblePages / 2), 1);
   let endPage = Math.min(startPage + maxVisiblePages - 1, totalPages);
 
@@ -172,6 +172,7 @@ function Result(props) {
                     <img
                       src={API_URL + "/upload/" + a.image_url}
                       width="70%"
+                      style={{maxHeight: "4vw"}}
                     ></img>
                   </td>
                   <td

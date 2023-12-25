@@ -69,7 +69,7 @@ function Sandwitchct(props) {
                 </div>
               </Link>
               <div className="CHM_selectCardImg">
-                <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname}></img>
+                <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname} style={{maxHeight: "14vw"}}></img>
               </div>
               <div className="CHM_selectCardKname">{item.kname}</div>
               <div className="CHM_selectCardEname">{item.ename}</div>

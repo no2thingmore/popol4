@@ -28,8 +28,6 @@
 
 .ymjc_small_title_s{
   background-color: rgb(238, 236, 236);
-  width: 950px; 
-  height: 290px;
   margin: auto;
 }
 
@@ -39,6 +37,7 @@
   margin-right: 30px;
   margin-left: 30px;
   font-family: font_ns, sans-serif;
+  padding-bottom:30px;
 }
 
 .ymjc_small_title > h3{
