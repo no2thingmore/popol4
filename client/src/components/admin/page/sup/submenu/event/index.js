@@ -30,8 +30,6 @@ function Event(){
         fetchEvent();
     }, []);
 
-
-
     // 페이지 계산
     const firstPostIndex = (currentPage - 1) * pageLimit;
     const lastPostIndex = currentPage * pageLimit;
@@ -60,7 +58,7 @@ function Event(){
 
     // 내용 모두 열기
     const openAllToggles = () => {
-        const allOpen = event.reduce((acc, evnet) => {
+        const allOpen = event.reduce((acc, event) => {
             acc[event.id] = true;
             return acc;
         }, {});
@@ -105,8 +103,7 @@ function Event(){
                     <table className='KJH_evt_table_section'>
                         <thead className='KJH_evt_table_thead_section'>
                             <tr className='KJH_evt_title_section'>
-                                <th className='KJH_evt_title_kinds'>제목</th>
-                                <th>이벤트 기간</th>
+                                <th className='KJH_evt_title_title'>제목</th>
                                 <th className='KJH_evt_title_ctrl'>관리</th>
                                 <th className='KJH_evt_title_status'>진행상태</th>
                             </tr>
@@ -116,7 +113,6 @@ function Event(){
                                 <React.Fragment key={item.id}>
                                     <tr className='KJH_evt_contents_section' onClick={() => toggleContent(item.id)}>
                                         <td className='KJH_evt_contents_title' >{item.title}</td>
-                                        <td className='KJH_evt_contents_date'>이벤트 기간 데이터</td>
                                         <td className='KJH_evt_contents_ctrl'>
                                             <span className='KJH_evt_contents_ans'>
                                             <Link to={`/admin/support/update-evt`}
@@ -125,7 +121,7 @@ function Event(){
                                             </span>
                                             <span className='KJH_evt_contents_del'>삭제</span>
                                         </td>
-                                        {/* 상태 state 관리 : 완료 or 대기 */}
+                                        {/* 이벤트 진행상태 관리 : 진행중 or 종료 */}
                                         <td className={`KJH_evt_contents_status ${item.status === 0 || item.status === '0' ? 'status_evn_ing' : 'status_evn_end'}`}>
                                             {statusMapping[item.status.toString()] || '알 수 없음'}
                                         </td>
@@ -133,7 +129,7 @@ function Event(){
                                     {showContents[item.id] && (
                                         <>
                                             <tr className='KJH_evt_coment_tr_1st'>
-                                                <td colSpan="4" className='KJH_evt_contents_content'>{item.content}</td>
+                                                <td colSpan="3" className='KJH_evt_contents_content'>{item.content}</td>
                                             </tr>
                                         </>
                                     )}

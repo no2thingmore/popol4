@@ -1,21 +1,38 @@
-/* global kakao */
-
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import MapContainer from "./map";
 
 function StoreSearch() {
-  useEffect(() => {
-    const container = document.getElementById('map');
-    const options = {
-      center: new kakao.maps.LatLng(37.06618608392056, 127.08111309444713), // 지도 중심좌표
-      level: 3
-    };
+  const [InputText, setInputText] = useState("");
+  const [Place, setPlace] = useState("");
 
-    new kakao.maps.Map(container, options); // 지도 생성
-  }, []);
+  const onChange = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setPlace(InputText);
+    setInputText("");
+  };
 
   return (
-    <div>
-      <div id="map" style={{width: '100%', height: '45em'}}></div>
+    <div className="CHM_serachBG">
+      <div className="CHM_serachFlex" style={{backgroundColor:"green"}}>
+        <form className="CHM_inputForm" onSubmit={handleSubmit}  style={{backgroundColor:"white", justifyContent:"space-between"}}>
+          <input
+            placeholder="지역을 입력해주세요"
+            onChange={onChange}
+            value={InputText}
+          />
+          <i
+            onClick={handleSubmit}
+            type="submit"
+            class="fa-solid fa-magnifying-glass"
+          ></i>
+        </form>
+      </div>
+
+      <MapContainer searchPlace={Place} />
     </div>
   );
 }

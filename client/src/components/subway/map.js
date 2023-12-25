@@ -68,10 +68,7 @@ const MapContainer = ({ searchPlace }) => {
         console.log("location: ", location);
 
         kakao.maps.event.addListener(marker, "click", function () {
-          const content = `
-      <div style=" text-align:center; padding-top:10px; font-size:1vw;">${location}</div>
-      <div style="border-radius: 1vw; text-align:center; color: white; margin:0.5vw; background-color:green; padding:5px; font-size:0.8vw; cursor: pointer;" onclick="handleClick('${location}')">주문하기</div>
-    `;
+          const content = `<div style=" text-align:center; padding:10px 0; font-size:0.9vw;">${location}</div>`;
 
           infowindow.setContent(content);
           infowindow.open(map, marker);

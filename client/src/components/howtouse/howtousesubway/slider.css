@@ -98,8 +98,8 @@
 .slider-container .action-buttons {
   position: absolute; /* 절대 위치 설정 */
   top: 45%; /* 중앙 정렬을 위해 50% 위로 이동 */
-  left: 15%; /* 왼쪽에 배치 */
-  width: 70%; /* 가로 너비 100% 설정 */
+  left: 10%; /* 왼쪽에 배치 */
+  width: 82vw; /* 가로 너비 100% 설정 */
   margin: 0 auto;
   display: flex; /* 플렉스 박스로 설정 */
   justify-content: space-between; /* 양 옆으로 정렬 */

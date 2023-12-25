@@ -1,15 +1,27 @@
+import axios from 'axios';
 import "./notice.css";
 import {n_data}from"./notice_all/notice_data.js";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_URL } from '../config/contansts.js';
 
 function Notice(){
 
   const [data, setData] = useState(n_data);
 
-  useEffect(()=>{
-
-  })
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/board/news`)
+      .then((res) => {
+        console.log("db조회 완료");
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        console.log("실패");
+      });
+  }, []);
 
   return(
     <div className="j_notice_all">

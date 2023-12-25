@@ -59,7 +59,7 @@ function Inquiry() {
         fetchInquiries();
     }, []);
 
-    // 페이지 계산
+
     const firstPostIndex = (currentPage - 1) * pageLimit;
     const lastPostIndex = currentPage * pageLimit;
     const displayedPosts = inquiries.slice(firstPostIndex, lastPostIndex);
