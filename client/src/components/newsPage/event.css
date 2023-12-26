@@ -47,6 +47,7 @@
 /* 하민이  css */
 
 .YMJ2_subSelectbar {
+  background-color: #999;
   position: absolute;
   color: black;
   top: -1.5vw;
@@ -60,7 +61,9 @@
 
 
 .YMJ2_saladSubSelectList1 {
-  width: 500px;
+  margin: 0 auto;
+
+  width: 700px;
   border-radius: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -156,4 +159,196 @@
   font-weight: 900;
   color: gold;
   padding-bottom: 2vw;
+}
+
+
+
+
+/*************** 본 문 ***************/
+
+
+
+/*************** 슬 라 이 드 ***************/
+
+.YMJ_Artist_slide_content{
+  margin-top: 60px;
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+}
+
+.YMJ_Artist_slide{
+  max-width: 2570px;
+  width: 100%;
+  overflow: hidden;
+}
+.YMJ_Artist_slide_viewport{
+  position: absolute !important;
+  left: 50% !important;
+  width: 2478px !important;
+  margin-left: -578px !important;
+  overflow: initial !important;
+}
+.YMJ_slide_li{
+  right: 39px;
+  top: -10px;
+  margin: auto;
+  list-style: none;
+  width: 4215%;
+  position: relative;
+  /* transition-duration: 0.5s; */
+  transform: translate3d(0px, 0px, 0px);
+
+
+  
+}
+.YMJ_slide_li_item{
+  
+  float: left;
+  list-style: none;
+  position: relative;
+  width: 770px;
+  margin-right: 130px;
+  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+/*************** 슬 라 이 드 이 미 지 ***************/
+/* 비활성화시 이미지는 opacity 0.5 텍스트는 0 */
+.YMJ_slide_img{
+  width: 770px; 
+  height: 390px;
+  opacity: 0;
+  overflow: hidden;
+  transition-delay: 0.1s;
+  transition-duration: 0.1s;
+}
+.YMJ_slide_img.active{
+  opacity: 1;
+}
+.YMJ_slide_img > img{
+  position: relative;
+  width: 770px;
+  /* height: 390px; */
+  vertical-align: top;
+  border: 0;
+}
+.YMJ_slide_li:nth-child(5n){
+  background-position: 0 60px;
+}
+
+/*************** 슬 라 이 드 텍 스 트 ***************/
+.YMJ_slide_info{
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 10px;
+  position: relative;
+  opacity: 0;
+  /* top: 30px; */
+  top: 0;
+
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  z-index: 7;
+}
+.YMJ_slide_info::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 4px;
+  width: 50px;
+  margin-left: -25px;
+  background-color: #ffc300;
+}
+.YMJ_slide_info_tit{
+  font-size: 22px;
+  font-weight: bold;
+  color: #292929;
+  letter-spacing: 0em;
+}
+.YMJ_slide_info_txt{
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #666666;
+  line-height: 26px;
+  letter-spacing: -0.05em;
+}
+.YMJ_slide_info.active{
+  opacity: 1;
+}
+
+/*************** 슬 라 이 드 버 튼 ***************/
+.YMJ_slide_ctl_Arrow{
+  /* border: 1px solid #000; */
+}
+
+.YMJ_slide_ctl_Arrow > a{
+  width: 50px;
+  height: 50px;
+  background: url(../subway/art_images/icon_slider_arr.png) no-repeat;
+  position: absolute;
+  top: 170px;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0px;
+  text-indent: -9999px;
+  color: #333;
+  cursor: pointer;
+}
+.YMJ_slide_ctl_Arrow > .YMJ_bt_next{
+  background-position: 100% 0;
+}
+.YMJ_bt_prev{
+  background-position: 0 0;
+  left: 40%;
+  margin-left: -467px;
+}
+.YMJ_bt_next{
+  right: 40%;
+  margin-right: -482px;
+}
+.YMJ_bt_prev:hover{
+  background-position: 0 100%;
+}
+.YMJ_bt_next:hover{
+  background-position: 100% 100%;
+}
+
+.YMJ_slide_ctl_Dot{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 97px;
+  text-align: center;
+}
+
+.YMJ_Dot_item{
+  display: inline-block;
+  margin: 0 5px;
+
+}
+.YMJ_clicked_dot{
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #dddddd;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition-duration: 0.3s;
+}
+.YMJ_clicked_dot:active{
+  background-color: #ffc300;
+  width: 30px;
+}
+.YMJ_clicked_dot.on{
+  background-color: #ffc300;
+  width: 30px;
+  
 }
