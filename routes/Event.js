@@ -57,6 +57,5 @@ router
     console.log("실패");
   }
 })
-module.ex
 
 module.exports = router;
