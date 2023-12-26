@@ -8,8 +8,8 @@ const PM_Data = [
         id: 1,
         image: PM_01,
         alt: '쉬림프 이미지',
-        title: '쉬림프 치킨',
-        path: '/one',
+        title: '쉬림프',
+        path: '/menuIntro/0/39',
         text: `탱글한 식감이 그대로 살아있는 통새우가
         5마리 들어가 한 입 베어 먹을 때 마다
         진짜 새우의 풍미가 가득`
@@ -18,8 +18,8 @@ const PM_Data = [
         id: 2,
         image: PM_02,
         alt: '풀드 포크 이미지',
-        title: '풀드 포크',
-        path: '/two',
+        title: '풀드 포크 바비큐',
+        path: '/menuIntro/0/41',
         text: `훈연한 미국 정통 스타일의 리얼 바비큐 폴드포크가
         들어간 샌드위치`
     },
@@ -28,7 +28,7 @@ const PM_Data = [
         image: PM_03,
         alt: '스테이크&치즈 이미지',
         title: '스테이크&치즈',
-        path: '/two',
+        path: '/menuIntro/0/42',
         text: `육즙이 쫙~
         풍부한 비프 스테이크의 풍미가 입안 한가득`
     },
@@ -37,7 +37,7 @@ const PM_Data = [
         image: PM_04,
         alt: '치킨 베이컨 아보카도 이미지',
         title: '치킨 베이컨 아보카도',
-        path: '/two',
+        path: '/menuIntro/0/33',
         text: `담백하게 닭가슴살로 만든 치킨 슬라이스와 베이컨,
         부드러운 아보카도의 만남`
     },

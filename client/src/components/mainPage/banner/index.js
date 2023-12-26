@@ -48,7 +48,7 @@ const Banner = () => {
                                 </div>
                             </div>
                         </Link>
-                        <Link to ='/franchiseinquire'>
+                        <Link to ='/franchise/franchiseinquire'>
                             <div className="ask">
                                 <div className="ask_section">
                                     <div className='link_section'>
