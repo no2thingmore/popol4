@@ -23,18 +23,18 @@ function Event(){
     },
     {
       imgURL: painting2,
-      title: "Best Fresh Keeper",
-      text: "샌드위치 아티스트™는 각종 재료의 신선함과 매장의 청결을 철저하게 관리합니다."
+      title: "써브웨이 오늘의 수프",
+      text: "오늘의 수프를 원하는 사이즈로! 샌드위치랑 함께 먹으면 든든하고 맛있썹!"
     },
     {
       imgURL: painting3,
-      title: "Best Service Professional",
-      text: "샌드위치 아티스트™는 항상 고객을 우선으로 생각하며 고객이 무엇을 원하는지 경청합니다."
+      title: "Eat Fresh Feel Good",
+      text: "써브웨이 X 차은우 신선함 가득! 즐거움 가득! 함께하는 이 순간이 즐거워!"
     },
     {
       imgURL: painting4,
-      title: "Best Team Member",
-      text: "샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을 제공하기 위해 다른 팀원들과 함께 노력합니다."
+      title: "말이 안 나올 땐 손으로 주문하자!",
+      text: "말이 안 나올 땐? 손으로 주문하자!"
     },
 
   ];
