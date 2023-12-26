@@ -30,7 +30,7 @@ function UpdateEvt() {
     // FAQ 데이터 가져오기
     const fetchEvtData = async () => {
         try {
-            const res = await axios.get(`${API_URL}/event/update`,{params:{id:evtId}});
+            const res = await axios.get(`${API_URL}/event`,{params:{id:evtId}});
             setEvtListData(res.data);
             console.log('해당 이벤트 데이터를 불러왔습니다')
             console.log(res.data);
@@ -60,7 +60,7 @@ function UpdateEvt() {
         }
     
         try {
-            await axios.patch(`${API_URL}/event/admin/${evtId}`, formData, {
+            await axios.patch(`${API_URL}/event`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
