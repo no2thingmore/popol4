@@ -20,6 +20,7 @@
     font-weight: 700;
     font-size: 28px;
     border-left: 3px solid #666666;
+    margin-bottom: 10px;
 }
 
 .KJH_createfaq_btn_section {
@@ -46,8 +47,9 @@
 .KJH_createfaq_title_section {
     display: inline-block;
     width: 100%;
-    padding: 0 5px 11px;
-    margin: 16px 0 15px;
+    padding: 10px 5px 11px;
+    margin-bottom: 15px;
+    border-top: 3px solid black;
     border-bottom: 1px solid #979797;
 }
 
@@ -71,7 +73,6 @@
     justify-content: space-between;
     padding-top: 20px;
     margin-bottom: 10px;
-    border-top: 3px solid rgb(55, 55, 55);
 }
 
 .KJH_createfaq_make_title_info, .KJH_createfaq_make_a_info {

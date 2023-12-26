@@ -108,14 +108,14 @@ function CreateEvt() {
                                 </div>
                             </div>
                             {/* 제목 입력 란 */}
-                            <div className='KJH_create-evt_make_title_line'>
-                                    <textarea
-                                        className='KJH_create-evt_make_title_info'
-                                        value={title}
-                                        placeholder='제목을 입력해주세요'
-                                        onChange={handleTitleChange}
-                                    />
-                                </div>
+                            <div>
+                                <textarea
+                                    className='KJH_create-evt_make_title_info'
+                                    value={title}
+                                    placeholder='제목을 입력해주세요'
+                                    onChange={handleTitleChange}
+                                />
+                            </div>
                         </div>
                         <div className='KJH_create-evt_content_section'>
                             <textarea
@@ -134,9 +134,9 @@ function CreateEvt() {
                                 onChange={onChangeImage}
                             >
                                 {imageUrl ? (
-                                    <div>{imageUrl}</div>
+                                    <div className="KJH_create-evt_image-url">{imageUrl}</div>
                                 ) : (
-                                    <div>사진 등록</div>
+                                    <div className="KJH_create-evt_image-url">사진 등록</div>
                                 )}
                             </Upload>
                         </div>

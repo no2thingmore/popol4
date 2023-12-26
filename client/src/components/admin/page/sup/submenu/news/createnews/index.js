@@ -127,7 +127,7 @@ function CreateNews() {
                                     onChange={handleContentChange}
                                     />
                         </div>
-                        <div className='KJH_create-evt_file_upload_section'>
+                        <div className='KJH_create-news_file_upload_section'>
                             <Upload
                                 name="image"
                                 action={`${API_URL}/image`}
@@ -136,9 +136,9 @@ function CreateNews() {
                                 onChange={onChangeImage}
                             >
                                 {imageUrl ? (
-                                    <div>{imageUrl}</div>
+                                    <div className="KJH_create-news_image-url">{imageUrl}</div>
                                 ) : (
-                                    <div>사진 등록</div>
+                                    <div className="KJH_create-news_image-url">사진 등록</div>
                                 )}
                             </Upload>
                         </div>

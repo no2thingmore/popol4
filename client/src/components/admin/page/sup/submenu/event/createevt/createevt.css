@@ -62,13 +62,9 @@
 }
 
 .KJH_create-evt_type_input {
-    padding-top: 20px;
-    margin: 0 0 10px 10px;
+    padding: 10px 0;
+    margin-left: 10px;
     border-top: 3px solid rgb(55, 55, 55);
-}
-
-.KJH_create-evt_input_left {
-    margin-right: 5px;
 }
 
 .KJH_create-evt_make_title_info, .KJH_create-evt_make_a_info {
@@ -146,8 +142,12 @@
     color: rgba(107, 107, 107, 0.733);
 }
 
-.KJH_image-url {
+.KJH_create-evt_file_upload_section {
     margin-left: 15px;
+    display: inline-block;
+}
+
+.KJH_create-evt_image-url {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
