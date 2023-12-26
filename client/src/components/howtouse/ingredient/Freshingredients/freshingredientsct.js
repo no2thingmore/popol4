@@ -25,7 +25,7 @@ function Freshingredientsct(props) {
   // }, []);
   
   const [select, setSelect] = useState("All");
-  const categories = ["All", 0, 1, 2, 3];
+  const categories = ["All", 0, 1, 2, 3, 4];
   const [filteredData, setFilteredData] = useState(props.data);
 
   let filterdata;
@@ -62,7 +62,7 @@ function Freshingredientsct(props) {
   return (
     <div style={{ position: "relative" }}>
       <div className="CHM_subSelectbar">
-        <div className="CHM_sandwichSubSelectList">
+        <div className="CHM_sandwichSubSelectList1">
           {categories.map((category) => (
             <div
               key={category}
@@ -117,6 +117,8 @@ function getCategoryText(category) {
       return "치즈";
     case 3:
       return "소스";
+    case 4:
+      return "고기";
     default:
       return "";
   }

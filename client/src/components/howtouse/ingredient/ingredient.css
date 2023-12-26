@@ -88,7 +88,7 @@ div {
 
 .CHM_sandwichSubSelectList1 {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   margin: 0 12vw;
   padding: 0 10vw;
   background-color: white;
