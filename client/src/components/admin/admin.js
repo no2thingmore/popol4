@@ -64,13 +64,13 @@ function Admin() {
               </a>
             </li>
             <li>
-              <Link
-                to="/admin/design"
-                className={menu === "디자인관리" ? "active" : "noactive"}
-                onClick={() => MenuClick("디자인관리")}
+              <a 
+                href="/admin/store/none"
+                className={menu === "방 등록하기" ? "active" : "noactive"}
+                onClick={() => MenuClick("방 등록하기")}
               >
-                디자인관리
-              </Link>
+                가게 문의하기
+              </a>
             </li>
             <li>
               <a
@@ -81,20 +81,9 @@ function Admin() {
                 설정
               </a>
             </li>
-            <li>
-              <a 
-                href="/admin/store/none"
-                className={menu === "방 등록하기" ? "active" : "noactive"}
-                onClick={() => MenuClick("방 등록하기")}
-              >
-                가게 등록하기
-              </a>
-            </li>
-
           </ul>
         </nav>
       </div>
-
       <div className="menu_info">
         {menu === "home" && <div>{<Home></Home>}</div>}
 
@@ -105,8 +94,6 @@ function Admin() {
         {menu === "product" && <Product></Product>}
 
         {menu === "support" && <Sup />}
-
-        {menu === "design" && <div>{<Design></Design>}</div>}
 
         {menu === "setting" && <div>{<Setting></Setting>}</div>}
 
