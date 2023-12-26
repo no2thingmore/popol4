@@ -34,7 +34,7 @@ function Event(){
     {
       imgURL: painting4,
       title: "말이 안 나올 땐 손으로 주문하자!",
-      text: "말이 안 나올 땐? 손으로 주문하자!"
+      text: "말이 안 나올 땐? 손으로 주문하자!!"
     },
 
   ];
