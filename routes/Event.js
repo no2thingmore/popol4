@@ -6,8 +6,8 @@ const router = express.Router();
 router
 .get('/',(req,res,next)=>{
   Event.findAll()
-  .then((res)=>{
-    res.status(201).send(res);
+  .then((result)=>{
+    res.status(201).send(result);
   })
   .catch((err)=>{
     console.error(err);
