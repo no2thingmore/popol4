@@ -42,6 +42,7 @@ function Newspage() {
   const [isSticky, setIsSticky] = useState(false);
   const [color, setColor] = useState("");
 
+
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;

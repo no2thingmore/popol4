@@ -14,6 +14,19 @@ router
     res.status(500).end();
   })
 })
+.post('/admin',(req,res,next)=>{
+  Event.create({
+    admin_id:req.body.admin_id,
+    title:req.body.title,
+    content:req.body.content,
+    image_url:req.body.image_url,
+    status:0,
+    created_at:new Date(),
+    updated_at:new Date(),
+  }).then(()=>{
+    res.status(201).end()
+  })
+})
 
 router
 .patch('./admin', async (req, res, next) => {
