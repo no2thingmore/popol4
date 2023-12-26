@@ -94,8 +94,8 @@ section {
 .CHM_detailpageImg{
   display: flex;
   justify-content: center;
-  height: 25vw;
-  padding: 1vw 0;
+  height: 33vw;
+  padding-bottom: 1vw;
 }
 
 .CHM_detailpageImg img{

@@ -130,7 +130,7 @@ function Cart() {
   
               return (
                 <div key={i}>
-                  <div className="CHM_step3CartContentGrid">
+                  <div className="CHM_step3CartContentGrid" style={{gridTemplateColumns:"3fr 5fr 1.5fr 1.8fr 0.5fr"}}>
                     <div className="CHM_step3CartContentname">
                       <span style={{ paddingRight: "1.5vw", fontSize: "1.4vw" }}>
                         {cartItem[0].mainName}
@@ -209,7 +209,7 @@ function Cart() {
                 홈으로 <i class="fa-solid fa-house"></i>
               </div>
             </Link>
-            <Link to="http://localhost:3000/order/Fast-Sub/step2/매장이름/0/Nan">
+            <Link to={`/order/Fast-Sub/step2/${location}/0/Nan`}>
               <div
                 className="CHM_faststep2ResultCartBtn2"
                 style={{ margin: "0 2vw" }}>
