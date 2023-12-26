@@ -15,6 +15,25 @@ router
     })
   })
 
+  .put('/admin',(req,res,next)=>{
+    console.log(req.body);
+    Store.update({
+      status:req.body.status
+    },{
+      where:{id:req.body.id}
+    })
+    res.status(201).end()
+  })
+  .delete('/admin',(req,res,next)=>{
+    console.log(req.body);
+    Store.destroy({where:{id:req.body.id}})
+    .then(()=>{
+      res.status(201).end();
+    })
+    .catch(()=>{
+      res.status(501).end();
+    })
+  })
 
   .post('/admin',(req,res,next)=>{
     try {

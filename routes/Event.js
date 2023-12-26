@@ -6,14 +6,14 @@ const router = express.Router();
 router
 .get('/', (req, res, next) => {
   Event.findAll()
-    .then((events) => {
-      res.status(200).json(events);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Server error');
-    });
-});
+  .then((result)=>{
+    res.status(201).send(result);
+  })
+  .catch((err)=>{
+    console.error(err);
+    res.status(500).end();
+  })
+})
 
 router
 .patch('./admin', async (req, res, next) => {

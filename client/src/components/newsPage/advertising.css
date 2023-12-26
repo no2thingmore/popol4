@@ -59,10 +59,11 @@
   position: absolute;
   /* top: -12%;
   left: -35%; */
-  margin: -80% -35%;
+  margin: -40% 35%;
   width: fit-content;
   height: fit-content;
   display: none;
+  width: 100px;
 }
 
 
@@ -79,10 +80,10 @@
 
 .YMJ_selectcontentGridBox {
   padding: 4vw 0;
-  margin: 0 21vw;
+  margin: 0 13vw;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2vw;
+  gap: 3vw;
 
 }
 

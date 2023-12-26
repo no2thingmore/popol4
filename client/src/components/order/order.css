@@ -149,7 +149,8 @@
 .CHM_faststep2ResultGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-bottom: 1vw;
+  padding-bottom: 2vw;
+  column-gap: 1vw;
 }
 
 .CHM_faststep2ResultTitle {

@@ -112,110 +112,119 @@ function Cart() {
   return (
     <div className="CHM_step3Bg1">
       <div className="jj_cart_title">장바구니<img src={cart1}></img></div>
-      <div className="CHM_step3StoreContent">장소: {location}</div>
-      <div className="CHM_step3CartTitle">주문내역</div>
-      <div className="CHM_step3CartContent">
-        {cart.map((cartItem, i) => {
-          const totalPrice = cartItem.reduce(
-            (acc, item) => acc + item.price,
-            0
-          );
-          const breadName = cartItem.find((item) => item.kinds === 0)?.name;
-
-          return (
-            <div key={i}>
-              <div className="CHM_step3CartContentGrid">
-                <div className="CHM_step3CartContentname">
-                  <span style={{ paddingRight: "1.5vw", fontSize: "1.4vw" }}>
-                    {cartItem[0].mainName}
-                  </span>
-                </div>
-                <div className="CHM_step3CartContentname2">
-                  {cartItem.slice(1).length > 0 && (
-                    <div style={{ color: "rgb(70, 70, 70)", fontSize: "1.2vw", display:"flex", flexDirection: "column", rowGap:"0.5vw"}}>
-                      {breadName && (
-                        <div>
-                          [ 빵 종류:
-                          <span style={{ padding: "0 0.5vw" }}>{breadName}</span>]
+      {cart.length === 0 ? ( // 장바구니가 비었을 때
+        <div className="emptyCartMessage"><p>장바구니가 비어있습니다</p>
+          <a href="/order/Fast-Sub/step1/Noplace/Null/Nan"><button className="emptyCartMessagebtn">주문하기</button></a>
+        </div>
+      ) : (
+        <div>
+          <div className="CHM_step3StoreContent">선택된 매점명: {location}</div>
+          <div className="CHM_step3CartTitle">주문내역</div>
+          <div className="CHM_step3CartContent">
+            {cart.map((cartItem, i) => {
+              const totalPrice = cartItem.reduce(
+                (acc, item) => acc + item.price,
+                0
+              );
+              const breadName = cartItem.find((item) => item.kinds === 0)?.name;
+  
+              return (
+                <div key={i}>
+                  <div className="CHM_step3CartContentGrid">
+                    <div className="CHM_step3CartContentname">
+                      <span style={{ paddingRight: "1.5vw", fontSize: "1.4vw" }}>
+                        {cartItem[0].mainName}
+                      </span>
+                    </div>
+                    <div className="CHM_step3CartContentname2">
+                      {cartItem.slice(1).length > 0 && (
+                        <div style={{ color: "rgb(70, 70, 70)", fontSize: "1.2vw", display:"flex", flexDirection: "column", rowGap:"0.5vw"}}>
+                          {breadName && (
+                            <div>
+                              [ 빵 종류:
+                              <span style={{ padding: "0 0.5vw" }}>{breadName}</span>]
+                            </div>
+                          )}
+                          <div>
+                            [ 포함된 재료:
+                            {cartItem
+                              .slice(1)
+                              .filter((item) => item.kinds !== 0)
+                              .map((item, j, array) => (
+                                <span
+                                  key={j}
+                                  className="CHM_step3CartContentname"
+                                  style={{ padding: "0 0.5vw" }}
+                                >
+                                  {item.name}
+                                  {j !== array.length - 1 && ","}
+                                </span>
+                              ))}
+                            ]
+                          </div>
                         </div>
                       )}
-                      <div>
-                        [ 포함된 재료:
-                        {cartItem
-                          .slice(1)
-                          .filter((item) => item.kinds !== 0)
-                          .map((item, j, array) => (
-                            <span
-                              key={j}
-                              className="CHM_step3CartContentname"
-                              style={{ padding: "0 0.5vw" }}
-                            >
-                              {item.name}
-                              {j !== array.length - 1 && ","}
-                            </span>
-                          ))}
-                        ]
-                      </div>
                     </div>
-                  )}
+                    <div className="CHM_step3CartContentcount">
+                      <span onClick={() => minus(i)} style={{ cursor: "pointer" }}>
+                        -
+                      </span>
+                      <span style={{ fontSize: "1.3vw" }}>
+                        {cartItem[0].count + itemCounts[i] - 1}개
+                      </span>
+                      <span onClick={() => plus(i)} style={{ cursor: "pointer" }}>
+                        +
+                      </span>
+                    </div>
+                    <div
+                      className="CHM_step3CartContentprice"
+                      style={{ fontSize: "1.3vw" }}
+                    >
+                      {formatAmount(
+                        totalPrice * (cartItem[0].count + itemCounts[i] - 1)
+                      )}
+                      원
+                    </div>
+                    <div
+                      onClick={() => deleteCartItem(i)}
+                      className="CHM_step3DeletBtn"
+                    >
+                      X
+                    </div>
+                  </div>
                 </div>
-                <div className="CHM_step3CartContentcount">
-                  <span onClick={() => minus(i)} style={{ cursor: "pointer" }}>
-                    -
-                  </span>
-                  <span style={{ fontSize: "1.3vw" }}>
-                    {cartItem[0].count + itemCounts[i] - 1}개
-                  </span>
-                  <span onClick={() => plus(i)} style={{ cursor: "pointer" }}>
-                    +
-                  </span>
-                </div>
-                <div
-                  className="CHM_step3CartContentprice"
-                  style={{ fontSize: "1.3vw" }}
-                >
-                  {formatAmount(
-                    totalPrice * (cartItem[0].count + itemCounts[i] - 1)
-                  )}
-                  원
-                </div>
-                <div
-                  onClick={() => deleteCartItem(i)}
-                  className="CHM_step3DeletBtn"
-                >
-                  X
-                </div>
-              </div>
+              );
+            })}
+          </div>
+          <div className="CHM_step3CartTitle">총 결제 금액</div>
+          <div className="CHM_step3CartContent">
+            <div className="CHM_step3Resultflex">
+              <div>총 주문 금액</div>
+              <div>{formatAmount(totalOrderAmount)}원</div> 
             </div>
-          );
-        })}
-      </div>
-      <div className="CHM_step3CartTitle">총 결제 금액</div>
-      <div className="CHM_step3CartContent">
-        <div className="CHM_step3Resultflex">
-          <div>총 주문 금액</div>
-          <div>{formatAmount(totalOrderAmount)}원</div> 
+          </div>
+          <div className="CHM_faststep2ResultCart" style={{ paddingTop: "0" }}>
+            <Link to="/">
+              <div className="CHM_faststep2ResultCartBtn1">
+                홈으로 <i class="fa-solid fa-house"></i>
+              </div>
+            </Link>
+            <Link to="http://localhost:3000/order/Fast-Sub/step2/매장이름/0/Nan">
+              <div
+                className="CHM_faststep2ResultCartBtn2"
+                style={{ margin: "0 2vw" }}>
+                메뉴 추가하기 <i class="fa-solid fa-plus"></i>
+              </div>
+            </Link>
+            <div className="CHM_faststep2ResultCartBtn3"  onClick={onClickPayment}>
+              결제하기 <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="CHM_faststep2ResultCart" style={{ paddingTop: "0" }}>
-        <Link to="/">
-          <div className="CHM_faststep2ResultCartBtn1">
-            홈으로 <i class="fa-solid fa-house"></i>
-          </div>
-        </Link>
-        <Link to="http://localhost:3000/order/Fast-Sub/step2/매장이름/0/Nan">
-          <div
-            className="CHM_faststep2ResultCartBtn2"
-            style={{ margin: "0 2vw" }}>
-            메뉴 추가하기 <i class="fa-solid fa-plus"></i>
-          </div>
-        </Link>
-          <div className="CHM_faststep2ResultCartBtn3"  onClick={onClickPayment}>
-            결제하기 <i class="fa-solid fa-check"></i>
-          </div>
-      </div>
+      )}
     </div>
   );
 }
 
 export default Cart;
+          

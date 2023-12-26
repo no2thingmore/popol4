@@ -72,7 +72,7 @@ function Breakfastct(props) {
                 </Link>
 
                 <div className="CHM_selectCardImg">
-                  <img src={API_URL + "/upload/" + a.image_url} width="100%"></img>
+                  <img src={API_URL + "/upload/" + a.image_url} width="100%" style={{maxHeight: "14vw"}}></img>
                 </div>
                 <div className="CHM_selectCardKname">{a.kname}</div>
                 <div className="CHM_selectCardEname">{a.ename}</div>

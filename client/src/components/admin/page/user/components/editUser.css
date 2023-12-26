@@ -1,0 +1,30 @@
+.user_edit_section{
+  padding-left: 250px;
+  padding-top: 70px;
+}
+
+.user_type{
+  padding-bottom: 10px;
+}
+
+.user_edit_table{
+  margin: 30px ;
+}
+
+.user_edit_row{
+  font-size: 20px;
+  text-align: center;
+  height: 35px;
+}
+
+.user_edit_fname{
+  background-color: white;
+  border-top: 1px solid black;
+}
+
+.user_edit_name{
+  font-size: 20px;
+  text-align: center;
+  height: 35px;
+  background-color: white;
+}
