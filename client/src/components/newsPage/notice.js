@@ -7,11 +7,11 @@ import { API_URL } from '../config/contansts.js';
 
 function Notice(){
 
-  const [data, setData] = useState(n_data);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/board/news`)
+      .get(`${API_URL}/board`)
       .then((res) => {
         console.log("db조회 완료");
         console.log(res.data);
@@ -32,9 +32,9 @@ function Notice(){
         
         <div className="j_the_number">
           <p className="">
-            "총"
-            <strong>10</strong>
-            "건의 게시글이 있습니다." 
+            총
+            <strong> {data.length} </strong>
+            건의 게시글이 있습니다.
           </p>
         </div>
 
