@@ -1,25 +1,24 @@
 import './createnews.css'
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Upload } from "antd";
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreateNews() {
 
     const API_URL = 'http://168.126.242.77:8080';
-
+    const navigate = useNavigate();
 
     const [title, setTitle] = useState(''); // 제목
     const [content, setContent] = useState(''); // 내용
-    const [image, setImage] = useState(null); // 이미지
+
+    const [imageUrl, setImageUrl] = useState(null); // 이미지
+    const [isUploading, setIsUploading] = useState(false); // 업로드 추적
+
     const [currentDate, setCurrentDate] = useState(new Date()); // 시간 업데이트
 
     const handleTitleChange = (e) => setTitle(e.target.value);
     const handleContentChange = (e) => setContent(e.target.value);
-    const handleImageChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    };
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -42,25 +41,50 @@ function CreateNews() {
         };
     }, []);
 
-    // 공지사항 등록
-    const handleSubmit = async () => {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('content', content);
-        if (image) {
-            formData.append('image_url', image);
+    // 이미지 상태관리
+    const onChangeImage = (info) => {
+        if (info.file.status === "uploading" && !isUploading) {
+            console.log("업로드중");
+            setIsUploading(true);
+        } else if (info.file.status === "done") {
+            console.log("업로드 성공", info.file.response);
+            // 서버로부터 반환된 이미지 URL을 저장
+            const imageUrl = info.file.response?.imageUrl;
+            if (imageUrl) {
+                setImageUrl(imageUrl);
+            } else {
+                console.error("응답에서 imageUrl을 찾을 수 없음");
+            }
+            setIsUploading(false);
         }
-        console.log(formData);
-        
-        try {
-            const res = await axios.post(`${API_URL}/board/admin`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            console.log('공지사항 등록 완료', res.data);
-        } catch (err) {
-            console.error('등록 에러', err);
+    };
+
+    // 공지사항 등록
+    const PlusNews = async (e) => {
+        e.preventDefault();
+        if (
+            title === "" ||
+            content === "" ||
+            imageUrl === ""
+        ) {
+            alert("빈칸없이 전부 채워주세요")
+        } else {
+            await axios
+                .post(`${API_URL}/event/admin`, {
+                    admin_id:1,
+                    title: title,
+                    content: content,
+                    image_url: imageUrl,
+                })
+                .then(() => {
+                    console.log("성공");
+                    navigate("/admin/support/news");
+                    window.location.reload();
+                })
+                .catch((e) => {
+                    console.log("에러");
+                    console.error(e);
+                });
         }
     };
 
@@ -78,40 +102,48 @@ function CreateNews() {
                             </Link>
                         </div>
                     </span>
-                    
-                    <div className='KJH_create-news_title_section'>
-                        <div className='KJH_create-news_type_input'>
-                        </div>
-                        <div className='KJH_create-news_date_created'>
-                        작성일 : {formatDate(currentDate.toISOString())}
-                        </div>
-                        {/* 제목 입력 란 */}
-                        <div className='KJH_create-news_make_title_line'>
-                                <textarea
-                                    className='KJH_create-news_make_title_info'
-                                    value={title}
-                                    placeholder='제목을 입력해주세요'
-                                    onChange={handleTitleChange}
-                                />
+                    <form onSubmit={PlusNews}>
+                        <div className='KJH_create-news_title_section'>
+                            <div className='KJH_create-news_type_input'>
                             </div>
-                    </div>
-                    <div className='KJH_create-news_content_section'>
-                        <textarea
-                                className='KJH_create-news_make_a_info'
-                                value={content}
-                                placeholder='내용을 입력해주세요'
-                                onChange={handleContentChange}
-                                />
-                    </div>
-                    <div className='KJH_create-news_file_upload_section'>
-                        <input
-                            type="file"
-                            onChange={handleImageChange}
-                            accept="image/*"
-                            className='KJH_create-news_file_upload'
-                        />
-                    </div>
-                    <button onClick={handleSubmit} type="submit" className='KJH_create-news_data_submit'>등록하기</button>
+                            <div className='KJH_create-news_date_created'>
+                            작성일 : {formatDate(currentDate.toISOString())}
+                            </div>
+                            {/* 제목 입력 란 */}
+                            <div className='KJH_create-news_make_title_line'>
+                                    <textarea
+                                        className='KJH_create-news_make_title_info'
+                                        value={title}
+                                        placeholder='제목을 입력해주세요'
+                                        onChange={handleTitleChange}
+                                    />
+                                </div>
+                        </div>
+                        <div className='KJH_create-news_content_section'>
+                            <textarea
+                                    className='KJH_create-news_make_a_info'
+                                    value={content}
+                                    placeholder='내용을 입력해주세요'
+                                    onChange={handleContentChange}
+                                    />
+                        </div>
+                        <div className='KJH_create-evt_file_upload_section'>
+                            <Upload
+                                name="image"
+                                action={`${API_URL}/image`}
+                                listType="picture"
+                                showUploadList={false}
+                                onChange={onChangeImage}
+                            >
+                                {imageUrl ? (
+                                    <div>{imageUrl}</div>
+                                ) : (
+                                    <div>사진 등록</div>
+                                )}
+                            </Upload>
+                        </div>
+                        <button type="submit" className='KJH_create-news_data_submit'>등록하기</button>
+                    </form>
                 </div>
             </div>
         </>

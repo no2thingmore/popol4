@@ -153,6 +153,20 @@
     padding: 10px 15px;
 }
 
+.KJH_update-evt_image-url {
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 300px;
+    max-width: 300px;
+    font-size: 12px;
+    background-color: white;
+    padding: 5px 10px;
+    border: 1px solid #666666;
+    cursor: pointer;
+}
+
 .KJH_update-evt_data_submit {
     float: right;
     margin-right: 15px;

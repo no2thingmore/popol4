@@ -1,11 +1,13 @@
 import './updatenews.css'
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Upload } from 'antd';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateNews() {
 
     const API_URL = 'http://168.126.242.77:8080';
+    const navigate = useNavigate();
 
     const location = useLocation();
     const newsId = location.state.id;
@@ -15,16 +17,14 @@ function UpdateNews() {
 
     const [title, setTitle] = useState(NewsData.title);
     const [content, setContent] = useState(NewsData.content);
-    const [image, setImage] = useState(NewsData.image_url);
+
+    const [imageUrl, setImageUrl] = useState(null); // 이미지
+    const [isUploading, setIsUploading] = useState(false); // 업로드 추적
+
     const [currentDate, setCurrentDate] = useState(new Date());
 
     const handleTitleChange = (e) => setTitle(e.target.value);
     const handleContentChange = (e) => setContent(e.target.value);
-    const handleImageChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    };
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -52,6 +52,7 @@ function UpdateNews() {
         try {
             const res = await axios.get(`${API_URL}/board/news`,{params:{id:newsId}});
             setNewsListData(res.data);
+            setImageUrl(res.data.image_url);
             console.log('해당 공지사항 데이터를 불러왔습니다')
             console.log(res.data);
         } catch (err) {
@@ -67,33 +68,60 @@ function UpdateNews() {
         }
     }, [newsId]);
 
-    // 공지사항 수정 | 수정데이터 : 제목, 내용, 이미지
-    const handleSubmit = async () => {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('content', content);
-        
-        // 이미지가 변경되었는지 확인
-        if (image && typeof image === 'object') {
-            formData.append('image', image);
+    // 이미지 상태관리
+    const onChangeImage = (info) => {
+        if (info.file.status === "uploading" && !isUploading) {
+            console.log("업로드중");
+            setIsUploading(true);
+        } else if (info.file.status === "done") {
+            console.log("업로드 성공", info.file.response);
+            // 서버로부터 반환된 이미지 URL을 저장
+            const imageUrl = info.file.response?.imageUrl;
+            if (imageUrl) {
+                setImageUrl(imageUrl);
+            } else {
+                console.error("응답에서 imageUrl을 찾을 수 없음");
+            }
+            setIsUploading(false);
         }
-        try {
-            await axios.patch(`${API_URL}/event/admin/${newsId}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            console.log('공지사항 수정 완료');
-        } catch (err) {
-            console.error('수정 에러', err);
+    };
+
+    // 공지사항 수정 | 수정데이터 : 제목, 내용, 이미지
+    const EditNews = async (e) => {
+        e.preventDefault();
+        if (
+            title === "" ||
+            content === "" ||
+            imageUrl === ""
+        ) {
+            alert("빈칸없이 전부 채워주세요")
+        } else {
+            await axios
+                .patch(`${API_URL}/event/board/news`, {
+                    admin_id:1,
+                    title: title,
+                    content: content,
+                    image_url: imageUrl,
+                })
+                .then(() => {
+                    console.log("수정되었습니다");
+                    navigate("/admin/support/news");
+                    window.location.reload();
+                })
+                .catch((err) => {
+                    console.log("수정 실패");
+                    console.error(err);
+                });
         }
     };
     useEffect(() => {
         if (newsListData) {
             setTitle(newsListData.title);
             setContent(newsListData.content);
+            setImageUrl(newsListData.image_url);
         }
     }, [newsListData]);
+    
 
 
     return (
@@ -110,40 +138,44 @@ function UpdateNews() {
                             </Link>
                         </div>
                     </span>
-                    
-                    <div className='KJH_update-news_title_section'>
-                        <div className='KJH_update-news_type_input'>
-                        </div>
-                        <div className='KJH_update-news_date_created'>
-                        수정일 : {formatDate(currentDate.toISOString())}
-                        </div>
-                        {/* 제목 입력 란 */}
-                        <div className='KJH_update-news_make_title_line'>
-                                <textarea
-                                    className='KJH_update-news_make_title_info'
-                                    value={title}
-                                    placeholder='제목을 입력해주세요'
-                                    onChange={handleTitleChange}
-                                />
+                    <form onSubmit={EditNews}>
+                        <div className='KJH_update-news_title_section'>
+                            <div className='KJH_update-news_type_input'>
                             </div>
-                    </div>
-                    <div className='KJH_update-news_content_section'>
-                        <textarea
-                                className='KJH_update-news_make_a_info'
-                                value={content}
-                                placeholder='내용을 입력해주세요'
-                                onChange={handleContentChange}
-                                />
-                    </div>
-                    <div className='KJH_update-news_file_upload_section'>
-                        <input
-                            type="file"
-                            onChange={handleImageChange}
-                            accept="image/*"
-                            className='KJH_update-news_file_upload'
-                        />
-                    </div>
-                    <button onClick={handleSubmit} type="submit" className='KJH_update-news_data_submit'>등록하기</button>
+                            <div className='KJH_update-news_date_created'>
+                            수정일 : {formatDate(currentDate.toISOString())}
+                            </div>
+                            {/* 제목 입력 란 */}
+                            <div className='KJH_update-news_make_title_line'>
+                                    <textarea
+                                        className='KJH_update-news_make_title_info'
+                                        value={title}
+                                        placeholder='제목을 입력해주세요'
+                                        onChange={handleTitleChange}
+                                    />
+                                </div>
+                        </div>
+                        <div className='KJH_update-news_content_section'>
+                            <textarea
+                                    className='KJH_update-news_make_a_info'
+                                    value={content}
+                                    placeholder='내용을 입력해주세요'
+                                    onChange={handleContentChange}
+                                    />
+                        </div>
+                        <div className='KJH_update-news_file_upload_section'>
+                            <Upload
+                                name="image"
+                                action={`${API_URL}/image`}
+                                listType="picture"
+                                showUploadList={false}
+                                onChange={onChangeImage}
+                            >
+                            {imageUrl && <div className="KJH_update-new_image-url">이미지 : {imageUrl}</div>}
+                            </Upload>
+                        </div>
+                        <button type="submit" className='KJH_update-news_data_submit'>수정하기</button>
+                    </form>
                 </div>
             </div>
         </>

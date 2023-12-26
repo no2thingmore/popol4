@@ -4,7 +4,7 @@ const Event = require('../models/event');
 const router = express.Router();
 
 router
-.get('/',(req,res,next)=>{
+.get('/', (req, res, next) => {
   Event.findAll()
   .then((result)=>{
     res.status(201).send(result);
@@ -15,6 +15,7 @@ router
   })
 })
 
+router
 .patch('./admin', async (req, res, next) => {
   try {
     // console.log(req.body)
@@ -46,8 +47,9 @@ router
     console.log(err);
     res.status(500).end();
   }
-})
+});
 
+router
 .delete("/admin",async (req,res,next)=>{
   try {
     console.log(req.body);
@@ -56,6 +58,6 @@ router
   } catch (error) {
     console.log("실패");
   }
-})
+});
 
 module.exports = router;

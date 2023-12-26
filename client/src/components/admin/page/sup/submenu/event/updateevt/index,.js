@@ -1,11 +1,13 @@
 import './updateevt.css';
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Upload } from 'antd';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateEvt() {
 
     const API_URL = 'http://168.126.242.77:8080';
+    const navigate = useNavigate();
 
     const location = useLocation();
     const evtId = location.state.id;
@@ -16,26 +18,23 @@ function UpdateEvt() {
     const [title, setTitle] = useState(EvtData.title);
     const [content, setContent] = useState(EvtData.content);
     const [status, setStatus] = useState(EvtData.status);
-    const [image, setImage] = useState(EvtData.image_url);
+
+    const [imageUrl, setImageUrl] = useState(null); // 이미지
+    const [isUploading, setIsUploading] = useState(false); // 업로드 추적
 
     const handleTitleChange = (e) => setTitle(e.target.value);
     const handleContentChange = (e) => setContent(e.target.value);
     const handleStatusChange = (e) => setStatus(e.target.value);
-    const handleImageChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    };
 
-    // FAQ 데이터 가져오기
+    // 이벤트 데이터 가져오기
     const fetchEvtData = async () => {
         try {
             const res = await axios.get(`${API_URL}/event`,{params:{id:evtId}});
             setEvtListData(res.data);
-            console.log('해당 이벤트 데이터를 불러왔습니다')
+            console.log('해당 이벤트 데이터를 불러왔습니다');
             console.log(res.data);
         } catch (err) {
-            console.error('해당 이벤트 데이터를 가져오지 못하였습니다')
+            console.error('해당 이벤트 데이터를 가져오지 못하였습니다');
             console.error(err);
         }
     }
@@ -47,27 +46,51 @@ function UpdateEvt() {
         }
     }, [evtId]);
 
-    // 이벤트 수정하기 | 수정데이터 : 제목, 내용, 진행상태, 이미지
-    const handleSubmit = async () => {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('content', content);
-        formData.append('status', status);
-        
-        // 이미지가 변경되었는지 확인
-        if (image && typeof image === 'object') {
-            formData.append('image', image);
+    // 이미지 상태관리
+    const onChangeImage = (info) => {
+        if (info.file.status === "uploading" && !isUploading) {
+            console.log("업로드중");
+            setIsUploading(true);
+        } else if (info.file.status === "done") {
+            console.log("업로드 성공", info.file.response);
+            // 서버로부터 반환된 이미지 URL을 저장
+            const imageUrl = info.file.response?.imageUrl;
+            if (imageUrl) {
+                setImageUrl(imageUrl);
+            } else {
+                console.error("응답에서 imageUrl을 찾을 수 없음");
+            }
+            setIsUploading(false);
         }
-    
-        try {
-            await axios.patch(`${API_URL}/event`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            console.log('이벤트 수정이 완료되었습니다.');
-        } catch (err) {
-            console.error('수정 에러', err);
+    };
+
+    // 이벤트 수정하기 | 수정데이터 : 제목, 내용, 진행상태, 이미지
+    const EditEvent = async (e) => {
+        e.preventDefault();
+        if (
+            title === "" ||
+            content === "" ||
+            status === "" ||
+            imageUrl === ""
+        ) {
+            alert("빈칸없이 전부 채워주세요")
+        } else {
+            await axios
+                .patch(`${API_URL}/event/admin`, {
+                    admin_id:1,
+                    title: title,
+                    content: content,
+                    image_url: imageUrl,
+                })
+                .then(() => {
+                    console.log("성공");
+                    navigate("/admin/support/event");
+                    window.location.reload();
+                })
+                .catch((e) => {
+                    console.log("에러");
+                    console.error(e);
+                });
         }
     };
     useEffect(() => {
@@ -75,6 +98,7 @@ function UpdateEvt() {
             setTitle(evtListData.title);
             setContent(evtListData.content);
             setStatus(evtListData.status);
+            setImageUrl(evtListData.imageUrl);
         }
     }, [evtListData]);
 
@@ -92,56 +116,60 @@ function UpdateEvt() {
                             </Link>
                         </div>
                     </span>
-                    
-                    <div className='KJH_update-evt_title_section'>
-                        <div className='KJH_update-evt_type_input'>
-                            <div>
-                            <input 
-                                type="radio" 
-                                id="status0" 
-                                name="status" 
-                                value="0"
-                                checked={status === '0'} // 문자열 비교
-                                onChange={handleStatusChange} />
-                            <label htmlFor="status0" className="KJH_com_input_left">신규</label>
-                            <input 
-                                type="radio" 
-                                id="status1"
-                                name="status" 
-                                value="1" 
-                                checked={status === '1'} // 문자열 비교
-                                onChange={handleStatusChange} />
-                            <label htmlFor="status1">종료</label>
+                    <form onSubmit={EditEvent}>
+                        <div className='KJH_update-evt_title_section'>
+                            <div className='KJH_update-evt_type_input'>
+                                <div>
+                                <input 
+                                    type="radio" 
+                                    id="status0" 
+                                    name="status" 
+                                    value="0"
+                                    checked={status === '0'} // 문자열 비교
+                                    onChange={handleStatusChange} />
+                                <label htmlFor="status0" className="KJH_com_input_left">신규</label>
+                                <input 
+                                    type="radio" 
+                                    id="status1"
+                                    name="status" 
+                                    value="1" 
+                                    checked={status === '1'} // 문자열 비교
+                                    onChange={handleStatusChange} />
+                                <label htmlFor="status1">종료</label>
+                                </div>
                             </div>
+                            {/* 제목 입력 란 */}
+                            <div className='KJH_update-evt_make_title_line'>
+                                    <textarea
+                                        className='KJH_update-evt_make_title_info'
+                                        value={title}
+                                        placeholder='제목을 입력해주세요'
+                                        onChange={handleTitleChange}
+                                    />
+                                </div>
                         </div>
-                        {/* 제목 입력 란 */}
-                        <div className='KJH_update-evt_make_title_line'>
-                                <textarea
-                                    className='KJH_update-evt_make_title_info'
-                                    value={title}
-                                    placeholder='제목을 입력해주세요'
-                                    onChange={handleTitleChange}
-                                />
-                            </div>
-                    </div>
-                    <div className='KJH_update-evt_content_section'>
-                        <textarea
-                                className='KJH_update-evt_make_a_info'
-                                value={content}
-                                placeholder='내용을 입력해주세요'
-                                onChange={handleContentChange}
-                                />
-                    </div>
-                    <div className='KJH_update-evt_file_upload_section'>
-                        <input
-                            type="file"
-                            onChange={handleImageChange}
-                            accept="image/*"
-                            className='KJH_update-evt_file_upload'
-                        />
-                    </div>
-                    <button onClick={handleSubmit} type="submit" className='KJH_update-evt_data_submit'>등록하기</button>
-                </div>
+                        <div className='KJH_update-evt_content_section'>
+                            <textarea
+                                    className='KJH_update-evt_make_a_info'
+                                    value={content}
+                                    placeholder='내용을 입력해주세요'
+                                    onChange={handleContentChange}
+                                    />
+                        </div>
+                        <div className='KJH_update-evt_file_upload_section'>
+                            <Upload
+                                name="image"
+                                action={`${API_URL}/image`}
+                                listType="picture"
+                                showUploadList={false}
+                                onChange={onChangeImage}
+                            >
+                            {imageUrl && <div className="KJH_update-evt_image-url">이미지 : {imageUrl}</div>}
+                            </Upload>
+                        </div>
+                        <button type="submit" className='KJH_update-evt_data_submit'>등록하기</button>
+                    </form>
+                </div>  
             </div>
         </>
     )

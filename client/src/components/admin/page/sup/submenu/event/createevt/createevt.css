@@ -146,15 +146,18 @@
     color: rgba(107, 107, 107, 0.733);
 }
 
-.KJH_create-evt_file_upload_section {
+.KJH_image-url {
     margin-left: 15px;
-    display: inline-block;
-}
-
-.KJH_create-evt_file_upload {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 300px;
+    max-width: 300px;
+    font-size: 12px;
     background-color: white;
-    border: 1px solid black;
-    padding: 10px 15px;
+    padding: 5px 10px;
+    border: 1px solid #666666;
+    cursor: pointer;
 }
 
 .KJH_create-evt_data_submit {
