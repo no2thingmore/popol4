@@ -148,7 +148,7 @@ function Event(){
               {clone_slide.map((slide, index) => (
                 <li className="slide_li_item">
                   <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
-                  <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
+                    <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
                   </div>
                   <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
                     <strong className="slide_info_tit">{slide.title}</strong>

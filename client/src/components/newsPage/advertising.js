@@ -26,49 +26,49 @@ function Advertising(){
         id: 2,
         Kname: "랍스터 컬렉션 15s",
         img: mb,
-        videoUrl:"https://www.youtube.com/embed/5gjpeD5OF_M?autoplay=0"
+        videoUrl:"https://www.youtube.com/embed/XaRaebHCc8o"
       },
       {
         id: 3,
         Kname: "랍스터 컬렉션 6s",
         img: mc,
-        videoUrl:"https://www.youtube.com/embed/-XZXbQydUKQ"
+        videoUrl:"https://www.youtube.com/embed/geZpHpkA0_Y"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 full",
         img: md,
-        videoUrl:"https://www.youtube.com/embed/fF5B1ZH2y7E"
+        videoUrl:"https://www.youtube.com/embed/eodFf3OTvsQ"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 30s",
         img: me,
-        videoUrl:"https://www.youtube.com/embed/VE4sUxm2N7k"
+        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 15s",
         img: mf,
-        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws?si=R1uUzq5vJNNwJhWZ"
+        videoUrl:"https://www.youtube.com/embed/qELCXty2Sr0"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 6s A",
         img: mg,
-        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws?si=R1uUzq5vJNNwJhWZ"
+        videoUrl:"https://www.youtube.com/embed/6pdOTR595Ns"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 6s B",
         img: mh,
-        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws?si=R1uUzq5vJNNwJhWZ"
+        videoUrl:"https://www.youtube.com/embed/my6VSRxFOK8"
       },
       {
         id: 1,
         Kname: "Eat Fresh Feel Good #2 6s C",
         img: mr,
-        videoUrl:"https://www.youtube.com/embed/2cpO9LAe_Ws?si=R1uUzq5vJNNwJhWZ"
+        videoUrl:"https://www.youtube.com/embed/yboxRah5X10"
       },
 
     
