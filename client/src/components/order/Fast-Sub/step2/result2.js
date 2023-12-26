@@ -413,7 +413,7 @@ function Result2(props) {
             className="CHM_faststep2ResultReservationImg"
             style={{ borderTop: "none" }}
           >
-            <img src={API_URL + "/upload/" + props.filterdata[0].image_url} />
+            <img src={API_URL + "/upload/" + props.filterdata[0].image_url} style={{maxHeight:"9.5vw"}}/>
           </div>
           <div
             className="CHM_faststep2ResultReservationName"
@@ -434,7 +434,7 @@ function Result2(props) {
           {cart.map((a, i) => (
             <React.Fragment key={i}>
               <div className="CHM_faststep2ResultReservationImg">
-                <img src={API_URL + "/upload/" + a.img} alt={a} />
+                <img src={API_URL + "/upload/" + a.img} alt={a} style={{maxHeight:"9.5vw"}}/>
               </div>
               <div className="CHM_faststep2ResultReservationName">{a.name}</div>
               <div className="CHM_faststep2ResultReservationCountBox"></div>

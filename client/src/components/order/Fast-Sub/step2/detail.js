@@ -31,7 +31,7 @@ function Detail(props) {
                 >
                   <div className="CHM_faststep2DetaileCard">
                     <div className="CHM_faststep2DetaileCardImg">
-                      <img src={API_URL + "/upload/" + a.image_url}></img>
+                      <img src={API_URL + "/upload/" + a.image_url} style={{maxHeight: "12vw"}}></img>
                     </div>
                     <div className="CHM_faststep2DetaileCardKname">
                       {a.kname}
