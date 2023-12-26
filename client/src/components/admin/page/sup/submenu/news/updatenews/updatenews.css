@@ -172,8 +172,7 @@
     font-weight: bold;
 }
 
-.KJH_update-new_image-url {
-    margin-left: 15px;
+.KJH_update-news_image-url {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

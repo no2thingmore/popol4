@@ -9,7 +9,6 @@ import ArrowUp from '../../images/arrowup.png';
 function News(){
 
     const [news, setNews] = useState([]);
-    const [inquiries, setInquiries] = useState([]); // 문의내역
     const [currentPage, setCurrentPage] = useState(1); // 페이지변경
     const pageLimit = 10; // 페이지 글 제한
     const [showContents, setShowContents] = useState({}); // title 의 내용보기
@@ -29,6 +28,21 @@ function News(){
     useEffect(() => {
         fetchNews();
     }, []);
+
+    // 이벤트 삭제 요청
+    const deleteNews = async (id) => {
+        try {
+            console.log(id);
+            const res = await axios.delete(`${API_URL}/news/admin`, {params:{id}});
+            setNews(res.data);
+            console.log('삭제 완료')
+            window.location.reload();
+        } catch (error) {
+            console.log('삭제 실패')
+            console.error(error);
+        }
+    };
+
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -130,7 +144,10 @@ function News(){
                                                 state={{id:item.id}}
                                             >수정</Link>
                                             </span>
-                                            <span className='KJH_news_contents_del'>삭제</span>
+                                            <span className='KJH_news_contents_del'
+                                                onClick={() => deleteNews(item.id)}>
+                                                삭제
+                                            </span>
                                         </td>
                                     </tr>
                                     {showContents[item.id] && (

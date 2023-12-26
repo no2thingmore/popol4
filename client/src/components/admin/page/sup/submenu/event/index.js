@@ -30,6 +30,20 @@ function Event(){
         fetchEvent();
     }, []);
 
+    // 이벤트 삭제 요청
+    const deleteEvent = async (id) => {
+        try {
+            console.log(id);
+            const res = await axios.delete(`${API_URL}/event/admin`, {params:{id}});
+            setEvnet(res.data);
+            console.log('삭제 완료')
+            window.location.reload();
+        } catch (error) {
+            console.log('삭제 실패')
+            console.error(error);
+        }
+    };
+
     // 페이지 계산
     const firstPostIndex = (currentPage - 1) * pageLimit;
     const lastPostIndex = currentPage * pageLimit;
@@ -73,7 +87,7 @@ function Event(){
                 </div>
                 <div className='KJH_evt_info'>
                     <div className='KJH_evt_top_section'>
-                        <span className='KJH_evt_top_pos_num_info'>등록된 이벤트</span>
+                        <span className='KJH_evt_top_pos_num_info'>이벤트</span>
                         <span className='KJH_evt_top_pos_num'>{event.length} 개</span>
                         <span className='KJH_evt_top_toggle_section'>
                             {/* 내용 모두 닫기 */}
@@ -109,7 +123,7 @@ function Event(){
                             </tr>
                         </thead>
                         <tbody>
-                            {displayedPosts.map((item) => (
+                            {Array.isArray(displayedPosts) && displayedPosts.map(item => (
                                 <React.Fragment key={item.id}>
                                     <tr className='KJH_evt_contents_section' onClick={() => toggleContent(item.id)}>
                                         <td className='KJH_evt_contents_title' >{item.title}</td>
@@ -119,7 +133,10 @@ function Event(){
                                                 state={{id:item.id}}
                                             >수정</Link>
                                             </span>
-                                            <span className='KJH_evt_contents_del'>삭제</span>
+                                            <span className='KJH_evt_contents_del'
+                                                onClick={() => deleteEvent(item.id)}>
+                                                삭제
+                                            </span>
                                         </td>
                                         {/* 이벤트 진행상태 관리 : 진행중 or 종료 */}
                                         <td className={`KJH_evt_contents_status ${item.status === 0 || item.status === '0' ? 'status_evn_ing' : 'status_evn_end'}`}>

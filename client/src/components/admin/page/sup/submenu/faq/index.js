@@ -26,10 +26,23 @@ function Faq(){
             // console.error(error);
         }
     };
-    
     useEffect(() => {
         fetchFaq();
     }, []);
+
+    // 이벤트 삭제 요청
+    const deleteFAQ = async (id) => {
+        try {
+            console.log(id);
+            const res = await axios.delete(`${API_URL}/faq/admin`, {params:{id}});
+            setFaq(res.data);
+            console.log('삭제 완료')
+            window.location.reload();
+        } catch (error) {
+            console.log('삭제 실패')
+            console.error(error);
+        }
+    };
 
     // 종류 변환
     const tagsMapping = {
@@ -78,7 +91,7 @@ function Faq(){
                 </div>
                 <div className='KJH_faq_info'>
                     <div className='KJH_faq_top_section'>
-                        <span className='KJH_faq_top_pos_num_info'>등록된 FAQ</span>
+                        <span className='KJH_faq_top_pos_num_info'>FAQ</span>
                         <span className='KJH_faq_top_pos_num'>{faq.length} 개</span>
                         <span className='KJH_faq_top_toggle_section'>
                             {/* 내용 모두 닫기 */}
@@ -119,7 +132,7 @@ function Faq(){
                             </tr>
                         </thead>
                         <tbody>
-                            {displayedPosts.map((item) => (
+                            {Array.isArray(displayedPosts) && displayedPosts.map(item => (
                                 <React.Fragment key={item.id}>
                                     <tr className='KJH_faq_contents_section' onClick={() => toggleContent(item.id)}>
                                         <td className='KJH_faq_contents_kind'>{tagsMapping[item.tags] || '알 수 없음'}</td>
@@ -130,7 +143,10 @@ function Faq(){
                                                 state={{id:item.id}}
                                             >수정</Link>
                                             </span>
-                                            <span className='KJH_faq_contents_del'>삭제</span>
+                                            <span className='KJH_faq_contents_del'
+                                                onClick={() => deleteFAQ(item.id)}>
+                                                삭제
+                                            </span>
                                         </td>
                                     </tr>
                                     {showContents[item.id] && (

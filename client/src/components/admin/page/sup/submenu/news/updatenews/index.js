@@ -97,8 +97,9 @@ function UpdateNews() {
             alert("빈칸없이 전부 채워주세요")
         } else {
             await axios
-                .patch(`${API_URL}/event/board/news`, {
+                .patch(`${API_URL}/board/admin`, {
                     admin_id:1,
+                    id:newsId,
                     title: title,
                     content: content,
                     image_url: imageUrl,
@@ -171,7 +172,7 @@ function UpdateNews() {
                                 showUploadList={false}
                                 onChange={onChangeImage}
                             >
-                            {imageUrl && <div className="KJH_update-new_image-url">이미지 : {imageUrl}</div>}
+                            {imageUrl && <div className="KJH_update-news_image-url">이미지 : {imageUrl}</div>}
                             </Upload>
                         </div>
                         <button type="submit" className='KJH_update-news_data_submit'>수정하기</button>

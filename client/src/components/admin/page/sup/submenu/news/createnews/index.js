@@ -70,7 +70,7 @@ function CreateNews() {
             alert("빈칸없이 전부 채워주세요")
         } else {
             await axios
-                .post(`${API_URL}/event/admin`, {
+                .post(`${API_URL}/board/admin`, {
                     admin_id:1,
                     title: title,
                     content: content,
