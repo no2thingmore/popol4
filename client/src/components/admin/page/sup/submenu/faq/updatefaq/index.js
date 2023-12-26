@@ -1,11 +1,12 @@
 import './updatefaq.css';
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateFAQ() {
     
     const API_URL = 'http://168.126.242.77:8080';
+    const navigate = useNavigate();
 
     const location = useLocation();
     // console.log(location.state);
@@ -49,11 +50,11 @@ function UpdateFAQ() {
             const updateData = { faqId, tags, title, content };
             await axios.patch(`${API_URL}/faq/admin`, updateData);
             console.log('해당 FAQ 수정이 완료되었습니다.')
+            navigate("/admin/support/faq");
         } catch (err) {
             console.error('수정 에러', err);
         }
     };
-
     useEffect(() => {
         if (faqListData) {
             setTags(faqListData.tags);

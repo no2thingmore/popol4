@@ -55,6 +55,7 @@ function CreateEvt() {
                     admin_id:1,
                     title: title,
                     content: content,
+                    status: status,
                     image_url: imageUrl,
                 })
                 .then(() => {
@@ -88,22 +89,22 @@ function CreateEvt() {
                         <div className='KJH_create-evt_title_section'>
                             <div className='KJH_create-evt_type_input'>
                                 <div>
-                                <input 
-                                    type="radio" 
-                                    id="status0" 
-                                    name="status" 
-                                    value="0"
-                                    checked={status === '0'}
-                                    onChange={handleStatusChange} />
-                                <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
-                                <input 
-                                    type="radio" 
-                                    id="status1"
-                                    name="status" 
-                                    value="1" 
-                                    checked={status === '1'}
-                                    onChange={handleStatusChange} />
-                                <label htmlFor="status1">종료</label>
+                                    <input 
+                                        type="radio" 
+                                        id="status0" 
+                                        name="status" 
+                                        value="0"
+                                        checked={status === '0'}
+                                        onChange={handleStatusChange} />
+                                    <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
+                                    <input 
+                                        type="radio" 
+                                        id="status1"
+                                        name="status" 
+                                        value="1" 
+                                        checked={status === '1'}
+                                        onChange={handleStatusChange} />
+                                    <label htmlFor="status1">종료</label>
                                 </div>
                             </div>
                             {/* 제목 입력 란 */}

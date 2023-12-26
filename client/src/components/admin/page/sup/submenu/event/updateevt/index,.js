@@ -26,15 +26,16 @@ function UpdateEvt() {
     const handleContentChange = (e) => setContent(e.target.value);
     const handleStatusChange = (e) => setStatus(e.target.value);
 
-    // 이벤트 데이터 가져오기
+    // 이벤트 데이터 요청
     const fetchEvtData = async () => {
         try {
-            const res = await axios.get(`${API_URL}/event`,{params:{id:evtId}});
+            const res = await axios.get(`${API_URL}/event/update`,{params:{id:evtId}});
             setEvtListData(res.data);
+            setImageUrl(res.data.image_url);
             console.log('해당 이벤트 데이터를 불러왔습니다');
-            console.log(res.data);
+            // console.log(res.data);
         } catch (err) {
-            console.error('해당 이벤트 데이터를 가져오지 못하였습니다');
+            console.error('이벤트 조회 오류');
             console.error(err);
         }
     }
@@ -78,6 +79,7 @@ function UpdateEvt() {
             await axios
                 .patch(`${API_URL}/event/admin`, {
                     admin_id:1,
+                    id: evtId,
                     title: title,
                     content: content,
                     image_url: imageUrl,
@@ -98,7 +100,7 @@ function UpdateEvt() {
             setTitle(evtListData.title);
             setContent(evtListData.content);
             setStatus(evtListData.status);
-            setImageUrl(evtListData.imageUrl);
+            setImageUrl(evtListData.image_url);
         }
     }, [evtListData]);
 
@@ -127,7 +129,7 @@ function UpdateEvt() {
                                     value="0"
                                     checked={status === '0'} // 문자열 비교
                                     onChange={handleStatusChange} />
-                                <label htmlFor="status0" className="KJH_com_input_left">신규</label>
+                                <label htmlFor="status0" className="KJH_com_input_left">진행중</label>
                                 <input 
                                     type="radio" 
                                     id="status1"
