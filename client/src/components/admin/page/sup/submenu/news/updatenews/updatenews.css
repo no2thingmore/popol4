@@ -51,16 +51,6 @@
     border-bottom: 1px solid #979797;
 }
 
-.KJH_update-news_question_label, .KJH_update-news_content_a_label {
-    position: relative;
-    top: 5px;
-    white-space: nowrap;
-}
-
-.KJH_update-news_content_a_label {
-    font-weight: bold;
-}
-
 .KJH_update-news_type_input {
     margin: 0 0 0 10px;
     border-top: 3px solid rgb(55, 55, 55);
@@ -103,12 +93,6 @@
     font-family: 'Nanum Gothic', sans-serif;
 }
 
-.KJH_update-news_id_section > span:first-child {
-    padding-right: 12px;
-    margin-right: 12px;
-    border-right: 2px solid rgb(88, 88, 88);
-}
-
 .KJH_update-news_content_section {
     font-family: 'Nanum Gothic', sans-serif;
     min-height: 130px;
@@ -116,41 +100,9 @@
     margin-bottom: 10px;
 }
 
-.KJH_update-news_comment_section {
-    width: 100%;
-    margin: 15px 0;
-    border-top: 2px solid #979797;
-    padding: 0 10px 20px;
-}
-
-.KJH_update-news_comment_input {
-    margin-top: 10px;
-    width: 100%;
-    height: 70px;
-    padding: 10px;
-    resize: none;
-    box-sizing: border-box;
-    font-family: 'Nanum Gothic', sans-serif;
-    overflow: auto;
-}
-
-.KJH_update-news_comment_created {
-    padding: 10px 5px;
-    float: right;
-    margin-right: 5px;
-    font-size: 10px;
-    color: rgba(107, 107, 107, 0.733);
-}
-
 .KJH_update-news_file_upload_section {
     margin-left: 15px;
     display: inline-block;
-}
-
-.KJH_update-news_file_upload {
-    background-color: white;
-    border: 1px solid black;
-    padding: 10px 15px;
 }
 
 .KJH_update-news_date_created {

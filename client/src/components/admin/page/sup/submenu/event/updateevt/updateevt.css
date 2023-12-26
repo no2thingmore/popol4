@@ -51,16 +51,6 @@
     border-bottom: 1px solid #979797;
 }
 
-.KJH_update-evt_question_label, .KJH_update-evt_content_a_label {
-    position: relative;
-    top: 5px;
-    white-space: nowrap;
-}
-
-.KJH_update-evt_content_a_label {
-    font-weight: bold;
-}
-
 .KJH_update-evt_type_input {
     padding-top: 20px;
     margin: 0 0 10px 10px;
@@ -84,73 +74,15 @@
     min-height: 90px;
 }
 
-.KJH_update-evt_type {
-    margin-right: 10px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.KJH_update-evt_type_input > span > select {
-    padding: 5px;
-    font-size: 16px;
-    width: 120px;
-}
-
-.KJH_update-evt_input_left {
-    margin-right: 5px;
-}
-
-.KJH_update-evt_id_section {
-    font-family: 'Nanum Gothic', sans-serif;
-}
-
-.KJH_update-evt_id_section > span:first-child {
-    padding-right: 12px;
-    margin-right: 12px;
-    border-right: 2px solid rgb(88, 88, 88);
-}
-
 .KJH_update-evt_content_section {
     font-family: 'Nanum Gothic', sans-serif;
     min-height: 130px;
     padding: 0 5px;
 }
 
-.KJH_update-evt_comment_section {
-    width: 100%;
-    margin: 15px 0;
-    border-top: 2px solid #979797;
-    padding: 0 10px 20px;
-}
-
-.KJH_update-evt_comment_input {
-    margin-top: 10px;
-    width: 100%;
-    height: 70px;
-    padding: 10px;
-    resize: none;
-    box-sizing: border-box;
-    font-family: 'Nanum Gothic', sans-serif;
-    overflow: auto;
-}
-
-.KJH_update-evt_comment_created {
-    padding: 10px 5px;
-    float: right;
-    margin-right: 5px;
-    font-size: 10px;
-    color: rgba(107, 107, 107, 0.733);
-}
-
 .KJH_update-evt_file_upload_section {
     margin-left: 15px;
     display: inline-block;
-}
-
-.KJH_update-evt_file_upload {
-    background-color: white;
-    border: 1px solid black;
-    padding: 10px 15px;
 }
 
 .KJH_update-evt_image-url {
