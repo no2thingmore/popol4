@@ -114,7 +114,7 @@ function Cart() {
       <div className="jj_cart_title">장바구니<img src={cart1}></img></div>
       {cart.length === 0 ? ( // 장바구니가 비었을 때
         <div className="emptyCartMessage"><p>장바구니가 비어있습니다</p>
-          <a href="/"><button className="emptyCartMessagebtn">주문하기</button></a>
+          <a href="/order/Fast-Sub/step1/Noplace/Null/Nan"><button className="emptyCartMessagebtn">주문하기</button></a>
         </div>
       ) : (
         <div>

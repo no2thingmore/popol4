@@ -45,7 +45,7 @@ function Select(props) {
               <img src={cart}></img>
             </div>
             <div className="CHM_mypageCartBtn">
-              장바구니 개수: {cartItemCount}개
+              담긴메뉴 개수: {cartItemCount}개
             </div>
           </div>
         </a>
