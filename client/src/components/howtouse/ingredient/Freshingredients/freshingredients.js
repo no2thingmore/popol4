@@ -39,7 +39,7 @@ function Freshingredients(props) {
         <h1>Fresh Ingredients</h1>
         <div className="CHM_SubTitle">
           <div style={{ marginBottom: "0.5vw" }}>
-           매장에서 직접 굽는 빵, 엄격하게 세척하는 야채의 신선함,
+            매장에서 직접 굽는 빵, 엄격하게 세척하는 야채의 신선함,
           </div>
           <div>써브웨이만의 다양한 소스를 맛보세요.</div>
         </div>
