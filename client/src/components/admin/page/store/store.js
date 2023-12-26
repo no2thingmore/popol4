@@ -37,7 +37,7 @@ function Store() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.put(`${API_URL}/store/admin`, { status: newStatus });
+      await axios.put(`${API_URL}/store/admin`, {id:id, status: newStatus });
 
       // 클라이언트 상태에서도 해당 데이터의 상태 업데이트
       setData((prevData) =>

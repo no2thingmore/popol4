@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { API_URL } from "../../../../config/contansts";
+import './editUser.css'
 
 function EditUser(){
   const navigate = useNavigate();
@@ -47,44 +48,42 @@ function EditUser(){
     })
   }
   return(
-    <form onSubmit={editData}>
-      <div>
+    <form className="user_edit_section" onSubmit={editData}>
+      <div className="user_type">
           Admin &gt; 회원 관리 &gt; {role==0? <span>일반회원</span>: role==1? <span>사업자회원</span> : ""}
       </div>
       <div>
-      <table>
-          <tr>
-            <tr>
-              <td>이름</td>
-              <td><input id="Ename" type="text" value={name}></input></td>
-            </tr>
-            <tr>
-              <td>이메일</td>
-              <td><input id="Eemail" type="text" value={email}></input></td>
-            </tr>
-            <tr>
-              <td>비밀번호</td>
-              <td><input id="Epwd" type="text" value={pwd}></input></td>
-            </tr>
-            <tr>
-              <td>전화번호</td>
-              <td><input id="Ephone" type="text" disabled value={phone}></input></td>
-            </tr>
-            <tr>
-              <td>권한</td>
-              <td>
-                <select id="Eselect" value={role}>
-                  <option value={0}>일반회원</option>
-                  <option value={1}>사업자회원</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <button type="submit">수정하기</button>
-              <Link to={'/admin/user/main'}>취소</Link>
-            </tr>
+        <table className="user_edit_table">
+          <tr className="user_edit_row">
+            <td className="user_edit_fname">이름</td>
+            <td><input id="Ename" type="text" value={name}></input></td>
           </tr>
-      </table>
+          <tr className="user_edit_name">
+            <td>이메일</td>
+            <td><input id="Eemail" type="text" value={email}></input></td>
+          </tr>
+          <tr className="user_edit_name">
+            <td>비밀번호</td>
+            <td><input id="Epwd" type="text" value={pwd}></input></td>
+          </tr>
+          <tr className="user_edit_name">
+            <td>전화번호</td>
+            <td><input id="Ephone" type="text" disabled value={phone}></input></td>
+          </tr>
+          <tr className="user_edit_name">
+            <td>권한</td>
+            <td>
+              <select id="Eselect" value={role}>
+                <option value={0}>일반회원</option>
+                <option value={1}>사업자회원</option>
+              </select>
+            </td>
+          </tr>
+          <tr className="user_edit_row">
+            <button type="submit">수정하기</button>
+            <Link to={'/admin/user/main'}>취소</Link>
+          </tr>
+        </table>
       </div>
     </form>
   )
