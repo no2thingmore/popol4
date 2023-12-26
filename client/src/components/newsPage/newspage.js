@@ -8,7 +8,7 @@ import { useParams, Link } from "react-router-dom";
 import { API_URL } from '../config/contansts';
 import axios from 'axios';
 
-// import { useParams, Link } from "react-router-dom";..
+// import { useParams, Link } from "react-router-dom";...
 
 function Newspage() {
   const { product } = useParams();
