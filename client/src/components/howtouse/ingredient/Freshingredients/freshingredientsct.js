@@ -95,7 +95,6 @@ function Freshingredientsct(props) {
               </div>
               <div className="CHM_selectCardKname">{item.kname}</div>
               <div className="CHM_selectCardEname">{item.ename}</div>
-              <div className="CHM_selectCardkcal">{item.ingred_kcal} kcal</div>
             </div>
           ))}
         </div>

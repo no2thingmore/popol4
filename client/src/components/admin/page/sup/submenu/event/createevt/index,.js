@@ -10,22 +10,41 @@ function CreateEvt() {
 
     const [title, setTitle] = useState(''); // 제목
     const [content, setContent] = useState(''); // 내용
-    // 진행기간
-    const [status, setStatus] = useState([]); // 진행상태
+    const [status, setStatus] = useState(''); // 진행상태
+    const [image, setImage] = useState(null); // 이미지
 
     const handleTitleChange = (e) => setTitle(e.target.value);
     const handleContentChange = (e) => setContent(e.target.value);
     const handleStatusChange = (e) => setStatus(e.target.value);
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
+    };
+    
 
     const handleSubmit = async () => {
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('status', status);
+        if (image) {
+            formData.append('image_url', image);
+        }
+        
         try {
-            const createData = { admin_id:1, title, content, status };
-            await axios.post(`${API_URL}/event/admin`, createData);
-            console.log('이벤트 등록이 완료되었습니다');
+            const response = await axios.post(`${API_URL}/event/admin`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('이벤트 등록되었습니다', response.data);
         } catch (err) {
             console.error('등록 에러', err);
         }
     };
+    
+    
 
     return (
         <>
@@ -44,16 +63,34 @@ function CreateEvt() {
                     
                     <div className='KJH_create-evt_title_section'>
                         <div className='KJH_create-evt_type_input'>
-                            {/* 제목 입력 란 */}
-                            <span className='KJH_create-evt_make_title_line'>
+                            <div>
+                            <input 
+                                type="radio" 
+                                id="status0" 
+                                name="status" 
+                                value="0"
+                                checked={status === '0'}
+                                onChange={handleStatusChange} />
+                            <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
+                            <input 
+                                type="radio" 
+                                id="status1"
+                                name="status" 
+                                value="1" 
+                                checked={status === '1'}
+                                onChange={handleStatusChange} />
+                            <label htmlFor="status1">종료</label>
+                            </div>
+                        </div>
+                        {/* 제목 입력 란 */}
+                        <div className='KJH_create-evt_make_title_line'>
                                 <textarea
                                     className='KJH_create-evt_make_title_info'
                                     value={title}
                                     placeholder='제목을 입력해주세요'
                                     onChange={handleTitleChange}
                                 />
-                            </span>
-                        </div>
+                            </div>
                     </div>
                     <div className='KJH_create-evt_content_section'>
                         <textarea
@@ -62,6 +99,14 @@ function CreateEvt() {
                                 placeholder='내용을 입력해주세요'
                                 onChange={handleContentChange}
                                 />
+                    </div>
+                    <div className='KJH_create-evt_file_upload_section'>
+                        <input
+                            type="file"
+                            onChange={handleImageChange}
+                            accept="image/*"
+                            className='KJH_create-evt_file_upload'
+                        />
                     </div>
                     <button onClick={handleSubmit} type="submit" className='KJH_create-evt_data_submit'>등록하기</button>
                 </div>

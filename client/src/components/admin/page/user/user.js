@@ -6,9 +6,11 @@ import Main from "./components/main";
 import Nomal from "./components/user";
 import Oner from "./components/oner";
 import Admin from "./components/admin";
+import EditUser from "./components/editUser";
 
 function User(){
   const params = useParams();
+  console.log(params);
   return (
     <div>
       <SubTemplate />
@@ -16,6 +18,7 @@ function User(){
       {params.category === "nomal" && <Nomal />}
       {params.category === "oner" && <Oner />}
       {params.category === "admin" && <Admin />}
+      {params.category === "edit" && <EditUser />}
     </div>
   )
 }

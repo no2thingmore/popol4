@@ -101,8 +101,6 @@
 }
 
 .KJH_evt_table_section {
-    min-width: 800px;
-    max-width: 800px;
     overflow-x: auto;
     border: 5px solid gray;
     margin-bottom: 100px;
@@ -127,10 +125,6 @@
     }
 }
 
-.KJH_evt_list_nums {
-    width: 200px;
-}
-
 .KJH_evt_title_section {
     background-color: #cdcdcd;
     height: 40px;
@@ -144,6 +138,18 @@
     border-bottom: 2px solid #999999;
 }
 
+.KJH_evt_title_title {
+    width: 530px;
+}
+
+.KJH_evt_title_ctrl {
+    width: 140px;
+}
+
+.KJH_evt_contents_status {
+    width: 120px;
+}
+
 .KJH_evt_contents_section > td {
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 700;
@@ -152,22 +158,15 @@
 }
 
 .KJH_evt_contents_title {
-    min-width: 340px;
-    width: 340px;
-    text-align: left;
-    padding: 0 15px;
-}
-
-.KJH_evt_contents_date {
-    min-width: 300px;
-    width: 300px;
+    min-width: 530px;
+    width: 530px;
     text-align: left;
     padding: 0 15px;
 }
 
 .KJH_evt_contents_ctrl {
-    min-width: 150px;
-    width: 150px;
+    min-width: 140px;
+    width: 140px;
     text-align: center;
 }
 
@@ -189,8 +188,8 @@
 }
 
 .KJH_evt_contents_status {
-    min-width: 110px;
-    width: 110px;
+    min-width: 120px;
+    width: 120px;
     padding: 0 15px;
 }
 
