@@ -19,11 +19,11 @@ function Faq(){
         try {
             const res = await axios.get(`${API_URL}/faq`);
             setFaq(res.data);
-            // console.log('FAQ 데이터조회 완료')
-            console.log(res.data);
+            console.log('FAQ 데이터조회 완료')
+            // console.log(res.data);
         } catch (error) {
-            // console.log('FAQ 데이터조회 실패')
-            console.error(error);
+            console.log('FAQ 데이터조회 실패')
+            // console.error(error);
         }
     };
     

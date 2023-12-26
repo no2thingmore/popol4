@@ -28,10 +28,10 @@ function UpdateFAQ() {
         try {
             const res = await axios.get(`${API_URL}/faq/update`,{params:{id:faqId}});
             setFaqListData(res.data);
-            // console.log('해당 ID 데이터를 불러왔습니다')
-            console.log(res.data);
+            console.log('해당 FAQ 데이터를 불러왔습니다')
+            // console.log(res.data);
         } catch (err) {
-            console.error('FAQ 데이터 오류')
+            console.error('FAQ 조회 오류')
         }
     }
     useEffect(() => {
@@ -48,7 +48,7 @@ function UpdateFAQ() {
         try {
             const updateData = { faqId, tags, title, content };
             await axios.patch(`${API_URL}/faq/admin`, updateData);
-            console.log('FAQ 수정이 완료되었습니다.')
+            console.log('해당 FAQ 수정이 완료되었습니다.')
         } catch (err) {
             console.error('수정 에러', err);
         }

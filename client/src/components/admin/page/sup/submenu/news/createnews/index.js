@@ -50,6 +50,7 @@ function CreateNews() {
         if (image) {
             formData.append('image_url', image);
         }
+        console.log(formData);
         
         try {
             const res = await axios.post(`${API_URL}/board/admin`, formData, {

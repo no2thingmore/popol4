@@ -50,7 +50,7 @@ function UpdateNews() {
     // 공지사항 데이터 가져오기
     const fetchNewsData = async () => {
         try {
-            const res = await axios.get(`${API_URL}/news/update`,{params:{id:newsId}});
+            const res = await axios.get(`${API_URL}/board/news`,{params:{id:newsId}});
             setNewsListData(res.data);
             console.log('해당 공지사항 데이터를 불러왔습니다')
             console.log(res.data);
