@@ -4,7 +4,6 @@ import axios from "axios";
 import { API_URL } from "../../../config/contansts";
 
 function Store() {
-  
   const [data, setData] = useState([]);
 
   // 컴포넌트가 마운트될 때 데이터를 가져오기 위한 useEffect
@@ -36,6 +35,34 @@ function Store() {
     }
   };
 
+  const updateStatus = async (id, newStatus) => {
+    try {
+      await axios.put(`${API_URL}/store/admin`, { status: newStatus });
+
+      // 클라이언트 상태에서도 해당 데이터의 상태 업데이트
+      setData((prevData) =>
+        prevData.map((item) =>
+          item.id === id ? { ...item, status: newStatus } : item
+        )
+      );
+    } catch (error) {
+      console.error("상태 업데이트 실패:", error);
+    }
+  };
+
+  const getStatusText = (status) => {
+    switch (status) {
+      case 0:
+        return "운영중";
+      case 1:
+        return "운영종료";
+      case 2:
+        return "승인 대기중";
+      default:
+        return "승인 대기중";
+    }
+  };
+  
   return (
     <div className="CHM_adminProductPageBg">
       <div className="jj_franchise">가맹신청 문의</div>
@@ -72,10 +99,12 @@ function Store() {
                 <td>{item.email}</td>
                 <td>{item.address}</td>
                 <td>{item.name}</td>
-                <td>{item.status}</td>
+                <td>{getStatusText(item.status)}</td>
                 <td>
-                  <button id="jj_td_btn">승인</button>
-                  <button id="jj_td_btn">폐업</button></td>
+                <button id="jj_td_btn" onClick={() => 
+                  updateStatus(item.id, 0)}>승인</button>
+                <button id="jj_td_btn" onClick={() => 
+                  updateStatus(item.id, 1)}>종료</button></td>
                 <td>
                   <button onClick={() => 
                     deleteData(item.id)}
@@ -93,7 +122,3 @@ function Store() {
 }
 
 export default Store;
-
-// 0번 운영중(승인완료)
-// 1번 운영종료
-// 2번 승인대기중
