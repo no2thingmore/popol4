@@ -21,7 +21,7 @@ function CreateEvt() {
     const handleStatusChange = (e) => setStatus(e.target.value);
 
 
-
+    // 이미지 상태관리
     const onChangeImage = (info) => {
         if (info.file.status === "uploading" && !isUploading) {
             console.log("업로드중");
@@ -38,12 +38,10 @@ function CreateEvt() {
             setIsUploading(false);
         }
     };
-    
-    
 
+    // 이벤트 등록
     const PlusEvent = async (e) => {
         e.preventDefault();
-
         if (
             title === "" ||
             content === "" ||
@@ -77,7 +75,7 @@ function CreateEvt() {
             <div className='KJH_create-evt_section'> 
                 <div className='KJH_create-evt_width'>
                     <span className='KJH_create-evt_route'>
-                        <div>이벤트 등록하기</div>
+                        <div>이벤트 등록</div>
                         <div className='KJH_create-evt_btn_section'>
                             <Link to='/admin/support/event'>
                                 <div className='KJH_create-evt_btn_back'>
@@ -87,65 +85,61 @@ function CreateEvt() {
                         </div>
                     </span>
                     <form onSubmit={PlusEvent}>
-                    
-                    <div className='KJH_create-evt_title_section'>
-                        <div className='KJH_create-evt_type_input'>
-                            <div>
-                            <input 
-                                type="radio" 
-                                id="status0" 
-                                name="status" 
-                                value="0"
-                                checked={status === '0'}
-                                onChange={handleStatusChange} />
-                            <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
-                            <input 
-                                type="radio" 
-                                id="status1"
-                                name="status" 
-                                value="1" 
-                                checked={status === '1'}
-                                onChange={handleStatusChange} />
-                            <label htmlFor="status1">종료</label>
+                        <div className='KJH_create-evt_title_section'>
+                            <div className='KJH_create-evt_type_input'>
+                                <div>
+                                <input 
+                                    type="radio" 
+                                    id="status0" 
+                                    name="status" 
+                                    value="0"
+                                    checked={status === '0'}
+                                    onChange={handleStatusChange} />
+                                <label htmlFor="status0" className="KJH_create-evt_input_left">진행중</label>
+                                <input 
+                                    type="radio" 
+                                    id="status1"
+                                    name="status" 
+                                    value="1" 
+                                    checked={status === '1'}
+                                    onChange={handleStatusChange} />
+                                <label htmlFor="status1">종료</label>
+                                </div>
                             </div>
+                            {/* 제목 입력 란 */}
+                            <div className='KJH_create-evt_make_title_line'>
+                                    <textarea
+                                        className='KJH_create-evt_make_title_info'
+                                        value={title}
+                                        placeholder='제목을 입력해주세요'
+                                        onChange={handleTitleChange}
+                                    />
+                                </div>
                         </div>
-                        {/* 제목 입력 란 */}
-                        <div className='KJH_create-evt_make_title_line'>
-                                <textarea
-                                    className='KJH_create-evt_make_title_info'
-                                    value={title}
-                                    placeholder='제목을 입력해주세요'
-                                    onChange={handleTitleChange}
-                                />
-                            </div>
-                    </div>
-                    <div className='KJH_create-evt_content_section'>
-                        <textarea
-                                className='KJH_create-evt_make_a_info'
-                                value={content}
-                                placeholder='내용을 입력해주세요'
-                                onChange={handleContentChange}
-                                />
-                    </div>
-                    <div className='KJH_create-evt_file_upload_section'>
-                    <Upload
-                        name="image"
-                        action={`${API_URL}/image`}
-                        listType="picture"
-                        showUploadList={false}
-                        onChange={onChangeImage}
-                    >
-                        {imageUrl ? (
-                            <p>{imageUrl}</p>
-                        ) : (
-                            <div id="upload-img-placeholder">
-                            <br />
-                            <span>제품사진을 등록 해주세요.</span>
-                            </div>
-                        )}
-                    </Upload>
-                    </div>
-                    <button type="submit" className='KJH_create-evt_data_submit'>등록하기</button>
+                        <div className='KJH_create-evt_content_section'>
+                            <textarea
+                                    className='KJH_create-evt_make_a_info'
+                                    value={content}
+                                    placeholder='내용을 입력해주세요'
+                                    onChange={handleContentChange}
+                                    />
+                        </div>
+                        <div className='KJH_create-evt_file_upload_section'>
+                            <Upload
+                                name="image"
+                                action={`${API_URL}/image`}
+                                listType="picture"
+                                showUploadList={false}
+                                onChange={onChangeImage}
+                            >
+                                {imageUrl ? (
+                                    <div>{imageUrl}</div>
+                                ) : (
+                                    <div>사진 등록</div>
+                                )}
+                            </Upload>
+                        </div>
+                        <button type="submit" className='KJH_create-evt_data_submit'>등록하기</button>
                     </form>
                 </div>
             </div>

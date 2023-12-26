@@ -19,11 +19,11 @@ function News(){
         try {
             const res = await axios.get(`${API_URL}/board`);
             setNews(res.data);
-            console.log('공지사항 데이터조회 완료')
-            console.log(res.data);
+            // console.log('공지사항 데이터조회 완료')
+            // console.log(res.data);
         } catch (error) {
-            console.log('공지사항 데이터조회 실패')
-            console.error(error);
+            // console.log('공지사항 데이터조회 실패')
+            // console.error(error);
         }
     };
     useEffect(() => {

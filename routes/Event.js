@@ -4,17 +4,18 @@ const Event = require('../models/event');
 const router = express.Router();
 
 router
-.get('/',(req,res,next)=>{
+.get('/', (req, res, next) => {
   Event.findAll()
-  .then((res)=>{
-    res.status(201).send(res);
-  })
-  .catch((err)=>{
-    console.error(err);
-    res.status(500).end();
-  })
-})
+    .then((events) => {
+      res.status(200).json(events);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Server error');
+    });
+});
 
+router
 .patch('./admin', async (req, res, next) => {
   try {
     // console.log(req.body)
@@ -46,8 +47,9 @@ router
     console.log(err);
     res.status(500).end();
   }
-})
+});
 
+router
 .delete("/admin",async (req,res,next)=>{
   try {
     console.log(req.body);
@@ -56,7 +58,6 @@ router
   } catch (error) {
     console.log("실패");
   }
-})
-module.ex
+});
 
 module.exports = router;
