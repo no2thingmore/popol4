@@ -15,7 +15,7 @@ import { API_URL } from "../config/contansts";
 function Event(){
 
   // 슬라이드 이미지
-  const slideData = [
+  const event_slideData = [
     {
       imgURL: painting1,
       title: "랍스터 컬렉션",
@@ -41,7 +41,7 @@ function Event(){
 
   // 슬라이드
 
-  const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
+  const clone_slide = [event_slideData[event_slideData.length-2] ,event_slideData[event_slideData.length-1], ...event_slideData, event_slideData[0], event_slideData[1]];
   const [currentSlide, setCurrentSlide] = useState(2);
   const [noTransition, setNoTransition] = useState(false);
 
@@ -135,7 +135,7 @@ function Event(){
               }}>
               {clone_slide.map((slide, index) => (
                 <li className="YMJ_slide_li_item">
-                  <div key={index} className={`YMJ_slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
+                  <div key={index} className={`YMJ_slide_img ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length) ? "active" : ""}`} >
                   <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
                   </div>
                   <div className={`YMJ_slide_info ${index === currentSlide ? "active" : ""}`}>
@@ -158,7 +158,7 @@ function Event(){
                 (index > 1 && index < clone_slide.length - 2) &&(
                 <div key={index} className="YMJ_Dot_item">
                   <a
-                    className={`YMJ_clicked_dot ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length)? "on" : ""}`}
+                    className={`YMJ_clicked_dot ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length)? "on" : ""}`}
                     onClick={() => goToSlide(index)}
                   >
                     {index + 1}
@@ -177,6 +177,8 @@ function Event(){
 )
 }
 export default Event;
+
+
 
 {/* <div className="y_list_button">
   <button className="y_button_l"  onClick={buttonlistClick}>
