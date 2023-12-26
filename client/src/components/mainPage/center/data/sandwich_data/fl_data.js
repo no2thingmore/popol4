@@ -9,7 +9,7 @@ const FL_Data = [
         image: FL_01,
         alt: '로티세리 바비큐 치킨 이미지',
         title: '로티세리 바비큐 치킨',
-        path: '/one',
+        path: '/menuIntro/0/35',
         text: `촉촉한 바비큐 치킨의 풍미가득.
         손으로 찢어 더욱 부드러운 치킨의 혁명`
     },
@@ -18,7 +18,7 @@ const FL_Data = [
         image: FL_02,
         alt: '로스트 치킨 이미지',
         title: '로스트 치킨',
-        path: '/two',
+        path: '/menuIntro/0/34',
         text: `오븐에 구워 담백한 저칼로리
         닭가슴살의 건강한 풍미`
     },
@@ -27,7 +27,7 @@ const FL_Data = [
         image: FL_03,
         alt: '써브웨이 클럽 이미지',
         title: '써브웨이 클럽',
-        path: '/three',
+        path: '/menuIntro/0/36',
         text: `명실공히 시그니처 써브!
         치킨 슬라이스, 햄, 베이컨의 완벽한 앙상블`
     },
@@ -36,7 +36,7 @@ const FL_Data = [
         image: FL_04,
         alt: '치킨 슬라이스 이미지',
         title: '치킨 슬라이스',
-        path: '/four',
+        path: '/menuIntro/0/32',
         text: `닭가슴살로 만든 치킨 슬라이스로 즐기는 담백한 맛!`
     },
 ];

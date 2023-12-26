@@ -26,7 +26,7 @@ const QM_Data = [
         text: 'TV광고/동영상',
         img: QM_03,
         alt: '광고영상',
-        path: '/three'
+        path: '/newsPage/Advertising'
     },
     {
         id: 4,

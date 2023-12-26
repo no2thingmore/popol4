@@ -43,10 +43,10 @@ const Base = () => {
                 <div className="base_top_info_1_detail">
                   써브웨이를
                   <br />
-                  제데로 즐기는 방법 !
+                  제대로 즐기는 방법 !
                 </div>
                 <div className="base_top_button">
-                  <Link to="/" className="base_top_1_info_button">
+                  <Link to="/ingreDient/howtousesubway" className="base_top_1_info_button">
                     <span>이용방법</span>
                   </Link>
                 </div>
@@ -60,7 +60,7 @@ const Base = () => {
                   No.1 프랜차이즈의 성장기
                 </div>
                 <div className="base_top_button">
-                  <Link to="/" className="base_top_2_info_button">
+                  <Link to="/History" className="base_top_2_info_button">
                     <span>써브웨이 역사</span>
                   </Link>
                 </div>
@@ -84,7 +84,7 @@ const Base = () => {
                   </div>
                 ))}
                 <div className="base_btm_info_more">
-                  <Link to="/">더보기</Link>
+                  <Link to="/newsPage/Notice">더보기</Link>
                 </div>
               </div>
             </div>
