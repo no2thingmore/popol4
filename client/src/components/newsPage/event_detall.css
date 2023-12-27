@@ -1,0 +1,37 @@
+.n_ed_all{
+  width: 50%; 
+  margin: 0 auto;
+}
+
+.n_ed_title > h3{
+  font-size: 50px;
+}
+
+.n_ed_title > p {
+  color: darkgray;
+}
+
+.n_ed_back_b{
+  width: 50%; 
+  margin: 0 auto;
+}
+
+.n_ed_back_b > button{
+  width: 200px; 
+  height: 60px;
+  background-color: green;
+  color: aliceblue;
+  border: none;
+  border-radius: 50px;
+  margin-left: 140px;
+  
+}
+
+
+.n_ed_back_b :hover{
+  background-color: darkgreen;
+}
+
+.n_ed_image {
+ margin-left: 75px; 
+}

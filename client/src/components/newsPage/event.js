@@ -25,6 +25,8 @@ function Event(){
       imgURL: painting2,
       title: "써브웨이 오늘의 수프",
       text: "오늘의 수프를 원하는 사이즈로! 샌드위치랑 함께 먹으면 든든하고 맛있썹!"
+      
+      
     },
     {
       imgURL: painting3,
