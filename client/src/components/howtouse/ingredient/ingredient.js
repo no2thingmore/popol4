@@ -102,3 +102,74 @@ function Ingredient() {
 }
 
 export default Ingredient;
+
+
+
+// <div className="y_all_button">
+// <div style={{position: "relative"}}>
+//   <div className="YMJ2_subSelectbar">
+//     <div className="YMJ2_saladSubSelectList1">
+//     {categories.map((category) => (
+//         <div
+//           key={category}
+//           onClick={() => handleCategoryClick(category)}
+//           style={select === category ? { color: "White",borderRadius: "50px",              backgroundColor: "#58006C" } : {}}
+//         >
+//           {category}
+//         </div>
+//       ))}
+//     </div>
+//   </div>
+//   <div className="YMJ_selectcontent">
+//     <div className="YMJ_selectcontentGridBox">
+//       {data &&  data.map((a, i) => {
+//           //날짜 표출시 T이후의 글자 삭제 
+//         const formattedDate = a.createdAt.split('T')[0];
+//         return (
+//           <div className={"YMJ_selectCard start " + end}>
+//             {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
+//             <div className="YMJ_selectCardImg">
+//               <img src={API_URL+"/upload/"+a.image_url } width="100%" height="180px"></img>
+//             </div>
+//             <div className="jsw_selectCardbox">
+//               <div className="YMJ_selectCardEname1">{a.noname}</div>
+//               <div className="YMJ_selectCardEname1">{a.title}</div>
+//               <div className="YMJ_selectCardEname1">{a.noname}</div>
+//               <div className="YMJ_selectCardKname1">{formattedDate}~</div>
+//               <div className="YMJ_selectCardEname1">{a.noname}</div>
+//             </div>
+//           </div>
+//         );
+//       })}
+//     </div>
+//   </div>
+// </div>
+
+
+// </div>
+
+
+
+
+// {filteredData.map((item) => {
+//   <div key={item.id} className={"CHM_selectCard start " + end}>
+//     {/* <Link to={`/ingreDient/2/${item.id}`}> */}
+//       <div className="CHM_selectBakcCard">
+//         <div>
+//           <div className="CHM_selectBackCardKname">{item.kname}</div>
+//           <div className="CHM_selectBackCardEname">{item.ename}</div>
+//           <div className="CHM_selectBackCardContent">{item.coment}</div>
+//         </div>
+//         {/* <div className="CHM_selectBackCardIcon">
+//           <i class="fa-solid fa-magnifying-glass"></i>
+//         </div> */}
+//       </div>
+//     {/* </Link> */}
+//     <div className="CHM_selectCardImg">
+//       <img src={API_URL + "/upload/" + item.image_url} width="100%" alt={item.kname}></img>
+//     </div>
+//     <div className="CHM_selectCardKname">{item.kname}</div>
+//     <div className="CHM_selectCardEname">{item.ename}</div>
+//   </div>
+// })}
+// </div>

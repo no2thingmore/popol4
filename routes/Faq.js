@@ -38,17 +38,32 @@ router
       add_file:req.body.add_file || null,
       created_at:new Date(),
       updated_at:new Date(),
+    }).then(()=>{
+      res.status(201).end();
     })
-    res.status(201).end()
+    .catch(()=>{
+      res.status(502).end();
+    })
   } catch (error) {
     console.error(error);
-    next(error);
+    res.status(501).end();
+  }
+})
+
+.delete("/admin",async (req,res,next)=>{
+  try {
+    console.log(req.query);
+    await Faq.destroy({where:{id:req.query.id}})
+    res.status(201).end()
+  } catch (error) {
+    console.log("실패");
+    res.status(501).end()
   }
 })
 
 .patch('/admin', async(req,res,next)=>{
   try {
-    const data = await Faq.findOne({where:{id:req.body.id}});
+    const data = await Faq.findOne({where:{id:req.body.faqId}});
     const admin_id = req.body.admin_id || data.admin_id;
     const kinds = req.body.kinds || data.kinds;
     const tags = req.body.tags || data.tags;
@@ -64,7 +79,7 @@ router
       add_file:add_file,
       updated_at:new Date(),
     },
-    {where:{id:req.body.id}});
+    {where:{id:req.body.faqId}});
     res.status(201).end();
   } catch (error) {
     console.log(error);

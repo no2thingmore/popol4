@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Detail from "./detail";
 import Result from "./result";
 import { Link, useParams, useLocation } from "react-router-dom";
-import img from "./sandwich.png"
 import axios from 'axios';
 import { API_URL } from '../../../config/contansts';
 

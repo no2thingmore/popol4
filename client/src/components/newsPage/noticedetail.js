@@ -26,14 +26,13 @@ function Noticedetail() {
   return (
     <div className="n_1_all">
       <div className="n_1_title">
-        <h3>써브웨이와 함께하는 JTBC 수목드라마 '이 연애는 불가항력'</h3>
-        <p>2023.08.29 14:55</p>
+        <h3>{data.title}</h3>
+        <p>{data.updated_at}</p>
       </div>
       <div className="n_1_image">
-        <img src={data.image_url}></img>
+        <img src={API_URL+"/upload/"+data.image_url}></img>
         <p>
-          써브웨이와 함께하는 JTBC 수목드라마 '이 연애는 불가항력' 많은 시청
-          부탁 드립니다.
+          {data.content}
         </p>
       </div>
       <div className="n_back_b">

@@ -53,7 +53,7 @@ function Result(props) {
         <div className="CHM_faststep2ResultBox">
           <div className="CHM_faststep2ResultGrid">
             <div className="CHM_faststep2ResultImg">
-              <img src={API_URL + "/upload/" + filterdata[0].image_url} style={{maxHeight:"20vw"}}></img>
+              <img src={API_URL + "/upload/" + filterdata[0].image_url} style={{maxHeight:"25vw"}}></img>
             </div>
             <div className="CHM_faststep2ResultTitle">
               <div className="CHM_faststep2ResultType">{category}</div>

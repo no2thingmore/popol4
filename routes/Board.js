@@ -75,11 +75,17 @@ router
 
 .delete("/admin",async (req,res,next)=>{
   try {
-    console.log(req.body);
-    await Board.destroy({where:{id:req.body.id}})
-    res.status(201).end()
+    console.log(req.query);
+    await Board.destroy({where:{id:req.query.id}})
+    .then(()=>{
+      res.status(201).end()
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   } catch (error) {
-    console.log("실패");
+    console.log(error);
+    res.status(501).end()
   }
 })
 module.exports = router

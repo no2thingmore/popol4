@@ -14,9 +14,48 @@ router
     res.status(500).end();
   })
 })
+.delete("/admin",async (req,res,next)=>{
+  try {
+    console.log(req.query);
+    await Event.destroy({where:{id:req.query.id}})
+    .then(()=>{
+      res.status(201).end()
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(501).end()
+  }
+})
+.get('/update', async(req,res,next)=>{
+  try {
+    const foodData = await Event.findOne({where:{id:req.query.id}});
+    // console.log('food',foodData);
+    res.status(201).send(foodData)
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+})
+
+.post('/admin',(req,res,next)=>{
+  Event.create({
+    admin_id:req.body.admin_id,
+    title:req.body.title,
+    content:req.body.content,
+    image_url:req.body.image_url,
+    status:req.body.status,
+    created_at:new Date(),
+    updated_at:new Date(),
+  }).then(()=>{
+    res.status(201).end()
+  })
+})
 
 router
-.patch('./admin', async (req, res, next) => {
+.patch('/admin', async (req, res, next) => {
   try {
     // console.log(req.body)
     const data = await Event.findOne({where:{id:req.body.id}})
@@ -49,15 +88,6 @@ router
   }
 });
 
-router
-.delete("/admin",async (req,res,next)=>{
-  try {
-    console.log(req.body);
-    await Event.destroy({where:{id:req.body.id}})
-    res.status(201).end()
-  } catch (error) {
-    console.log("실패");
-  }
-});
+
 
 module.exports = router;

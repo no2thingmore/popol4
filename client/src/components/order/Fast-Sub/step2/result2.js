@@ -1,13 +1,14 @@
-import { Link, useParams } from "react-router-dom";
-import img from "./sandwich.png";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useSnackbar } from "@mui/base/useSnackbar";
+import * as React from "react";
 import { useState } from "react";
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { API_URL } from "../../../config/contansts";
 
 function Result2(props) {
+  const navigate = useNavigate();
   const { product } = useParams();
 
   //----------매점위치 기억---------------
@@ -161,12 +162,35 @@ function Result2(props) {
     }
   }
 
+  function test2() {
+    let copy = localStorage.getItem("cart");
+    if (copy === null) {
+      localStorage.setItem("cart", JSON.stringify([]));
+      let copy = localStorage.getItem("cart");
+      copy = JSON.parse(copy);
+      copy.push([...result, ...cart]);
+      localStorage.setItem("cart", JSON.stringify(copy));
+    } else {
+      copy = JSON.parse(copy);
+      copy.push([...result, ...cart]);
+      localStorage.setItem("cart", JSON.stringify(copy));
+    }
+    if (
+      window.confirm(
+        `상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?`
+      )
+    ) {
+      navigate("/mypage/cart");
+    } else {
+      navigate(`/order/Fast-Sub/step2/${replacedString}/${product}/Nan`);
+    }
+  }
+
   const deleteCartItem = (index, itemKind, itemId) => {
     const updatedCart = [...cart];
     updatedCart.splice(index, 1);
     setCart(updatedCart);
 
-    
     // 해당하는 selectedCardIndex들을 null로 초기화
     if (selectedCardIndex2.includes(itemId)) {
       const copy = selectedCardIndex2.filter((item) => item !== itemId);
@@ -413,7 +437,10 @@ function Result2(props) {
             className="CHM_faststep2ResultReservationImg"
             style={{ borderTop: "none" }}
           >
-            <img src={API_URL + "/upload/" + props.filterdata[0].image_url} style={{maxHeight:"9.5vw"}}/>
+            <img
+              src={API_URL + "/upload/" + props.filterdata[0].image_url}
+              style={{ maxHeight: "9.5vw" }}
+            />
           </div>
           <div
             className="CHM_faststep2ResultReservationName"
@@ -434,7 +461,11 @@ function Result2(props) {
           {cart.map((a, i) => (
             <React.Fragment key={i}>
               <div className="CHM_faststep2ResultReservationImg">
-                <img src={API_URL + "/upload/" + a.img} alt={a} style={{maxHeight:"9.5vw"}}/>
+                <img
+                  src={API_URL + "/upload/" + a.img}
+                  alt={a}
+                  style={{ maxHeight: "9.5vw" }}
+                />
               </div>
               <div className="CHM_faststep2ResultReservationName">{a.name}</div>
               <div className="CHM_faststep2ResultReservationCountBox"></div>
@@ -468,19 +499,14 @@ function Result2(props) {
         </div>
       </div>
       <div className="CHM_faststep2ResultCart">
-        <Link to="/order/Fast-Sub/step2/sandwitch/Nan">
+        <Link to={`/order/Fast-Sub/step2/${replacedString}/${product}/Nan`}>
           <div className="CHM_faststep2ResultCartBtn1">
             돌아가기 <i class="fa-solid fa-reply"></i>
           </div>
         </Link>
-        <Link
-          to={`/order/Fast-Sub/step2/${replacedString}/${product}/Nan`}
-          onClick={test}
-        >
-          <div className="CHM_faststep2ResultCartBtn2">
-            장바구니에 담기 <i class="fa-solid fa-basket-shopping"></i>
-          </div>
-        </Link>
+        <div className="CHM_faststep2ResultCartBtn2" onClick={test2}>
+          장바구니에 담기 <i class="fa-solid fa-basket-shopping"></i>
+        </div>
         <Link
           to={`/order/Fast-Sub/step3/${replacedString}/Null/Nan`}
           onClick={test}

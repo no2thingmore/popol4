@@ -68,9 +68,7 @@ router
       res.status(201).send(result)
     })
   })
-  .patch('/admin/0',(req,res,next)=>{
-    
-  })
+  
   .patch('/admin/1',(req,res,next)=>{
     console.log(req.body);
     User.update({

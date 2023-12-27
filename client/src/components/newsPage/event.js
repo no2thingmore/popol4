@@ -15,33 +15,33 @@ import { API_URL } from "../config/contansts";
 function Event(){
 
   // 슬라이드 이미지
-  const slideData = [
+  const event_slideData = [
     {
       imgURL: painting1,
-      title: "Best Artist",
-      text: "샌드위치 아티스트™는 \r 언제나 완벽한 샌드위치를 만듭니다."
+      title: "랍스터 컬렉션",
+      text: "신선한 리얼 랍스터가 그대로! 올겨울 한정판으로 더욱 특별하게 준비한 써브웨이 랍스터 컬렉션"
     },
     {
       imgURL: painting2,
-      title: "Best Fresh Keeper",
-      text: "샌드위치 아티스트™는 각종 재료의 신선함과 매장의 청결을 철저하게 관리합니다."
+      title: "써브웨이 오늘의 수프",
+      text: "오늘의 수프를 원하는 사이즈로! 샌드위치랑 함께 먹으면 든든하고 맛있썹!"
     },
     {
       imgURL: painting3,
-      title: "Best Service Professional",
-      text: "샌드위치 아티스트™는 항상 고객을 우선으로 생각하며 고객이 무엇을 원하는지 경청합니다."
+      title: "Eat Fresh Feel Good",
+      text: "써브웨이 X 차은우 신선함 가득! 즐거움 가득! 함께하는 이 순간이 즐거워!"
     },
     {
       imgURL: painting4,
-      title: "Best Team Member",
-      text: "샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을 제공하기 위해 다른 팀원들과 함께 노력합니다."
+      title: "말이 안 나올 땐 손으로 주문하자!",
+      text: "말이 안 나올 땐? 손으로 주문하자!!"
     },
 
   ];
 
   // 슬라이드
 
-  const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
+  const clone_slide = [event_slideData[event_slideData.length-2] ,event_slideData[event_slideData.length-1], ...event_slideData, event_slideData[0], event_slideData[1]];
   const [currentSlide, setCurrentSlide] = useState(2);
   const [noTransition, setNoTransition] = useState(false);
 
@@ -78,58 +78,46 @@ function Event(){
   };
 
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const [select, setSelect] = useState("전체");
-  const categories = ["전체", "진행중인 이벤트", "종료된 이벤트"];
+  // const [select, setSelect] = useState("전체");
+  // const categories = ["전체", "진행중인 이벤트", "종료된 이벤트"];
 
-  const handleCategoryClick = (category) => {
-    setSelect(category);
-  };
+  // const handleCategoryClick = (category) => {
+  //   setSelect(category);
+  // };
 
-  const [end ,setEnd] = useState("");
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  // const [end ,setEnd] = useState("");
+  // const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  const getData = async()=>{
-    await axios.get(`${API_URL}/event`)
-    .then((response)=>{
-      console.log('test',response.data);
-      setData(response.data)
-    })
-  } 
+  // const getData = async()=>{
+  //   await axios.get(`${API_URL}/event`)
+  //   .then((response)=>{
+  //     console.log('test',response.data);
+  //     setData(response.data)
+  //   })
+  // } 
 
-  useEffect(()=>{
-    getData();
-  },[])
+  // useEffect(()=>{
+  //   getData();
+  // },[])
 
-  useEffect(() => {
-    if (!isInitialLoad) {
-      setTimeout(() => {
-        setEnd("end");
-      }, 400);
+  // useEffect(() => {
+  //   if (!isInitialLoad) {
+  //     setTimeout(() => {
+  //       setEnd("end");
+  //     }, 400);
 
-      return () => {
-        setEnd("end2");
-      };
-    } else {
-      setIsInitialLoad(false);
-    }
-  }, [select, isInitialLoad]);
+  //     return () => {
+  //       setEnd("end2");
+  //     };
+  //   } else {
+  //     setIsInitialLoad(false);
+  //   }
+  // }, [select, isInitialLoad]);
 
 
   
-  // 더보기 함수  
-
-
-  const showmore = () => {
-    console.log("클릭");
-    const gridItems = document.querySelectorAll('.y_list_item.hide');
-      gridItems.forEach(item => {
-        item.classList.remove('hide');
-    })
-  };
-
-
 
   return(
     <div id="event_all">
@@ -138,39 +126,39 @@ function Event(){
       </div>
 
       {/* 슬라이드 */}
-      <div className="Artist_slide_content">
-        <div className="Artist_slide">
-          <div className="Artist_slide_viewport" aria-live="polite" >
-            <ul className="slide_li" style={{
+      <div className="YMJ_Artist_slide_content">
+        <div className="YMJ_Artist_slide">
+          <div className="YMJ_Artist_slide_viewport" aria-live="polite" >
+            <ul className="YMJ_slide_li" style={{
               transition: noTransition ? "none" : "transform 0.5s ease",
               transform: `translate3d(-${currentSlide * 900}px, 0, 0)` ,
               }}>
               {clone_slide.map((slide, index) => (
-                <li className="slide_li_item">
-                  <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
+                <li className="YMJ_slide_li_item">
+                  <div key={index} className={`YMJ_slide_img ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length) ? "active" : ""}`} >
                   <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
                   </div>
-                  <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
-                    <strong className="slide_info_tit">{slide.title}</strong>
-                    <p className="slide_info_txt">{slide.text}</p>
+                  <div className={`YMJ_slide_info ${index === currentSlide ? "active" : ""}`}>
+                    <strong className="YMJ_slide_info_tit">{slide.title}</strong>
+                    <p className="YMJ_slide_info_txt">{slide.text}</p>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="slide_ctl">
-            <div className="slide_ctl_Arrow">
-              <a className="bt_prev" onClick={prevSlide}>Prev</a>
-              <a className="bt_next" onClick={nextSlide}>Next</a>
+          <div className="YMJ_slide_ctl">
+            <div className="YMJ_slide_ctl_Arrow">
+              <a className="YMJ_bt_prev" onClick={prevSlide}>Prev</a>
+              <a className="YMJ_bt_next" onClick={nextSlide}>Next</a>
             </div>
 
-            <div className="slide_ctl_Dot">
+            <div className="YMJ_slide_ctl_Dot">
               {clone_slide.map((_, index) => (
                 (index > 1 && index < clone_slide.length - 2) &&(
-                <div key={index} className="Dot_item">
+                <div key={index} className="YMJ_Dot_item">
                   <a
-                    className={`clicked_dot ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length)? "on" : ""}`}
+                    className={`YMJ_clicked_dot ${index === currentSlide || (currentSlide === index + event_slideData.length || currentSlide === index - event_slideData.length)? "on" : ""}`}
                     onClick={() => goToSlide(index)}
                   >
                     {index + 1}
@@ -183,57 +171,14 @@ function Event(){
         </div>
       </div>
 
-      <div className="y_all_button">
-        <div style={{position: "relative"}}>
-          <div className="YMJ2_subSelectbar">
-            <div className="YMJ2_saladSubSelectList1">
-            {categories.map((category) => (
-                <div
-                  key={category}
-                  onClick={() => handleCategoryClick(category)}
-                  style={select === category ? { color: "White",borderRadius: "50px",backgroundColor: "#58006C" } : {}}
-                >
-                  {category}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="YMJ_selectcontent">
-            <div className="YMJ_selectcontentGridBox">
-              {data &&  data.map((a, i) => {
-                  //날짜 표출시 T이후의 글자 삭제 
-                const formattedDate = a.createdAt.split('T')[0];
-                return (
-                  <div className={"YMJ_selectCard start " + end}>
-                    {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
-                    <div className="YMJ_selectCardImg">
-                      <img src={API_URL+"/upload/"+a.image_url } width="100%" height="180px"></img>
-                    </div>
-                    <div className="jsw_selectCardbox">
-                      <div className="YMJ_selectCardEname1">{a.noname}</div>
-                      <div className="YMJ_selectCardEname1">{a.title}</div>
-                      <div className="YMJ_selectCardEname1">{a.noname}</div>
-                      <div className="YMJ_selectCardKname1">{formattedDate}~</div>
-                      <div className="YMJ_selectCardEname1">{a.noname}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        <div className="y_morebtn">
-          <button onClick={showmore}>더보기</button>
-        </div>
-
-      </div>
-
     </div>
 
 
 )
 }
 export default Event;
+
+
 
 {/* <div className="y_list_button">
   <button className="y_button_l"  onClick={buttonlistClick}>
