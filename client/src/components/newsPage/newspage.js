@@ -29,7 +29,7 @@ function Newspage() {
         console.log("실패");
       });
   }, []);
-  
+
   const handleMenuClick = (menuType) => {
     setMenu(menuType);
   };
