@@ -21,29 +21,34 @@ import axios from "axios";
 function Apply(){
   const slideData = [
     {
-      imgURL: slide_img_1,
+      pagetype:2,
+      image_url: slide_img_1,
       title: "Best Artist",
-      text: "샌드위치 아티스트™는 \r 언제나 완벽한 샌드위치를 만듭니다."
+      contents: "샌드위치 아티스트™는 \r 언제나 완벽한 샌드위치를 만듭니다."
     },
     {
-      imgURL: slide_img_2,
+      pagetype:2,
+      image_url: slide_img_2,
       title: "Best Fresh Keeper",
-      text: "샌드위치 아티스트™는 각종 재료의 신선함과 매장의 청결을 철저하게 관리합니다."
+      contents: "샌드위치 아티스트™는 각종 재료의 신선함과 매장의 청결을 철저하게 관리합니다."
     },
     {
-      imgURL: slide_img_3,
+      pagetype:2,
+      image_url: slide_img_3,
       title: "Best Service Professional",
-      text: "샌드위치 아티스트™는 항상 고객을 우선으로 생각하며 고객이 무엇을 원하는지 경청합니다."
+      contents: "샌드위치 아티스트™는 항상 고객을 우선으로 생각하며 고객이 무엇을 원하는지 경청합니다."
     },
     {
-      imgURL: slide_img_4,
+      pagetype:2,
+      image_url: slide_img_4,
       title: "Best Team Member",
-      text: "샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을 제공하기 위해 다른 팀원들과 함께 노력합니다."
+      contents: "샌드위치 아티스트™는 최고의 팀원으로서 고객에게 최고의 경험을 제공하기 위해 다른 팀원들과 함께 노력합니다."
     },
     {
-      imgURL: slide_img_5,
+      pagetype:2,
+      image_url: slide_img_5,
       title: "Best Artist",
-      text: "LE SSERAFIM은 언제나 완벽한 무대를 만듭니다."
+      contents: "LE SSERAFIM은 언제나 완벽한 무대를 만듭니다."
     },
   ];
   const clone_slide = [slideData[slideData.length-2] ,slideData[slideData.length-1], ...slideData, slideData[0], slideData[1]];
@@ -130,11 +135,11 @@ function Apply(){
               {clone_slide.map((slide, index) => (
                 <li className="slide_li_item">
                   <div key={index} className={`slide_img ${index === currentSlide || (currentSlide === index + slideData.length || currentSlide === index - slideData.length) ? "active" : ""}`} >
-                  <img src={slide.imgURL} alt={`Slide ${index + 1}`} />
+                  <img src={slide.image_url} alt={`Slide ${index + 1}`} />
                   </div>
                   <div className={`slide_info ${index === currentSlide ? "active" : ""}`}>
                     <strong className="slide_info_tit">{slide.title}</strong>
-                    <p className="slide_info_txt">{slide.text}</p>
+                    <p className="slide_info_txt">{slide.contents}</p>
                   </div>
                 </li>
               ))}

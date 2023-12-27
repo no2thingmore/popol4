@@ -80,7 +80,7 @@ function EditUser() {
           <div className="CHM_plustablegrid" style={{borderRight: "1px solid #c6c6c6"}}>
             <div className="CHM_plusTableTitle">이메일</div>
             <input id="Eemail" type="text" defaultValue={email}></input>
-          </div>
+          </div>  
         </div>
 
         <div className="CHM_plustable1grid">

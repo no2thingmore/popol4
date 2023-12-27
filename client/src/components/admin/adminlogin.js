@@ -21,13 +21,22 @@ function Adminlogin() {
       .then((response) => {
         console.log("로그인 성공");
         if (saveID == 1) {
-          setCookie("saveID", email);
+          setCookie("saveID", email, {
+            path: '/',
+            secure: '/',
+        });
         } else if (saveID == 0) {
           removeCookie("saveID");
         }
         console.log(response);
-        setCookie("role", "admin");
-        setCookie("user", response.data.id);
+        setCookie("role", "admin",{
+          path: '/',
+          secure: '/',
+      });
+        setCookie("user", response.data.id ,{
+          path: '/',
+          secure: '/',
+      });
         navigate("/");
       })
       .catch((err) => {
