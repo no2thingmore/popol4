@@ -1,9 +1,9 @@
-function Admin(){
+function Admin() {
+  
   return(
     <div>
-      관리자 정보수정
+      이거
     </div>
   )
 }
-
 export default Admin;
