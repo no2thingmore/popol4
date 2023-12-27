@@ -67,7 +67,6 @@
 }
 
 .KJH_updatefaq_type_input {
-    display: flex;
     justify-content: space-between;
     padding-top: 20px;
     margin-bottom: 10px;
@@ -97,7 +96,12 @@
     align-items: flex-end;
 }
 
-.KJH_updatefaq_type_input > span > select {
+.KJH_updatefaq_q_type_section {
+    display: flex;
+    justify-content: space-between
+}
+
+.KJH_updatefaq_q_type_section > span > select {
     padding: 5px;
     font-size: 16px;
     width: 120px;

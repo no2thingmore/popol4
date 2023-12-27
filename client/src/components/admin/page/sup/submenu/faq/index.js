@@ -32,15 +32,20 @@ function Faq(){
 
     // 이벤트 삭제 요청
     const deleteFAQ = async (id) => {
-        try {
-            console.log(id);
-            const res = await axios.delete(`${API_URL}/faq/admin`, {params:{id}});
-            setFaq(res.data);
-            console.log('삭제 완료')
-            window.location.reload();
-        } catch (error) {
-            console.log('삭제 실패')
-            console.error(error);
+
+        const isConfirmed = window.confirm("해당 FAQ를 삭제하시겠습니까?");
+
+        if (isConfirmed) {
+            try {
+                console.log(id);
+                const res = await axios.delete(`${API_URL}/faq/admin`, {params:{id}});
+                setFaq(res.data);
+                console.log('삭제 완료')
+                window.location.reload();
+            } catch (error) {
+                console.log('삭제 실패')
+                console.error(error);
+            }
         }
     };
 

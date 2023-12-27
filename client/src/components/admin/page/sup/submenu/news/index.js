@@ -31,15 +31,20 @@ function News(){
 
     // 이벤트 삭제 요청
     const deleteNews = async (id) => {
-        try {
-            console.log(id);
-            const res = await axios.delete(`${API_URL}/news/admin`, {params:{id}});
-            setNews(res.data);
-            console.log('삭제 완료')
-            window.location.reload();
-        } catch (error) {
-            console.log('삭제 실패')
-            console.error(error);
+
+        const isConfirmed = window.confirm("해당 공지사항을 삭제하시겠습니까?");
+
+        if (isConfirmed) {
+            try {
+                console.log(id);
+                const res = await axios.delete(`${API_URL}/board/admin`, {params:{id:id}});
+                setNews(res.data);
+                console.log('삭제 완료')
+                window.location.reload();
+            } catch (error) {
+                console.log('삭제 실패')
+                console.error(error);
+            }
         }
     };
 
@@ -132,7 +137,7 @@ function News(){
                             </tr>
                         </thead>
                         <tbody>
-                            {displayedPosts.map((item) => (
+                            {Array.isArray(displayedPosts) && displayedPosts.map(item => (
                                 <React.Fragment key={item.id}>
                                     <tr className='KJH_news_contents_section' onClick={() => toggleContent(item.id)}>
                                         <td className='KJH_news_contents_id'>{item.id}</td>
