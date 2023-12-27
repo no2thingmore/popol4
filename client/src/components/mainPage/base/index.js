@@ -12,7 +12,7 @@ import { API_URL } from "../../config/contansts";
 const Base = () => {
   const [adChange, setAdChange] = useState(0);
   //서버에서 받아온 데이터 아래 data에 있음
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       setAdChange((prevAd) => (prevAd + 1) % Ads_Data.length);
@@ -78,9 +78,9 @@ const Base = () => {
                 </p>
               </div>
               <div className="base_btm_info_2">
-                {Btm_Data.map((item) => (
+                {data.map((item) => (
                   <div key={item.id} className="base_btm_info_contents">
-                    <Link to={item.path}>{item.text}</Link>
+                    <Link to={`/news/${item.id}`}>{item.title}</Link>
                   </div>
                 ))}
                 <div className="base_btm_info_more">

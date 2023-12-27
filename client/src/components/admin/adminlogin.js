@@ -17,7 +17,7 @@ function Adminlogin() {
     const password = e.target.login_pwd.value;
     const saveID = e.target.login_saveID.checked;
     axios
-      .get(`${API_URL}/user/login`, { params: { email, password } })
+      .get(`${API_URL}/admin/login`, { params: { email, password } })
       .then((response) => {
         console.log("로그인 성공");
         if (saveID == 1) {
@@ -26,7 +26,7 @@ function Adminlogin() {
           removeCookie("saveID");
         }
         console.log(response);
-        setCookie("rolo", response.data.rolo);
+        setCookie("role", "admin");
         setCookie("user", response.data.id);
         navigate("/");
       })
@@ -35,14 +35,14 @@ function Adminlogin() {
         alert("로그인에 실패하였습니다.");
       });
   };
-  
+
   return (
     <div className="login_container" style={{display:"flex", alignItems:"center", justifyContent: "center", height:"100vh"}}>
       <div className="login_section">
         <h1>관리자 LOGIN</h1>
         <a href="/admin/home/none">a</a>
         <fieldset className="login_form">
-          <form  className="login_form">
+          <form  className="login_form" onSubmit={login}>
             <div className="login_input">
               <div className="login_id_input">
                 <label>아이디(이메일)</label>

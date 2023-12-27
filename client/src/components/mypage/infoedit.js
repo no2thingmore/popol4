@@ -1,8 +1,19 @@
+import axios from "axios"
+import { API_URL } from "../config/contansts";
 function Infoedit(props) {
+
+  const editPWD = async (e)=>{
+    e.preventDefault()
+    const pwd = e.target.pwd.value
+    const CKpwd = e.target.pwd.value
+    if (pwd==CKpwd) {
+      axios.patch(`${API_URL}/user/changePwd`,{pwd})
+    }
+  }
   return (
     <div className="loginBg">
       <div className="registerpage">
-        <form className="registerform">
+        <form className="registerform" onSubmit={editPWD}>
           <h3>회원정보 수정</h3>
           <div className="registerpageborderBox">
             <div className="registerpagegrid">

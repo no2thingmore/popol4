@@ -8,6 +8,7 @@ const { sequelize } = require('./models');
 const FoodRouter = require('./routes/Food.js')
 const IngredientRouter = require('./routes/Ingredient.js')
 const UserRouter = require('./routes/User.js')
+const AdminRouter = require('./routes/Admin.js')
 const BoardRouter = require('./routes/Board.js')
 const InquiryRouter = require('./routes/Inquiry.js')
 const EventRouter = require('./routes/Event.js')
@@ -54,6 +55,7 @@ app.post('/image', upload.single('image'), (req, res)=>{
 app.use('/food', FoodRouter);
 app.use('/ingredient', IngredientRouter);
 app.use('/user', UserRouter);
+app.use('/admin', AdminRouter);
 app.use('/board',BoardRouter);
 app.use('/inquiry',InquiryRouter);
 app.use("/event", EventRouter);
