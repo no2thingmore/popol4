@@ -72,4 +72,4 @@
 
 - ## <a href="https://docs.google.com/spreadsheets/d/1drNUTOtFHtqffZ6alQuUwb4Z20koVz35DjbzICQPuvg/edit#gid=0">일정관리 바로가기</a>
 
-- ## <a hef="https://dbdiagram.io/d/popol4-65692e373be149578717117f">DB 모델링 보기</a>
+- ## <a href="https://dbdiagram.io/d/popol4-65692e373be149578717117f">DB 모델링 보기</a>
