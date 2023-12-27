@@ -94,9 +94,9 @@ function Eventct(props) {
           })}
         </div>
       </div>
-      <div className="y_morebtn">
+      {/* <div className="y_morebtn">
         <button onClick={showmore}>더보기</button>
-      </div>
+      </div> */}
     </div>
   );
 }

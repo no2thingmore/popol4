@@ -27,7 +27,9 @@
   display: none;
 }
 
-.y_morebtn>button{
+
+/* 더보기 버튼 css */
+/* .y_morebtn>button{
   margin-top: 15px;
   
   width: 450px;
@@ -42,7 +44,7 @@
   display: block;
   margin-bottom: 20px;
 
-}
+} */
 
 /* 하민이  css */
 

@@ -27,6 +27,7 @@ function Advertising(){
         Kname: "랍스터 컬렉션 15s",
         img: mb,
         videoUrl:"https://www.youtube.com/embed/XaRaebHCc8o"
+        
       },
       {
         id: 3,
