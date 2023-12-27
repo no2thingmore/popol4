@@ -12,6 +12,9 @@ function Header(props) {
       <Link to ="/"><img src={SubImg} alt="Subway" /></Link>
       <ul className="admin_ul_list">
         <li>
+          <Link to={"/howtouseamdin"} target="_blank">이용방법</Link>
+        </li>
+        <li>
           <Link to={"#"}>관리자정보</Link>
         </li>
         <li>
