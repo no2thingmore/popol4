@@ -1,39 +1,41 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { getCookie, removeCookie, setCookie } from "../../useCookies";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../config/contansts";
 
 function Adminlogin() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState(null);
-  // if (getCookie("saveID")) {
-  //   setUserId(getCookie("saveID"));
-  // }
-  // const login = async (e) => {
-  //   e.preventDefault();
-  //   const email = e.target.login_id.value;
-  //   const password = e.target.login_pwd.value;
-  //   const saveID = e.target.login_saveID.checked;
-  //   axios
-  //     .get(`${API_URL}/user/login`, { params: { email, password } })
-  //     .then((response) => {
-  //       console.log("로그인 성공");
-  //       if (saveID == 1) {
-  //         setCookie("saveID", email);
-  //       } else if (saveID == 0) {
-  //         removeCookie("saveID");
-  //       }
-  //       console.log(response);
-  //       setCookie("rolo", response.data.rolo);
-  //       setCookie("user", response.data.id);
-  //       navigate("/");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       alert("로그인에 실패하였습니다.");
-  //     });
-  // };
+
+  if (getCookie("saveID")) {
+    setUserId(getCookie("saveID"));
+  }
+  const login = async (e) => {
+    e.preventDefault();
+    const email = e.target.login_id.value;
+    const password = e.target.login_pwd.value;
+    const saveID = e.target.login_saveID.checked;
+    axios
+      .get(`${API_URL}/user/login`, { params: { email, password } })
+      .then((response) => {
+        console.log("로그인 성공");
+        if (saveID == 1) {
+          setCookie("saveID", email);
+        } else if (saveID == 0) {
+          removeCookie("saveID");
+        }
+        console.log(response);
+        setCookie("rolo", response.data.rolo);
+        setCookie("user", response.data.id);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("로그인에 실패하였습니다.");
+      });
+  };
+  
   return (
     <div className="login_container" style={{display:"flex", alignItems:"center", justifyContent: "center", height:"100vh"}}>
       <div className="login_section">
@@ -77,6 +79,9 @@ function Adminlogin() {
           </li>
           <li>
             <a>회원가입</a>
+          </li>
+          <li style={{borderLeft: "2px solid #ababab"}}>
+            <Link to="/">홈페이지</Link>
           </li>
         </ol>
       </div>
