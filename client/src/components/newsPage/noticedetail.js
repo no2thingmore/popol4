@@ -30,7 +30,7 @@ function Noticedetail() {
         <p>{data.updated_at}</p>
       </div>
       <div className="n_1_image">
-        <img src={data.image_url}></img>
+        <img src={API_URL+"/upload/"+data.image_url}></img>
         <p>
           {data.content}
         </p>

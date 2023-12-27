@@ -98,7 +98,6 @@ function Eventct(props) {
         <button onClick={showmore}>더보기</button>
       </div>
     </div>
-    
   );
 }
 

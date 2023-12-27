@@ -15,10 +15,7 @@ function Header(props) {
           <Link to={"/howtouseamdin"} target="_blank">이용방법</Link>
         </li>
         <li>
-          <Link to={"#"}>관리자정보</Link>
-        </li>
-        <li>
-          <Link to={"/admin"}>관리자홈</Link>
+          <Link to={"/admin/user/main"}>관리자홈</Link>
         </li>
         <li>
           <Link to={"/"}>메인페이지</Link>
