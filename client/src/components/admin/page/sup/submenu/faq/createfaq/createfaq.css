@@ -47,10 +47,18 @@
 .KJH_createfaq_title_section {
     display: inline-block;
     width: 100%;
-    padding: 10px 5px 11px;
+    padding: 15px 5px 10px;
     margin-bottom: 15px;
     border-top: 3px solid black;
     border-bottom: 1px solid #979797;
+}
+
+.KJH_createfaq_title_input > input[type="radio"] {
+    margin: 0 5px 0 0; /* 버튼과 라벨 사이의 여백 */
+}
+
+.KJH_create-faq_input_left {
+    margin-right: 10px;
 }
 
 .KJH_createfaq_make_title_line, .KJH_createfaq_content_section {

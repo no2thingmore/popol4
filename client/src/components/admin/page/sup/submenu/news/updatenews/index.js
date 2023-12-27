@@ -12,11 +12,8 @@ function UpdateNews() {
     const location = useLocation();
     const newsId = location.state.id;
 
-    const [newsListData, setNewsListData] = useState([]);
-    const NewsData = newsListData && newsListData;
-
-    const [title, setTitle] = useState(NewsData.title);
-    const [content, setContent] = useState(NewsData.content);
+    const [title, setTitle] = useState();
+    const [content, setContent] = useState();
 
     const [imageUrl, setImageUrl] = useState(null); // 이미지
     const [isUploading, setIsUploading] = useState(false); // 업로드 추적
@@ -51,10 +48,11 @@ function UpdateNews() {
     const fetchNewsData = async () => {
         try {
             const res = await axios.get(`${API_URL}/board/news`,{params:{id:newsId}});
-            setNewsListData(res.data);
+            setTitle(res.data.title);
+            setContent(res.data.content);
             setImageUrl(res.data.image_url);
-            console.log('해당 공지사항 데이터를 불러왔습니다')
-            console.log(res.data);
+            // console.log('해당 공지사항 데이터를 불러왔습니다')
+            // console.log(res.data);
         } catch (err) {
             console.error('해당 공지사항 데이터를 가져오지 못하였습니다')
             console.error(err);
@@ -115,15 +113,6 @@ function UpdateNews() {
                 });
         }
     };
-    useEffect(() => {
-        if (newsListData) {
-            setTitle(newsListData.title);
-            setContent(newsListData.content);
-            setImageUrl(newsListData.image_url);
-        }
-    }, [newsListData]);
-    
-
 
     return (
         <>
@@ -154,7 +143,7 @@ function UpdateNews() {
                                         placeholder='제목을 입력해주세요'
                                         onChange={handleTitleChange}
                                     />
-                                </div>
+                            </div>
                         </div>
                         <div className='KJH_update-news_content_section'>
                             <textarea

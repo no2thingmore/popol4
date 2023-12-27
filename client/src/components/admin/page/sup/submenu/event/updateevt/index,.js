@@ -12,12 +12,9 @@ function UpdateEvt() {
     const location = useLocation();
     const evtId = location.state.id;
 
-    const [evtListData, setEvtListData] = useState([]);
-    const EvtData = evtListData && evtListData;
-
-    const [title, setTitle] = useState(EvtData.title);
-    const [content, setContent] = useState(EvtData.content);
-    const [status, setStatus] = useState(EvtData.status);
+    const [title, setTitle] = useState();
+    const [content, setContent] = useState();
+    const [status, setStatus] = useState();
 
     const [imageUrl, setImageUrl] = useState(null); // 이미지
     const [isUploading, setIsUploading] = useState(false); // 업로드 추적
@@ -30,10 +27,11 @@ function UpdateEvt() {
     const fetchEvtData = async () => {
         try {
             const res = await axios.get(`${API_URL}/event/update`,{params:{id:evtId}});
-            setEvtListData(res.data);
+            setTitle(res.data.title);
+            setContent(res.data.content);
+            setStatus(res.data.status);
             setImageUrl(res.data.image_url);
             console.log('해당 이벤트 데이터를 불러왔습니다');
-            // console.log(res.data);
         } catch (err) {
             console.error('이벤트 조회 오류');
             console.error(err);
@@ -95,14 +93,6 @@ function UpdateEvt() {
                 });
         }
     };
-    useEffect(() => {
-        if (evtListData) {
-            setTitle(evtListData.title);
-            setContent(evtListData.content);
-            setStatus(evtListData.status);
-            setImageUrl(evtListData.image_url);
-        }
-    }, [evtListData]);
 
     return (
         <>

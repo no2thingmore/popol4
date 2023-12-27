@@ -32,17 +32,23 @@ function Event(){
 
     // 이벤트 삭제 요청
     const deleteEvent = async (id) => {
-        try {
-            console.log(id);
-            const res = await axios.delete(`${API_URL}/event/admin`, {params:{id}});
-            setEvnet(res.data);
-            console.log('삭제 완료')
-            window.location.reload();
-        } catch (error) {
-            console.log('삭제 실패')
-            console.error(error);
+        
+        const isConfirmed = window.confirm("해당 이벤트를 삭제하시겠습니까?");
+    
+        if (isConfirmed) {
+            try {
+                console.log(id);
+                const res = await axios.delete(`${API_URL}/event/admin`, { params: { id } });
+                setEvnet(res.data);
+                console.log('삭제 완료');
+                window.location.reload();
+            } catch (error) {
+                console.log('삭제 실패');
+                console.error(error);
+            }
         }
     };
+    
 
     // 페이지 계산
     const firstPostIndex = (currentPage - 1) * pageLimit;

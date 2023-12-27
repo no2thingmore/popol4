@@ -9,27 +9,28 @@ function UpdateFAQ() {
     const navigate = useNavigate();
 
     const location = useLocation();
-    // console.log(location.state);
     const faqId = location.state.id;
 
-    const [faqListData, setFaqListData] = useState([]);
-    const FaqData = faqListData && faqListData;
-
-    const [tags, setTags] = useState(FaqData.tags);
-    const [title, setTitle] = useState(FaqData.title);
-    const [content, setContent] = useState(FaqData.content);
+    const [tags, setTags] = useState();
+    const [title, setTitle] = useState();
+    const [kinds, setKinds] = useState();
+    const [content, setContent] = useState();
 
     const handleTagsChange = (e) => setTags(e.target.value);
     const handleTitleChange = (e) => setTitle(e.target.value);
     const handleContentChange = (e) => setContent(e.target.value);
+    const handleKindsChange = (e) => setKinds(e.target.value);
 
 
     // FAQ 데이터 가져오기
     const fetchFaqData = async () => {
         try {
             const res = await axios.get(`${API_URL}/faq/update`,{params:{id:faqId}});
-            setFaqListData(res.data);
-            console.log('해당 FAQ 데이터를 불러왔습니다')
+            setTags(res.data.tags);
+            setTitle(res.data.title);
+            setKinds(res.data.kinds);
+            setContent(res.data.content);
+            // console.log('해당 FAQ 데이터를 불러왔습니다')
             // console.log(res.data);
         } catch (err) {
             console.error('FAQ 조회 오류')
@@ -37,32 +38,43 @@ function UpdateFAQ() {
     }
     useEffect(() => {
         if (!faqId) {
-            console.error("FAQ ID를 가져오지 못하였습니다");
+            console.error("해당 FAQ 데이터를 가져오지 못하였습니다");
         } else {
             fetchFaqData();
         }
     }, [faqId]);
 
-
-    // 수정하기 | 데이터 : 종류, 제목, 내용
-    const handleSubmit = async () => {
-        try {
-            const updateData = { faqId, tags, title, content };
-            await axios.patch(`${API_URL}/faq/admin`, updateData);
-            console.log('해당 FAQ 수정이 완료되었습니다.')
-            navigate("/admin/support/faq");
-        } catch (err) {
-            console.error('수정 에러', err);
+    // 이벤트 수정
+    const EditFAQ = async (e) => {
+        e.preventDefault();
+        if (
+            title === "" ||
+            content === "" ||
+            kinds === "" ||
+            tags === ""
+        ) {
+            alert("빈칸없이 전부 채워주세요")
+        } else {
+            await axios
+                .patch(`${API_URL}/faq/admin`, {
+                    admin_id:1,
+                    faqId: faqId,
+                    title: title,
+                    content: content,
+                    kinds: kinds,
+                    tags: tags,
+                })
+                .then(() => {
+                    console.log("해당 FAQ 수정이 완료되었습니다");
+                    navigate("/admin/support/faq");
+                    window.location.reload();
+                })
+                .catch((e) => {
+                    console.log("에러");
+                    console.error(e);
+                });
         }
     };
-    useEffect(() => {
-        if (faqListData) {
-            setTags(faqListData.tags);
-            setTitle(faqListData.title);
-            setContent(faqListData.content);
-        }
-    }, [faqListData]);
-    
 
     // 종류 선택
     const tagsMapping = {
@@ -70,8 +82,7 @@ function UpdateFAQ() {
         '1': '사이트이용',
         '2': '포인트',
         '3': '제품',
-        '4': '매장이용',
-        '5': '가맹관련 FAQ'
+        '4': '매장이용'
     };
 
     return (
@@ -88,39 +99,61 @@ function UpdateFAQ() {
                             </Link>
                         </div>
                     </span>
-                    
-                    <div className='KJH_updatefaq_title_section'>
-                        <div className='KJH_updatefaq_type_input'>
-                            {/* 제목 입력 란 */}
-                            <span className='KJH_updatefaq_make_title_line'>
-                                <span className='KJH_updatefaq_question_label'>Q : </span>
-                                <textarea
-                                    className='KJH_updatefaq_make_title_info'
-                                    value={title}
-                                    placeholder='질문을 입력해주세요'
-                                    onChange={handleTitleChange}
-                                />
-                            </span>
-                            {/* 타입 선택 */}
-                            <span className='KJH_updatefaq_type'>
-                                <select value={tags} onChange={handleTagsChange}>
-                                    {Object.entries(tagsMapping).map(([key, value]) => (
-                                        <option key={key} value={key}>{value}</option>
-                                    ))}
-                                </select>
-                            </span>
+                    <form onSubmit={EditFAQ}>
+                        <div className='KJH_updatefaq_title_section'>
+                            <div className='KJH_updatefaq_type_input'>
+                                {/* radio 버튼 */}
+                                <div className='KJH_updatefaq_title_input'>
+                                    <input 
+                                        type="radio" 
+                                        id="kinds" 
+                                        name="kinds" 
+                                        value="0"
+                                        checked={kinds === '0'}
+                                        onChange={handleKindsChange} />
+                                    <label htmlFor="status0" className="KJH_update-faq_input_left">1대1</label>
+                                    <input 
+                                        type="radio" 
+                                        id="kinds1"
+                                        name="kinds" 
+                                        value="1" 
+                                        checked={kinds === '1'}
+                                        onChange={handleKindsChange} />
+                                    <label htmlFor="status1">가맹점</label>
+                                </div>
+                            </div>
+                            <div className='KJH_updatefaq_q_type_section'>
+                                {/* 제목 입력 란 */}
+                                <span className='KJH_updatefaq_make_title_line'>
+                                    <span className='KJH_updatefaq_question_label'>Q : </span>
+                                    <textarea
+                                        className='KJH_updatefaq_make_title_info'
+                                        value={title}
+                                        placeholder='질문을 입력해주세요'
+                                        onChange={handleTitleChange}
+                                    />
+                                </span>
+                                {/* 타입 선택 */}
+                                <span className='KJH_updatefaq_type'>
+                                    <select value={tags} onChange={handleTagsChange}>
+                                        {Object.entries(tagsMapping).map(([key, value]) => (
+                                            <option key={key} value={key}>{value}</option>
+                                        ))}
+                                    </select>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div className='KJH_updatefaq_content_section'>
-                        <span className='KJH_updatefaq_content_a_label'>A :</span>
-                        <textarea
-                                className='KJH_updatefaq_make_a_info'
-                                value={content}
-                                placeholder='답변을 입력해주세요'
-                                onChange={handleContentChange}
-                                />
-                    </div>
-                    <button onClick={handleSubmit} type="submit" className='KJH_updatefaq_data_submit'>수정하기</button>
+                        <div className='KJH_updatefaq_content_section'>
+                            <span className='KJH_updatefaq_content_a_label'>A :</span>
+                            <textarea
+                                    className='KJH_updatefaq_make_a_info'
+                                    value={content}
+                                    placeholder='답변을 입력해주세요'
+                                    onChange={handleContentChange}
+                                    />
+                        </div>
+                        <button type="submit" className='KJH_updatefaq_data_submit'>수정하기</button>
+                    </form>
                 </div>
             </div>
         </>

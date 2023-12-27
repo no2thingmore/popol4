@@ -72,10 +72,10 @@ function CreateFAQ() {
                     </span>
                     <form onSubmit={PlusFAQ}>
                         <div className='KJH_createfaq_title_section'>
-                            <div>
+                            <div className='KJH_createfaq_title_input'>
                                 <input 
                                     type="radio" 
-                                    id="kinds0" 
+                                    id="kinds" 
                                     name="kinds" 
                                     value="0"
                                     checked={kinds === '0'}
