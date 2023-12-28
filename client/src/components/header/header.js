@@ -7,9 +7,11 @@ import subway1 from "../header/subway1.png";
 
 function Header() {
 const navigate = useNavigate();
+
   const Logout = (e)=>{
     e.preventDefault()
     removeCookie('user')
+    removeCookie('role')
     navigate("/")
     window.location.reload();
   }

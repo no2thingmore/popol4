@@ -84,6 +84,20 @@ router
     res.status(201).end();
   })
 
+  .patch('/changePwd',(req,res,next)=>{
+    User.update({
+      password:req.body.pwd
+    },{
+      where:{id:req.body.id}
+    })
+    .then(()=>{
+      res.status(201).end();
+    })
+    .catch(()=>{
+      res.status(501).end();
+    })
+  })
+
   .get('/findId',(req,res,next)=>{
     console.log(req.query);
     User.findOne({where:{name:req.query.name,contact_number:req.query.contact_number}})
