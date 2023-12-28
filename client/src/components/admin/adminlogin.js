@@ -37,7 +37,8 @@ function Adminlogin() {
           path: '/',
           secure: '/',
       });
-        navigate("/");
+        navigate("/admin/user/main");
+        window.location.reload(); 
       })
       .catch((err) => {
         console.log(err);
@@ -49,7 +50,7 @@ function Adminlogin() {
     <div className="login_container" style={{display:"flex", alignItems:"center", justifyContent: "center", height:"100vh"}}>
       <div className="login_section">
         <h1>관리자 LOGIN</h1>
-        <a href="/admin/home/none">a</a>
+        {/* <a href="/admin/user/main">a</a> */}
         <fieldset className="login_form">
           <form  className="login_form" onSubmit={login}>
             <div className="login_input">
