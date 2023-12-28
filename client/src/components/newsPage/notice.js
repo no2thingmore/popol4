@@ -23,6 +23,15 @@ function Notice(){
       });
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}년 ${month}월 ${day}일`;
+};
+
   return(
     <div className="j_notice_all">
       <div className="j_Title">
@@ -44,7 +53,7 @@ function Notice(){
           data.map((aa,i) => (
             <div className="j_list">
               <div className="j_number">
-                <h3>{aa.id}</h3>
+                <h3>{i + 1}</h3>
               </div>
               <div className="j_content">
                 <Link to={`/news/${aa.id}`}>
@@ -52,7 +61,7 @@ function Notice(){
                 </Link>
               </div>
               <div className="j_date">
-                <p>{aa.created_at}</p>
+                <p>{formatDate(aa.createdAt)}</p>
               </div>
             </div>
           ))
