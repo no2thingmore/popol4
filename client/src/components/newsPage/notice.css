@@ -23,16 +23,11 @@
 .j_list{
   display: grid;
   grid-template-rows:71.5px ; 
-  grid-template-columns:100px 950px 120px ;
+  grid-template-columns:100px 930px 140px ;
   justify-content: center;
   border-bottom: 1px solid grey;
   
 }
-
-.j_list>div{
-  
-}
-
 
 
 /* 숫자 */
@@ -46,7 +41,7 @@ margin-top: 7px;
 }
 
 .j_date {
-  margin-top: 15px
+  margin-top: 15px;
 }
 
 .j_date>p{
