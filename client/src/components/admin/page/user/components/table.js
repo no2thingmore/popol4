@@ -8,7 +8,6 @@ function delUser(id){
   console.log("delete",id);
 }
 function Table(params) {
-  // console.log("table",params.data);
   const data = params.data
 
   const formatDate = (dateString) => {
