@@ -112,8 +112,8 @@ function Advertising(){
       <div>
         <div className="m_advertising">
           <iframe 
-          width="1500" 
-          height="700"
+          width="1230" 
+          height="600"
           src={selectedVideo}
           title="YouTube video player" 
           frameborder="0" 
