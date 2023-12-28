@@ -41,6 +41,7 @@ function Menuintro() {
     setMenu(menuType);
   };
 
+
   const menuItems = [
     { id: 0, text: "샌드위치" },
     { id: 1, text: "랩ㆍ기타" },
