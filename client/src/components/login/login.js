@@ -30,14 +30,8 @@ function Login() {
           removeCookie("saveID");
         }
         console.log(response);
-        setCookie("role", response.data.role, {
-          path: '/',
-          secure: '/',
-      });
-        setCookie("user", response.data.id, {
-          path: '/',
-          secure: '/',
-      });
+        setCookie("role", response.data.role);
+        setCookie("user", response.data.id);
         navigate("/");
       })
       .catch((err) => {
