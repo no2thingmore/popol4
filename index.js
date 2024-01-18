@@ -16,6 +16,8 @@ const StoreRouter = require('./routes/Store.js')
 const FaqRouter = require('./routes/Faq.js')
 const OrdersRouter = require('./routes/Orders.js')
 
+const index = path.join(__dirname, 'client/build/index.html')
+
 const port = process.env.NODE_ENV || 8080;
 const multer = require('multer');
 
@@ -32,6 +34,8 @@ app.use("/upload", express.static("upload"));
 var cors = require('cors');
 
 app.use(cors());
+
+app.use('/',express.static(path.join(__dirname, 'client/build'))); //express.static=기본경로
 
 const upload = multer({ 
   storage: multer.diskStorage({ //저장 설정
@@ -93,6 +97,13 @@ sequelize.sync({ force: false })
   .catch((err) => {
     console.error(err);
   });
+app.get('/', (req,res) => {
+  res.sendFile(index)
+});
+
+app.get('*', (req,res) => {
+  res.sendFile(index)
+});
 
 app.listen(port, function () {
   console.log(`${port}에서 대기중`)
