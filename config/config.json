@@ -3,7 +3,7 @@
     "username": "GyeongIk",
     "password": "GyIk@619",
     "database": "myway",
-    "host": "15.165.74.134",
+    "host": "52.79.108.%",
     "dialect": "mysql"
   },
   "test": {
