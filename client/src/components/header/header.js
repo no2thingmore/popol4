@@ -83,11 +83,11 @@ const Login = (e) => {
         <li className="menu-item">
           <Link to="/franchise/subwayfranchise">가맹점</Link>
           <ul className="submenu">
-            <li><Link to="/franchise/subwayfranchise">프랜차이즈</Link></li>
-            <li><Link to="/franchise/faq">가맹관련 FAQ</Link></li>
-            <li><Link to="/franchise/franchiseinquire">가맹신청 문의</Link></li>
-            <li><Link to="/franchise/branchinformation">지사안내</Link></li>
-            <li><Link to="/franchise/briefing">사업설명회</Link></li>
+            <a href="/franchise/subwayfranchise"><li>프랜차이즈</li></a>
+            <a href="/franchise/faq"><li>가맹관련 FAQ</li></a>
+            <a href="/franchise/franchiseinquire"><li>가맹신청 문의</li></a>
+            <a href="/franchise/branchinformation"><li>지사안내</li></a>
+            <a href="/franchise/briefing"><li>사업설명회</li></a>
           </ul>
         </li>
         <li className="menu-item">
