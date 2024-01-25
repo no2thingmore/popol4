@@ -1,0 +1,30 @@
+#jsw_container {
+  width: 500px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.jsw_div1{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; */
+
+  margin: 0 auto 30px;
+
+  width: 500px;
+  height: 450px;
+  padding: 10px 0 10px;
+  text-align: left;
+}
+
+.jsw_class1 {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.jsw_class1 > span {
+  font-size: 20px;
+}

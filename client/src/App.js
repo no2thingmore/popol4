@@ -37,6 +37,7 @@ import Comment from "./components/admin/page/sup/submenu/inquiry/comment";
 import Subcard from "./components/footer/subcard/subcard";
 import Condition from "./components/footer/condition/condition";
 import Processing_policy from "./components/footer/processing_policy/processing_policy";
+import Howtouseamdin from "./components/admin/howtouseamdin";
 
 
 function ScrollToTop() {
@@ -89,6 +90,7 @@ function App() {
         <Route path="/admin/:type/:category/" element={<Admin></Admin>}></Route>
         <Route path="/admin/:type/:category" element={<Admin></Admin>}></Route>
         <Route path="/admin/:type/:category/:id" element={<Comment />}/>
+        <Route path="/howtouseamdin" element={<Howtouseamdin />}/>
         <Route path="/ffaq" element={<FFAQ />}></Route>
         <Route path="/qqna" element={<QQNA />}></Route>
         <Route path="/mypage/:select" element={<Mypage />}></Route>

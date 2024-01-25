@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "qwe123",
+    "username": "GyeongIk",
+    "password": "GyIk@619",
     "database": "myway",
-    "host": "127.0.0.1",
+    "host": "52.79.108.%",
     "dialect": "mysql"
   },
   "test": {

@@ -27,6 +27,7 @@ function Advertising(){
         Kname: "랍스터 컬렉션 15s",
         img: mb,
         videoUrl:"https://www.youtube.com/embed/XaRaebHCc8o"
+        
       },
       {
         id: 3,
@@ -111,8 +112,8 @@ function Advertising(){
       <div>
         <div className="m_advertising">
           <iframe 
-          width="1500" 
-          height="700"
+          width="1230" 
+          height="600"
           src={selectedVideo}
           title="YouTube video player" 
           frameborder="0" 

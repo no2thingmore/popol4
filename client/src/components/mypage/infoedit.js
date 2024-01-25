@@ -1,13 +1,15 @@
 import axios from "axios"
 import { API_URL } from "../config/contansts";
+import { getCookie } from "../../useCookies";
 function Infoedit(props) {
 
   const editPWD = async (e)=>{
     e.preventDefault()
     const pwd = e.target.pwd.value
-    const CKpwd = e.target.pwd.value
+    const CKpwd = e.target.CKpwd.value
+    const id = getCookie("user")
     if (pwd==CKpwd) {
-      axios.patch(`${API_URL}/user/changePwd`,{pwd})
+      axios.patch(`${API_URL}/user/changePwd`,{pwd,id})
     }
   }
   return (

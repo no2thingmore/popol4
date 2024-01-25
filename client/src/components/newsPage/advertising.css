@@ -59,11 +59,12 @@
   position: absolute;
   /* top: -12%;
   left: -35%; */
-  margin: -40% 35%;
-  width: fit-content;
-  height: fit-content;
+  margin: -40% 40%;
+  width: 70px;
+  height: 70px;
   display: none;
-  width: 100px;
+  align-items:center;
+  justify-items:center;
 }
 
 
@@ -79,12 +80,14 @@
 }
 
 .YMJ_selectcontentGridBox {
+  width: fit-content;
+  
   padding: 4vw 0;
-  margin: 0 13vw;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 370px);
   gap: 3vw;
-
+  
 }
 
 .YMJ_selectCard {

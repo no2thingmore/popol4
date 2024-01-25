@@ -27,7 +27,9 @@
   display: none;
 }
 
-.y_morebtn>button{
+
+/* 더보기 버튼 css */
+/* .y_morebtn>button{
   margin-top: 15px;
   
   width: 450px;
@@ -42,7 +44,7 @@
   display: block;
   margin-bottom: 20px;
 
-}
+} */
 
 /* 하민이  css */
 
@@ -239,8 +241,8 @@
 
 /*************** 슬 라 이 드 텍 스 트 ***************/
 .YMJ_slide_info{
-  text-align: center;
-  padding-top: 30px;
+  left: 10%;
+  padding-top: 30%;
   margin-top: 10px;
   position: relative;
   opacity: 0;
@@ -248,18 +250,18 @@
   top: 0;
 
   height: 400px;
-  width: 400px;
+  width: 250px;
   background-color: white;
   z-index: 7;
 }
 .YMJ_slide_info::after{
   content: '';
   position: absolute;
-  left: 50%;
+  /* left: 10%; */
   top: 0;
   height: 4px;
   width: 50px;
-  margin-left: -25px;
+  /* margin-left: -10%; */
   background-color: #ffc300;
 }
 .YMJ_slide_info_tit{

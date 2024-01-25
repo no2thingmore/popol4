@@ -73,10 +73,14 @@ function Eventct(props) {
       </div>
       <div className="YMJ_selectcontent">
         <div className="YMJ_selectcontentGridBox">
-          {filteredData.map((item) => {
+          {filteredData.map((item, i) => {
+//  상수 = 프로그래밍에서 값이 변하지 않는 데이터를 나타내는 식별자
+//  [] = 배열
               //날짜 표출시 T이후의 글자 삭제 
             const formattedDate = item.createdAt.split('T')[0];
             return (
+              // <Link to={}>
+              
               <div className={"YMJ_selectCard start " + end}>
                 {/* <Link to={`/ingreDients/freshingredients/${a.id}`}> */}
                 <div className="YMJ_selectCardImg">
@@ -90,13 +94,14 @@ function Eventct(props) {
                   <div className="YMJ_selectCardEname1">{item.noname}</div>
                 </div>
               </div>
+              // </Link>
             );
           })}
         </div>
       </div>
-      <div className="y_morebtn">
+      {/* <div className="y_morebtn">
         <button onClick={showmore}>더보기</button>
-      </div>
+      </div> */}
     </div>
   );
 }

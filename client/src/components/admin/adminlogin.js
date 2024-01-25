@@ -21,14 +21,24 @@ function Adminlogin() {
       .then((response) => {
         console.log("로그인 성공");
         if (saveID == 1) {
-          setCookie("saveID", email);
+          setCookie("saveID", email, {
+            path: '/',
+            secure: '/',
+        });
         } else if (saveID == 0) {
           removeCookie("saveID");
         }
         console.log(response);
-        setCookie("role", "admin");
-        setCookie("user", response.data.id);
-        navigate("/");
+        setCookie("role", "admin",{
+          path: '/',
+          secure: '/',
+      });
+        setCookie("user", response.data.id ,{
+          path: '/',
+          secure: '/',
+      });
+        navigate("/admin/user/main");
+        window.location.reload(); 
       })
       .catch((err) => {
         console.log(err);
@@ -40,7 +50,7 @@ function Adminlogin() {
     <div className="login_container" style={{display:"flex", alignItems:"center", justifyContent: "center", height:"100vh"}}>
       <div className="login_section">
         <h1>관리자 LOGIN</h1>
-        <a href="/admin/home/none">a</a>
+        {/* <a href="/admin/user/main">a</a> */}
         <fieldset className="login_form">
           <form  className="login_form" onSubmit={login}>
             <div className="login_input">

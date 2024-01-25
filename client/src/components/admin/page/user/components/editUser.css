@@ -1,15 +1,13 @@
 .user_edit_section{
   padding-left: 250px;
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .user_type{
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
-.user_edit_table{
-  margin: 30px ;
-}
+
 
 .user_edit_row{
   font-size: 20px;
@@ -27,4 +25,28 @@
   text-align: center;
   height: 35px;
   background-color: white;
+}
+
+#Eselect{
+  width: 70%;
+  margin-left: 1vw;
+  padding: 0.3vw;
+  font-size: 1.3vw;
+}
+
+.CHM_plusPageBtnBox2 {
+  display: flex;
+  column-gap: 2vw;
+  font-size: 1.6vw;
+  margin-top: 2vw;
+  margin-left: 12vw;
+}
+
+.CHM_plusPageBtnBox2 button{
+  border: 1px solid black;
+  padding: 0.8vw;
+  font-size: 1.3vw;
+  background-color: rgb(52, 52, 52);
+  color: white;
+  cursor: pointer;
 }
