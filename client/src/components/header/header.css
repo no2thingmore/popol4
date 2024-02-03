@@ -27,8 +27,9 @@ a {
 .topheader {
   text-align: center;
 }
+
 .topheader img{
-  width: 20vw;
+  width: 13vw;
   padding-top: 2vw;
   padding-bottom: 1vw;
 }
@@ -52,7 +53,7 @@ a {
 .util_menu button {
   border: none;
   background-color: white;
-  font-size: 1.2vw;
+  font-size: 1vw;
   font-weight: 900;
 }
 
@@ -66,16 +67,16 @@ a {
 }
 
 .menu-item {
-  padding: 2vw 0;
+  padding: 1vw 0;
   position: relative;
   z-index: 10;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 }
 
 .submenu {
   list-style: none;
   position: absolute;
-  top: 4vw;
+  top: 3vw;
   left: -2vw;
   padding:  0.7vw 2.5vw;
   background-color: white;

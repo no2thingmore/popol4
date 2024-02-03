@@ -4,7 +4,7 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 26vw;
+    height: 22vw;
 }
 
 /***************슬라이드 CSS***************/
@@ -35,7 +35,7 @@
 .quick_link {
     overflow: hidden;
     position: absolute;
-    right: 2vw;
+    right: 1vw;
     bottom: -2vw;
     text-align: right;
     z-index: 5;
@@ -53,8 +53,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18vw;
-    height: 5vw;
+    width: 13vw;
+    height: 4vw;
     background-color: #ffce32;
     border-radius: 2vw 0 0 0;
     float: left;
@@ -73,7 +73,7 @@
 }
 
 .store_section, .ask_section{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     font-weight: bold;
 }
 
@@ -91,8 +91,8 @@
     justify-content: center;
     position: relative;
     text-align: center;
-    width: 18vw;
-    height: 5vw;
+    width: 14vw;
+    height: 4vw;
     background-color: #009223;
     border-radius: 0 0 2vw 0;
     float: left;
