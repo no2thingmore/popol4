@@ -282,3 +282,7 @@ label {
 .CHM_pagination .active{
   color: black;
 }
+
+#upload-img-placeholder{
+  font-size: 1vw;
+}

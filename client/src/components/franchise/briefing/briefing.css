@@ -1,27 +1,28 @@
 
 #title3{
-  padding-top: 50px;
+
   text-align: center;
-  font-size: 35px;
-  padding-bottom: 50px;
+  font-size: 2vw;
+  padding: 2vw 0;
 }
 
 .briefing_button {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
+  margin: 0vw 10vw;
 }
 
 .briefing_button button {
+  cursor: pointer;
   background-color: rgb(255, 255, 255);
   color: #555;
-  border: 1px solid rgb(228, 197, 197);
+  border: 0.1vw solid rgb(228, 197, 197);
   box-shadow: 3px 3px 10px #cecccc;
-  width: 600px;
-  height: 60px;
+  height: 5vw;
   z-index: 1;
-  font-size: 18px;
-  position: relative;
-  top: 53px;
+  font-size: 1.5vw;
+  font-weight: 900;
 }
 
 .briefing_button button.active {
@@ -30,45 +31,44 @@
 }
 .c_back {
   background-color: rgb(248, 244, 244);
-  height: 1300px;
+  padding-bottom: 3vw;
 }
 .c_backk {
   background-color: rgb(248, 244, 244);
-  height: 800px;
+  padding-bottom: 3vw;
 }
 
 .c_back1{
-  background-color: none;
-  margin: 0 18%;
+  margin: 0 15vw;
 }
 .c_back2{
-  background-color: none;
-  margin: 0 18%;
-  text-align: center;
+  margin: 0 15vw;
 }
 
 .c_back2 b{
   color: rgb(115, 105, 105); 
+  font-size: 1.1vw;
 } 
 
 #title4{
-  padding-top: 90px;
+  padding-top: 3vw;
   text-align: center;
-  font-size: 25px;
-  padding-bottom: 50px;
+  font-size: 2vw;
+  padding-bottom: 3vw;
+  margin: 0;
 }
 #title5{
-  padding-top: 10px;
+  padding-top: 1vw;
   text-align: center;
-  font-size: 25px;
-  padding-bottom: 50px;
+  font-size: 2vw;
+  padding-bottom: 2vw;
 }
 
 .c_table_1{
   text-align: center;
-  border-top: 4px solid #009233;
+  border-top: 0.4vw solid #009233;
   clear: both;
-  padding-bottom: 40px;
+  padding-bottom: 2vw;
 }
 
 
@@ -76,23 +76,34 @@
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
+  margin-bottom: 2vw;
 }
 
 .c_table_1 thead tr{
-  height: 65px;
+  height: 4vw;
   border-bottom: 1px solid #009233;
   color: #009233;
+  font-size: 1.2vw;
 }
 
 .c_table_1 tbody td {
   border-bottom: 1px solid rgb(207, 203, 203);
   color:rgb(115, 105, 105);
-  height: 65px;
-  line-height: 25px;
+  height: 4vw;
+  line-height: 1.5vw;
+  font-size: 1.2vw;
+}
+
+.c_table_1 tbody td:first-child {
+  text-align: center;
+}
+
+.c_table_1 tbody td:nth-child(2) {
+  text-align: center;
 }
 
 .c_table_1 b{
   color: rgb(115, 105, 105); 
-  position: relative;
-  top: 32px;
+  font-size: 1.1vw;
+
 }

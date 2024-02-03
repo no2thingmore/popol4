@@ -9,7 +9,7 @@ function Footer() {
       <div className="content_jun">
         <div className="util_menu_jun">
           <button id="jun_b"><a href="/condition">이용약관</a></button>
-          <button id="jun_b1"><a href="/processing_policy"><b>개인정보처리방침</b></a></button>
+          <button id="jun_b"><a href="/processing_policy"><b>개인정보처리방침</b></a></button>
           <button id="jun_b"><a href="/subcard">써브카드</a></button>
           <button id="jun_b"><a href={getCookie("role")==="admin" ? "/admin/user/main" : "/admin/adminlogin/none"}>점주관리자</a></button>
           <div className="util_menu_jun1"> 

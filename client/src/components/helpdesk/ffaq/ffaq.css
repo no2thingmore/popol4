@@ -1,20 +1,19 @@
 .jh_faq_help_all {
-    height: 80em;
+
 }
 
 .jh_faq_help_container {
     position: relative;
     margin: 0 auto;
-    height: 200px;
 }
 
 .jh_faq_help_bar {
     position: sticky;
     top: 0;
-    margin: 0 auto;
     display: flex;
+    column-gap: 5vw;
     width: 100%;
-    height: 65px;
+    height: 4vw;
     border-top: 1px solid rgb(180, 180, 180);
     border-bottom: 1px solid rgb(180, 180, 180);
     align-items: center;
@@ -25,8 +24,7 @@
 
 .jh_faq_help_bar_faq, .jh_faq_help_bar_qna {
     position: relative;
-    width: 120px;
-    font-size: 24px;
+    font-size: 1.5vw;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -35,20 +33,13 @@
 }
 
 .jh_faq_help_bar_faq {
+    width: 5vw;
     color: green;
     font-weight: 700;
+    font-size: 1.5vw;
 }
 
-.jh_faq_line_bar {
-    position: absolute;
-    text-align: center;
-    justify-content: center;
-    top: 44px;
-    width: 50px;
-    border-bottom: 4px solid green;
-    opacity: 0; /* 초기 투명도 설정 */
-    animation: fadeIn 0.2s ease-in-out forwards; /* 애니메이션 적용 */
-}
+
 
 /* @keyframes를 이용한 fadeIn 애니메이션 정의 */
 @keyframes fadeIn {
@@ -58,7 +49,6 @@
 
 .jh_faq_section {
     width: 100%;
-    height: 900px;
     padding: 0;
     margin: 0;
 }
@@ -66,52 +56,45 @@
 .jh_faq_title_name {
     margin: 0 auto;
     text-align: center;
-    padding: 75px 0 75px 0;
-    font-size: 40px;
+    padding: 2vw 0;
+    font-size: 2vw;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     justify-content: center;
 }
 
 .jh_faq_qms_section {
-    position: absolute;
-    width: 1170px;
+    position: relative;
+    top: 2vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(205, 205, 205);
     background-color: white;
-    top: 110%;
-    left: 50%;
-    transform: translateX(-50%);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin: 0 8vw;
 }
 
 .jh_faq_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 100px;
+    padding: 0 8vw;
     background-color: #e2e2e2;
 }
 
 .jh_qms_info {
     display: flex;
-    font-size: 16px;
+    font-size: 1.2vw;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    margin: 0 10px;
+    margin: 0 1vw;
     align-items: center;
     justify-content: center;
-    height: 75px;
+    height: 5vw;
 }
 
 .jh_faq_qms_text {
     margin: 0 auto;
-    padding: 10px;
+    padding: 1vw;
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
@@ -128,26 +111,26 @@
 }
 
 .jh_faq_info {
-    width: 1170px;
-    height: 580px;
-    margin-top: 7em;
+display: flex;
+flex-direction: column;
 }
 
 .jh_faq_right_content {
     float: right;
-    margin-bottom: 10px;
 }
 
 .jh_faq_content_info {
-    width: 1170px;
-    margin: 0 auto;
-    display: table;
+    padding-top: 4vw;
+    padding-bottom: 2vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .jh_faq_form_search {
     position: relative;
-    width: 260px;
-    height: 41px;
+    width: 20vw;
+    height: 3vw;
     vertical-align: middle;
     border: 2px solid #dddddd;
 }
@@ -156,17 +139,17 @@
     margin: 0;
     padding: 0;
     display: flex;
-    padding-right: 42px;
+    padding-right: 4vw;
     background-color: #f2f2f2;
 }
 
 .jh_searchform input {
     border: 0;
     width: 100%;
-    height: 35px;
-    text-indent: 14px;
+    height: 3vw;
+    text-indent: 1vw;
     color: #292929;
-    font-size: 16px;
+    font-size: 1.2vw;
 }
 
 .jh_searchform input::placeholder {
@@ -176,25 +159,24 @@
 }
 
 .jh_faq_search_img {
-    background: url(./data/faq_search.png) 50% 50% no-repeat;
-    width: 41px;
-    height: 41px;
+    background: url(./data/faq_search.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 1.5vw;
+    height: 1.5vw;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1.2vw;
+    top: 0.8vw;
     cursor: pointer;
 }
 
 .jh_faq_counts {
     color: #999999;
     letter-spacing: -0.045em;
-    float: left;
-    margin-top: 17px;
+    font-size: 1.2vw;
 }
 
 .jh_faq_contens_list {
-    width: 1170px;
-    margin: 0 auto;
     border-top: 4px solid #009223;
 }
 
@@ -202,34 +184,34 @@
     background-color: white;
     cursor: pointer;
     position: relative;
-    padding: 15px 100px 15px;
-    margin-bottom: 2px;
-    border: 3px solid #f2f2f2;
+    padding: 1vw 5vw;
+    border: 0.5vw solid #f2f2f2;
 }
 
 .jh_faq_list_p {
     position: absolute;
-    left: 35px;
-    top: 40px;
-    margin-top: -15px;
+    left: 2.2vw;
+    top: 1.4vw;
     color: #fff;
     font-weight: bold; 
     font-family: font_sw;
-    font-size: 18px;
-    width: 30px;
-    height: 30px;
-    padding-top: 1px;
+    font-size: 1.5vw;
+    width: 3vw;
+    height: 3vw;
     box-sizing: border-box;
     background-color: #009223;
-    text-align: center;
-    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding-bottom: 0.2vw;
+    padding-right: 0.1vw;
 }
 
 .jh_faq_list_content {
     display: block;
     color: #292929;
-    line-height: 26px;
-    font-size: 18px;
+    font-size: 1.2vw;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 700;
 }
@@ -237,11 +219,12 @@
 .jh_faq_list_plus {
     position: relative;
     margin-left: auto;
-    background: url(./data/faq_plus.png) 0 0 no-repeat;
-    width: 20px;
-    height: 20px;
+    background: url(./data/faq_plus.png) no-repeat;
+    background-size: cover;
+    width: 2vw;
+    height: 2vw;
     position: absolute;
-    right: 40px;
+    right: 4vw;
     transition: transform 0.3s ease;
 }
 
@@ -276,16 +259,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
-    height: 120px;
+    padding: 2vw;
 }
 
 .jh_faq_page_list span {
     font-family: font_sw;
     font-weight: bold;
-    font-size: 24px;
-    padding: 0 3px;
-    margin: 0 10px;
+    font-size: 2vw;
+    padding: 0 1vw;
+    margin: 0 1vw;
     color: black;
     cursor: pointer;
 }
@@ -293,7 +275,7 @@
 .jh_faq_dropdown_content {
     height: 0;
     overflow: hidden;
-    padding: 0 10px;
+    padding: 0 1vw;
     transition: height 0.3s ease-out, padding 0.3s ease-out; /* 높이와 패딩 변경에 대한 전환 효과 */
     background-color: #f2f2f2;
 }
@@ -302,7 +284,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 1vw;
 }
 
 .jh_faq_list_info.active .faq_dropdown_content {
@@ -311,30 +293,31 @@
 
 .jh_faq_list_a {
     position: absolute;
-    top: 5em;
-    left: 0px;
+    top: 5vw;
+    left: -0.3vw;
     color: #fff;
     font-weight: bold;
     font-family: font_sw;
-    font-size: 18px;
-    width: 30px;
-    height: 30px;
+    font-size: 1.5vw;
+    width: 3vw;
+    height: 3vw;
     padding-top: 2px;
     box-sizing: border-box;
     background-color: #ffc300;
-    border-radius: 15px;
-    margin-left: 35px;
-    margin-top: 10px;
+    border-radius: 50%;
+    margin-left: 2.5vw;
+    margin-top: 0.9vw;
     text-align: center;
+    padding-top: 0.4vw;
 }
 
 .jh_faq_list_ask {
     position: relative;
-    padding: 18px 0 0 0;
+    padding: 1vw 0 0 0;
     border-top: 1px solid #dddddd;
     color: #666666;
-    line-height: 26px;
-    font-size: 16px;
+    line-height: 1.2.3vw;
+    font-size: 1.2vw;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: bold;
 }

@@ -1,35 +1,33 @@
 /* FAQ.css 파일 */
 
-#title1{
-  padding-top: 50px;
-  padding-bottom: 50px;
+#title1 {
+  padding: 2vw 0;
+  margin: 0;
   text-align: center;
-  font-size: 35px;
+  font-size: 2vw;
 }
-
 
 .wow {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
-  height: 50%;
-  padding-bottom: 200px;
+  padding-bottom: 12vw;
+  margin: 0 15vw;
 }
-.faq_container1{
-  border-top: 3px solid green;
-  padding-top: 3px;
-  padding-bottom: 5px;
+
+.faq_container1 {
+  border-top: 0.3vw solid green;
 }
 
 .faq_container1,
 .faq_container2 {
   border-bottom: 1px solid #ccc;
-  margin: 5px;
-  width: 1000px;
+  width: 100%;
+  padding: 0.5vw 0;
 }
 
 .faq_section {
-  padding: 10px;
+  padding: 1vw;
 }
 
 .faq_section_title {
@@ -37,6 +35,7 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  font-size: 1.2vw;
 }
 
 .faq-section-content-visible {
@@ -49,17 +48,19 @@
 
 #first_list {
   display: flex;
+  font-size: 1.2vw;
+  margin: 1vw 0;
 }
-#first_list p{
-  line-height: 25px;
+#first_list p {
+  line-height: 1.7vw;
 }
 #second_list {
   line-height: 25px;
 }
 
-.fa-q{
+.fa-q {
   color: green;
 }
-.fa-a{
+.fa-a {
   color: rgb(216, 216, 53);
 }

@@ -133,7 +133,7 @@ function Advertising(){
                   >
 
                     <div className="YMJ_selectCardImg">
-                      <img src={a.img} width="100%"></img>
+                      <img src={a.img} width="100%" style={{display: "block"}}></img>
                       <img src={go} className="m_play"></img>
                     </div>
                     

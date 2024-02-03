@@ -1,8 +1,6 @@
 .kk_help_container1 {
   position: relative;
-  margin: 0 auto;
-  padding-top: 80px;
-  padding-bottom: 1px;
+  padding: 3vw 0;
   background-color: #f2f2f2;
 }
 
@@ -16,24 +14,15 @@
   font-weight: 700;
 }
 
-.kk_ask_line_bar {
-  position: absolute;
-  text-align: center;
-  justify-content: center;
-  top: 45px;
-  width: 50px;
-  border-bottom: 4px solid green;
-  opacity: 0; /* 초기 투명도 설정 */
-  animation: fadeIn 0.2s ease-in-out forwards; /* 애니메이션 적용 */
-}
 
 .kk_faq_help_bar{
   position: sticky;
+  column-gap: 5vw;
   top: 0;
   margin: 0 auto;
   display: flex;
   width: 100%;
-  height: 65px;
+  height: 4vw;
   align-items: center;
   justify-content: center;
   z-index: 2;
@@ -42,48 +31,46 @@
 
 .kk_faq_help_bar_faq, .kk_ask_help_bar_qna {
   position: relative;
-  width: 120px;
-  font-size: 24px;
+  font-size: 1.5vw;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Noto Sans KR', sans-serif;
+  padding-left: 1vw;
 }
 
 .kk_ask_all1 {
   background-color: #f2f2f2;
-  margin-bottom: 10em;
-  padding-bottom: 50px;
 }
 
 .kk_ask_section {
   background-color: #fff;
-  width: 1200px;
-  margin: 0 auto;
-  border: 1px solid #e8e8e8;
-  padding: 0 70px 50px;
+  margin: 0 5vw;
+  border: 0.1vw solid #e8e8e8;
+  padding: 0 5vw 2vw;
 }
 
 .kk_ask_title {
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-size: 3vw;
   color: #292929;
   font-weight: 700;
   letter-spacing: -0.07em;
-  padding: 72px 0 50px;
+  padding: 4vw 0 3vw;
 }
 
 .kk_ask_agree_section {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  margin-bottom: 100px;
+  column-gap: 3vw;
+  margin-bottom: 4vw;
 }
 
 .kk_ask_agree_left_section {
-  width: 500px;
-  margin-right: 48px;
+
 }
 
 .kk_ask_agree_left_section.last-element {
@@ -92,38 +79,39 @@
 
 .kk_ask_agree_left_title {
   color: #666666;
-  font-size: 18px;
+  font-size: 1.2vw;
   font-weight: 300;
   letter-spacing: -0.05em;
-  padding-bottom: 19px;
+  padding-bottom: 1.2vw;
   font-family: font_ns, sans-serif;
 }
 
 .kk_ask_agree_left_info {
-  border: 2px solid #e5e5e5;
-  height: 170px;
-  padding: 13px 0 13px 17px;
+  border: 0.15vw solid #e5e5e5;
+  height: 15vw;
+  padding: 1vw 0 1vw 1vw;
   overflow: auto;
   color: #bbbbbb;
-  font-size: 13px;
-  line-height: 21px;
-  margin-bottom: 14px;
+  font-size: 0.9vw;
+  line-height: 1.2vw;
+  margin-bottom: 1vw;
   scroll-behavior: smooth;
 }
 
 .kk_ask_agree_left_info_section {
   position: relative;
   left: 0px;
-  padding-right: 10px;
+  padding-right: 1vw;
   font-family: font_ns, sans-serif;
 }
 
 .kk_ask_agree_checkbox_section {
   font-family: font_ns, sans-serif;
+  font-size: 1.2vw;
 }
 
 .kk_checkbox-custom {
-  margin: 10px 20px 10px 10px;
+  margin: 1vw 1.2vw 1vw 1vw;
 }
 
 .kk_check_ess1 {
@@ -137,15 +125,15 @@
 .kk_ask_btm_title {
   font-family: font_ns, sans-serif;
   font-weight: 700;
-  margin: 40px 0 20px;
-  font-size: 28px;
+  margin: 2vw 0 1vw;
+  font-size: 1.8vw;
 }
 
 .kk_ask_btm_title_right {
   position: absolute;
   bottom: 0;
   right: 1em;
-  font-size: 14px;
+  font-size: 1vw;
   font-weight: bold;
   color: #999999;
 }
@@ -167,48 +155,42 @@
   font-family: font_ns, sans-serif;
   text-align: left;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 1.2vw;
 }
 
 .kk_ask_btm_table tbody tr td {
-  height: 45px;
-  padding: 12px 0;
+  padding: 1vw 0;
   line-height: 120%;
 }
 
 .kk_ask_btm_table input {
-  width: 900px;
+  width:69vw;
   background: #f2f2f2;
-  height: 45px;
+  height: 3vw;
   color: #292929;
-  font-size: 16px;
-  text-indent: 15px;
-  border: 3px solid transparent;
-  border-radius: 10px;
+  font-size: 1.2vw;
+  text-indent: 1vw;
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
   transition: border-color 0.5s ease;
-}
-
-.kk_ask_btm_table input:hover {
-  border-color: black;
-  border: 3px solid black;
 }
 
 .kk_form_textarea {
   user-select: none;
   resize: none;
-  width: 800px;
-  height: 230px;
+  width: 98%;
+  height: 6vw;
   border-radius: 10px;
   color: #292929;
-  font-size: 16px;
-  text-indent: 15px;
+  font-size: 1.2vw;
+  text-indent: 1vw;
   border: 3px solid transparent;
   background: #f2f2f2;
   transition: border-color 0.5s ease;
   font-family: font_ns, sans-serif;
   text-align: left;
   vertical-align: middle;
-  padding: 30px 5px 15px;
+  padding: 1vw 0;
 }
 
 .kk_form_textarea:hover {
@@ -219,58 +201,58 @@
 .kk_form_textarea::placeholder {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1.2vw;
 }
 
 .kk_form_text input[type="file"] {
-  width: 350px;
+  display: flex;
+  align-items: center;
+  width: 22vw;
 }
 
 .kk_ask_btm_btn_sction {
   text-align: center;
-  border-top: 1px solid #e8e8e8;
+  border-top: 0.1vw solid #e8e8e8;
   position: relative;
-  left: -70px;
-  margin-right: -140px;
-  padding-top: 40px;
+  padding-top: 2vw;
 }
 
 .kk_ask_btm_btn_cancel, .kk_ask_btm_btn_reg {
-  font-size: 18px;
+  font-size: 1.4vw;
   font-weight: bold;
   text-align: center;
   display: inline-block;
   vertical-align: middle;
   border-radius: 30px;
   transition-duration: 0.2s;
-  margin: 0 4px;
+  margin: 0 1vw;
 }
 
 .kk_ask_btm_btn_cancel {
   background-color: #fff;
-  border: 2px solid #009223;
+  border: 0.2vw solid #009223;
   color: #009223;
   box-sizing: border-box;
-  width: 126px;
+  width: 10vw;
 }
 
 .kk_ask_btm_btn_cancel span {
   display: inline-block;
   vertical-align: middle;
-  height: 46px;
-  line-height: 46px;
+  height: 3vw;
+  line-height: 3vw;
 }
 
 .kk_ask_btm_btn_reg {
   background-color: #009223;
-  width: 170px;
+  width: 10vw;
   color: #fff;
   border: none;
 }
 
 .kk_ask_btm_btn_reg span {
-  height: 50px;
-  line-height: 50px;
+  height: 3.3vw;
+  line-height: 3.4vw;
   letter-spacing: -0.03em;
   display: inline-block;
   vertical-align: middle;
@@ -280,15 +262,16 @@
   content: '';
   display: inline-block;
   vertical-align: middle;
-  width: 21px;
-  height: 16px;
-  background: url(./data/icon_reg.png) 0 0 no-repeat;
-  margin-left: 7px;
+  width: 1.3vw;
+  height: 1vw;
+  background: url(./data/icon_reg.png) no-repeat;
+  background-size: cover;
+  margin-left: 0.1vw;
 }
 
 .jj_ask_alart0{
-  padding-bottom: 40px;
-  padding-top: 20px;
+  padding-bottom: 3vw;
+  padding-top: 2vw;
 }
 .jj_ask_alart{
   background: #f2f2f2;
@@ -297,18 +280,17 @@
 
 .fa-solid.fa-circle-exclamation {
   color: #b8adad;
-  font-size: 40px;
-  padding-left: 18px;
-  padding-top: 13px;
+  font-size: 3vw;
+  padding-left: 1vw;
+  padding-top: 1vw;
 }
 
 .jj_ask_alart_1{
-  width: 66px;
+  width:5vw;
 }
 
 .jj_ask_alart_2{
-  font-size: 13px;
-  padding-left: 1px;
+  font-size: 1vw;
   color: #827a7a;
 }
 .jj_ask_btm_btn_reg {
