@@ -61,7 +61,7 @@ function Register() {
                 id="Npwd"
                 type="password"
                 className="form-control"
-                placeholder="Password"
+                placeholder="Password/6자리이상 입력해주세요"
               />
             </div>
 
