@@ -20,8 +20,7 @@ function Login() {
     const email = e.target.login_id.value;
     const password = e.target.login_pwd.value;
     const saveID = e.target.login_saveID.checked;
-    axios
-      .get(`${API_URL}/user/login`, { params: { email, password } })
+    axios.get(`${API_URL}/user/login`, { params: { email, password } })
       .then((response) => {
         console.log("로그인 성공");
         if (saveID == 1) {
@@ -36,7 +35,7 @@ function Login() {
       })
       .catch((err) => {
         console.log(err);
-        alert("로그인에 실패하였습니다.");
+        alert("이메일과 비밀번호를 확인해주세요");
       });
   };
   return (
