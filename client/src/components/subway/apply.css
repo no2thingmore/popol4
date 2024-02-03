@@ -1,29 +1,27 @@
 /*************** 본 문 ***************/
 
-
-
 /*************** 슬 라 이 드 ***************/
 
-.Artist_slide_content{
+.Artist_slide_content {
   margin-top: 60px;
   height: 700px;
   overflow: hidden;
   position: relative;
 }
 
-.Artist_slide{
+.Artist_slide {
   max-width: 2570px;
   width: 100%;
   overflow: hidden;
 }
-.Artist_slide_viewport{
+.Artist_slide_viewport {
   position: absolute !important;
   left: 50% !important;
   width: 2478px !important;
   margin-left: -378px !important;
   overflow: initial !important;
 }
-.slide_li{
+.slide_li {
   right: 39px;
   top: -10px;
   margin: auto;
@@ -33,7 +31,7 @@
   /* transition-duration: 0.5s; */
   transform: translate3d(0px, 0px, 0px);
 }
-.slide_li_item{
+.slide_li_item {
   float: left;
   list-style: none;
   position: relative;
@@ -42,30 +40,30 @@
 }
 /*************** 슬 라 이 드 이 미 지 ***************/
 /* 비활성화시 이미지는 opacity 0.5 텍스트는 0 */
-.slide_img{
-  width: 770px; 
+.slide_img {
+  width: 770px;
   height: 390px;
   opacity: 0.5;
   overflow: hidden;
   transition-delay: 0.3s;
-  transition-duration: 0.45s
+  transition-duration: 0.45s;
 }
-.slide_img.active{
+.slide_img.active {
   opacity: 1;
 }
-.slide_img > img{
+.slide_img > img {
   position: relative;
   width: 770px;
   /* height: 390px; */
   vertical-align: top;
   border: 0;
 }
-.slide_li:nth-child(5n){
+.slide_li:nth-child(5n) {
   background-position: 0 60px;
 }
 
 /*************** 슬 라 이 드 텍 스 트 ***************/
-.slide_info{
+.slide_info {
   text-align: center;
   padding-top: 30px;
   position: relative;
@@ -74,8 +72,8 @@
   /* top: 30px; */
   top: 0;
 }
-.slide_info::after{
-  content: '';
+.slide_info::after {
+  content: "";
   position: absolute;
   left: 50%;
   top: 0;
@@ -84,13 +82,13 @@
   margin-left: -25px;
   background-color: #ffc300;
 }
-.slide_info_tit{
+.slide_info_tit {
   font-size: 22px;
   font-weight: bold;
   color: #292929;
   letter-spacing: 0em;
 }
-.slide_info_txt{
+.slide_info_txt {
   display: block;
   margin-top: 15px;
   margin-bottom: 0;
@@ -99,16 +97,16 @@
   line-height: 26px;
   letter-spacing: -0.05em;
 }
-.slide_info.active{
+.slide_info.active {
   opacity: 1;
 }
 
 /*************** 슬 라 이 드 버 튼 ***************/
-.slide_ctl_Arrow{
+.slide_ctl_Arrow {
   /* border: 1px solid #000; */
 }
 
-.slide_ctl_Arrow > a{
+.slide_ctl_Arrow > a {
   width: 50px;
   height: 50px;
   background: url(./art_images/icon_slider_arr.png) no-repeat;
@@ -121,26 +119,26 @@
   color: #333;
   cursor: pointer;
 }
-.slide_ctl_Arrow > .bt_next{
+.slide_ctl_Arrow > .bt_next {
   background-position: 100% 0;
 }
-.bt_prev{
+.bt_prev {
   background-position: 0 0;
   left: 50%;
   margin-left: -467px;
 }
-.bt_next{
+.bt_next {
   right: 50%;
   margin-right: -482px;
 }
-.bt_prev:hover{
+.bt_prev:hover {
   background-position: 0 100%;
 }
-.bt_next:hover{
+.bt_next:hover {
   background-position: 100% 100%;
 }
 
-.slide_ctl_Dot{
+.slide_ctl_Dot {
   position: absolute;
   left: 0;
   width: 100%;
@@ -148,12 +146,11 @@
   text-align: center;
 }
 
-.Dot_item{
+.Dot_item {
   display: inline-block;
   margin: 0 5px;
-
 }
-.clicked_dot{
+.clicked_dot {
   display: block;
   width: 10px;
   height: 10px;
@@ -165,61 +162,72 @@
   border-radius: 30px;
   transition-duration: 0.3s;
 }
-.clicked_dot:active{
+.clicked_dot:active {
   background-color: #ffc300;
   width: 30px;
 }
-.clicked_dot.on{
+.clicked_dot.on {
   background-color: #ffc300;
   width: 30px;
-  
 }
 
 /*************** 핵 심 요 소 ***************/
-.Point{
-  height: 490px;
-  background: url(./art_images/img_sw_artist_point.jpg) 50% 0 no-repeat;
+.Point {
+  height: 35vw;
+  background: url(./art_images/img_sw_artist_point.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
   margin: 0 auto;
   text-align: center;
-  padding-top: 103px;
   box-sizing: border-box;
 }
-.Point > h3{
-  font-size: 28px;
+
+.Point > h3 {
+  font-size: 2.5vw;
   color: #fff;
   font-weight: bold;
-  margin-bottom: 68px;
+  margin: 0;
+  padding: 5vw 0;
   letter-spacing: -0.03em;
 }
-.Point_li{
-  overflow: hidden;
-  display: inline-block;
+.Point_li {
+  display: flex;
+  justify-content: space-around;
+  column-gap: 3vw;
+  padding: 0;
+  margin: 0 15vw;
+  padding-top: 2vw;
 }
-.Point_li_item{
-  float: left;
-  width: 140px;
-  margin: 0 45px;
+.Point_li_item {
+  width: 100%;
 }
-.point_icon{
-  vertical-align: top;
+.point_icon {
+  display: flex;
+  flex-direction: column;
   border: 0;
-  
+  align-items: center;
+
 }
-.Point_li_item span{
+.point_icon img{
+  width: 12vw;
+  height: 12vw;
+}
+
+.Point_li_item span {
   display: block;
   color: #fff;
-  font-size: 18px;
-  margin-top: 25px;
+  font-size: 1.5vw;
+  margin-top: 1.5vw;
   letter-spacing: -0.025em;
 }
 
 /*************** 커 리 어 맵 ***************/
-.career_path{
+.career_path {
   width: 1033px;
   margin: 90px auto 0;
 }
-.career_path > h3{
-  font-family: 'GangwonEduPowerExtraBoldA';
+.career_path > h3 {
+  font-family: "GangwonEduPowerExtraBoldA";
   color: #292929;
   font-size: 28px;
   font-weight: bold;
@@ -227,7 +235,7 @@
   letter-spacing: -0.03em;
   margin-bottom: 57px;
 }
-.path_point{
+.path_point {
   background: url(./art_images/bg_career_path_line.png) 0 7px no-repeat;
   height: 456px;
   position: relative;
@@ -239,8 +247,8 @@
   height: 103px;
   width: 260px;
 }
-.path_point > li::after{
-  content: '';
+.path_point > li::after {
+  content: "";
   position: absolute;
   left: 50%;
   top: 0;
@@ -249,45 +257,45 @@
   width: 22px;
   height: 22px;
 }
-.path_point > li:nth-child(1){
+.path_point > li:nth-child(1) {
   left: 85px;
 }
-.path_point > li:nth-child(2){
+.path_point > li:nth-child(2) {
   left: 385px;
 }
-.path_point > li:nth-child(3){
+.path_point > li:nth-child(3) {
   left: 685px;
 }
-.path_point > li:nth-child(4){
+.path_point > li:nth-child(4) {
   left: 685px;
   top: 208px;
 }
-.path_point > li:nth-child(5){
+.path_point > li:nth-child(5) {
   left: 385px;
   top: 208px;
 }
-.path_point > li:nth-child(6){
+.path_point > li:nth-child(6) {
   left: 85px;
   top: 208px;
 }
-.point_num{
-  font-family: 'GangwonEduPowerExtraBoldA';
+.point_num {
+  font-family: "GangwonEduPowerExtraBoldA";
   display: block;
   font-weight: bold;
   color: #292929;
   font-size: 18px;
 }
-.path_point strong{
+.path_point strong {
   display: block;
   font-weight: bold;
-  font-family: 'GangwonEduPowerExtraBoldA';
+  font-family: "GangwonEduPowerExtraBoldA";
   color: #009223;
   font-size: 22px;
   line-height: 25px;
   letter-spacing: -0.02em;
   margin-top: 1px;
 }
-.view_deep{
+.view_deep {
   color: #999999;
   font-size: 13px;
   position: absolute;
@@ -303,7 +311,7 @@
   cursor: pointer;
 }
 
-.layer_view{
+.layer_view {
   position: absolute;
   left: 0;
   top: 56px;
@@ -315,9 +323,8 @@
   transition-duration: 0.3s;
 }
 
-
-.layer_view::after{
-  content: '';
+.layer_view::after {
+  content: "";
   width: 6px;
   height: 4px;
   background: url(./art_images/icon_arr_t.png) 50% 0 no-repeat;
@@ -326,7 +333,7 @@
   margin-left: -3px;
   top: -4px;
 }
-.layer_view p{
+.layer_view p {
   color: #fff;
   font-size: 13px;
   line-height: 21px;
@@ -335,9 +342,9 @@
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-} 
+}
 
-.view_deep:hover + .layer_view{
+.view_deep:hover + .layer_view {
   display: table;
   /* top: 36px; */
 }
@@ -347,75 +354,72 @@
 }
 
 /*************** 채 용 지 원 ***************/
-.recruit{
+.recruit {
   background-color: #f2f2f2;
-  padding: 95px 0 127px;
+  padding: 1vw 0 4vw 0;
   letter-spacing: -0.03em;
 }
-.recruit_head{
+.recruit_head {
   text-align: center;
 }
 .recruit_head h3 {
   text-align: center;
   color: #292929;
-  font-size: 28px;
+  font-size: 2vw;
   font-weight: bold;
 }
 .recruit_head p {
   text-align: center;
   color: #666666;
-  font-size: 16px;
-  padding-top: 2px;
-  line-height: 26px;
+  font-size: 1.2vw;
+  padding-top: 0.1vw;
   letter-spacing: -0.04em;
-  margin-top: 10px;
+  margin-top: 1vw;
 }
-.recruit_link{
+.recruit_link {
   text-align: center;
-  margin-top: 35px;
+  margin-top: 2.2vw;
 }
-.recruit_link_li{
-  overflow: hidden;
-  display: inline-block;
+.recruit_link_li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 10vw;
+  column-gap: 2vw;
 }
-.recruit_link_li_item{
-  float: left;
-  width: 320px;
-  height: 240px;
+.recruit_link_li_item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 20vw;
   background: #fff;
   box-sizing: border-box;
-  margin-left: 35px;
   position: relative;
 }
-.recruit_link_li_item a{
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+.recruit_link_li_item a {
   box-sizing: border-box;
-  display: block;
-  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.recruit_link_li_item:first-child{
+.recruit_link_li_item:first-child {
   margin-left: 0;
 }
-.recruit_logo{
+.recruit_logo {
   background: url(./art_images/img_recruit_logo.jpg);
   width: 90px;
   height: 90px;
   margin: 0 auto;
 }
-.recruit_link_li_item:nth-child(1) .recruit_logo{
+.recruit_link_li_item:nth-child(1) .recruit_logo {
   background-position: 0 0;
 }
-.recruit_link_li_item:nth-child(2) .recruit_logo{
+.recruit_link_li_item:nth-child(2) .recruit_logo {
   background-position: -90px 0;
 }
-.recruit_link_li_item:nth-child(3) .recruit_logo{
+.recruit_link_li_item:nth-child(3) .recruit_logo {
   background-position: -180px 0;
 }
-.recruit_link_li_item>a>strong{
+.recruit_link_li_item > a > strong {
   display: block;
   font-weight: 300;
   color: #292929;
@@ -423,22 +427,22 @@
   margin: 18px 0 15px 0;
   letter-spacing: -0.03em;
 }
-.recruit_link_li_item>a>span{
+.recruit_link_li_item > a > span {
   color: #999;
   font-size: 13px;
   display: inline-block;
 }
-.recruit_link_li_item::after{
-  content: '';
+.recruit_link_li_item::after {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  right: 0; 
+  right: 0;
   box-sizing: border-box;
   border: 0px solid #009223;
 }
-.recruit_link_li_item:hover::after{
+.recruit_link_li_item:hover::after {
   border-width: 10px;
   /* border: 10px solid #009223; */
   transition-duration: 0.3s;

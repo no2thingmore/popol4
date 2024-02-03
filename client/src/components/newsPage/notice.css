@@ -1,17 +1,19 @@
+.j_Title h2{
+  margin: 2vw 0;
+  font-size: 2vw;
+  text-align: center;
+}
+
 .j_notice_all{
   /* border: 1px solid #000; */
-  margin-left: auto;
-  margin-right: auto;
-  width: 1170px;
-
+margin: 0 7vw
 }
 .j_all>div{
   margin-right: 0px;
 }
 
 .j_the_number>p{
-  margin-right: 450px;
-  /* text-align: center; */
+font-size: 1.2vw;
 }
 
 .j_list_all{
@@ -22,17 +24,16 @@
 
 .j_list{
   display: grid;
-  grid-template-rows:71.5px ; 
-  grid-template-columns:100px 930px 140px ;
-  justify-content: center;
-  border-bottom: 1px solid grey;
-  
+  grid-template-columns:0.6fr 8fr 1.2fr ;
+  border-bottom: 0.1vw solid grey;
+  align-items: center;
+  padding: 0.7vw 0
 }
 
 
 /* 숫자 */
 .j_number{
-margin-top: 7px;
+font-size: 1.2vw;
 }
 
 .j_number>h3{
@@ -41,7 +42,7 @@ margin-top: 7px;
 }
 
 .j_date {
-  margin-top: 15px;
+  font-size: 1vw;
 }
 
 .j_date>p{
@@ -49,11 +50,11 @@ margin-top: 7px;
 }
 
 .j_content{
-  margin-top: 25px;
+font-size: 1.2vw;
 }
 
 .j_content>a{
-  font-size: 20px;
+  font-size: 1.3vw;
   text-align: left;
 
 }

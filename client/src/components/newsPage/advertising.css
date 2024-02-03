@@ -1,9 +1,22 @@
   .m_advertising{
   text-align: center;
+  margin: 0 2vw;
+}
+
+.m_advertising  iframe{
+  height: 35vw;
+  width: 100%;
+  font-size: 2vw;
 }
 
 .m_h2>h2{
-  margin-bottom: 50px;
+  margin: 2vw 0;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.YMJ_selectCardImg{
+  position: relative;
 }
 /*
 .m_advertising_list_all{
@@ -57,14 +70,11 @@
 
 .m_play{
   position: absolute;
-  /* top: -12%;
-  left: -35%; */
-  margin: -40% 40%;
-  width: 70px;
-  height: 70px;
+  top:0;
+  left: 6vw;
+  width: 14vw;
   display: none;
-  align-items:center;
-  justify-items:center;
+  scale: 0.6;
 }
 
 
@@ -80,12 +90,10 @@
 }
 
 .YMJ_selectcontentGridBox {
-  width: fit-content;
-  
-  padding: 4vw 0;
-  margin: 0 auto;
+  padding: 4vw 4vw;
+  margin: 1vw 2vw 0 2vw;
   display: grid;
-  grid-template-columns: repeat(3, 370px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 3vw;
   
 }
@@ -93,18 +101,18 @@
 .YMJ_selectCard {
   position: relative;
   cursor: pointer;
-
-  /* width: 450px; */
-  
 }
 .YMJ_selectCard:hover {
-  box-shadow: 0 0 0 10px green;
+  box-shadow: 0 0 0 0.5vw green;
   
 }
 .YMJ_selectCard:hover img {
   display: block;
 }
 
+.YMJ_selectCardImg img{
+  height: 15vw;
+}
 
 .YMJ_selectCardKname {
   text-align: center;

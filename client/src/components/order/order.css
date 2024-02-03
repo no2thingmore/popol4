@@ -464,6 +464,7 @@
 
 .CHM_kakaomap > div > div > div > div{
   width: 10vw !important;
+  /* height: 2vw !important; */
 }
 
 .CHM_kakaomap > div > div > div > div > div{
@@ -555,8 +556,25 @@
   width: 300vw !important;
 }
 
+.slick-prev{
+  left: -3vw !important;
+}
+
+.slick-next{
+  right: -3vw !important;
+}
+
+.slick-dots{
+  bottom: -2.5vw !important;
+}
+
+.slick-dots li button:before{
+  font-size: 0.7vw !important;
+}
+
 .slick-prev:before, .slick-next:before{
   color: #009223 !important;
+  font-size: 2vw !important;
 }
 
 .CHM_step3DeletBtn{
