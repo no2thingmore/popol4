@@ -1,8 +1,9 @@
 import axios from "axios"
 import { API_URL } from "../config/contansts";
-import { getCookie } from "../../useCookies";
+import { getCookie, removeCookie } from "../../useCookies";
+import { useNavigate } from "react-router-dom";
 function Infoedit(props) {
-
+  const navigate = useNavigate();
   const editPWD = async (e)=>{
     e.preventDefault()
     const pwd = e.target.pwd.value
@@ -10,6 +11,14 @@ function Infoedit(props) {
     const id = getCookie("user")
     if (pwd==CKpwd) {
       axios.patch(`${API_URL}/user/changePwd`,{pwd,id})
+      .then(()=>{
+        alert('변경이 완료되었습니다.');
+        removeCookie('user');
+        return navigate('/');
+      })
+    }else{
+      alert('정보 수정에 실패하였습니다.');
+      return alert('비밀번호를 확인해주세요.');
     }
   }
   return (

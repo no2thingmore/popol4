@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 import "./userTable.css"
+import axios from "axios";
+import { API_URL } from "../../../../config/contansts";
 
 function editUser(id){
   console.log("edit",id);
 }
+
 function delUser(id){
-  console.log("delete",id);
+  axios.delete(`${API_URL}/user/admin`,{data: { id: id }})
+  .then(()=>{
+    window.location.reload();
+  })
 }
+
 function Table(params) {
   const data = params.data
 
@@ -49,7 +56,7 @@ function Table(params) {
             <Link to={`/admin/user/edit`} state={{userID: item.id}}><span className='GIK_inq_contents_ans'>수정</span></Link>
             </td>
             <td className='GIK_inq_contents_ctrl'>
-            <span className='GIK_inq_contents_del'>삭제</span>
+            <span className='GIK_inq_contents_del' onClick={()=>delUser(item.id)}>삭제</span>
             </td>
           </tr>
         ))}

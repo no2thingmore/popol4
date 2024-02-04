@@ -4,7 +4,7 @@ function Header(props) {
   const logOut = () => {};
   return (
     <div className="admin_header">
-      <a href="/admin/home">
+      <a href="/admin/user/main">
         <div id="admin_logo">
           <h1>Administrator Page</h1>
         </div>

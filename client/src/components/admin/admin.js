@@ -76,15 +76,6 @@ function Admin() {
                     가게 문의하기
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/admin/setting/none"
-                    className={menu === "설정" ? "active" : "noactive"}
-                    onClick={() => MenuClick("설정")}
-                  >
-                    설정
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>

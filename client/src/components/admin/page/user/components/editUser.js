@@ -12,9 +12,10 @@ function EditUser() {
   const [phone, setPhone] = useState();
   const [role, setRole] = useState();
   const id = useLocation().state.userID;
+
+  console.log(id);
   const getData = async () => {
-    await axios
-      .get(`${API_URL}/user/mypage`, { params: { id: id } })
+    await axios.get(`${API_URL}/user/mypage`, { params: { id: id } })
       .then((response) => {
         setEmail(response.data.email);
         setName(response.data.name);
@@ -40,7 +41,7 @@ function EditUser() {
     const Nphone = e.target.Ephone.value;
     const Nrole = e.target.Eselect.value;
     await axios
-      .patch(`${API_URL}/user/admin/${role}`, {
+      .patch(`${API_URL}/user/admin/${id}`, {
         id,
         Nemail,
         Nname,
@@ -50,6 +51,7 @@ function EditUser() {
       })
       .then(() => {
         console.log("수정완료");
+        navigate(-1);
       })
       .catch((err) => {
         console.log(err);

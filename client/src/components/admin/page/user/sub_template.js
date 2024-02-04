@@ -51,11 +51,6 @@ function SubTemplate(){
                                         <Link to ="/admin/user/oner">사업자회원관리</Link>
                                     </div>
                                 </div>
-                                <div className='KJH_sub_list_dropdown'>
-                                    <div className='KJH_sub_list_info'>
-                                        <Link to ="/admin/user/admin">관리자정보</Link>
-                                    </div>
-                                </div>
                             </>
                         )}
                     </div>
