@@ -9,17 +9,22 @@ function Infoedit(props) {
     const pwd = e.target.pwd.value
     const CKpwd = e.target.CKpwd.value
     const id = getCookie("user")
-    if (pwd==CKpwd) {
-      axios.patch(`${API_URL}/user/changePwd`,{pwd,id})
-      .then(()=>{
-        alert('변경이 완료되었습니다.');
-        removeCookie('user');
-        return navigate('/');
-      })
-    }else{
-      alert('정보 수정에 실패하였습니다.');
-      return alert('비밀번호를 확인해주세요.');
-    }
+    if (pwd,CKpwd != "") {
+      if (pwd==CKpwd) {
+        axios.patch(`${API_URL}/user/changePwd`,{pwd,id})
+        .then(()=>{
+          alert('변경이 완료되었습니다.');
+          removeCookie('user');
+          return navigate('/');
+        })
+        .catch(()=>{
+          alert('비밀번호는 최소 6자리여야합니다.')
+        })
+      }else{
+        alert('정보 수정에 실패하였습니다.');
+        return alert('비밀번호를 확인해주세요.');
+      }
+    }else alert('비밀번호를 전부 입력해주세요')
   }
   return (
     <div className="loginBg">
